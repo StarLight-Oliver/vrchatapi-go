@@ -32,8 +32,6 @@ func (api *VRChatAPI) Login() error {
 		return err
 	}
 
-	fmt.Println(user)
-
 	if user.Id == "" {
 		// this needs to be refactored
 		fmt.Println("User not logged in")
