@@ -31,6 +31,7 @@ type SearchAvatarsInput struct {
 	MinUnityVersion string
 	AvatarCount     int
 	Offset          int
+	IsPageOffset    bool
 	Sort            string
 
 	ReleaseStatus string
@@ -70,8 +71,11 @@ func (api *VRChatAPI) SearchAvatars(searchInfo SearchAvatarsInput) ([]Avatar, er
 	if searchInfo.AvatarCount > 0 {
 		requestStruct.AvatarCount = searchInfo.AvatarCount
 		requestStruct.Offset = searchInfo.Offset
+		if searchInfo.IsPageOffset {
+			requestStruct.Offset = searchInfo.Offset * searchInfo.AvatarCount
+		}
 		queryParams.Add("n", fmt.Sprintf("%d", searchInfo.AvatarCount))
-		queryParams.Add("offset", fmt.Sprintf("%d", searchInfo.Offset))
+		queryParams.Add("offset", fmt.Sprintf("%d", requestStruct.Offset))
 	}
 
 	if searchInfo.Sort != "" {
