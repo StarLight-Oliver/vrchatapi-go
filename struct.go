@@ -77,3 +77,71 @@ type MsgAndStatusCode struct {
 	Message    string `json:"message"`
 	StatusCode int    `json:"status_code"`
 }
+
+/*
+"assetUrl": "A",
+"assetUrlObject": { },
+"authorId": "usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469",
+"authorName": "A",
+"created_at": "1970-01-01T00:00:00.000Z",
+"description": "string",
+"featured": false,
+"id": "avtr_912d66a4-4714-43b8-8407-7de2cafbf55b",
+"imageUrl": "A",
+"name": "A",
+"releaseStatus": "public",
+"tags": [
+"A"
+],
+"thumbnailImageUrl": "A",
+"unityPackageUrl": "string",
+"unityPackages": [
+{
+"assetUrl": "https://vrchat.com/api/1/file/file_cd0caa7b-69ba-4715-8dfe-7d667a9d2537/65/file",
+"assetUrlObject": { },
+"assetVersion": 4,
+"created_at": "2020-09-10T06:13:27.777Z",
+"id": "unp_52b12c39-4163-457d-a4a9-630e7aff1bff",
+"platform": "standalonewindows",
+"pluginUrl": "",
+"pluginUrlObject": { },
+"unitySortNumber": 20180414000,
+"unityVersion": "2022.3.6f1"
+}],
+"updated_at": "1970-01-01T00:00:00.000Z",
+"version": 68
+}
+*/
+
+type Avatar struct {
+	AssetUrl          string                 `json:"assetUrl"`
+	AssetUrlObject    map[string]interface{} `json:"assetUrlObject"`
+	AuthorId          string                 `json:"authorId"`
+	AuthorName        string                 `json:"authorName"`
+	CreatedAt         string                 `json:"created_at"`
+	Description       string                 `json:"description"`
+	Featured          bool                   `json:"featured"`
+	Id                string                 `json:"id"`
+	ImageUrl          string                 `json:"imageUrl"`
+	Name              string                 `json:"name"`
+	ReleaseStatus     string                 `json:"releaseStatus"`
+	Tags              []string               `json:"tags"`
+	ThumbnailImageUrl string                 `json:"thumbnailImageUrl"`
+	UnityPackageUrl   string                 `json:"unityPackageUrl"`
+	UnityPackages     []UnityPackage         `json:"unityPackages"`
+	UpdatedAt         string                 `json:"updated_at"`
+	Version           int                    `json:"version"`
+}
+
+type UnityPackage struct {
+	AssetUrl        string                 `json:"assetUrl"`
+	AssetUrlObject  map[string]interface{} `json:"assetUrlObject"`
+	AssetVersion    int                    `json:"assetVersion"`
+	CreatedAt       string                 `json:"created_at"`
+	Id              string                 `json:"id"`
+	Platform        string                 `json:"platform"`
+	PluginUrl       string                 `json:"pluginUrl"`
+	PluginUrlObject map[string]interface{} `json:"pluginUrlObject"`
+	UnitySortNumber int                    `json:"unitySortNumber"`
+	UnityVersion    string                 `json:"unityVersion"`
+}
