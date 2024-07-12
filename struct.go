@@ -58,11 +58,25 @@ type User struct {
 	OfflineFriends []string `json:"offlineFriends"`
 }
 
-type Group struct {
-	Id          string `json:"groupId"`
-	Name        string `json:"name"`
-	OwnerId     string `json:"ownerId"`
-	MemberCount int    `json:"memberCount"`
+type LimitedUserGroups struct {
+	GroupMemberID    string `json:"id"`
+	Name             string `json:"name"`
+	ShortCode        string `json:"shortCode"`
+	Discriminator    string `json:"discriminator"`
+	Description      string `json:"description"`
+	IconId           string `json:"iconId"`
+	IconUrl          string `json:"iconUrl"`
+	BannerId         string `json:"bannerId"`
+	BannerUrl        string `json:"bannerUrl"`
+	Privacy          string `json:"privacy"`
+	OwnerId          string `json:"ownerId"`
+	UserID           string `json:"UserID"`
+	MemberCount      int    `json:"memberCount"`
+	Id               string `json:"groupId"`
+	MemberVisibility string `json:"memberVisibility"`
+	IsRepresenting   bool   `json:"isRepresenting"`
+	MutualGroup      bool   `json:"mutualGroup"`
+	LastPostReadAt   string `json:"lastPostReadAt"`
 }
 
 type APIError struct {

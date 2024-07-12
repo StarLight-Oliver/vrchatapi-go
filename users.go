@@ -87,7 +87,7 @@ func (api *VRChatAPI) UpdateUserInfo(userID, jsonData string) (User, error) {
 	return user, nil
 }
 
-func (api *VRChatAPI) GetUserGroups(userId string) ([]Group, error) {
+func (api *VRChatAPI) GetUserGroups(userId string) ([]LimitedUserGroups, error) {
 	if !api.LoggedIn {
 		return nil, fmt.Errorf("not logged in")
 	}
@@ -104,7 +104,7 @@ func (api *VRChatAPI) GetUserGroups(userId string) ([]Group, error) {
 
 	defer resp.Body.Close()
 
-	groups := []Group{}
+	groups := []LimitedUserGroups{}
 
 	err = json.NewDecoder(resp.Body).Decode(&groups)
 

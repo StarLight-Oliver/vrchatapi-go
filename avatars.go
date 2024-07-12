@@ -74,7 +74,7 @@ func (api *VRChatAPI) SearchAvatars(searchInfo SearchAvatarsInput) ([]Avatar, er
 		if searchInfo.IsPageOffset {
 			requestStruct.Offset = searchInfo.Offset * searchInfo.AvatarCount
 		}
-		queryParams.Add("n", fmt.Sprintf("%d", searchInfo.AvatarCount))
+		queryParams.Add("n", fmt.Sprintf("%d", requestStruct.AvatarCount))
 		queryParams.Add("offset", fmt.Sprintf("%d", requestStruct.Offset))
 	}
 
