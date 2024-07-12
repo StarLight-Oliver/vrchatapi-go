@@ -106,8 +106,15 @@ func (api *VRChatAPI) GetCurrentUser() (User, error) {
 	return user, nil
 }
 
-func (api *VRChatAPI) Verify2FACode(code string) (bool, error) {
-	res, err := api.sendAuthRequest("POST", "auth/twofactorauth/totp/verify", fmt.Sprintf(`{"code": "%s"}`, code))
+type Verify2FAResult struct {
+	Verified bool `json:"verified"`
+}
+
+func (api *VRChatAPI) verify2FA(twoFAType, code string) (bool, error) {
+
+	url := fmt.Sprintf("auth/twofactorauth/%s/verify", twoFAType)
+
+	res, err := api.sendAuthRequest("POST", url, fmt.Sprintf(`{"code": "%s"}`, code))
 
 	if err != nil {
 		return false, err
@@ -115,25 +122,105 @@ func (api *VRChatAPI) Verify2FACode(code string) (bool, error) {
 
 	defer res.Body.Close()
 
-	body2, err := io.ReadAll(res.Body)
+	if res.StatusCode != 200 {
+		return false, api.HandleResponeError(res)
+	}
+
+	var verified *Verify2FAResult
+
+	err = json.NewDecoder(res.Body).Decode(&verified)
 
 	if err != nil {
 		return false, err
 	}
 
-	fmt.Println(string(body2))
+	return verified.Verified, nil
+}
 
-	return true, nil
+func (api *VRChatAPI) Verify2FACode(code string) (bool, error) {
+
+	return api.verify2FA("totp", code)
 }
 
 func (api *VRChatAPI) Verify2FARecoveryCode(code string) (bool, error) {
-	// TODO: implement
-	return false, nil
+	// res, err := api.sendAuthRequest("POST", "auth/twofactorauth/otp/verify", fmt.Sprintf(`{"code": "%s"}`, code))
+
+	// if err != nil {
+	// 	return false, err
+	// }
+
+	// defer res.Body.Close()
+
+	// if res.StatusCode != 200 {
+	// 	return false, api.HandleResponeError(res)
+	// }
+
+	// var verified *Verify2FAResult
+
+	// err = json.NewDecoder(res.Body).Decode(&verified)
+
+	// if err != nil {
+	// 	return false, err
+	// }
+
+	// return verified.Verified, nil
+
+	return api.verify2FA("otp", code)
 }
 
-func (api *VRChatAPI) VerifyAuthToken() (bool, error) {
-	// TODO: implement
-	return false, nil
+func (api *VRChatAPI) Verify2FAEmail(code string) (bool, error) {
+	// res, err := api.sendAuthRequest("POST", "auth/twofactorauth/emailotp/verify", fmt.Sprintf(`{"code": "%s"}`, code))
+
+	// if err != nil {
+	// 	return false, err
+	// }
+
+	// defer res.Body.Close()
+
+	// if res.StatusCode != 200 {
+	// 	return false, api.HandleResponeError(res)
+	// }
+
+	// var verified *Verify2FAResult
+
+	// err = json.NewDecoder(res.Body).Decode(&verified)
+
+	// if err != nil {
+	// 	return false, err
+	// }
+
+	// return verified.Verified, nil
+
+	return api.verify2FA("emailotp", code)
+}
+
+type VerifyAuthTokenResult struct {
+	Ok    bool   `json:"ok"`
+	Token string `json:"token"`
+}
+
+func (api *VRChatAPI) VerifyAuthToken() (*VerifyAuthTokenResult, error) {
+	resp, err := api.sendAuthRequest("POST", "auth/verifyauthtoken", "")
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return nil, api.HandleResponeError(resp)
+	}
+
+	var verified *VerifyAuthTokenResult
+
+	err = json.NewDecoder(resp.Body).Decode(&verified)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return verified, nil
 }
 
 func (api *VRChatAPI) Logout() error {

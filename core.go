@@ -88,7 +88,7 @@ func (api *VRChatAPI) sendAuthRequest(method, endpoint, body string) (*http.Resp
 
 func (api *VRChatAPI) SendRequest(method, endpoint, body string) (*http.Response, error) {
 
-	fmt.Println(api.Url + endpoint)
+	// fmt.Println(api.Url + endpoint)
 
 	res, err := http.NewRequest(method, api.Url+endpoint, nil)
 
