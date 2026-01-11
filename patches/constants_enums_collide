@@ -1,1 +1,5 @@
+
+find all constants inside a const block and prefix them with the type name to prevent collisions, this is dumb but will work for now
 const ()
+
+Then find all constants by either looking at go lint or just finding the TYPE = CONST and add the prefix to the const.
