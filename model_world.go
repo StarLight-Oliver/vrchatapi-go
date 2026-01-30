@@ -1150,7 +1150,7 @@ func (o *World) UnmarshalJSON(data []byte) (err error) {
 	varWorld := _World{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varWorld)
 
 	if err != nil {

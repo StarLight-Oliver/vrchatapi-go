@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_PropsAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService CreateProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PropsAPI.CreateProp(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService DeleteProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 
@@ -49,7 +50,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService GetProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 
@@ -63,7 +64,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService GetPropPublishStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 
@@ -77,7 +78,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService ListProps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PropsAPI.ListProps(context.Background()).Execute()
 
@@ -89,7 +90,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService PublishProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 
@@ -103,7 +104,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService UnpublishProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 
@@ -117,7 +118,7 @@ func Test_vrchatapi_PropsAPIService(t *testing.T) {
 
 	t.Run("Test PropsAPIService UpdateProp", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var propId string
 

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &FriendStatus{}
 // FriendStatus struct for FriendStatus
 type FriendStatus struct {
 	IncomingRequest bool `json:"incomingRequest"`
-	IsFriend bool `json:"isFriend"`
+	IsFriend        bool `json:"isFriend"`
 	OutgoingRequest bool `json:"outgoingRequest"`
 }
 
@@ -128,7 +128,7 @@ func (o *FriendStatus) SetOutgoingRequest(v bool) {
 }
 
 func (o FriendStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,10 +158,10 @@ func (o *FriendStatus) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -170,7 +170,7 @@ func (o *FriendStatus) UnmarshalJSON(data []byte) (err error) {
 	varFriendStatus := _FriendStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFriendStatus)
 
 	if err != nil {
@@ -217,5 +217,3 @@ func (v *NullableFriendStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

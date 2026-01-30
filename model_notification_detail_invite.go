@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &NotificationDetailInvite{}
 type NotificationDetailInvite struct {
 	InviteMessage *string `json:"inviteMessage,omitempty"`
 	// Represents a unique location, consisting of a world identifier and an instance identifier, or \"offline\" if the user is not on your friends list.
-	WorldId string `json:"worldId"`
+	WorldId   string `json:"worldId"`
 	WorldName string `json:"worldName"`
 }
 
@@ -130,7 +130,7 @@ func (o *NotificationDetailInvite) SetWorldName(v string) {
 }
 
 func (o NotificationDetailInvite) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -161,10 +161,10 @@ func (o *NotificationDetailInvite) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -173,7 +173,7 @@ func (o *NotificationDetailInvite) UnmarshalJSON(data []byte) (err error) {
 	varNotificationDetailInvite := _NotificationDetailInvite{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationDetailInvite)
 
 	if err != nil {
@@ -220,5 +220,3 @@ func (v *NullableNotificationDetailInvite) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

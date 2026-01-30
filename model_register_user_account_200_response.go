@@ -14,12 +14,13 @@ package vrchatapi
 import (
 	"encoding/json"
 	"fmt"
+
 	"gopkg.in/validator.v2"
 )
 
 // RegisterUserAccount200Response - struct for RegisterUserAccount200Response
 type RegisterUserAccount200Response struct {
-	CurrentUser *CurrentUser
+	CurrentUser           *CurrentUser
 	RequiresTwoFactorAuth *RequiresTwoFactorAuth
 }
 
@@ -37,13 +38,12 @@ func RequiresTwoFactorAuthAsRegisterUserAccount200Response(v *RequiresTwoFactorA
 	}
 }
 
-
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *RegisterUserAccount200Response) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into CurrentUser
-	err = newStrictDecoder(data).Decode(&dst.CurrentUser)
+	err = newDecoder(data).Decode(&dst.CurrentUser)
 	if err == nil {
 		jsonCurrentUser, _ := json.Marshal(dst.CurrentUser)
 		if string(jsonCurrentUser) == "{}" { // empty struct
@@ -60,7 +60,7 @@ func (dst *RegisterUserAccount200Response) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into RequiresTwoFactorAuth
-	err = newStrictDecoder(data).Decode(&dst.RequiresTwoFactorAuth)
+	err = newDecoder(data).Decode(&dst.RequiresTwoFactorAuth)
 	if err == nil {
 		jsonRequiresTwoFactorAuth, _ := json.Marshal(dst.RequiresTwoFactorAuth)
 		if string(jsonRequiresTwoFactorAuth) == "{}" { // empty struct
@@ -103,7 +103,7 @@ func (src RegisterUserAccount200Response) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *RegisterUserAccount200Response) GetActualInstance() (interface{}) {
+func (obj *RegisterUserAccount200Response) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -120,7 +120,7 @@ func (obj *RegisterUserAccount200Response) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj RegisterUserAccount200Response) GetActualInstanceValue() (interface{}) {
+func (obj RegisterUserAccount200Response) GetActualInstanceValue() interface{} {
 	if obj.CurrentUser != nil {
 		return *obj.CurrentUser
 	}
@@ -168,5 +168,3 @@ func (v *NullableRegisterUserAccount200Response) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

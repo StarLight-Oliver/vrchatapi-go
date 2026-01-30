@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the Badge type satisfies the MappedNullable interface at compile time
@@ -24,15 +24,15 @@ var _ MappedNullable = &Badge{}
 // Badge struct for Badge
 type Badge struct {
 	// only present in CurrentUser badges
-	AssignedAt NullableTime `json:"assignedAt,omitempty"`
-	BadgeDescription string `json:"badgeDescription"`
-	BadgeId string `json:"badgeId"`
+	AssignedAt       NullableTime `json:"assignedAt,omitempty"`
+	BadgeDescription string       `json:"badgeDescription"`
+	BadgeId          string       `json:"badgeId"`
 	// direct url to image
 	BadgeImageUrl string `json:"badgeImageUrl"`
-	BadgeName string `json:"badgeName"`
+	BadgeName     string `json:"badgeName"`
 	// only present in CurrentUser badges
-	Hidden NullableBool `json:"hidden,omitempty"`
-	Showcased bool `json:"showcased"`
+	Hidden    NullableBool `json:"hidden,omitempty"`
+	Showcased bool         `json:"showcased"`
 	// only present in CurrentUser badges
 	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
 }
@@ -93,6 +93,7 @@ func (o *Badge) HasAssignedAt() bool {
 func (o *Badge) SetAssignedAt(v time.Time) {
 	o.AssignedAt.Set(&v)
 }
+
 // SetAssignedAtNil sets the value for AssignedAt to be an explicit nil
 func (o *Badge) SetAssignedAtNil() {
 	o.AssignedAt.Set(nil)
@@ -231,6 +232,7 @@ func (o *Badge) HasHidden() bool {
 func (o *Badge) SetHidden(v bool) {
 	o.Hidden.Set(&v)
 }
+
 // SetHiddenNil sets the value for Hidden to be an explicit nil
 func (o *Badge) SetHiddenNil() {
 	o.Hidden.Set(nil)
@@ -297,6 +299,7 @@ func (o *Badge) HasUpdatedAt() bool {
 func (o *Badge) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *Badge) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -308,7 +311,7 @@ func (o *Badge) UnsetUpdatedAt() {
 }
 
 func (o Badge) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -351,10 +354,10 @@ func (o *Badge) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -363,7 +366,7 @@ func (o *Badge) UnmarshalJSON(data []byte) (err error) {
 	varBadge := _Badge{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varBadge)
 
 	if err != nil {
@@ -410,5 +413,3 @@ func (v *NullableBadge) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

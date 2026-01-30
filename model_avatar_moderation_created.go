@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -24,7 +24,7 @@ var _ MappedNullable = &AvatarModerationCreated{}
 type AvatarModerationCreated struct {
 	AvatarModerationType AvatarModerationType `json:"avatarModerationType"`
 	// Timestamp in milliseconds since Unix epoch
-	Created int64 `json:"created"`
+	Created        int64  `json:"created"`
 	TargetAvatarId string `json:"targetAvatarId"`
 }
 
@@ -123,7 +123,7 @@ func (o *AvatarModerationCreated) SetTargetAvatarId(v string) {
 }
 
 func (o AvatarModerationCreated) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -153,10 +153,10 @@ func (o *AvatarModerationCreated) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -165,7 +165,7 @@ func (o *AvatarModerationCreated) UnmarshalJSON(data []byte) (err error) {
 	varAvatarModerationCreated := _AvatarModerationCreated{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAvatarModerationCreated)
 
 	if err != nil {
@@ -212,5 +212,3 @@ func (v *NullableAvatarModerationCreated) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

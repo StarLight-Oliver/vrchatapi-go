@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,9 +22,9 @@ var _ MappedNullable = &InstancePlatforms{}
 
 // InstancePlatforms struct for InstancePlatforms
 type InstancePlatforms struct {
-	Android int32 `json:"android"`
-	Ios *int32 `json:"ios,omitempty"`
-	Standalonewindows int32 `json:"standalonewindows"`
+	Android           int32  `json:"android"`
+	Ios               *int32 `json:"ios,omitempty"`
+	Standalonewindows int32  `json:"standalonewindows"`
 }
 
 type _InstancePlatforms InstancePlatforms
@@ -129,7 +129,7 @@ func (o *InstancePlatforms) SetStandalonewindows(v int32) {
 }
 
 func (o InstancePlatforms) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,10 +160,10 @@ func (o *InstancePlatforms) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -172,7 +172,7 @@ func (o *InstancePlatforms) UnmarshalJSON(data []byte) (err error) {
 	varInstancePlatforms := _InstancePlatforms{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varInstancePlatforms)
 
 	if err != nil {
@@ -219,5 +219,3 @@ func (v *NullableInstancePlatforms) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &AgreementStatus{}
 // AgreementStatus struct for AgreementStatus
 type AgreementStatus struct {
 	// Whether the user has agreed for this content.
-	Agreed bool `json:"agreed"`
+	Agreed        bool          `json:"agreed"`
 	AgreementCode AgreementCode `json:"agreementCode"`
 	// The id of the content being uploaded, such as a WorldID, AvatarID, or PropID.
 	ContentId string `json:"contentId"`
@@ -180,7 +180,7 @@ func (o *AgreementStatus) SetVersion(v int32) {
 }
 
 func (o AgreementStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -214,10 +214,10 @@ func (o *AgreementStatus) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -226,7 +226,7 @@ func (o *AgreementStatus) UnmarshalJSON(data []byte) (err error) {
 	varAgreementStatus := _AgreementStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAgreementStatus)
 
 	if err != nil {
@@ -273,5 +273,3 @@ func (v *NullableAgreementStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

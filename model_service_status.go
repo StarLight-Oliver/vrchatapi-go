@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the ServiceStatus type satisfies the MappedNullable interface at compile time
@@ -25,17 +25,17 @@ var _ MappedNullable = &ServiceStatus{}
 type ServiceStatus struct {
 	CreatedAt time.Time `json:"created_at"`
 	// The id of this service, NOT the id of the thing this service was requested for.
-	Id string `json:"id"`
+	Id       string                   `json:"id"`
 	Progress []map[string]interface{} `json:"progress"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
 	RequesterUserId string `json:"requesterUserId"`
-	State string `json:"state"`
+	State           string `json:"state"`
 	// The id of the thing this service was requested for.
 	SubjectId string `json:"subjectId"`
 	// The kind of the thing this service was requested for.
 	SubjectType string `json:"subjectType"`
 	// The kind of service that was requested.
-	Type string `json:"type"`
+	Type      string    `json:"type"`
 	UpdatedAt time.Time `json:"updated_at"`
 }
 
@@ -284,7 +284,7 @@ func (o *ServiceStatus) SetUpdatedAt(v time.Time) {
 }
 
 func (o ServiceStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -326,10 +326,10 @@ func (o *ServiceStatus) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -338,7 +338,7 @@ func (o *ServiceStatus) UnmarshalJSON(data []byte) (err error) {
 	varServiceStatus := _ServiceStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varServiceStatus)
 
 	if err != nil {
@@ -385,5 +385,3 @@ func (v *NullableServiceStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

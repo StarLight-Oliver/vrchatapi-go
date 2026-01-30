@@ -717,7 +717,7 @@ func (o *CreateCalendarEventRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateCalendarEventRequest := _CreateCalendarEventRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreateCalendarEventRequest)
 
 	if err != nil {

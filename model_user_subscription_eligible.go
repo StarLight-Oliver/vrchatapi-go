@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,12 +22,12 @@ var _ MappedNullable = &UserSubscriptionEligible{}
 
 // UserSubscriptionEligible struct for UserSubscriptionEligible
 type UserSubscriptionEligible struct {
-	ActiveCancelledSubscription bool `json:"activeCancelledSubscription"`
-	GiftEligible bool `json:"giftEligible"`
+	ActiveCancelledSubscription     bool `json:"activeCancelledSubscription"`
+	GiftEligible                    bool `json:"giftEligible"`
 	NonExtendVendorWillLoseGiftTime bool `json:"nonExtendVendorWillLoseGiftTime"`
-	PurchaseEligible bool `json:"purchaseEligible"`
-	SubscriptionEligible bool `json:"subscriptionEligible"`
-	SubscriptionOnAltAccount bool `json:"subscriptionOnAltAccount"`
+	PurchaseEligible                bool `json:"purchaseEligible"`
+	SubscriptionEligible            bool `json:"subscriptionEligible"`
+	SubscriptionOnAltAccount        bool `json:"subscriptionOnAltAccount"`
 }
 
 type _UserSubscriptionEligible UserSubscriptionEligible
@@ -200,7 +200,7 @@ func (o *UserSubscriptionEligible) SetSubscriptionOnAltAccount(v bool) {
 }
 
 func (o UserSubscriptionEligible) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -236,10 +236,10 @@ func (o *UserSubscriptionEligible) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -248,7 +248,7 @@ func (o *UserSubscriptionEligible) UnmarshalJSON(data []byte) (err error) {
 	varUserSubscriptionEligible := _UserSubscriptionEligible{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varUserSubscriptionEligible)
 
 	if err != nil {
@@ -295,5 +295,3 @@ func (v *NullableUserSubscriptionEligible) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

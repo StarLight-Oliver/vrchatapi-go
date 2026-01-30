@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -71,7 +71,7 @@ func (o *UpdateGroupRepresentationRequest) SetIsRepresenting(v bool) {
 }
 
 func (o UpdateGroupRepresentationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -97,10 +97,10 @@ func (o *UpdateGroupRepresentationRequest) UnmarshalJSON(data []byte) (err error
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -109,7 +109,7 @@ func (o *UpdateGroupRepresentationRequest) UnmarshalJSON(data []byte) (err error
 	varUpdateGroupRepresentationRequest := _UpdateGroupRepresentationRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varUpdateGroupRepresentationRequest)
 
 	if err != nil {
@@ -156,5 +156,3 @@ func (v *NullableUpdateGroupRepresentationRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

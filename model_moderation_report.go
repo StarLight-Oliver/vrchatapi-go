@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,17 +23,17 @@ var _ MappedNullable = &ModerationReport{}
 // ModerationReport struct for ModerationReport
 type ModerationReport struct {
 	// Valid values are the keys of the object `$.reportOptions[type]` from `GET /config`. Descriptions of these are found at `$.reportCategories[type]`.
-	Category string `json:"category"`
-	ContentId string `json:"contentId"`
-	ContentName string `json:"contentName"`
+	Category                 string         `json:"category"`
+	ContentId                string         `json:"contentId"`
+	ContentName              string         `json:"contentName"`
 	ContentThumbnailImageUrl NullableString `json:"contentThumbnailImageUrl"`
 	// The subjective reason for the report
-	Description string `json:"description"`
-	EvidenceRequired bool `json:"evidenceRequired"`
-	Id string `json:"id"`
+	Description      string `json:"description"`
+	EvidenceRequired bool   `json:"evidenceRequired"`
+	Id               string `json:"id"`
 	// Valid values are the strings in the array `$.reportOptions[type][category]` from `GET /config`. Descriptions of these are found at `$.reportReasons[type]`.
-	Reason string `json:"reason"`
-	SupportRequired bool `json:"supportRequired"`
+	Reason          string `json:"reason"`
+	SupportRequired bool   `json:"supportRequired"`
 	// Valid values are the keys of the object `$.reportOptions` from `GET /config`.
 	Type string `json:"type"`
 }
@@ -310,7 +310,7 @@ func (o *ModerationReport) SetType(v string) {
 }
 
 func (o ModerationReport) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -354,10 +354,10 @@ func (o *ModerationReport) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -366,7 +366,7 @@ func (o *ModerationReport) UnmarshalJSON(data []byte) (err error) {
 	varModerationReport := _ModerationReport{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varModerationReport)
 
 	if err != nil {
@@ -413,5 +413,3 @@ func (v *NullableModerationReport) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

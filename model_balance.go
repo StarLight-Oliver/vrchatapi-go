@@ -12,19 +12,19 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the Balance type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Balance{}
 
-// Balance 
+// Balance
 type Balance struct {
-	Balance int32 `json:"balance"`
+	Balance        int32 `json:"balance"`
 	NoTransactions *bool `json:"noTransactions,omitempty"`
-	TiliaResponse *bool `json:"tiliaResponse,omitempty"`
+	TiliaResponse  *bool `json:"tiliaResponse,omitempty"`
 }
 
 type _Balance Balance
@@ -138,7 +138,7 @@ func (o *Balance) SetTiliaResponse(v bool) {
 }
 
 func (o Balance) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -170,10 +170,10 @@ func (o *Balance) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -182,7 +182,7 @@ func (o *Balance) UnmarshalJSON(data []byte) (err error) {
 	varBalance := _Balance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varBalance)
 
 	if err != nil {
@@ -229,5 +229,3 @@ func (v *NullableBalance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

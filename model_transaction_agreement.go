@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,24 +22,24 @@ var _ MappedNullable = &TransactionAgreement{}
 
 // TransactionAgreement Represents a single Transaction, which is likely between VRChat and Steam.
 type TransactionAgreement struct {
-	Agreement string `json:"agreement"`
-	AgreementId string `json:"agreementId"`
-	BillingType string `json:"billingType"`
-	Currency string `json:"currency"`
-	EndDate string `json:"endDate"`
-	FailedAttempts int32 `json:"failedAttempts"`
-	Frequency int32 `json:"frequency"`
-	ItemId int32 `json:"itemId"`
-	LastAmount float32 `json:"lastAmount"`
-	LastAmountVat float32 `json:"lastAmountVat"`
-	LastPayment string `json:"lastPayment"`
-	NextPayment string `json:"nextPayment"`
-	Outstanding int32 `json:"outstanding"`
-	Period string `json:"period"`
-	RecurringAmt float32 `json:"recurringAmt"`
-	StartDate string `json:"startDate"`
+	Agreement      string  `json:"agreement"`
+	AgreementId    string  `json:"agreementId"`
+	BillingType    string  `json:"billingType"`
+	Currency       string  `json:"currency"`
+	EndDate        string  `json:"endDate"`
+	FailedAttempts int32   `json:"failedAttempts"`
+	Frequency      int32   `json:"frequency"`
+	ItemId         int32   `json:"itemId"`
+	LastAmount     float32 `json:"lastAmount"`
+	LastAmountVat  float32 `json:"lastAmountVat"`
+	LastPayment    string  `json:"lastPayment"`
+	NextPayment    string  `json:"nextPayment"`
+	Outstanding    int32   `json:"outstanding"`
+	Period         string  `json:"period"`
+	RecurringAmt   float32 `json:"recurringAmt"`
+	StartDate      string  `json:"startDate"`
 	// This is NOT TransactionStatus, but whatever Steam return.
-	Status string `json:"status"`
+	Status      string `json:"status"`
 	TimeCreated string `json:"timeCreated"`
 }
 
@@ -513,7 +513,7 @@ func (o *TransactionAgreement) SetTimeCreated(v string) {
 }
 
 func (o TransactionAgreement) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -573,10 +573,10 @@ func (o *TransactionAgreement) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -585,7 +585,7 @@ func (o *TransactionAgreement) UnmarshalJSON(data []byte) (err error) {
 	varTransactionAgreement := _TransactionAgreement{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varTransactionAgreement)
 
 	if err != nil {
@@ -632,5 +632,3 @@ func (v *NullableTransactionAgreement) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

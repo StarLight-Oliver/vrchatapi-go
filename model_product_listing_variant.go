@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the ProductListingVariant type satisfies the MappedNullable interface at compile time
@@ -23,12 +23,12 @@ var _ MappedNullable = &ProductListingVariant{}
 
 // ProductListingVariant struct for ProductListingVariant
 type ProductListingVariant struct {
-	EffectiveFrom *time.Time `json:"effectiveFrom,omitempty"`
-	ListingVariantId string `json:"listingVariantId"`
-	NonRefundable bool `json:"nonRefundable"`
-	Quantity int32 `json:"quantity"`
-	SellerVariant bool `json:"sellerVariant"`
-	UnitPriceTokens int32 `json:"unitPriceTokens"`
+	EffectiveFrom    *time.Time `json:"effectiveFrom,omitempty"`
+	ListingVariantId string     `json:"listingVariantId"`
+	NonRefundable    bool       `json:"nonRefundable"`
+	Quantity         int32      `json:"quantity"`
+	SellerVariant    bool       `json:"sellerVariant"`
+	UnitPriceTokens  int32      `json:"unitPriceTokens"`
 }
 
 type _ProductListingVariant ProductListingVariant
@@ -208,7 +208,7 @@ func (o *ProductListingVariant) SetUnitPriceTokens(v int32) {
 }
 
 func (o ProductListingVariant) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,10 +245,10 @@ func (o *ProductListingVariant) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -257,7 +257,7 @@ func (o *ProductListingVariant) UnmarshalJSON(data []byte) (err error) {
 	varProductListingVariant := _ProductListingVariant{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varProductListingVariant)
 
 	if err != nil {
@@ -304,5 +304,3 @@ func (v *NullableProductListingVariant) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

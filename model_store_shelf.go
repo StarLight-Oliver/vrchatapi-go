@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the StoreShelf type satisfies the MappedNullable interface at compile time
@@ -23,15 +23,15 @@ var _ MappedNullable = &StoreShelf{}
 
 // StoreShelf struct for StoreShelf
 type StoreShelf struct {
-	HighlightListing *ProductListing `json:"highlightListing,omitempty"`
-	HighlightListingId *string `json:"highlightListingId,omitempty"`
-	Id string `json:"id"`
-	ListingIds []string `json:"listingIds"`
-	Listings []ProductListing `json:"listings,omitempty"`
-	ShelfDescription string `json:"shelfDescription"`
-	ShelfLayout string `json:"shelfLayout"`
-	ShelfTitle string `json:"shelfTitle"`
-	UpdatedAt time.Time `json:"updatedAt"`
+	HighlightListing   *ProductListing  `json:"highlightListing,omitempty"`
+	HighlightListingId *string          `json:"highlightListingId,omitempty"`
+	Id                 string           `json:"id"`
+	ListingIds         []string         `json:"listingIds"`
+	Listings           []ProductListing `json:"listings,omitempty"`
+	ShelfDescription   string           `json:"shelfDescription"`
+	ShelfLayout        string           `json:"shelfLayout"`
+	ShelfTitle         string           `json:"shelfTitle"`
+	UpdatedAt          time.Time        `json:"updatedAt"`
 }
 
 type _StoreShelf StoreShelf
@@ -300,7 +300,7 @@ func (o *StoreShelf) SetUpdatedAt(v time.Time) {
 }
 
 func (o StoreShelf) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -345,10 +345,10 @@ func (o *StoreShelf) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -357,7 +357,7 @@ func (o *StoreShelf) UnmarshalJSON(data []byte) (err error) {
 	varStoreShelf := _StoreShelf{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varStoreShelf)
 
 	if err != nil {
@@ -404,5 +404,3 @@ func (v *NullableStoreShelf) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

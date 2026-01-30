@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &FavoriteGroupLimits{}
 
 // FavoriteGroupLimits struct for FavoriteGroupLimits
 type FavoriteGroupLimits struct {
-	Avatar int32 `json:"avatar"`
-	Friend int32 `json:"friend"`
+	Avatar       int32 `json:"avatar"`
+	Friend       int32 `json:"friend"`
 	VrcPlusWorld int32 `json:"vrcPlusWorld"`
-	World int32 `json:"world"`
+	World        int32 `json:"world"`
 }
 
 type _FavoriteGroupLimits FavoriteGroupLimits
@@ -148,7 +148,7 @@ func (o *FavoriteGroupLimits) SetWorld(v int32) {
 }
 
 func (o FavoriteGroupLimits) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,10 +180,10 @@ func (o *FavoriteGroupLimits) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -192,7 +192,7 @@ func (o *FavoriteGroupLimits) UnmarshalJSON(data []byte) (err error) {
 	varFavoriteGroupLimits := _FavoriteGroupLimits{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFavoriteGroupLimits)
 
 	if err != nil {
@@ -239,5 +239,3 @@ func (v *NullableFavoriteGroupLimits) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

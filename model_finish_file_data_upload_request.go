@@ -12,15 +12,15 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the FinishFileDataUploadRequest type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FinishFileDataUploadRequest{}
 
-// FinishFileDataUploadRequest 
+// FinishFileDataUploadRequest
 type FinishFileDataUploadRequest struct {
 	// Array of ETags uploaded.
 	Etags []string `json:"etags,omitempty"`
@@ -144,7 +144,7 @@ func (o *FinishFileDataUploadRequest) SetNextPartNumber(v string) {
 }
 
 func (o FinishFileDataUploadRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -175,10 +175,10 @@ func (o *FinishFileDataUploadRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -187,7 +187,7 @@ func (o *FinishFileDataUploadRequest) UnmarshalJSON(data []byte) (err error) {
 	varFinishFileDataUploadRequest := _FinishFileDataUploadRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFinishFileDataUploadRequest)
 
 	if err != nil {
@@ -234,5 +234,3 @@ func (v *NullableFinishFileDataUploadRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

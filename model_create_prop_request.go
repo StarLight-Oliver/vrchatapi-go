@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,19 +22,19 @@ var _ MappedNullable = &CreatePropRequest{}
 
 // CreatePropRequest struct for CreatePropRequest
 type CreatePropRequest struct {
-	AssetUrl string `json:"assetUrl"`
-	AssetVersion int32 `json:"assetVersion"`
-	Description string `json:"description"`
-	Id string `json:"id"`
-	ImageUrl string `json:"imageUrl"`
-	Name string `json:"name"`
+	AssetUrl     string `json:"assetUrl"`
+	AssetVersion int32  `json:"assetVersion"`
+	Description  string `json:"description"`
+	Id           string `json:"id"`
+	ImageUrl     string `json:"imageUrl"`
+	Name         string `json:"name"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform string `json:"platform"`
+	Platform      string  `json:"platform"`
 	PropSignature *string `json:"propSignature,omitempty"`
 	// How a prop is summoned and interacted with. 0: the prop fixed to some surface in the world 1: the prop is a pickup and may be held by users 2: ???
-	SpawnType int32 `json:"spawnType"`
-	Tags []string `json:"tags"`
-	UnityVersion string `json:"unityVersion"`
+	SpawnType    int32    `json:"spawnType"`
+	Tags         []string `json:"tags"`
+	UnityVersion string   `json:"unityVersion"`
 	// Bitmask for restrictions on what world surfaces a prop may be summoned. 0: no restrictions 1: floors 2: walls 4: ceilings
 	WorldPlacementMask int32 `json:"worldPlacementMask"`
 }
@@ -370,7 +370,7 @@ func (o *CreatePropRequest) SetWorldPlacementMask(v int32) {
 }
 
 func (o CreatePropRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,10 +419,10 @@ func (o *CreatePropRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -431,7 +431,7 @@ func (o *CreatePropRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreatePropRequest := _CreatePropRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreatePropRequest)
 
 	if err != nil {
@@ -478,5 +478,3 @@ func (v *NullableCreatePropRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

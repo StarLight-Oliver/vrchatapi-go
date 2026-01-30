@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the FileAnalysis type satisfies the MappedNullable interface at compile time
@@ -23,13 +23,13 @@ var _ MappedNullable = &FileAnalysis{}
 
 // FileAnalysis struct for FileAnalysis
 type FileAnalysis struct {
-	AvatarStats FileAnalysisAvatarStats `json:"avatarStats"`
-	CreatedAt *time.Time `json:"created_at,omitempty"`
-	EncryptionKey *string `json:"encryptionKey,omitempty"`
-	FileSize int32 `json:"fileSize"`
-	PerformanceRating *string `json:"performanceRating,omitempty"`
-	Success bool `json:"success"`
-	UncompressedSize int32 `json:"uncompressedSize"`
+	AvatarStats       FileAnalysisAvatarStats `json:"avatarStats"`
+	CreatedAt         *time.Time              `json:"created_at,omitempty"`
+	EncryptionKey     *string                 `json:"encryptionKey,omitempty"`
+	FileSize          int32                   `json:"fileSize"`
+	PerformanceRating *string                 `json:"performanceRating,omitempty"`
+	Success           bool                    `json:"success"`
+	UncompressedSize  int32                   `json:"uncompressedSize"`
 }
 
 type _FileAnalysis FileAnalysis
@@ -248,7 +248,7 @@ func (o *FileAnalysis) SetUncompressedSize(v int32) {
 }
 
 func (o FileAnalysis) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -289,10 +289,10 @@ func (o *FileAnalysis) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -301,7 +301,7 @@ func (o *FileAnalysis) UnmarshalJSON(data []byte) (err error) {
 	varFileAnalysis := _FileAnalysis{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFileAnalysis)
 
 	if err != nil {
@@ -348,5 +348,3 @@ func (v *NullableFileAnalysis) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

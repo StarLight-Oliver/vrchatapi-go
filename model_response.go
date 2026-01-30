@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &Response{}
 
 // Response struct for Response
 type Response struct {
-	Message *string `json:"message,omitempty"`
-	StatusCode int32 `json:"status_code"`
+	Message    *string `json:"message,omitempty"`
+	StatusCode int32   `json:"status_code"`
 }
 
 type _Response Response
@@ -103,7 +103,7 @@ func (o *Response) SetStatusCode(v int32) {
 }
 
 func (o Response) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,10 +132,10 @@ func (o *Response) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -144,7 +144,7 @@ func (o *Response) UnmarshalJSON(data []byte) (err error) {
 	varResponse := _Response{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varResponse)
 
 	if err != nil {
@@ -191,5 +191,3 @@ func (v *NullableResponse) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

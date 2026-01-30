@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &FavoriteLimits{}
 
 // FavoriteLimits struct for FavoriteLimits
 type FavoriteLimits struct {
-	DefaultMaxFavoriteGroups int32 `json:"defaultMaxFavoriteGroups"`
-	DefaultMaxFavoritesPerGroup int32 `json:"defaultMaxFavoritesPerGroup"`
-	MaxFavoriteGroups FavoriteGroupLimits `json:"maxFavoriteGroups"`
-	MaxFavoritesPerGroup FavoriteGroupLimits `json:"maxFavoritesPerGroup"`
+	DefaultMaxFavoriteGroups    int32               `json:"defaultMaxFavoriteGroups"`
+	DefaultMaxFavoritesPerGroup int32               `json:"defaultMaxFavoritesPerGroup"`
+	MaxFavoriteGroups           FavoriteGroupLimits `json:"maxFavoriteGroups"`
+	MaxFavoritesPerGroup        FavoriteGroupLimits `json:"maxFavoritesPerGroup"`
 }
 
 type _FavoriteLimits FavoriteLimits
@@ -148,7 +148,7 @@ func (o *FavoriteLimits) SetMaxFavoritesPerGroup(v FavoriteGroupLimits) {
 }
 
 func (o FavoriteLimits) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,10 +180,10 @@ func (o *FavoriteLimits) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -192,7 +192,7 @@ func (o *FavoriteLimits) UnmarshalJSON(data []byte) (err error) {
 	varFavoriteLimits := _FavoriteLimits{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFavoriteLimits)
 
 	if err != nil {
@@ -239,5 +239,3 @@ func (v *NullableFavoriteLimits) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

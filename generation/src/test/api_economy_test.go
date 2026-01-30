@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_EconomyAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetActiveLicenses", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetActiveLicenses(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetBalance", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -50,7 +51,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetBalanceEarnings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -64,7 +65,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetBulkGiftPurchases", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetBulkGiftPurchases(context.Background()).Execute()
 
@@ -76,7 +77,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetCurrentSubscriptions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetCurrentSubscriptions(context.Background()).Execute()
 
@@ -88,7 +89,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetEconomyAccount", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -102,7 +103,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetLicenseGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var licenseGroupId string
 
@@ -116,7 +117,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetProductListing", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var productId string
 
@@ -130,7 +131,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetProductListingAlternate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var productId string
 
@@ -144,7 +145,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetProductListings", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -158,7 +159,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetProductPurchases", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetProductPurchases(context.Background()).Execute()
 
@@ -170,7 +171,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetRecentSubscription", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetRecentSubscription(context.Background()).Execute()
 
@@ -182,7 +183,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetSteamTransaction", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var transactionId string
 
@@ -196,7 +197,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetSteamTransactions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetSteamTransactions(context.Background()).Execute()
 
@@ -208,7 +209,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetStore", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetStore(context.Background()).Execute()
 
@@ -220,7 +221,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetStoreShelves", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetStoreShelves(context.Background()).Execute()
 
@@ -232,7 +233,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetSubscriptions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetSubscriptions(context.Background()).Execute()
 
@@ -244,7 +245,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetTiliaStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetTiliaStatus(context.Background()).Execute()
 
@@ -256,7 +257,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetTiliaTos", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -270,7 +271,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetTokenBundles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.GetTokenBundles(context.Background()).Execute()
 
@@ -282,7 +283,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetUserCreditsEligible", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -296,7 +297,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService GetUserSubscriptionEligible", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -310,7 +311,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService PurchaseProductListing", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.EconomyAPI.PurchaseProductListing(context.Background()).Execute()
 
@@ -322,7 +323,7 @@ func Test_vrchatapi_EconomyAPIService(t *testing.T) {
 
 	t.Run("Test EconomyAPIService UpdateTiliaTos", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 

@@ -860,7 +860,7 @@ func (o *LimitedWorld) UnmarshalJSON(data []byte) (err error) {
 	varLimitedWorld := _LimitedWorld{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varLimitedWorld)
 
 	if err != nil {

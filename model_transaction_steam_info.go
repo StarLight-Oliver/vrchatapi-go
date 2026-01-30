@@ -12,15 +12,15 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the TransactionSteamInfo type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TransactionSteamInfo{}
 
-// TransactionSteamInfo 
+// TransactionSteamInfo
 type TransactionSteamInfo struct {
 	// Steam Order ID
 	OrderId string `json:"orderId"`
@@ -29,7 +29,7 @@ type TransactionSteamInfo struct {
 	// Empty
 	SteamUrl string `json:"steamUrl"`
 	// Steam Transaction ID, NOT the same as VRChat TransactionID
-	TransId string `json:"transId"`
+	TransId    string                     `json:"transId"`
 	WalletInfo TransactionSteamWalletInfo `json:"walletInfo"`
 }
 
@@ -178,7 +178,7 @@ func (o *TransactionSteamInfo) SetWalletInfo(v TransactionSteamWalletInfo) {
 }
 
 func (o TransactionSteamInfo) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -212,10 +212,10 @@ func (o *TransactionSteamInfo) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -224,7 +224,7 @@ func (o *TransactionSteamInfo) UnmarshalJSON(data []byte) (err error) {
 	varTransactionSteamInfo := _TransactionSteamInfo{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varTransactionSteamInfo)
 
 	if err != nil {
@@ -271,5 +271,3 @@ func (v *NullableTransactionSteamInfo) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

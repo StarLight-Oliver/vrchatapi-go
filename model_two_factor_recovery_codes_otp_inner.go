@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &TwoFactorRecoveryCodesOtpInner{}
 // TwoFactorRecoveryCodesOtpInner struct for TwoFactorRecoveryCodesOtpInner
 type TwoFactorRecoveryCodesOtpInner struct {
 	Code string `json:"code"`
-	Used bool `json:"used"`
+	Used bool   `json:"used"`
 }
 
 type _TwoFactorRecoveryCodesOtpInner TwoFactorRecoveryCodesOtpInner
@@ -96,7 +96,7 @@ func (o *TwoFactorRecoveryCodesOtpInner) SetUsed(v bool) {
 }
 
 func (o TwoFactorRecoveryCodesOtpInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,10 +124,10 @@ func (o *TwoFactorRecoveryCodesOtpInner) UnmarshalJSON(data []byte) (err error) 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -136,7 +136,7 @@ func (o *TwoFactorRecoveryCodesOtpInner) UnmarshalJSON(data []byte) (err error) 
 	varTwoFactorRecoveryCodesOtpInner := _TwoFactorRecoveryCodesOtpInner{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varTwoFactorRecoveryCodesOtpInner)
 
 	if err != nil {
@@ -183,5 +183,3 @@ func (v *NullableTwoFactorRecoveryCodesOtpInner) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

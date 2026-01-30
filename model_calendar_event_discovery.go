@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,8 +23,8 @@ var _ MappedNullable = &CalendarEventDiscovery{}
 // CalendarEventDiscovery struct for CalendarEventDiscovery
 type CalendarEventDiscovery struct {
 	// Base64-encoded JSON:   type: object   properties:     dataSource:       type: string       enum:         - featured         - personalized     dataIndex:       type: integer       format: int32     phase:       type: string       enum:         - all         - live         - upcoming       description: see CalendarEventDiscoveryScope     asOf:       type: integer       format: int64       description: milliseconds since Unix epoch     paramHash:       type: string       format: string       description: Base64-encoded 256-bit hash of the original query parameters
-	NextCursor string `json:"nextCursor"`
-	Results []CalendarEvent `json:"results"`
+	NextCursor string          `json:"nextCursor"`
+	Results    []CalendarEvent `json:"results"`
 }
 
 type _CalendarEventDiscovery CalendarEventDiscovery
@@ -97,7 +97,7 @@ func (o *CalendarEventDiscovery) SetResults(v []CalendarEvent) {
 }
 
 func (o CalendarEventDiscovery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *CalendarEventDiscovery) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -137,7 +137,7 @@ func (o *CalendarEventDiscovery) UnmarshalJSON(data []byte) (err error) {
 	varCalendarEventDiscovery := _CalendarEventDiscovery{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCalendarEventDiscovery)
 
 	if err != nil {
@@ -184,5 +184,3 @@ func (v *NullableCalendarEventDiscovery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

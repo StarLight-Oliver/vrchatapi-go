@@ -12,23 +12,23 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the FileVersionUploadStatus type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &FileVersionUploadStatus{}
 
-// FileVersionUploadStatus 
+// FileVersionUploadStatus
 type FileVersionUploadStatus struct {
 	// Unknown
-	Etags []map[string]interface{} `json:"etags"`
-	FileName string `json:"fileName"`
-	MaxParts int32 `json:"maxParts"`
-	NextPartNumber int32 `json:"nextPartNumber"`
-	Parts []map[string]interface{} `json:"parts"`
-	UploadId string `json:"uploadId"`
+	Etags          []map[string]interface{} `json:"etags"`
+	FileName       string                   `json:"fileName"`
+	MaxParts       int32                    `json:"maxParts"`
+	NextPartNumber int32                    `json:"nextPartNumber"`
+	Parts          []map[string]interface{} `json:"parts"`
+	UploadId       string                   `json:"uploadId"`
 }
 
 type _FileVersionUploadStatus FileVersionUploadStatus
@@ -201,7 +201,7 @@ func (o *FileVersionUploadStatus) SetUploadId(v string) {
 }
 
 func (o FileVersionUploadStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -237,10 +237,10 @@ func (o *FileVersionUploadStatus) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -249,7 +249,7 @@ func (o *FileVersionUploadStatus) UnmarshalJSON(data []byte) (err error) {
 	varFileVersionUploadStatus := _FileVersionUploadStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFileVersionUploadStatus)
 
 	if err != nil {
@@ -296,5 +296,3 @@ func (v *NullableFileVersionUploadStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,50 +22,50 @@ var _ MappedNullable = &FileAnalysisAvatarStats{}
 
 // FileAnalysisAvatarStats struct for FileAnalysisAvatarStats
 type FileAnalysisAvatarStats struct {
-	AnimatorCount int32 `json:"animatorCount"`
-	AudioSourceCount int32 `json:"audioSourceCount"`
-	BlendShapeCount int32 `json:"blendShapeCount"`
-	BoneCount int32 `json:"boneCount"`
-	Bounds []float32 `json:"bounds"`
-	CameraCount *int32 `json:"cameraCount,omitempty"`
-	ClothCount int32 `json:"clothCount"`
-	ConstraintCount int32 `json:"constraintCount"`
-	ConstraintDepth int32 `json:"constraintDepth"`
-	ContactCount int32 `json:"contactCount"`
-	CustomExpressions bool `json:"customExpressions"`
-	CustomizeAnimationLayers bool `json:"customizeAnimationLayers"`
-	EnableEyeLook bool `json:"enableEyeLook"`
-	LightCount int32 `json:"lightCount"`
-	LineRendererCount int32 `json:"lineRendererCount"`
-	LipSync int32 `json:"lipSync"`
-	MaterialCount int32 `json:"materialCount"`
-	MaterialSlotsUsed int32 `json:"materialSlotsUsed"`
-	MeshCount int32 `json:"meshCount"`
-	MeshIndices int32 `json:"meshIndices"`
-	MeshParticleMaxPolygons int32 `json:"meshParticleMaxPolygons"`
-	MeshPolygons int32 `json:"meshPolygons"`
-	MeshVertices int32 `json:"meshVertices"`
-	ParticleCollisionEnabled bool `json:"particleCollisionEnabled"`
-	ParticleSystemCount int32 `json:"particleSystemCount"`
-	ParticleTrailsEnabled bool `json:"particleTrailsEnabled"`
-	PhysBoneColliderCount int32 `json:"physBoneColliderCount"`
-	PhysBoneCollisionCheckCount int32 `json:"physBoneCollisionCheckCount"`
-	PhysBoneComponentCount int32 `json:"physBoneComponentCount"`
-	PhysBoneTransformCount int32 `json:"physBoneTransformCount"`
-	PhysicsColliders int32 `json:"physicsColliders"`
-	PhysicsRigidbodies int32 `json:"physicsRigidbodies"`
-	SkinnedMeshCount int32 `json:"skinnedMeshCount"`
-	SkinnedMeshIndices int32 `json:"skinnedMeshIndices"`
-	SkinnedMeshPolygons int32 `json:"skinnedMeshPolygons"`
-	SkinnedMeshVertices int32 `json:"skinnedMeshVertices"`
-	TotalClothVertices int32 `json:"totalClothVertices"`
-	TotalIndices int32 `json:"totalIndices"`
-	TotalMaxParticles int32 `json:"totalMaxParticles"`
-	TotalPolygons int32 `json:"totalPolygons"`
-	TotalTextureUsage int32 `json:"totalTextureUsage"`
-	TotalVertices int32 `json:"totalVertices"`
-	TrailRendererCount int32 `json:"trailRendererCount"`
-	WriteDefaultsUsed bool `json:"writeDefaultsUsed"`
+	AnimatorCount               int32     `json:"animatorCount"`
+	AudioSourceCount            int32     `json:"audioSourceCount"`
+	BlendShapeCount             int32     `json:"blendShapeCount"`
+	BoneCount                   int32     `json:"boneCount"`
+	Bounds                      []float32 `json:"bounds"`
+	CameraCount                 *int32    `json:"cameraCount,omitempty"`
+	ClothCount                  int32     `json:"clothCount"`
+	ConstraintCount             int32     `json:"constraintCount"`
+	ConstraintDepth             int32     `json:"constraintDepth"`
+	ContactCount                int32     `json:"contactCount"`
+	CustomExpressions           bool      `json:"customExpressions"`
+	CustomizeAnimationLayers    bool      `json:"customizeAnimationLayers"`
+	EnableEyeLook               bool      `json:"enableEyeLook"`
+	LightCount                  int32     `json:"lightCount"`
+	LineRendererCount           int32     `json:"lineRendererCount"`
+	LipSync                     int32     `json:"lipSync"`
+	MaterialCount               int32     `json:"materialCount"`
+	MaterialSlotsUsed           int32     `json:"materialSlotsUsed"`
+	MeshCount                   int32     `json:"meshCount"`
+	MeshIndices                 int32     `json:"meshIndices"`
+	MeshParticleMaxPolygons     int32     `json:"meshParticleMaxPolygons"`
+	MeshPolygons                int32     `json:"meshPolygons"`
+	MeshVertices                int32     `json:"meshVertices"`
+	ParticleCollisionEnabled    bool      `json:"particleCollisionEnabled"`
+	ParticleSystemCount         int32     `json:"particleSystemCount"`
+	ParticleTrailsEnabled       bool      `json:"particleTrailsEnabled"`
+	PhysBoneColliderCount       int32     `json:"physBoneColliderCount"`
+	PhysBoneCollisionCheckCount int32     `json:"physBoneCollisionCheckCount"`
+	PhysBoneComponentCount      int32     `json:"physBoneComponentCount"`
+	PhysBoneTransformCount      int32     `json:"physBoneTransformCount"`
+	PhysicsColliders            int32     `json:"physicsColliders"`
+	PhysicsRigidbodies          int32     `json:"physicsRigidbodies"`
+	SkinnedMeshCount            int32     `json:"skinnedMeshCount"`
+	SkinnedMeshIndices          int32     `json:"skinnedMeshIndices"`
+	SkinnedMeshPolygons         int32     `json:"skinnedMeshPolygons"`
+	SkinnedMeshVertices         int32     `json:"skinnedMeshVertices"`
+	TotalClothVertices          int32     `json:"totalClothVertices"`
+	TotalIndices                int32     `json:"totalIndices"`
+	TotalMaxParticles           int32     `json:"totalMaxParticles"`
+	TotalPolygons               int32     `json:"totalPolygons"`
+	TotalTextureUsage           int32     `json:"totalTextureUsage"`
+	TotalVertices               int32     `json:"totalVertices"`
+	TrailRendererCount          int32     `json:"trailRendererCount"`
+	WriteDefaultsUsed           bool      `json:"writeDefaultsUsed"`
 }
 
 type _FileAnalysisAvatarStats FileAnalysisAvatarStats
@@ -1195,7 +1195,7 @@ func (o *FileAnalysisAvatarStats) SetWriteDefaultsUsed(v bool) {
 }
 
 func (o FileAnalysisAvatarStats) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1308,10 +1308,10 @@ func (o *FileAnalysisAvatarStats) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -1320,7 +1320,7 @@ func (o *FileAnalysisAvatarStats) UnmarshalJSON(data []byte) (err error) {
 	varFileAnalysisAvatarStats := _FileAnalysisAvatarStats{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFileAnalysisAvatarStats)
 
 	if err != nil {
@@ -1367,5 +1367,3 @@ func (v *NullableFileAnalysisAvatarStats) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

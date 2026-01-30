@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,11 +23,11 @@ var _ MappedNullable = &APIConfigAvatarPerfLimiter{}
 // APIConfigAvatarPerfLimiter struct for APIConfigAvatarPerfLimiter
 type APIConfigAvatarPerfLimiter struct {
 	AndroidMobile PerformanceLimiterInfo `json:"AndroidMobile"`
-	PC PerformanceLimiterInfo `json:"PC"`
-	Pico PerformanceLimiterInfo `json:"Pico"`
-	Quest PerformanceLimiterInfo `json:"Quest"`
-	XRElite PerformanceLimiterInfo `json:"XRElite"`
-	IOSMobile PerformanceLimiterInfo `json:"iOSMobile"`
+	PC            PerformanceLimiterInfo `json:"PC"`
+	Pico          PerformanceLimiterInfo `json:"Pico"`
+	Quest         PerformanceLimiterInfo `json:"Quest"`
+	XRElite       PerformanceLimiterInfo `json:"XRElite"`
+	IOSMobile     PerformanceLimiterInfo `json:"iOSMobile"`
 }
 
 type _APIConfigAvatarPerfLimiter APIConfigAvatarPerfLimiter
@@ -200,7 +200,7 @@ func (o *APIConfigAvatarPerfLimiter) SetIOSMobile(v PerformanceLimiterInfo) {
 }
 
 func (o APIConfigAvatarPerfLimiter) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -236,10 +236,10 @@ func (o *APIConfigAvatarPerfLimiter) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -248,7 +248,7 @@ func (o *APIConfigAvatarPerfLimiter) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigAvatarPerfLimiter := _APIConfigAvatarPerfLimiter{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAPIConfigAvatarPerfLimiter)
 
 	if err != nil {
@@ -295,5 +295,3 @@ func (v *NullableAPIConfigAvatarPerfLimiter) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

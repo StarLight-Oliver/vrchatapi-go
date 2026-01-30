@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetAssignedPermissions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetAssignedPermissions(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetCSS", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetCSS(context.Background()).Execute()
 
@@ -48,7 +49,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetConfig", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetConfig(context.Background()).Execute()
 
@@ -60,7 +61,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetCurrentOnlineUsers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetCurrentOnlineUsers(context.Background()).Execute()
 
@@ -72,7 +73,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetHealth", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetHealth(context.Background()).Execute()
 
@@ -84,7 +85,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetInfoPush", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetInfoPush(context.Background()).Execute()
 
@@ -96,7 +97,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetJavaScript", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetJavaScript(context.Background()).Execute()
 
@@ -108,7 +109,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetPermission", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var permissionId string
 
@@ -122,7 +123,7 @@ func Test_vrchatapi_MiscellaneousAPIService(t *testing.T) {
 
 	t.Run("Test MiscellaneousAPIService GetSystemTime", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.MiscellaneousAPI.GetSystemTime(context.Background()).Execute()
 

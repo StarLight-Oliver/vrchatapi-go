@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_UsersAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService AddTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -38,7 +39,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService CheckUserPersistenceExists", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 		var worldId string
@@ -52,7 +53,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService DeleteAllUserPersistenceData", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -65,7 +66,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService DeleteUserPersistence", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 		var worldId string
@@ -79,7 +80,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetBlockedGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -93,7 +94,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetInvitedGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -107,7 +108,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetMutualFriends", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -121,7 +122,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetMutualGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -135,7 +136,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetMutuals", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -149,7 +150,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -163,7 +164,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserAllGroupPermissions", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -177,7 +178,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserByName", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var username string
 
@@ -191,7 +192,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserFeedback", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -205,7 +206,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserGroupInstances", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -219,7 +220,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserGroupInstancesForGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 		var groupId string
@@ -234,7 +235,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserGroupRequests", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -248,7 +249,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -262,7 +263,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserNote", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userNoteId string
 
@@ -276,7 +277,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserNotes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.UsersAPI.GetUserNotes(context.Background()).Execute()
 
@@ -288,7 +289,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService GetUserRepresentedGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -302,7 +303,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService RemoveTags", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -316,7 +317,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService SearchUsers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.UsersAPI.SearchUsers(context.Background()).Execute()
 
@@ -328,7 +329,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService UpdateBadge", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 		var badgeId string
@@ -342,7 +343,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService UpdateUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -356,7 +357,7 @@ func Test_vrchatapi_UsersAPIService(t *testing.T) {
 
 	t.Run("Test UsersAPIService UpdateUserNote", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.UsersAPI.UpdateUserNote(context.Background()).Execute()
 

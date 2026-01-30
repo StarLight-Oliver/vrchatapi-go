@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,17 +22,17 @@ var _ MappedNullable = &APIConfigMinSupportedClientBuildNumber{}
 
 // APIConfigMinSupportedClientBuildNumber Minimum supported client build number for various platforms
 type APIConfigMinSupportedClientBuildNumber struct {
-	AppStore PlatformBuildInfo `json:"AppStore"`
-	Default PlatformBuildInfo `json:"Default"`
-	Firebase PlatformBuildInfo `json:"Firebase"`
+	AppStore    PlatformBuildInfo `json:"AppStore"`
+	Default     PlatformBuildInfo `json:"Default"`
+	Firebase    PlatformBuildInfo `json:"Firebase"`
 	FirebaseiOS PlatformBuildInfo `json:"FirebaseiOS"`
-	GooglePlay PlatformBuildInfo `json:"GooglePlay"`
-	PC PlatformBuildInfo `json:"PC"`
-	PicoStore PlatformBuildInfo `json:"PicoStore"`
+	GooglePlay  PlatformBuildInfo `json:"GooglePlay"`
+	PC          PlatformBuildInfo `json:"PC"`
+	PicoStore   PlatformBuildInfo `json:"PicoStore"`
 	QuestAppLab PlatformBuildInfo `json:"QuestAppLab"`
-	QuestStore PlatformBuildInfo `json:"QuestStore"`
-	TestFlight PlatformBuildInfo `json:"TestFlight"`
-	XRElite PlatformBuildInfo `json:"XRElite"`
+	QuestStore  PlatformBuildInfo `json:"QuestStore"`
+	TestFlight  PlatformBuildInfo `json:"TestFlight"`
+	XRElite     PlatformBuildInfo `json:"XRElite"`
 }
 
 type _APIConfigMinSupportedClientBuildNumber APIConfigMinSupportedClientBuildNumber
@@ -330,7 +330,7 @@ func (o *APIConfigMinSupportedClientBuildNumber) SetXRElite(v PlatformBuildInfo)
 }
 
 func (o APIConfigMinSupportedClientBuildNumber) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -376,10 +376,10 @@ func (o *APIConfigMinSupportedClientBuildNumber) UnmarshalJSON(data []byte) (err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -388,7 +388,7 @@ func (o *APIConfigMinSupportedClientBuildNumber) UnmarshalJSON(data []byte) (err
 	varAPIConfigMinSupportedClientBuildNumber := _APIConfigMinSupportedClientBuildNumber{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAPIConfigMinSupportedClientBuildNumber)
 
 	if err != nil {
@@ -435,5 +435,3 @@ func (v *NullableAPIConfigMinSupportedClientBuildNumber) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

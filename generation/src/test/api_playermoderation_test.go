@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_PlayermoderationAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_PlayermoderationAPIService(t *testing.T) {
 
 	t.Run("Test PlayermoderationAPIService ClearAllPlayerModerations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PlayermoderationAPI.ClearAllPlayerModerations(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_vrchatapi_PlayermoderationAPIService(t *testing.T) {
 
 	t.Run("Test PlayermoderationAPIService GetPlayerModerations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PlayermoderationAPI.GetPlayerModerations(context.Background()).Execute()
 
@@ -48,7 +49,7 @@ func Test_vrchatapi_PlayermoderationAPIService(t *testing.T) {
 
 	t.Run("Test PlayermoderationAPIService ModerateUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PlayermoderationAPI.ModerateUser(context.Background()).Execute()
 
@@ -60,7 +61,7 @@ func Test_vrchatapi_PlayermoderationAPIService(t *testing.T) {
 
 	t.Run("Test PlayermoderationAPIService UnmoderateUser", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PlayermoderationAPI.UnmoderateUser(context.Background()).Execute()
 

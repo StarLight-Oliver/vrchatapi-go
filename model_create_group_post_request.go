@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,14 +23,14 @@ var _ MappedNullable = &CreateGroupPostRequest{}
 // CreateGroupPostRequest struct for CreateGroupPostRequest
 type CreateGroupPostRequest struct {
 	ImageId *string `json:"imageId,omitempty"`
-	//  
+	//
 	RoleIds []string `json:"roleIds,omitempty"`
 	// Send notification to group members.
 	SendNotification bool `json:"sendNotification"`
 	// Post text
 	Text string `json:"text"`
 	// Post title
-	Title string `json:"title"`
+	Title      string              `json:"title"`
 	Visibility GroupPostVisibility `json:"visibility"`
 }
 
@@ -220,7 +220,7 @@ func (o *CreateGroupPostRequest) SetVisibility(v GroupPostVisibility) {
 }
 
 func (o CreateGroupPostRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -258,10 +258,10 @@ func (o *CreateGroupPostRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -270,7 +270,7 @@ func (o *CreateGroupPostRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateGroupPostRequest := _CreateGroupPostRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreateGroupPostRequest)
 
 	if err != nil {
@@ -317,5 +317,3 @@ func (v *NullableCreateGroupPostRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

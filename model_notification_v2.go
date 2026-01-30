@@ -910,7 +910,7 @@ func (o *NotificationV2) UnmarshalJSON(data []byte) (err error) {
 	varNotificationV2 := _NotificationV2{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationV2)
 
 	if err != nil {

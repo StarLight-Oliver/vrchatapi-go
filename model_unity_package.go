@@ -12,34 +12,34 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the UnityPackage type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &UnityPackage{}
 
-// UnityPackage 
+// UnityPackage
 type UnityPackage struct {
-	AssetUrl NullableString `json:"assetUrl,omitempty"`
-	AssetUrlObject map[string]interface{} `json:"assetUrlObject,omitempty"`
-	AssetVersion int32 `json:"assetVersion"`
-	CreatedAt *time.Time `json:"created_at,omitempty"`
-	Id string `json:"id"`
-	ImpostorUrl NullableString `json:"impostorUrl,omitempty"`
-	ImpostorizerVersion *string `json:"impostorizerVersion,omitempty"`
-	PerformanceRating *PerformanceRatings `json:"performanceRating,omitempty"`
+	AssetUrl            NullableString         `json:"assetUrl,omitempty"`
+	AssetUrlObject      map[string]interface{} `json:"assetUrlObject,omitempty"`
+	AssetVersion        int32                  `json:"assetVersion"`
+	CreatedAt           *time.Time             `json:"created_at,omitempty"`
+	Id                  string                 `json:"id"`
+	ImpostorUrl         NullableString         `json:"impostorUrl,omitempty"`
+	ImpostorizerVersion *string                `json:"impostorizerVersion,omitempty"`
+	PerformanceRating   *PerformanceRatings    `json:"performanceRating,omitempty"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform string `json:"platform"`
-	PluginUrl *string `json:"pluginUrl,omitempty"`
+	Platform        string                 `json:"platform"`
+	PluginUrl       *string                `json:"pluginUrl,omitempty"`
 	PluginUrlObject map[string]interface{} `json:"pluginUrlObject,omitempty"`
-	ScanStatus *string `json:"scanStatus,omitempty"`
-	UnitySortNumber *int64 `json:"unitySortNumber,omitempty"`
-	UnityVersion string `json:"unityVersion"`
-	Variant *string `json:"variant,omitempty"`
-	WorldSignature NullableString `json:"worldSignature,omitempty"`
+	ScanStatus      *string                `json:"scanStatus,omitempty"`
+	UnitySortNumber *int64                 `json:"unitySortNumber,omitempty"`
+	UnityVersion    string                 `json:"unityVersion"`
+	Variant         *string                `json:"variant,omitempty"`
+	WorldSignature  NullableString         `json:"worldSignature,omitempty"`
 }
 
 type _UnityPackage UnityPackage
@@ -99,6 +99,7 @@ func (o *UnityPackage) HasAssetUrl() bool {
 func (o *UnityPackage) SetAssetUrl(v string) {
 	o.AssetUrl.Set(&v)
 }
+
 // SetAssetUrlNil sets the value for AssetUrl to be an explicit nil
 func (o *UnityPackage) SetAssetUrlNil() {
 	o.AssetUrl.Set(nil)
@@ -253,6 +254,7 @@ func (o *UnityPackage) HasImpostorUrl() bool {
 func (o *UnityPackage) SetImpostorUrl(v string) {
 	o.ImpostorUrl.Set(&v)
 }
+
 // SetImpostorUrlNil sets the value for ImpostorUrl to be an explicit nil
 func (o *UnityPackage) SetImpostorUrlNil() {
 	o.ImpostorUrl.Set(nil)
@@ -567,6 +569,7 @@ func (o *UnityPackage) HasWorldSignature() bool {
 func (o *UnityPackage) SetWorldSignature(v string) {
 	o.WorldSignature.Set(&v)
 }
+
 // SetWorldSignatureNil sets the value for WorldSignature to be an explicit nil
 func (o *UnityPackage) SetWorldSignatureNil() {
 	o.WorldSignature.Set(nil)
@@ -578,7 +581,7 @@ func (o *UnityPackage) UnsetWorldSignature() {
 }
 
 func (o UnityPackage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -646,10 +649,10 @@ func (o *UnityPackage) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -658,7 +661,7 @@ func (o *UnityPackage) UnmarshalJSON(data []byte) (err error) {
 	varUnityPackage := _UnityPackage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varUnityPackage)
 
 	if err != nil {
@@ -705,5 +708,3 @@ func (v *NullableUnityPackage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

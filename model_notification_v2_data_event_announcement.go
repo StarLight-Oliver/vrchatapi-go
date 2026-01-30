@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,9 +22,9 @@ var _ MappedNullable = &NotificationV2DataEventAnnouncement{}
 
 // NotificationV2DataEventAnnouncement struct for NotificationV2DataEventAnnouncement
 type NotificationV2DataEventAnnouncement struct {
-	OwnerId string `json:"ownerId"`
+	OwnerId   string `json:"ownerId"`
 	OwnerName string `json:"ownerName"`
-	Title string `json:"title"`
+	Title     string `json:"title"`
 }
 
 type _NotificationV2DataEventAnnouncement NotificationV2DataEventAnnouncement
@@ -122,7 +122,7 @@ func (o *NotificationV2DataEventAnnouncement) SetTitle(v string) {
 }
 
 func (o NotificationV2DataEventAnnouncement) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,10 +152,10 @@ func (o *NotificationV2DataEventAnnouncement) UnmarshalJSON(data []byte) (err er
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -164,7 +164,7 @@ func (o *NotificationV2DataEventAnnouncement) UnmarshalJSON(data []byte) (err er
 	varNotificationV2DataEventAnnouncement := _NotificationV2DataEventAnnouncement{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationV2DataEventAnnouncement)
 
 	if err != nil {
@@ -211,5 +211,3 @@ func (v *NullableNotificationV2DataEventAnnouncement) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

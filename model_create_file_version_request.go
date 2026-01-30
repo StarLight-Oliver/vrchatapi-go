@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &CreateFileVersionRequest{}
 
 // CreateFileVersionRequest struct for CreateFileVersionRequest
 type CreateFileVersionRequest struct {
-	FileMd5 *string `json:"fileMd5,omitempty"`
-	FileSizeInBytes *int32 `json:"fileSizeInBytes,omitempty"`
-	SignatureMd5 string `json:"signatureMd5"`
-	SignatureSizeInBytes int32 `json:"signatureSizeInBytes"`
+	FileMd5              *string `json:"fileMd5,omitempty"`
+	FileSizeInBytes      *int32  `json:"fileSizeInBytes,omitempty"`
+	SignatureMd5         string  `json:"signatureMd5"`
+	SignatureSizeInBytes int32   `json:"signatureSizeInBytes"`
 }
 
 type _CreateFileVersionRequest CreateFileVersionRequest
@@ -162,7 +162,7 @@ func (o *CreateFileVersionRequest) SetSignatureSizeInBytes(v int32) {
 }
 
 func (o CreateFileVersionRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,10 +196,10 @@ func (o *CreateFileVersionRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -208,7 +208,7 @@ func (o *CreateFileVersionRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateFileVersionRequest := _CreateFileVersionRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreateFileVersionRequest)
 
 	if err != nil {
@@ -255,5 +255,3 @@ func (v *NullableCreateFileVersionRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

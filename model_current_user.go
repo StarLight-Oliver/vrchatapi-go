@@ -2527,7 +2527,7 @@ func (o *CurrentUser) UnmarshalJSON(data []byte) (err error) {
 	varCurrentUser := _CurrentUser{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCurrentUser)
 
 	if err != nil {

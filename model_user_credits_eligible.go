@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &UserCreditsEligible{}
 
 // UserCreditsEligible struct for UserCreditsEligible
 type UserCreditsEligible struct {
-	Eligible bool `json:"eligible"`
-	Reason *string `json:"reason,omitempty"`
+	Eligible bool    `json:"eligible"`
+	Reason   *string `json:"reason,omitempty"`
 }
 
 type _UserCreditsEligible UserCreditsEligible
@@ -103,7 +103,7 @@ func (o *UserCreditsEligible) SetReason(v string) {
 }
 
 func (o UserCreditsEligible) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -132,10 +132,10 @@ func (o *UserCreditsEligible) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -144,7 +144,7 @@ func (o *UserCreditsEligible) UnmarshalJSON(data []byte) (err error) {
 	varUserCreditsEligible := _UserCreditsEligible{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varUserCreditsEligible)
 
 	if err != nil {
@@ -191,5 +191,3 @@ func (v *NullableUserCreditsEligible) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

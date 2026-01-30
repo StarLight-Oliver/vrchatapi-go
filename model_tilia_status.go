@@ -12,20 +12,20 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the TiliaStatus type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &TiliaStatus{}
 
-// TiliaStatus 
+// TiliaStatus
 type TiliaStatus struct {
-	EconomyOnline bool `json:"economyOnline"`
-	EconomyState *int32 `json:"economyState,omitempty"`
-	PlannedOfflineWindowEnd *time.Time `json:"plannedOfflineWindowEnd,omitempty"`
+	EconomyOnline             bool       `json:"economyOnline"`
+	EconomyState              *int32     `json:"economyState,omitempty"`
+	PlannedOfflineWindowEnd   *time.Time `json:"plannedOfflineWindowEnd,omitempty"`
 	PlannedOfflineWindowStart *time.Time `json:"plannedOfflineWindowStart,omitempty"`
 }
 
@@ -170,7 +170,7 @@ func (o *TiliaStatus) SetPlannedOfflineWindowStart(v time.Time) {
 }
 
 func (o TiliaStatus) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -205,10 +205,10 @@ func (o *TiliaStatus) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -217,7 +217,7 @@ func (o *TiliaStatus) UnmarshalJSON(data []byte) (err error) {
 	varTiliaStatus := _TiliaStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varTiliaStatus)
 
 	if err != nil {
@@ -264,5 +264,3 @@ func (v *NullableTiliaStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

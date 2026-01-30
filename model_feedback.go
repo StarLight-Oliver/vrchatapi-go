@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,20 +23,20 @@ var _ MappedNullable = &Feedback{}
 // Feedback struct for Feedback
 type Feedback struct {
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	CommenterId string `json:"commenterId"`
+	CommenterId   string `json:"commenterId"`
 	CommenterName string `json:"commenterName"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	ContentAuthorId string `json:"contentAuthorId"`
+	ContentAuthorId   string         `json:"contentAuthorId"`
 	ContentAuthorName NullableString `json:"contentAuthorName"`
-	ContentId string `json:"contentId"`
-	ContentName *string `json:"contentName,omitempty"`
-	ContentType string `json:"contentType"`
-	ContentVersion NullableInt32 `json:"contentVersion"`
-	Description NullableString `json:"description,omitempty"`
-	Id string `json:"id"`
-	Reason string `json:"reason"`
-	Tags []string `json:"tags"`
-	Type string `json:"type"`
+	ContentId         string         `json:"contentId"`
+	ContentName       *string        `json:"contentName,omitempty"`
+	ContentType       string         `json:"contentType"`
+	ContentVersion    NullableInt32  `json:"contentVersion"`
+	Description       NullableString `json:"description,omitempty"`
+	Id                string         `json:"id"`
+	Reason            string         `json:"reason"`
+	Tags              []string       `json:"tags"`
+	Type              string         `json:"type"`
 }
 
 type _Feedback Feedback
@@ -305,6 +305,7 @@ func (o *Feedback) HasDescription() bool {
 func (o *Feedback) SetDescription(v string) {
 	o.Description.Set(&v)
 }
+
 // SetDescriptionNil sets the value for Description to be an explicit nil
 func (o *Feedback) SetDescriptionNil() {
 	o.Description.Set(nil)
@@ -412,7 +413,7 @@ func (o *Feedback) SetType(v string) {
 }
 
 func (o Feedback) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -464,10 +465,10 @@ func (o *Feedback) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -476,7 +477,7 @@ func (o *Feedback) UnmarshalJSON(data []byte) (err error) {
 	varFeedback := _Feedback{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFeedback)
 
 	if err != nil {
@@ -523,5 +524,3 @@ func (v *NullableFeedback) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -28,13 +28,13 @@ type CreateGroupGalleryRequest struct {
 	MembersOnly *bool `json:"membersOnly,omitempty"`
 	// Name of the gallery.
 	Name string `json:"name"`
-	//  
+	//
 	RoleIdsToAutoApprove []string `json:"roleIdsToAutoApprove,omitempty"`
-	//  
+	//
 	RoleIdsToManage []string `json:"roleIdsToManage,omitempty"`
-	//  
+	//
 	RoleIdsToSubmit []string `json:"roleIdsToSubmit,omitempty"`
-	//  
+	//
 	RoleIdsToView []string `json:"roleIdsToView,omitempty"`
 }
 
@@ -283,7 +283,7 @@ func (o *CreateGroupGalleryRequest) SetRoleIdsToView(v []string) {
 }
 
 func (o CreateGroupGalleryRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,10 +327,10 @@ func (o *CreateGroupGalleryRequest) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -339,7 +339,7 @@ func (o *CreateGroupGalleryRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateGroupGalleryRequest := _CreateGroupGalleryRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreateGroupGalleryRequest)
 
 	if err != nil {
@@ -386,5 +386,3 @@ func (v *NullableCreateGroupGalleryRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

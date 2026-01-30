@@ -1150,7 +1150,7 @@ func (o *ProductPurchase) UnmarshalJSON(data []byte) (err error) {
 	varProductPurchase := _ProductPurchase{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varProductPurchase)
 
 	if err != nil {

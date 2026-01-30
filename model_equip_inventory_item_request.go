@@ -110,7 +110,7 @@ func (o *EquipInventoryItemRequest) UnmarshalJSON(data []byte) (err error) {
 	varEquipInventoryItemRequest := _EquipInventoryItemRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varEquipInventoryItemRequest)
 
 	if err != nil {

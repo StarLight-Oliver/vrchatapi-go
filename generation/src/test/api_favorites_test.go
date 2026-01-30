@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService AddFavorite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.FavoritesAPI.AddFavorite(context.Background()).Execute()
 
@@ -36,7 +37,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService ClearFavoriteGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var favoriteGroupType string
 		var favoriteGroupName string
@@ -52,7 +53,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService GetFavoriteGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var favoriteGroupType string
 		var favoriteGroupName string
@@ -68,7 +69,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService GetFavoriteGroups", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.FavoritesAPI.GetFavoriteGroups(context.Background()).Execute()
 
@@ -80,7 +81,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService GetFavoriteLimits", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.FavoritesAPI.GetFavoriteLimits(context.Background()).Execute()
 
@@ -92,7 +93,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService GetFavorites", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.FavoritesAPI.GetFavorites(context.Background()).Execute()
 
@@ -104,7 +105,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService RemoveFavorite", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var favoriteId string
 
@@ -118,7 +119,7 @@ func Test_vrchatapi_FavoritesAPIService(t *testing.T) {
 
 	t.Run("Test FavoritesAPIService UpdateFavoriteGroup", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var favoriteGroupType string
 		var favoriteGroupName string

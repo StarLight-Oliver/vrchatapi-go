@@ -197,7 +197,7 @@ func (o *License) UnmarshalJSON(data []byte) (err error) {
 	varLicense := _License{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varLicense)
 
 	if err != nil {

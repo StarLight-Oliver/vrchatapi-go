@@ -319,7 +319,7 @@ func (o *FileVersion) UnmarshalJSON(data []byte) (err error) {
 	varFileVersion := _FileVersion{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFileVersion)
 
 	if err != nil {

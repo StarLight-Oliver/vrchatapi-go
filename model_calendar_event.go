@@ -1027,7 +1027,7 @@ func (o *CalendarEvent) UnmarshalJSON(data []byte) (err error) {
 	varCalendarEvent := _CalendarEvent{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCalendarEvent)
 
 	if err != nil {

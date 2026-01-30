@@ -281,7 +281,7 @@ func (o *PlayerModeration) UnmarshalJSON(data []byte) (err error) {
 	varPlayerModeration := _PlayerModeration{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varPlayerModeration)
 
 	if err != nil {

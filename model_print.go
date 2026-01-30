@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the Print type satisfies the MappedNullable interface at compile time
@@ -24,17 +24,17 @@ var _ MappedNullable = &Print{}
 // Print Info about a print
 type Print struct {
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	AuthorId string `json:"authorId"`
-	AuthorName string `json:"authorName"`
-	CreatedAt time.Time `json:"createdAt"`
-	Files PrintFiles `json:"files"`
-	Id string `json:"id"`
-	Note string `json:"note"`
+	AuthorId   string     `json:"authorId"`
+	AuthorName string     `json:"authorName"`
+	CreatedAt  time.Time  `json:"createdAt"`
+	Files      PrintFiles `json:"files"`
+	Id         string     `json:"id"`
+	Note       string     `json:"note"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	OwnerId *string `json:"ownerId,omitempty"`
+	OwnerId   *string   `json:"ownerId,omitempty"`
 	Timestamp time.Time `json:"timestamp"`
 	// WorldID be \"offline\" on User profiles if you are not friends with that user.
-	WorldId string `json:"worldId"`
+	WorldId   string `json:"worldId"`
 	WorldName string `json:"worldName"`
 }
 
@@ -315,7 +315,7 @@ func (o *Print) SetWorldName(v string) {
 }
 
 func (o Print) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -360,10 +360,10 @@ func (o *Print) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -372,7 +372,7 @@ func (o *Print) UnmarshalJSON(data []byte) (err error) {
 	varPrint := _Print{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varPrint)
 
 	if err != nil {
@@ -419,5 +419,3 @@ func (v *NullablePrint) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

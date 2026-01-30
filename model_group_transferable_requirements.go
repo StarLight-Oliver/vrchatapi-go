@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,11 +22,11 @@ var _ MappedNullable = &GroupTransferableRequirements{}
 
 // GroupTransferableRequirements struct for GroupTransferableRequirements
 type GroupTransferableRequirements struct {
-	GroupNotMonetized bool `json:"groupNotMonetized"`
-	HasVRCPlus bool `json:"hasVRCPlus"`
-	HasVerifiedEmail bool `json:"hasVerifiedEmail"`
+	GroupNotMonetized      bool `json:"groupNotMonetized"`
+	HasVRCPlus             bool `json:"hasVRCPlus"`
+	HasVerifiedEmail       bool `json:"hasVerifiedEmail"`
 	TargetCanOwnMoreGroups bool `json:"targetCanOwnMoreGroups"`
-	TargetIsGroupMember bool `json:"targetIsGroupMember"`
+	TargetIsGroupMember    bool `json:"targetIsGroupMember"`
 }
 
 type _GroupTransferableRequirements GroupTransferableRequirements
@@ -184,7 +184,7 @@ func (o *GroupTransferableRequirements) SetTargetIsGroupMember(v bool) {
 }
 
 func (o GroupTransferableRequirements) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -218,10 +218,10 @@ func (o *GroupTransferableRequirements) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -230,7 +230,7 @@ func (o *GroupTransferableRequirements) UnmarshalJSON(data []byte) (err error) {
 	varGroupTransferableRequirements := _GroupTransferableRequirements{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varGroupTransferableRequirements)
 
 	if err != nil {
@@ -277,5 +277,3 @@ func (v *NullableGroupTransferableRequirements) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -320,7 +320,7 @@ func (o *Agreement) UnmarshalJSON(data []byte) (err error) {
 	varAgreement := _Agreement{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAgreement)
 
 	if err != nil {

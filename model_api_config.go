@@ -12,10 +12,10 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the APIConfig type satisfies the MappedNullable interface at compile time
@@ -32,13 +32,13 @@ type APIConfig struct {
 	// Unknown, probably voice optimization testing
 	VoiceEnableDegradation bool `json:"VoiceEnableDegradation"`
 	// Unknown, probably voice optimization testing
-	VoiceEnableReceiverLimiting bool `json:"VoiceEnableReceiverLimiting"`
-	AccessLogsUrls APIConfigAccessLogsUrls `json:"accessLogsUrls"`
+	VoiceEnableReceiverLimiting bool                    `json:"VoiceEnableReceiverLimiting"`
+	AccessLogsUrls              APIConfigAccessLogsUrls `json:"accessLogsUrls"`
 	// VRChat's office address
-	Address string `json:"address"`
-	AgeVerificationInviteVisible bool `json:"ageVerificationInviteVisible"`
-	AgeVerificationP bool `json:"ageVerificationP"`
-	AgeVerificationStatusVisible bool `json:"ageVerificationStatusVisible"`
+	Address                      string `json:"address"`
+	AgeVerificationInviteVisible bool   `json:"ageVerificationInviteVisible"`
+	AgeVerificationP             bool   `json:"ageVerificationP"`
+	AgeVerificationStatusVisible bool   `json:"ageVerificationStatusVisible"`
 	// Max retries for avatar analysis requests
 	AnalysisMaxRetries int32 `json:"analysisMaxRetries"`
 	// Interval between retries for avatar analysis requests
@@ -49,12 +49,12 @@ type APIConfig struct {
 	AnalyticsSegmentNewUISalt string `json:"analyticsSegment_NewUI_Salt"`
 	// Public Announcements
 	Announcements []APIConfigAnnouncement `json:"announcements"`
-	AudioConfig *APIConfigAudioConfig `json:"audioConfig,omitempty"`
+	AudioConfig   *APIConfigAudioConfig   `json:"audioConfig,omitempty"`
 	// List of supported Languages
 	AvailableLanguageCodes []string `json:"availableLanguageCodes"`
 	// List of supported Languages
-	AvailableLanguages []string `json:"availableLanguages"`
-	AvatarPerfLimiter APIConfigAvatarPerfLimiter `json:"avatarPerfLimiter"`
+	AvailableLanguages []string                   `json:"availableLanguages"`
+	AvatarPerfLimiter  APIConfigAvatarPerfLimiter `json:"avatarPerfLimiter"`
 	// Unknown
 	ChatboxLogBufferSeconds int32 `json:"chatboxLogBufferSeconds"`
 	// apiKey to be used for all other requests
@@ -88,8 +88,8 @@ type APIConfig struct {
 	// Unknown
 	ClientReservedPlayerBPS int32 `json:"clientReservedPlayerBPS"`
 	// Unknown
-	ClientSentCountAllowance int32 `json:"clientSentCountAllowance"`
-	Constants APIConfigConstants `json:"constants"`
+	ClientSentCountAllowance int32              `json:"clientSentCountAllowance"`
+	Constants                APIConfigConstants `json:"constants"`
 	// VRChat's contact email
 	ContactEmail string `json:"contactEmail"`
 	// VRChat's copyright-issues-related email
@@ -99,8 +99,8 @@ type APIConfig struct {
 	// Current version number of the Privacy Agreement
 	CurrentPrivacyVersion int32 `json:"currentPrivacyVersion"`
 	// Current version number of the Terms of Service
-	CurrentTOSVersion int32 `json:"currentTOSVersion"`
-	DefaultAvatar string `json:"defaultAvatar"`
+	CurrentTOSVersion int32  `json:"currentTOSVersion"`
+	DefaultAvatar     string `json:"defaultAvatar"`
 	DefaultStickerSet string `json:"defaultStickerSet"`
 	// Unknown
 	DevLanguageCodes []string `json:"devLanguageCodes,omitempty"`
@@ -150,8 +150,8 @@ type APIConfig struct {
 	// Toggles if account upgrading \"linking with Steam/Oculus\" should be disabled.
 	DisableUpgradeAccount bool `json:"disableUpgradeAccount"`
 	// Download link for game on the Oculus Rift website.
-	DownloadLinkWindows string `json:"downloadLinkWindows"`
-	DownloadUrls APIConfigDownloadURLList `json:"downloadUrls"`
+	DownloadLinkWindows string                   `json:"downloadLinkWindows"`
+	DownloadUrls        APIConfigDownloadURLList `json:"downloadUrls"`
 	// Array of DynamicWorldRow objects, used by the game to display the list of world rows
 	DynamicWorldRows []DynamicContentRow `json:"dynamicWorldRows"`
 	// Unknown
@@ -167,8 +167,8 @@ type APIConfig struct {
 	// Unknown
 	EconomyPurchaseRepairEnabled bool `json:"economyPurchaseRepairEnabled"`
 	// Unknown
-	EconomyState int32 `json:"economyState"`
-	Events APIConfigEvents `json:"events"`
+	EconomyState int32           `json:"economyState"`
+	Events       APIConfigEvents `json:"events"`
 	// Unknown
 	ForceUseLatestWorld bool `json:"forceUseLatestWorld"`
 	// Display type of gifts
@@ -184,22 +184,22 @@ type APIConfig struct {
 	// A list of explicitly allowed origins that worlds can request images from via the Udon's [VRCImageDownloader#DownloadImage](https://creators.vrchat.com/worlds/udon/image-loading/#downloadimage).
 	ImageHostUrlList []string `json:"imageHostUrlList"`
 	// Current app version for iOS
-	IosAppVersion []string `json:"iosAppVersion"`
-	IosVersion APIConfigIosVersion `json:"iosVersion"`
+	IosAppVersion []string            `json:"iosAppVersion"`
+	IosVersion    APIConfigIosVersion `json:"iosVersion"`
 	// VRChat's job application email
 	JobsEmail string `json:"jobsEmail"`
 	// The maximum number of custom emoji each user may have at a given time.
 	MaxUserEmoji int32 `json:"maxUserEmoji"`
 	// The maximum number of custom stickers each user may have at a given time.
-	MaxUserStickers int32 `json:"maxUserStickers"`
+	MaxUserStickers               int32                                  `json:"maxUserStickers"`
 	MinSupportedClientBuildNumber APIConfigMinSupportedClientBuildNumber `json:"minSupportedClientBuildNumber"`
 	// Minimum Unity version required for uploading assets
 	MinimumUnityVersionForUploads string `json:"minimumUnityVersionForUploads"`
 	// VRChat's moderation related email
 	ModerationEmail string `json:"moderationEmail"`
 	// Used in-game to notify a user they aren't allowed to select avatars in private worlds
-	NotAllowedToSelectAvatarInPrivateWorldMessage string `json:"notAllowedToSelectAvatarInPrivateWorldMessage"`
-	OfflineAnalysis APIConfigOfflineAnalysis `json:"offlineAnalysis"`
+	NotAllowedToSelectAvatarInPrivateWorldMessage string                   `json:"notAllowedToSelectAvatarInPrivateWorldMessage"`
+	OfflineAnalysis                               APIConfigOfflineAnalysis `json:"offlineAnalysis"`
 	// Unknown
 	PhotonNameserverOverrides []string `json:"photonNameserverOverrides"`
 	// Unknown
@@ -217,8 +217,8 @@ type APIConfig struct {
 	// Options for reporting content. Select a key+value from this mapping as the `type` of the report. Select one key+value from the object at reportOptions[type] as the `category` of the report. reportCategories[category] contains user-facing text to display for all possible categories. Select one value from the array at reportOptions[type][category] as the `reason` of the report. reportReasons[reason] contains user-facing text to display for all possible categories.
 	ReportOptions map[string]map[string][]string `json:"reportOptions"`
 	// Reasons available for submitting a report
-	ReportReasons map[string]ReportReason `json:"reportReasons"`
-	RequireAgeVerificationBetaTag bool `json:"requireAgeVerificationBetaTag"`
+	ReportReasons                 map[string]ReportReason `json:"reportReasons"`
+	RequireAgeVerificationBetaTag bool                    `json:"requireAgeVerificationBetaTag"`
 	// Link to the developer FAQ
 	SdkDeveloperFaqUrl string `json:"sdkDeveloperFaqUrl"`
 	// Link to the official VRChat Discord
@@ -3670,7 +3670,7 @@ func (o *APIConfig) SetWhiteListedAssetUrls(v []string) {
 }
 
 func (o APIConfig) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -3960,10 +3960,10 @@ func (o *APIConfig) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -3972,7 +3972,7 @@ func (o *APIConfig) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfig := _APIConfig{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAPIConfig)
 
 	if err != nil {
@@ -4019,5 +4019,3 @@ func (v *NullableAPIConfig) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

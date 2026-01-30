@@ -508,7 +508,7 @@ func (o *Transaction) UnmarshalJSON(data []byte) (err error) {
 	varTransaction := _Transaction{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varTransaction)
 
 	if err != nil {

@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_InventoryAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService ConsumeOwnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId string
 
@@ -38,7 +39,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService DeleteOwnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId string
 
@@ -52,7 +53,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService EquipOwnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId string
 
@@ -66,7 +67,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetInventory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.GetInventory(context.Background()).Execute()
 
@@ -78,7 +79,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetInventoryCollections", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.GetInventoryCollections(context.Background()).Execute()
 
@@ -90,7 +91,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetInventoryDrops", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.GetInventoryDrops(context.Background()).Execute()
 
@@ -102,7 +103,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetInventoryTemplate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryTemplateId string
 
@@ -116,7 +117,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetOwnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId string
 
@@ -130,7 +131,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService GetUserInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 		var inventoryItemId string
@@ -145,7 +146,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService ShareInventoryItemDirect", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.ShareInventoryItemDirect(context.Background()).Execute()
 
@@ -157,7 +158,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService ShareInventoryItemPedestal", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.ShareInventoryItemPedestal(context.Background()).Execute()
 
@@ -169,7 +170,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService SpawnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.InventoryAPI.SpawnInventoryItem(context.Background()).Execute()
 
@@ -181,7 +182,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService UnequipOwnInventorySlot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId openapiclient.InventoryEquipSlot
 
@@ -195,7 +196,7 @@ func Test_vrchatapi_InventoryAPIService(t *testing.T) {
 
 	t.Run("Test InventoryAPIService UpdateOwnInventoryItem", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var inventoryItemId string
 

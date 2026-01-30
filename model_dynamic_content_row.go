@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,11 +23,11 @@ var _ MappedNullable = &DynamicContentRow{}
 // DynamicContentRow struct for DynamicContentRow
 type DynamicContentRow struct {
 	Index *int32 `json:"index,omitempty"`
-	Name string `json:"name"`
+	Name  string `json:"name"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform string `json:"platform"`
-	SortHeading string `json:"sortHeading"`
-	SortOrder string `json:"sortOrder"`
+	Platform      string `json:"platform"`
+	SortHeading   string `json:"sortHeading"`
+	SortOrder     string `json:"sortOrder"`
 	SortOwnership string `json:"sortOwnership"`
 	// Tags are a way to grant various access, assign restrictions or other kinds of metadata to various to objects such as worlds, users and avatars.  System tags starting with `system_` are granted automatically by the system, while admin tags with `admin_` are granted manually. More prefixes such as `language_ ` (to indicate that a player can speak the tagged language), and `author_tag_` (provided by a world author for search and sorting) exist as well.
 	Tag *string `json:"tag,omitempty"`
@@ -276,7 +276,7 @@ func (o *DynamicContentRow) SetType(v string) {
 }
 
 func (o DynamicContentRow) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -319,10 +319,10 @@ func (o *DynamicContentRow) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -331,7 +331,7 @@ func (o *DynamicContentRow) UnmarshalJSON(data []byte) (err error) {
 	varDynamicContentRow := _DynamicContentRow{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varDynamicContentRow)
 
 	if err != nil {
@@ -378,5 +378,3 @@ func (v *NullableDynamicContentRow) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

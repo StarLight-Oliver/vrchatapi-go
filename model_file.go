@@ -508,7 +508,7 @@ func (o *File) UnmarshalJSON(data []byte) (err error) {
 	varFile := _File{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varFile)
 
 	if err != nil {

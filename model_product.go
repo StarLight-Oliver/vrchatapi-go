@@ -646,7 +646,7 @@ func (o *Product) UnmarshalJSON(data []byte) (err error) {
 	varProduct := _Product{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varProduct)
 
 	if err != nil {

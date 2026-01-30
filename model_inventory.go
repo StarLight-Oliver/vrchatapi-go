@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &Inventory{}
 
 // Inventory struct for Inventory
 type Inventory struct {
-	Data []InventoryItem `json:"data"`
-	TotalCount int32 `json:"totalCount"`
+	Data       []InventoryItem `json:"data"`
+	TotalCount int32           `json:"totalCount"`
 }
 
 type _Inventory Inventory
@@ -96,7 +96,7 @@ func (o *Inventory) SetTotalCount(v int32) {
 }
 
 func (o Inventory) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -124,10 +124,10 @@ func (o *Inventory) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -136,7 +136,7 @@ func (o *Inventory) UnmarshalJSON(data []byte) (err error) {
 	varInventory := _Inventory{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varInventory)
 
 	if err != nil {
@@ -183,5 +183,3 @@ func (v *NullableInventory) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

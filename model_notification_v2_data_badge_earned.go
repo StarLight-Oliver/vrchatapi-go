@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,8 +23,8 @@ var _ MappedNullable = &NotificationV2DataBadgeEarned{}
 // NotificationV2DataBadgeEarned struct for NotificationV2DataBadgeEarned
 type NotificationV2DataBadgeEarned struct {
 	BadgeDescription string `json:"badgeDescription"`
-	BadgeId string `json:"badgeId"`
-	BadgeName string `json:"badgeName"`
+	BadgeId          string `json:"badgeId"`
+	BadgeName        string `json:"badgeName"`
 }
 
 type _NotificationV2DataBadgeEarned NotificationV2DataBadgeEarned
@@ -122,7 +122,7 @@ func (o *NotificationV2DataBadgeEarned) SetBadgeName(v string) {
 }
 
 func (o NotificationV2DataBadgeEarned) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,10 +152,10 @@ func (o *NotificationV2DataBadgeEarned) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -164,7 +164,7 @@ func (o *NotificationV2DataBadgeEarned) UnmarshalJSON(data []byte) (err error) {
 	varNotificationV2DataBadgeEarned := _NotificationV2DataBadgeEarned{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationV2DataBadgeEarned)
 
 	if err != nil {
@@ -211,5 +211,3 @@ func (v *NullableNotificationV2DataBadgeEarned) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,10 +22,10 @@ var _ MappedNullable = &GroupRoleTemplateValues{}
 
 // GroupRoleTemplateValues struct for GroupRoleTemplateValues
 type GroupRoleTemplateValues struct {
-	BasePermissions []GroupPermissions `json:"basePermissions"`
-	Description string `json:"description"`
-	Name string `json:"name"`
-	Roles GroupRoleTemplateValuesRoles `json:"roles"`
+	BasePermissions []GroupPermissions           `json:"basePermissions"`
+	Description     string                       `json:"description"`
+	Name            string                       `json:"name"`
+	Roles           GroupRoleTemplateValuesRoles `json:"roles"`
 }
 
 type _GroupRoleTemplateValues GroupRoleTemplateValues
@@ -148,7 +148,7 @@ func (o *GroupRoleTemplateValues) SetRoles(v GroupRoleTemplateValuesRoles) {
 }
 
 func (o GroupRoleTemplateValues) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,10 +180,10 @@ func (o *GroupRoleTemplateValues) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -192,7 +192,7 @@ func (o *GroupRoleTemplateValues) UnmarshalJSON(data []byte) (err error) {
 	varGroupRoleTemplateValues := _GroupRoleTemplateValues{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varGroupRoleTemplateValues)
 
 	if err != nil {
@@ -239,5 +239,3 @@ func (v *NullableGroupRoleTemplateValues) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

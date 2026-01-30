@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,9 +23,9 @@ var _ MappedNullable = &NotificationV2DetailsBoop{}
 // NotificationV2DetailsBoop Either inventoryItemId by itself, or emojiId with optional emojiVersion
 type NotificationV2DetailsBoop struct {
 	// Either a FileID or a string constant for default emojis
-	EmojiId string `json:"emojiId"`
-	EmojiVersion NullableInt32 `json:"emojiVersion"`
-	InventoryItemId string `json:"inventoryItemId"`
+	EmojiId         string        `json:"emojiId"`
+	EmojiVersion    NullableInt32 `json:"emojiVersion"`
+	InventoryItemId string        `json:"inventoryItemId"`
 }
 
 type _NotificationV2DetailsBoop NotificationV2DetailsBoop
@@ -125,7 +125,7 @@ func (o *NotificationV2DetailsBoop) SetInventoryItemId(v string) {
 }
 
 func (o NotificationV2DetailsBoop) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -155,10 +155,10 @@ func (o *NotificationV2DetailsBoop) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -167,7 +167,7 @@ func (o *NotificationV2DetailsBoop) UnmarshalJSON(data []byte) (err error) {
 	varNotificationV2DetailsBoop := _NotificationV2DetailsBoop{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationV2DetailsBoop)
 
 	if err != nil {
@@ -214,5 +214,3 @@ func (v *NullableNotificationV2DetailsBoop) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

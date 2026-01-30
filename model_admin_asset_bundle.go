@@ -450,7 +450,7 @@ func (o *AdminAssetBundle) UnmarshalJSON(data []byte) (err error) {
 	varAdminAssetBundle := _AdminAssetBundle{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAdminAssetBundle)
 
 	if err != nil {

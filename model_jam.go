@@ -12,28 +12,28 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
-	"time"
 	"bytes"
+	"encoding/json"
 	"fmt"
+	"time"
 )
 
 // checks if the Jam type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &Jam{}
 
-// Jam 
+// Jam
 type Jam struct {
 	Description string `json:"description"`
-	Id string `json:"id"`
-	IsVisible bool `json:"isVisible"`
-	MoreInfo string `json:"moreInfo"`
+	Id          string `json:"id"`
+	IsVisible   bool   `json:"isVisible"`
+	MoreInfo    string `json:"moreInfo"`
 	// One of: - submissions_open - closed
-	State string `json:"state"`
-	StateChangeDates JamStateChangeDates `json:"stateChangeDates"`
-	SubmissionContentGateDate NullableTime `json:"submissionContentGateDate"`
-	SubmissionContentGated bool `json:"submissionContentGated"`
-	Title string `json:"title"`
-	UpdatedAt time.Time `json:"updated_at"`
+	State                     string              `json:"state"`
+	StateChangeDates          JamStateChangeDates `json:"stateChangeDates"`
+	SubmissionContentGateDate NullableTime        `json:"submissionContentGateDate"`
+	SubmissionContentGated    bool                `json:"submissionContentGated"`
+	Title                     string              `json:"title"`
+	UpdatedAt                 time.Time           `json:"updated_at"`
 }
 
 type _Jam Jam
@@ -308,7 +308,7 @@ func (o *Jam) SetUpdatedAt(v time.Time) {
 }
 
 func (o Jam) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -352,10 +352,10 @@ func (o *Jam) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -364,7 +364,7 @@ func (o *Jam) UnmarshalJSON(data []byte) (err error) {
 	varJam := _Jam{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varJam)
 
 	if err != nil {
@@ -411,5 +411,3 @@ func (v *NullableJam) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

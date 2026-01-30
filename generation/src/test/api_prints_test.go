@@ -11,10 +11,11 @@ package vrchatapi
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/vrchatapi/vrchatapi-go"
 )
 
 func Test_vrchatapi_PrintsAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_vrchatapi_PrintsAPIService(t *testing.T) {
 
 	t.Run("Test PrintsAPIService DeletePrint", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var printId string
 
@@ -37,7 +38,7 @@ func Test_vrchatapi_PrintsAPIService(t *testing.T) {
 
 	t.Run("Test PrintsAPIService EditPrint", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var printId string
 
@@ -51,7 +52,7 @@ func Test_vrchatapi_PrintsAPIService(t *testing.T) {
 
 	t.Run("Test PrintsAPIService GetPrint", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var printId string
 
@@ -65,7 +66,7 @@ func Test_vrchatapi_PrintsAPIService(t *testing.T) {
 
 	t.Run("Test PrintsAPIService GetUserPrints", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var userId string
 
@@ -79,7 +80,7 @@ func Test_vrchatapi_PrintsAPIService(t *testing.T) {
 
 	t.Run("Test PrintsAPIService UploadPrint", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.PrintsAPI.UploadPrint(context.Background()).Execute()
 

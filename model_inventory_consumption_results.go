@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,9 +22,9 @@ var _ MappedNullable = &InventoryConsumptionResults{}
 
 // InventoryConsumptionResults struct for InventoryConsumptionResults
 type InventoryConsumptionResults struct {
-	Errors []map[string]interface{} `json:"errors"`
-	InventoryItems []InventoryItem `json:"inventoryItems"`
-	InventoryItemsCreated int32 `json:"inventoryItemsCreated"`
+	Errors                []map[string]interface{} `json:"errors"`
+	InventoryItems        []InventoryItem          `json:"inventoryItems"`
+	InventoryItemsCreated int32                    `json:"inventoryItemsCreated"`
 }
 
 type _InventoryConsumptionResults InventoryConsumptionResults
@@ -122,7 +122,7 @@ func (o *InventoryConsumptionResults) SetInventoryItemsCreated(v int32) {
 }
 
 func (o InventoryConsumptionResults) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -152,10 +152,10 @@ func (o *InventoryConsumptionResults) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -164,7 +164,7 @@ func (o *InventoryConsumptionResults) UnmarshalJSON(data []byte) (err error) {
 	varInventoryConsumptionResults := _InventoryConsumptionResults{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varInventoryConsumptionResults)
 
 	if err != nil {
@@ -211,5 +211,3 @@ func (v *NullableInventoryConsumptionResults) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

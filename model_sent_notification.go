@@ -323,7 +323,7 @@ func (o *SentNotification) UnmarshalJSON(data []byte) (err error) {
 	varSentNotification := _SentNotification{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varSentNotification)
 
 	if err != nil {

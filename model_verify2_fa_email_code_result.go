@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -70,7 +70,7 @@ func (o *Verify2FAEmailCodeResult) SetVerified(v bool) {
 }
 
 func (o Verify2FAEmailCodeResult) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -96,10 +96,10 @@ func (o *Verify2FAEmailCodeResult) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -108,7 +108,7 @@ func (o *Verify2FAEmailCodeResult) UnmarshalJSON(data []byte) (err error) {
 	varVerify2FAEmailCodeResult := _Verify2FAEmailCodeResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varVerify2FAEmailCodeResult)
 
 	if err != nil {
@@ -155,5 +155,3 @@ func (v *NullableVerify2FAEmailCodeResult) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

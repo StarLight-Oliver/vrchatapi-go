@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -25,9 +25,9 @@ type GroupInstance struct {
 	// InstanceID can be \"offline\" on User profiles if you are not friends with that user and \"private\" if you are friends and user is in private instance.
 	InstanceId string `json:"instanceId"`
 	// Represents a unique location, consisting of a world identifier and an instance identifier, or \"offline\" if the user is not on your friends list.
-	Location string `json:"location"`
-	MemberCount int32 `json:"memberCount"`
-	World World `json:"world"`
+	Location    string `json:"location"`
+	MemberCount int32  `json:"memberCount"`
+	World       World  `json:"world"`
 }
 
 type _GroupInstance GroupInstance
@@ -150,7 +150,7 @@ func (o *GroupInstance) SetWorld(v World) {
 }
 
 func (o GroupInstance) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -182,10 +182,10 @@ func (o *GroupInstance) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -194,7 +194,7 @@ func (o *GroupInstance) UnmarshalJSON(data []byte) (err error) {
 	varGroupInstance := _GroupInstance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varGroupInstance)
 
 	if err != nil {
@@ -241,5 +241,3 @@ func (v *NullableGroupInstance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

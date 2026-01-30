@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &RespondNotificationV2Request{}
 // RespondNotificationV2Request struct for RespondNotificationV2Request
 type RespondNotificationV2Request struct {
 	ResponseData *string `json:"responseData,omitempty"`
-	ResponseType string `json:"responseType"`
+	ResponseType string  `json:"responseType"`
 }
 
 type _RespondNotificationV2Request RespondNotificationV2Request
@@ -107,7 +107,7 @@ func (o *RespondNotificationV2Request) SetResponseType(v string) {
 }
 
 func (o RespondNotificationV2Request) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -136,10 +136,10 @@ func (o *RespondNotificationV2Request) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -148,7 +148,7 @@ func (o *RespondNotificationV2Request) UnmarshalJSON(data []byte) (err error) {
 	varRespondNotificationV2Request := _RespondNotificationV2Request{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varRespondNotificationV2Request)
 
 	if err != nil {
@@ -195,5 +195,3 @@ func (v *NullableRespondNotificationV2Request) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

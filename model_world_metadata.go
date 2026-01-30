@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -23,7 +23,7 @@ var _ MappedNullable = &WorldMetadata{}
 // WorldMetadata struct for WorldMetadata
 type WorldMetadata struct {
 	// WorldID be \"offline\" on User profiles if you are not friends with that user.
-	Id string `json:"id"`
+	Id       string                 `json:"id"`
 	Metadata map[string]interface{} `json:"metadata"`
 }
 
@@ -97,7 +97,7 @@ func (o *WorldMetadata) SetMetadata(v map[string]interface{}) {
 }
 
 func (o WorldMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -125,10 +125,10 @@ func (o *WorldMetadata) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -137,7 +137,7 @@ func (o *WorldMetadata) UnmarshalJSON(data []byte) (err error) {
 	varWorldMetadata := _WorldMetadata{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varWorldMetadata)
 
 	if err != nil {
@@ -184,5 +184,3 @@ func (v *NullableWorldMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
@@ -22,8 +22,8 @@ var _ MappedNullable = &NotificationV2DataGroupInformative{}
 
 // NotificationV2DataGroupInformative struct for NotificationV2DataGroupInformative
 type NotificationV2DataGroupInformative struct {
-	GroupId string `json:"groupId"`
-	GroupName string `json:"groupName"`
+	GroupId                   string  `json:"groupId"`
+	GroupName                 string  `json:"groupName"`
 	TransferTargetDisplayName *string `json:"transferTargetDisplayName,omitempty"`
 }
 
@@ -129,7 +129,7 @@ func (o *NotificationV2DataGroupInformative) SetTransferTargetDisplayName(v stri
 }
 
 func (o NotificationV2DataGroupInformative) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,10 +160,10 @@ func (o *NotificationV2DataGroupInformative) UnmarshalJSON(data []byte) (err err
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -172,7 +172,7 @@ func (o *NotificationV2DataGroupInformative) UnmarshalJSON(data []byte) (err err
 	varNotificationV2DataGroupInformative := _NotificationV2DataGroupInformative{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varNotificationV2DataGroupInformative)
 
 	if err != nil {
@@ -219,5 +219,3 @@ func (v *NullableNotificationV2DataGroupInformative) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

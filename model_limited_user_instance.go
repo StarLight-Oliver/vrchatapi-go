@@ -939,7 +939,7 @@ func (o *LimitedUserInstance) UnmarshalJSON(data []byte) (err error) {
 	varLimitedUserInstance := _LimitedUserInstance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varLimitedUserInstance)
 
 	if err != nil {

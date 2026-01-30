@@ -12,23 +12,23 @@ Contact: vrchatapi.lpv0t@aries.fyi
 package vrchatapi
 
 import (
-	"encoding/json"
 	"bytes"
+	"encoding/json"
 	"fmt"
 )
 
 // checks if the PropUnityPackage type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &PropUnityPackage{}
 
-// PropUnityPackage 
+// PropUnityPackage
 type PropUnityPackage struct {
-	AssetUrl string `json:"assetUrl"`
-	AssetVersion int32 `json:"assetVersion"`
+	AssetUrl     string `json:"assetUrl"`
+	AssetVersion int32  `json:"assetVersion"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform string `json:"platform"`
+	Platform      string `json:"platform"`
 	PropSignature string `json:"propSignature"`
-	UnityVersion string `json:"unityVersion"`
-	Variant string `json:"variant"`
+	UnityVersion  string `json:"unityVersion"`
+	Variant       string `json:"variant"`
 }
 
 type _PropUnityPackage PropUnityPackage
@@ -203,7 +203,7 @@ func (o *PropUnityPackage) SetVariant(v string) {
 }
 
 func (o PropUnityPackage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -239,10 +239,10 @@ func (o *PropUnityPackage) UnmarshalJSON(data []byte) (err error) {
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if _, exists := allProperties[requiredProperty]; !exists {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
@@ -251,7 +251,7 @@ func (o *PropUnityPackage) UnmarshalJSON(data []byte) (err error) {
 	varPropUnityPackage := _PropUnityPackage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varPropUnityPackage)
 
 	if err != nil {
@@ -298,5 +298,3 @@ func (v *NullablePropUnityPackage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

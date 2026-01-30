@@ -620,7 +620,7 @@ func (o *CreateAvatarRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateAvatarRequest := _CreateAvatarRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varCreateAvatarRequest)
 
 	if err != nil {

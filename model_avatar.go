@@ -1034,7 +1034,7 @@ func (o *Avatar) UnmarshalJSON(data []byte) (err error) {
 	varAvatar := _Avatar{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	decoder.DisallowUnknownFields()
+
 	err = decoder.Decode(&varAvatar)
 
 	if err != nil {
