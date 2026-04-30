@@ -2,3 +2,4 @@
 openapi.json
 /generation/node_modules
 /generation/src
+/generation/out

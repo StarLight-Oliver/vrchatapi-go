@@ -43,15 +43,8 @@ func (v *ContentFilter) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ContentFilter(value)
-	for _, existing := range AllowedContentFilterEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ContentFilter", value)
+	*v = ContentFilter(value)
+	return nil
 }
 
 // NewContentFilterFromValue returns a pointer to a valid ContentFilter

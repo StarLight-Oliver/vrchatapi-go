@@ -39,15 +39,8 @@ func (v *CalendarEventDiscoveryScope) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CalendarEventDiscoveryScope(value)
-	for _, existing := range AllowedCalendarEventDiscoveryScopeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CalendarEventDiscoveryScope", value)
+	*v = CalendarEventDiscoveryScope(value)
+	return nil
 }
 
 // NewCalendarEventDiscoveryScopeFromValue returns a pointer to a valid CalendarEventDiscoveryScope

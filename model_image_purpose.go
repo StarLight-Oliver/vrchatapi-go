@@ -55,15 +55,8 @@ func (v *ImagePurpose) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImagePurpose(value)
-	for _, existing := range AllowedImagePurposeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImagePurpose", value)
+	*v = ImagePurpose(value)
+	return nil
 }
 
 // NewImagePurposeFromValue returns a pointer to a valid ImagePurpose

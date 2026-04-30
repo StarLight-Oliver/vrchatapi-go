@@ -39,15 +39,8 @@ func (v *StoreType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := StoreType(value)
-	for _, existing := range AllowedStoreTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid StoreType", value)
+	*v = StoreType(value)
+	return nil
 }
 
 // NewStoreTypeFromValue returns a pointer to a valid StoreType

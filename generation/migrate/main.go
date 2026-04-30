@@ -1,7 +1,7 @@
 // Command migrate transforms the raw output of openapi-generator-cli (Go
 // client) into the form vrchatapi-go actually compiles against.
 //
-// Four patches are applied:
+// Five patches are applied:
 //
 //  1. Drop "decoder.DisallowUnknownFields()" from every model's UnmarshalJSON
 //     so the client tolerates extra fields the VRChat API returns.
@@ -13,6 +13,10 @@
 //  4. Delete the three duplicate *UserPersistence* Api types and their methods
 //     from api_worlds.go (kept canonically in api_users.go); they exist in both
 //     because the spec tags those operations with both "users" and "worlds".
+//  5. Relax UnmarshalJSON on every enum type so unknown values (e.g. a new
+//     GroupPermissions entry VRChat ships post-generation) are accepted as-is
+//     instead of failing the whole decode. IsValid() and New<T>FromValue keep
+//     strict semantics for callers that explicitly want validation.
 package main
 
 import (
@@ -74,6 +78,7 @@ func run(srcDir, dstDir string) error {
 
 	for name, f := range files {
 		prefixEnums(f, enumTable)
+		relaxEnumUnmarshal(f, enumTable)
 		switch name {
 		case "api_miscellaneous.go":
 			addImport(f, "time")
@@ -221,6 +226,80 @@ func prefixEnums(f *ast.File, enums map[string]map[string]struct{}) {
 		}
 		return true
 	})
+}
+
+// relaxEnumUnmarshal rewrites UnmarshalJSON methods on enum types so unknown
+// values are accepted as-is instead of erroring on a stale allowlist. The
+// validating IsValid() and New<T>FromValue helpers are left untouched, so any
+// caller that explicitly wants to check enum membership still can.
+func relaxEnumUnmarshal(f *ast.File, enums map[string]map[string]struct{}) {
+	for _, decl := range f.Decls {
+		fn, ok := decl.(*ast.FuncDecl)
+		if !ok || fn.Name.Name != "UnmarshalJSON" {
+			continue
+		}
+		recv := receiverTypeName(fn)
+		if _, isEnum := enums[recv]; !isEnum {
+			continue
+		}
+		fn.Body = relaxedEnumBody(recv)
+	}
+}
+
+// relaxedEnumBody returns the AST of:
+//
+//	{
+//	    var value string
+//	    err := json.Unmarshal(src, &value)
+//	    if err != nil {
+//	        return err
+//	    }
+//	    *v = T(value)
+//	    return nil
+//	}
+func relaxedEnumBody(typeName string) *ast.BlockStmt {
+	return &ast.BlockStmt{List: []ast.Stmt{
+		&ast.DeclStmt{Decl: &ast.GenDecl{
+			Tok: token.VAR,
+			Specs: []ast.Spec{&ast.ValueSpec{
+				Names: []*ast.Ident{{Name: "value"}},
+				Type:  &ast.Ident{Name: "string"},
+			}},
+		}},
+		&ast.AssignStmt{
+			Lhs: []ast.Expr{&ast.Ident{Name: "err"}},
+			Tok: token.DEFINE,
+			Rhs: []ast.Expr{&ast.CallExpr{
+				Fun: &ast.SelectorExpr{
+					X:   &ast.Ident{Name: "json"},
+					Sel: &ast.Ident{Name: "Unmarshal"},
+				},
+				Args: []ast.Expr{
+					&ast.Ident{Name: "src"},
+					&ast.UnaryExpr{Op: token.AND, X: &ast.Ident{Name: "value"}},
+				},
+			}},
+		},
+		&ast.IfStmt{
+			Cond: &ast.BinaryExpr{
+				X:  &ast.Ident{Name: "err"},
+				Op: token.NEQ,
+				Y:  &ast.Ident{Name: "nil"},
+			},
+			Body: &ast.BlockStmt{List: []ast.Stmt{
+				&ast.ReturnStmt{Results: []ast.Expr{&ast.Ident{Name: "err"}}},
+			}},
+		},
+		&ast.AssignStmt{
+			Lhs: []ast.Expr{&ast.StarExpr{X: &ast.Ident{Name: "v"}}},
+			Tok: token.ASSIGN,
+			Rhs: []ast.Expr{&ast.CallExpr{
+				Fun:  &ast.Ident{Name: typeName},
+				Args: []ast.Expr{&ast.Ident{Name: "value"}},
+			}},
+		},
+		&ast.ReturnStmt{Results: []ast.Expr{&ast.Ident{Name: "nil"}}},
+	}}
 }
 
 // addImport inserts `path` into the file's first import block, keeping

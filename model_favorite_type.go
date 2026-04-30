@@ -39,15 +39,8 @@ func (v *FavoriteType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FavoriteType(value)
-	for _, existing := range AllowedFavoriteTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FavoriteType", value)
+	*v = FavoriteType(value)
+	return nil
 }
 
 // NewFavoriteTypeFromValue returns a pointer to a valid FavoriteType

@@ -61,15 +61,8 @@ func (v *MIMEType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := MIMEType(value)
-	for _, existing := range AllowedMIMETypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid MIMEType", value)
+	*v = MIMEType(value)
+	return nil
 }
 
 // NewMIMETypeFromValue returns a pointer to a valid MIMEType

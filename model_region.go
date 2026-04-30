@@ -47,15 +47,8 @@ func (v *Region) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := Region(value)
-	for _, existing := range AllowedRegionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid Region", value)
+	*v = Region(value)
+	return nil
 }
 
 // NewRegionFromValue returns a pointer to a valid Region

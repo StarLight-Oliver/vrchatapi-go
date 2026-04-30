@@ -41,15 +41,8 @@ func (v *ReleaseStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ReleaseStatus(value)
-	for _, existing := range AllowedReleaseStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ReleaseStatus", value)
+	*v = ReleaseStatus(value)
+	return nil
 }
 
 // NewReleaseStatusFromValue returns a pointer to a valid ReleaseStatus

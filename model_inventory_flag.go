@@ -49,15 +49,8 @@ func (v *InventoryFlag) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InventoryFlag(value)
-	for _, existing := range AllowedInventoryFlagEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InventoryFlag", value)
+	*v = InventoryFlag(value)
+	return nil
 }
 
 // NewInventoryFlagFromValue returns a pointer to a valid InventoryFlag

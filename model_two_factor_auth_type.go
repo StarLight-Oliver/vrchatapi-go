@@ -39,15 +39,8 @@ func (v *TwoFactorAuthType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TwoFactorAuthType(value)
-	for _, existing := range AllowedTwoFactorAuthTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TwoFactorAuthType", value)
+	*v = TwoFactorAuthType(value)
+	return nil
 }
 
 // NewTwoFactorAuthTypeFromValue returns a pointer to a valid TwoFactorAuthType

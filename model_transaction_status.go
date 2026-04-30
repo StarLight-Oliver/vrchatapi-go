@@ -41,15 +41,8 @@ func (v *TransactionStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := TransactionStatus(value)
-	for _, existing := range AllowedTransactionStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid TransactionStatus", value)
+	*v = TransactionStatus(value)
+	return nil
 }
 
 // NewTransactionStatusFromValue returns a pointer to a valid TransactionStatus

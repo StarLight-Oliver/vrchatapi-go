@@ -43,15 +43,8 @@ func (v *UserStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := UserStatus(value)
-	for _, existing := range AllowedUserStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid UserStatus", value)
+	*v = UserStatus(value)
+	return nil
 }
 
 // NewUserStatusFromValue returns a pointer to a valid UserStatus

@@ -37,15 +37,8 @@ func (v *OrderOptionShort) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := OrderOptionShort(value)
-	for _, existing := range AllowedOrderOptionShortEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid OrderOptionShort", value)
+	*v = OrderOptionShort(value)
+	return nil
 }
 
 // NewOrderOptionShortFromValue returns a pointer to a valid OrderOptionShort

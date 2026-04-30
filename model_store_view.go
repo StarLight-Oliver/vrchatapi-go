@@ -43,15 +43,8 @@ func (v *StoreView) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := StoreView(value)
-	for _, existing := range AllowedStoreViewEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid StoreView", value)
+	*v = StoreView(value)
+	return nil
 }
 
 // NewStoreViewFromValue returns a pointer to a valid StoreView

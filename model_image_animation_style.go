@@ -87,15 +87,8 @@ func (v *ImageAnimationStyle) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImageAnimationStyle(value)
-	for _, existing := range AllowedImageAnimationStyleEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImageAnimationStyle", value)
+	*v = ImageAnimationStyle(value)
+	return nil
 }
 
 // NewImageAnimationStyleFromValue returns a pointer to a valid ImageAnimationStyle

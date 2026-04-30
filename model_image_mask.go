@@ -45,15 +45,8 @@ func (v *ImageMask) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImageMask(value)
-	for _, existing := range AllowedImageMaskEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImageMask", value)
+	*v = ImageMask(value)
+	return nil
 }
 
 // NewImageMaskFromValue returns a pointer to a valid ImageMask

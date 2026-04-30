@@ -59,15 +59,8 @@ func (v *CalendarEventCategory) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CalendarEventCategory(value)
-	for _, existing := range AllowedCalendarEventCategoryEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CalendarEventCategory", value)
+	*v = CalendarEventCategory(value)
+	return nil
 }
 
 // NewCalendarEventCategoryFromValue returns a pointer to a valid CalendarEventCategory

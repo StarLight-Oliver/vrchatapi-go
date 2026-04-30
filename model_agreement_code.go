@@ -35,15 +35,8 @@ func (v *AgreementCode) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AgreementCode(value)
-	for _, existing := range AllowedAgreementCodeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AgreementCode", value)
+	*v = AgreementCode(value)
+	return nil
 }
 
 // NewAgreementCodeFromValue returns a pointer to a valid AgreementCode

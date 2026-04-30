@@ -45,15 +45,8 @@ func (v *GroupMemberStatus) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupMemberStatus(value)
-	for _, existing := range AllowedGroupMemberStatusEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupMemberStatus", value)
+	*v = GroupMemberStatus(value)
+	return nil
 }
 
 // NewGroupMemberStatusFromValue returns a pointer to a valid GroupMemberStatus

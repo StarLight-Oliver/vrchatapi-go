@@ -37,15 +37,8 @@ func (v *ImageLoopStyle) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ImageLoopStyle(value)
-	for _, existing := range AllowedImageLoopStyleEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ImageLoopStyle", value)
+	*v = ImageLoopStyle(value)
+	return nil
 }
 
 // NewImageLoopStyleFromValue returns a pointer to a valid ImageLoopStyle

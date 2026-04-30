@@ -37,15 +37,8 @@ func (v *GroupPrivacy) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupPrivacy(value)
-	for _, existing := range AllowedGroupPrivacyEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupPrivacy", value)
+	*v = GroupPrivacy(value)
+	return nil
 }
 
 // NewGroupPrivacyFromValue returns a pointer to a valid GroupPrivacy

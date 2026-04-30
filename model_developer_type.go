@@ -41,15 +41,8 @@ func (v *DeveloperType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := DeveloperType(value)
-	for _, existing := range AllowedDeveloperTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid DeveloperType", value)
+	*v = DeveloperType(value)
+	return nil
 }
 
 // NewDeveloperTypeFromValue returns a pointer to a valid DeveloperType

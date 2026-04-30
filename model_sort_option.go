@@ -69,15 +69,8 @@ func (v *SortOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SortOption(value)
-	for _, existing := range AllowedSortOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SortOption", value)
+	*v = SortOption(value)
+	return nil
 }
 
 // NewSortOptionFromValue returns a pointer to a valid SortOption

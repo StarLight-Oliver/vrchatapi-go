@@ -39,15 +39,8 @@ func (v *FavoriteGroupVisibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := FavoriteGroupVisibility(value)
-	for _, existing := range AllowedFavoriteGroupVisibilityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid FavoriteGroupVisibility", value)
+	*v = FavoriteGroupVisibility(value)
+	return nil
 }
 
 // NewFavoriteGroupVisibilityFromValue returns a pointer to a valid FavoriteGroupVisibility

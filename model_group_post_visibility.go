@@ -37,15 +37,8 @@ func (v *GroupPostVisibility) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupPostVisibility(value)
-	for _, existing := range AllowedGroupPostVisibilityEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupPostVisibility", value)
+	*v = GroupPostVisibility(value)
+	return nil
 }
 
 // NewGroupPostVisibilityFromValue returns a pointer to a valid GroupPostVisibility

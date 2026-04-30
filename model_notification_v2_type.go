@@ -79,15 +79,8 @@ func (v *NotificationV2Type) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := NotificationV2Type(value)
-	for _, existing := range AllowedNotificationV2TypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid NotificationV2Type", value)
+	*v = NotificationV2Type(value)
+	return nil
 }
 
 // NewNotificationV2TypeFromValue returns a pointer to a valid NotificationV2Type

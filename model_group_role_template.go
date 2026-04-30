@@ -41,15 +41,8 @@ func (v *GroupRoleTemplate) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupRoleTemplate(value)
-	for _, existing := range AllowedGroupRoleTemplateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupRoleTemplate", value)
+	*v = GroupRoleTemplate(value)
+	return nil
 }
 
 // NewGroupRoleTemplateFromValue returns a pointer to a valid GroupRoleTemplate

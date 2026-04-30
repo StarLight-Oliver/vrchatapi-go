@@ -35,15 +35,8 @@ func (v *SortOptionProductPurchase) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SortOptionProductPurchase(value)
-	for _, existing := range AllowedSortOptionProductPurchaseEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SortOptionProductPurchase", value)
+	*v = SortOptionProductPurchase(value)
+	return nil
 }
 
 // NewSortOptionProductPurchaseFromValue returns a pointer to a valid SortOptionProductPurchase

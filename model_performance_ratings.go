@@ -45,15 +45,8 @@ func (v *PerformanceRatings) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PerformanceRatings(value)
-	for _, existing := range AllowedPerformanceRatingsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PerformanceRatings", value)
+	*v = PerformanceRatings(value)
+	return nil
 }
 
 // NewPerformanceRatingsFromValue returns a pointer to a valid PerformanceRatings

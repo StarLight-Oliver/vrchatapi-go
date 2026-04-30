@@ -37,15 +37,8 @@ func (v *GroupSearchSort) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupSearchSort(value)
-	for _, existing := range AllowedGroupSearchSortEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupSearchSort", value)
+	*v = GroupSearchSort(value)
+	return nil
 }
 
 // NewGroupSearchSortFromValue returns a pointer to a valid GroupSearchSort

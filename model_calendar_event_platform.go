@@ -39,15 +39,8 @@ func (v *CalendarEventPlatform) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CalendarEventPlatform(value)
-	for _, existing := range AllowedCalendarEventPlatformEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CalendarEventPlatform", value)
+	*v = CalendarEventPlatform(value)
+	return nil
 }
 
 // NewCalendarEventPlatformFromValue returns a pointer to a valid CalendarEventPlatform

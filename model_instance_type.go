@@ -43,15 +43,8 @@ func (v *InstanceType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InstanceType(value)
-	for _, existing := range AllowedInstanceTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InstanceType", value)
+	*v = InstanceType(value)
+	return nil
 }
 
 // NewInstanceTypeFromValue returns a pointer to a valid InstanceType

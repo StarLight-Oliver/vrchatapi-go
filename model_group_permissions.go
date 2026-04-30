@@ -85,15 +85,8 @@ func (v *GroupPermissions) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupPermissions(value)
-	for _, existing := range AllowedGroupPermissionsEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupPermissions", value)
+	*v = GroupPermissions(value)
+	return nil
 }
 
 // NewGroupPermissionsFromValue returns a pointer to a valid GroupPermissions

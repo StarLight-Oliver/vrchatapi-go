@@ -41,15 +41,8 @@ func (v *InventoryEquipSlot) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InventoryEquipSlot(value)
-	for _, existing := range AllowedInventoryEquipSlotEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InventoryEquipSlot", value)
+	*v = InventoryEquipSlot(value)
+	return nil
 }
 
 // NewInventoryEquipSlotFromValue returns a pointer to a valid InventoryEquipSlot

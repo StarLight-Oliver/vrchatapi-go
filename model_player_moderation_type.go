@@ -51,15 +51,8 @@ func (v *PlayerModerationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := PlayerModerationType(value)
-	for _, existing := range AllowedPlayerModerationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid PlayerModerationType", value)
+	*v = PlayerModerationType(value)
+	return nil
 }
 
 // NewPlayerModerationTypeFromValue returns a pointer to a valid PlayerModerationType

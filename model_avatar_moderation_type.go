@@ -35,15 +35,8 @@ func (v *AvatarModerationType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := AvatarModerationType(value)
-	for _, existing := range AllowedAvatarModerationTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid AvatarModerationType", value)
+	*v = AvatarModerationType(value)
+	return nil
 }
 
 // NewAvatarModerationTypeFromValue returns a pointer to a valid AvatarModerationType

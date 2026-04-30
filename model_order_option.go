@@ -37,15 +37,8 @@ func (v *OrderOption) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := OrderOption(value)
-	for _, existing := range AllowedOrderOptionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid OrderOption", value)
+	*v = OrderOption(value)
+	return nil
 }
 
 // NewOrderOptionFromValue returns a pointer to a valid OrderOption

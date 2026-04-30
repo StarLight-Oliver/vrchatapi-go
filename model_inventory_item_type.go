@@ -47,15 +47,8 @@ func (v *InventoryItemType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InventoryItemType(value)
-	for _, existing := range AllowedInventoryItemTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InventoryItemType", value)
+	*v = InventoryItemType(value)
+	return nil
 }
 
 // NewInventoryItemTypeFromValue returns a pointer to a valid InventoryItemType

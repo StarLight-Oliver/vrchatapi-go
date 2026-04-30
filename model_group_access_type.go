@@ -39,15 +39,8 @@ func (v *GroupAccessType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupAccessType(value)
-	for _, existing := range AllowedGroupAccessTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupAccessType", value)
+	*v = GroupAccessType(value)
+	return nil
 }
 
 // NewGroupAccessTypeFromValue returns a pointer to a valid GroupAccessType

@@ -41,15 +41,8 @@ func (v *GroupJoinState) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := GroupJoinState(value)
-	for _, existing := range AllowedGroupJoinStateEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid GroupJoinState", value)
+	*v = GroupJoinState(value)
+	return nil
 }
 
 // NewGroupJoinStateFromValue returns a pointer to a valid GroupJoinState

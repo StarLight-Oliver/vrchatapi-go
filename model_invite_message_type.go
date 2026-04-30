@@ -41,15 +41,8 @@ func (v *InviteMessageType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InviteMessageType(value)
-	for _, existing := range AllowedInviteMessageTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InviteMessageType", value)
+	*v = InviteMessageType(value)
+	return nil
 }
 
 // NewInviteMessageTypeFromValue returns a pointer to a valid InviteMessageType

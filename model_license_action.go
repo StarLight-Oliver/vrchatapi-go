@@ -37,15 +37,8 @@ func (v *LicenseAction) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := LicenseAction(value)
-	for _, existing := range AllowedLicenseActionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid LicenseAction", value)
+	*v = LicenseAction(value)
+	return nil
 }
 
 // NewLicenseActionFromValue returns a pointer to a valid LicenseAction

@@ -43,15 +43,8 @@ func (v *SubscriptionPeriod) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := SubscriptionPeriod(value)
-	for _, existing := range AllowedSubscriptionPeriodEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid SubscriptionPeriod", value)
+	*v = SubscriptionPeriod(value)
+	return nil
 }
 
 // NewSubscriptionPeriodFromValue returns a pointer to a valid SubscriptionPeriod

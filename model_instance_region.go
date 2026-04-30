@@ -43,15 +43,8 @@ func (v *InstanceRegion) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := InstanceRegion(value)
-	for _, existing := range AllowedInstanceRegionEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid InstanceRegion", value)
+	*v = InstanceRegion(value)
+	return nil
 }
 
 // NewInstanceRegionFromValue returns a pointer to a valid InstanceRegion

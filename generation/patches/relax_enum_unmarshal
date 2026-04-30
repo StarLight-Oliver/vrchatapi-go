@@ -1,0 +1,22 @@
+VRChat occasionally adds new enum values (e.g. a new GroupPermissions entry
+like "group-instance-bypass-avatar-performance") in between client
+regenerations. The generator emits a hardcoded AllowedXxxEnumValues list and
+an UnmarshalJSON that errors if the incoming value isn't on it, which makes
+the entire containing object — and any list it's part of — fail to decode
+over a single unknown enum value.
+
+Replace each enum's UnmarshalJSON body with a relaxed version that just casts
+the incoming string and returns nil:
+
+	func (v *T) UnmarshalJSON(src []byte) error {
+		var value string
+		err := json.Unmarshal(src, &value)
+		if err != nil {
+			return err
+		}
+		*v = T(value)
+		return nil
+	}
+
+Leave IsValid() and NewTFromValue strict — callers who explicitly want
+allowlist validation still have it.

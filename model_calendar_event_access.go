@@ -37,15 +37,8 @@ func (v *CalendarEventAccess) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := CalendarEventAccess(value)
-	for _, existing := range AllowedCalendarEventAccessEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid CalendarEventAccess", value)
+	*v = CalendarEventAccess(value)
+	return nil
 }
 
 // NewCalendarEventAccessFromValue returns a pointer to a valid CalendarEventAccess

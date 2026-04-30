@@ -41,15 +41,8 @@ func (v *ProductType) UnmarshalJSON(src []byte) error {
 	if err != nil {
 		return err
 	}
-	enumTypeValue := ProductType(value)
-	for _, existing := range AllowedProductTypeEnumValues {
-		if existing == enumTypeValue {
-			*v = enumTypeValue
-			return nil
-		}
-	}
-
-	return fmt.Errorf("%+v is not a valid ProductType", value)
+	*v = ProductType(value)
+	return nil
 }
 
 // NewProductTypeFromValue returns a pointer to a valid ProductType
