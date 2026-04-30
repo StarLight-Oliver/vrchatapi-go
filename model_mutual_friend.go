@@ -398,7 +398,6 @@ func (o *MutualFriend) UnmarshalJSON(data []byte) (err error) {
 	varMutualFriend := _MutualFriend{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varMutualFriend)
 
 	if err != nil {

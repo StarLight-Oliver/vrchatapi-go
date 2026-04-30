@@ -23,7 +23,7 @@ var _ MappedNullable = &GroupAuditLogEntry{}
 type GroupAuditLogEntry struct {
 	ActorDisplayName *string `json:"actorDisplayName,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	ActorId *string `json:"actorId,omitempty"`
+	ActorId   *string    `json:"actorId,omitempty"`
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// The data associated with the event. The format of this data is dependent on the event type.
 	Data map[string]interface{} `json:"data,omitempty"`
@@ -31,8 +31,8 @@ type GroupAuditLogEntry struct {
 	Description *string `json:"description,omitempty"`
 	// The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with `group.role`.
 	EventType *string `json:"eventType,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Id *string `json:"id,omitempty"`
+	GroupId   *string `json:"groupId,omitempty"`
+	Id        *string `json:"id,omitempty"`
 	// Typically a UserID, GroupID, GroupRoleID, or Location, but could be other types of IDs.
 	TargetId *string `json:"targetId,omitempty"`
 }
@@ -347,7 +347,7 @@ func (o *GroupAuditLogEntry) SetTargetId(v string) {
 }
 
 func (o GroupAuditLogEntry) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -421,5 +421,3 @@ func (v *NullableGroupAuditLogEntry) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

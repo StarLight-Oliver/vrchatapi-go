@@ -108,7 +108,6 @@ func (o *ServiceQueueStats) UnmarshalJSON(data []byte) (err error) {
 	varServiceQueueStats := _ServiceQueueStats{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varServiceQueueStats)
 
 	if err != nil {

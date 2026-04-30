@@ -20,12 +20,11 @@ import (
 	"strings"
 )
 
-
 // EconomyAPIService EconomyAPI service
 type EconomyAPIService service
 
 type ApiGetActiveLicensesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -38,24 +37,25 @@ GetActiveLicenses Get Active Licenses
 
 Gets active licenses
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetActiveLicensesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetActiveLicensesRequest
 */
 func (a *EconomyAPIService) GetActiveLicenses(ctx context.Context) ApiGetActiveLicensesRequest {
 	return ApiGetActiveLicensesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []License
+//
+//	@return []License
 func (a *EconomyAPIService) GetActiveLicensesExecute(r ApiGetActiveLicensesRequest) ([]License, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []License
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []License
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetActiveLicenses")
@@ -115,8 +115,8 @@ func (a *EconomyAPIService) GetActiveLicensesExecute(r ApiGetActiveLicensesReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -134,9 +134,9 @@ func (a *EconomyAPIService) GetActiveLicensesExecute(r ApiGetActiveLicensesReque
 }
 
 type ApiGetBalanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetBalanceRequest) Execute() (*Balance, *http.Response, error) {
@@ -148,26 +148,27 @@ GetBalance Get Balance
 
 Gets the balance of a user
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetBalanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetBalanceRequest
 */
 func (a *EconomyAPIService) GetBalance(ctx context.Context, userId string) ApiGetBalanceRequest {
 	return ApiGetBalanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Balance
+//
+//	@return Balance
 func (a *EconomyAPIService) GetBalanceExecute(r ApiGetBalanceRequest) (*Balance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Balance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Balance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetBalance")
@@ -228,8 +229,8 @@ func (a *EconomyAPIService) GetBalanceExecute(r ApiGetBalanceRequest) (*Balance,
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -247,9 +248,9 @@ func (a *EconomyAPIService) GetBalanceExecute(r ApiGetBalanceRequest) (*Balance,
 }
 
 type ApiGetBalanceEarningsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetBalanceEarningsRequest) Execute() (*Balance, *http.Response, error) {
@@ -261,26 +262,27 @@ GetBalanceEarnings Get Balance Earnings
 
 Gets the balance of a user from earnings
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetBalanceEarningsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetBalanceEarningsRequest
 */
 func (a *EconomyAPIService) GetBalanceEarnings(ctx context.Context, userId string) ApiGetBalanceEarningsRequest {
 	return ApiGetBalanceEarningsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Balance
+//
+//	@return Balance
 func (a *EconomyAPIService) GetBalanceEarningsExecute(r ApiGetBalanceEarningsRequest) (*Balance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Balance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Balance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetBalanceEarnings")
@@ -341,8 +343,8 @@ func (a *EconomyAPIService) GetBalanceEarningsExecute(r ApiGetBalanceEarningsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -360,7 +362,7 @@ func (a *EconomyAPIService) GetBalanceEarningsExecute(r ApiGetBalanceEarningsReq
 }
 
 type ApiGetBulkGiftPurchasesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 	mostRecent *bool
 }
@@ -379,24 +381,25 @@ GetBulkGiftPurchases Get Bulk Gift Purchases
 
 Get bulk gift purchases made by the user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetBulkGiftPurchasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetBulkGiftPurchasesRequest
 */
 func (a *EconomyAPIService) GetBulkGiftPurchases(ctx context.Context) ApiGetBulkGiftPurchasesRequest {
 	return ApiGetBulkGiftPurchasesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []map[string]interface{}
+//
+//	@return []map[string]interface{}
 func (a *EconomyAPIService) GetBulkGiftPurchasesExecute(r ApiGetBulkGiftPurchasesRequest) ([]map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetBulkGiftPurchases")
@@ -459,8 +462,8 @@ func (a *EconomyAPIService) GetBulkGiftPurchasesExecute(r ApiGetBulkGiftPurchase
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -478,7 +481,7 @@ func (a *EconomyAPIService) GetBulkGiftPurchasesExecute(r ApiGetBulkGiftPurchase
 }
 
 type ApiGetCurrentSubscriptionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -491,24 +494,25 @@ GetCurrentSubscriptions Get Current Subscriptions
 
 Get a list of all current user subscriptions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrentSubscriptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCurrentSubscriptionsRequest
 */
 func (a *EconomyAPIService) GetCurrentSubscriptions(ctx context.Context) ApiGetCurrentSubscriptionsRequest {
 	return ApiGetCurrentSubscriptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []UserSubscription
+//
+//	@return []UserSubscription
 func (a *EconomyAPIService) GetCurrentSubscriptionsExecute(r ApiGetCurrentSubscriptionsRequest) ([]UserSubscription, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []UserSubscription
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []UserSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetCurrentSubscriptions")
@@ -568,8 +572,8 @@ func (a *EconomyAPIService) GetCurrentSubscriptionsExecute(r ApiGetCurrentSubscr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -587,9 +591,9 @@ func (a *EconomyAPIService) GetCurrentSubscriptionsExecute(r ApiGetCurrentSubscr
 }
 
 type ApiGetEconomyAccountRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetEconomyAccountRequest) Execute() (*EconomyAccount, *http.Response, error) {
@@ -601,26 +605,27 @@ GetEconomyAccount Get Economy Account
 
 Gets the economy account of a user
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetEconomyAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetEconomyAccountRequest
 */
 func (a *EconomyAPIService) GetEconomyAccount(ctx context.Context, userId string) ApiGetEconomyAccountRequest {
 	return ApiGetEconomyAccountRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return EconomyAccount
+//
+//	@return EconomyAccount
 func (a *EconomyAPIService) GetEconomyAccountExecute(r ApiGetEconomyAccountRequest) (*EconomyAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *EconomyAccount
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *EconomyAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetEconomyAccount")
@@ -681,8 +686,8 @@ func (a *EconomyAPIService) GetEconomyAccountExecute(r ApiGetEconomyAccountReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -700,8 +705,8 @@ func (a *EconomyAPIService) GetEconomyAccountExecute(r ApiGetEconomyAccountReque
 }
 
 type ApiGetLicenseGroupRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
+	ctx            context.Context
+	ApiService     *EconomyAPIService
 	licenseGroupId string
 }
 
@@ -714,26 +719,27 @@ GetLicenseGroup Get License Group
 
 Get a single License Group by given ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param licenseGroupId Must be a valid license group ID.
- @return ApiGetLicenseGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param licenseGroupId Must be a valid license group ID.
+	@return ApiGetLicenseGroupRequest
 */
 func (a *EconomyAPIService) GetLicenseGroup(ctx context.Context, licenseGroupId string) ApiGetLicenseGroupRequest {
 	return ApiGetLicenseGroupRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		licenseGroupId: licenseGroupId,
 	}
 }
 
 // Execute executes the request
-//  @return LicenseGroup
+//
+//	@return LicenseGroup
 func (a *EconomyAPIService) GetLicenseGroupExecute(r ApiGetLicenseGroupRequest) (*LicenseGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *LicenseGroup
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *LicenseGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetLicenseGroup")
@@ -794,8 +800,8 @@ func (a *EconomyAPIService) GetLicenseGroupExecute(r ApiGetLicenseGroupRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -813,10 +819,10 @@ func (a *EconomyAPIService) GetLicenseGroupExecute(r ApiGetLicenseGroupRequest) 
 }
 
 type ApiGetProductListingRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	productId string
-	hydrate *bool
+	productId  string
+	hydrate    *bool
 }
 
 // Populates some fields and changes types of others for certain objects.
@@ -834,26 +840,27 @@ GetProductListing Get Product Listing
 
 Gets a product listing
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param productId Must be a valid product ID.
- @return ApiGetProductListingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param productId Must be a valid product ID.
+	@return ApiGetProductListingRequest
 */
 func (a *EconomyAPIService) GetProductListing(ctx context.Context, productId string) ApiGetProductListingRequest {
 	return ApiGetProductListingRequest{
 		ApiService: a,
-		ctx: ctx,
-		productId: productId,
+		ctx:        ctx,
+		productId:  productId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductListing
+//
+//	@return ProductListing
 func (a *EconomyAPIService) GetProductListingExecute(r ApiGetProductListingRequest) (*ProductListing, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductListing
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductListing
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetProductListing")
@@ -917,8 +924,8 @@ func (a *EconomyAPIService) GetProductListingExecute(r ApiGetProductListingReque
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -936,9 +943,9 @@ func (a *EconomyAPIService) GetProductListingExecute(r ApiGetProductListingReque
 }
 
 type ApiGetProductListingAlternateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	productId string
+	productId  string
 }
 
 func (r ApiGetProductListingAlternateRequest) Execute() (*ProductListing, *http.Response, error) {
@@ -950,29 +957,31 @@ GetProductListingAlternate Get Product Listing (alternate)
 
 Gets a product listing
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param productId Must be a valid product ID.
- @return ApiGetProductListingAlternateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param productId Must be a valid product ID.
+	@return ApiGetProductListingAlternateRequest
 
 Deprecated
 */
 func (a *EconomyAPIService) GetProductListingAlternate(ctx context.Context, productId string) ApiGetProductListingAlternateRequest {
 	return ApiGetProductListingAlternateRequest{
 		ApiService: a,
-		ctx: ctx,
-		productId: productId,
+		ctx:        ctx,
+		productId:  productId,
 	}
 }
 
 // Execute executes the request
-//  @return ProductListing
+//
+//	@return ProductListing
+//
 // Deprecated
 func (a *EconomyAPIService) GetProductListingAlternateExecute(r ApiGetProductListingAlternateRequest) (*ProductListing, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductListing
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductListing
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetProductListingAlternate")
@@ -1033,8 +1042,8 @@ func (a *EconomyAPIService) GetProductListingAlternateExecute(r ApiGetProductLis
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1052,14 +1061,14 @@ func (a *EconomyAPIService) GetProductListingAlternateExecute(r ApiGetProductLis
 }
 
 type ApiGetProductListingsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
-	n *int32
-	offset *int32
-	hydrate *bool
-	groupId *string
-	active *bool
+	userId     string
+	n          *int32
+	offset     *int32
+	hydrate    *bool
+	groupId    *string
+	active     *bool
 }
 
 // The number of objects to return.
@@ -1101,26 +1110,27 @@ GetProductListings Get User Product Listings
 
 Gets the product listings of a given user
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetProductListingsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetProductListingsRequest
 */
 func (a *EconomyAPIService) GetProductListings(ctx context.Context, userId string) ApiGetProductListingsRequest {
 	return ApiGetProductListingsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []ProductListing
+//
+//	@return []ProductListing
 func (a *EconomyAPIService) GetProductListingsExecute(r ApiGetProductListingsRequest) ([]ProductListing, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProductListing
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProductListing
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetProductListings")
@@ -1138,9 +1148,9 @@ func (a *EconomyAPIService) GetProductListingsExecute(r ApiGetProductListingsReq
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1200,8 +1210,8 @@ func (a *EconomyAPIService) GetProductListingsExecute(r ApiGetProductListingsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1219,14 +1229,14 @@ func (a *EconomyAPIService) GetProductListingsExecute(r ApiGetProductListingsReq
 }
 
 type ApiGetProductPurchasesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	buyerId *string
-	n *int32
-	offset *int32
+	buyerId    *string
+	n          *int32
+	offset     *int32
 	mostRecent *bool
-	sort *SortOptionProductPurchase
-	order *OrderOptionShort
+	sort       *SortOptionProductPurchase
+	order      *OrderOptionShort
 }
 
 // Must be a valid user ID.
@@ -1273,24 +1283,25 @@ GetProductPurchases Get Product Purchases
 
 Gets product purchases
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetProductPurchasesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetProductPurchasesRequest
 */
 func (a *EconomyAPIService) GetProductPurchases(ctx context.Context) ApiGetProductPurchasesRequest {
 	return ApiGetProductPurchasesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ProductPurchase
+//
+//	@return []ProductPurchase
 func (a *EconomyAPIService) GetProductPurchasesExecute(r ApiGetProductPurchasesRequest) ([]ProductPurchase, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProductPurchase
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProductPurchase
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetProductPurchases")
@@ -1311,9 +1322,9 @@ func (a *EconomyAPIService) GetProductPurchasesExecute(r ApiGetProductPurchasesR
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1324,16 +1335,16 @@ func (a *EconomyAPIService) GetProductPurchasesExecute(r ApiGetProductPurchasesR
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
-        var defaultValue SortOptionProductPurchase = "purchaseDate"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
-        r.sort = &defaultValue
+		var defaultValue SortOptionProductPurchase = "purchaseDate"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
+		r.sort = &defaultValue
 	}
 	if r.order != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order", r.order, "form", "")
 	} else {
-        var defaultValue OrderOptionShort = "desc"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
-        r.order = &defaultValue
+		var defaultValue OrderOptionShort = "desc"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
+		r.order = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1381,8 +1392,8 @@ func (a *EconomyAPIService) GetProductPurchasesExecute(r ApiGetProductPurchasesR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1400,7 +1411,7 @@ func (a *EconomyAPIService) GetProductPurchasesExecute(r ApiGetProductPurchasesR
 }
 
 type ApiGetRecentSubscriptionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -1413,24 +1424,25 @@ GetRecentSubscription Get Recent Subscription
 
 Get the most recent user subscription.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRecentSubscriptionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRecentSubscriptionRequest
 */
 func (a *EconomyAPIService) GetRecentSubscription(ctx context.Context) ApiGetRecentSubscriptionRequest {
 	return ApiGetRecentSubscriptionRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UserSubscription
+//
+//	@return UserSubscription
 func (a *EconomyAPIService) GetRecentSubscriptionExecute(r ApiGetRecentSubscriptionRequest) (*UserSubscription, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UserSubscription
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UserSubscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetRecentSubscription")
@@ -1490,8 +1502,8 @@ func (a *EconomyAPIService) GetRecentSubscriptionExecute(r ApiGetRecentSubscript
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1509,8 +1521,8 @@ func (a *EconomyAPIService) GetRecentSubscriptionExecute(r ApiGetRecentSubscript
 }
 
 type ApiGetSteamTransactionRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
+	ctx           context.Context
+	ApiService    *EconomyAPIService
 	transactionId string
 }
 
@@ -1523,29 +1535,31 @@ GetSteamTransaction Get Steam Transaction
 
 Get a single Steam transactions by ID. This returns the exact same information as `getSteamTransactions`, so no point in using this endpoint.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param transactionId Must be a valid transaction ID.
- @return ApiGetSteamTransactionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param transactionId Must be a valid transaction ID.
+	@return ApiGetSteamTransactionRequest
 
 Deprecated
 */
 func (a *EconomyAPIService) GetSteamTransaction(ctx context.Context, transactionId string) ApiGetSteamTransactionRequest {
 	return ApiGetSteamTransactionRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		transactionId: transactionId,
 	}
 }
 
 // Execute executes the request
-//  @return Transaction
+//
+//	@return Transaction
+//
 // Deprecated
 func (a *EconomyAPIService) GetSteamTransactionExecute(r ApiGetSteamTransactionRequest) (*Transaction, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Transaction
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Transaction
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetSteamTransaction")
@@ -1606,8 +1620,8 @@ func (a *EconomyAPIService) GetSteamTransactionExecute(r ApiGetSteamTransactionR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1625,7 +1639,7 @@ func (a *EconomyAPIService) GetSteamTransactionExecute(r ApiGetSteamTransactionR
 }
 
 type ApiGetSteamTransactionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -1638,24 +1652,25 @@ GetSteamTransactions List Steam Transactions
 
 Get all own Steam transactions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetSteamTransactionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetSteamTransactionsRequest
 */
 func (a *EconomyAPIService) GetSteamTransactions(ctx context.Context) ApiGetSteamTransactionsRequest {
 	return ApiGetSteamTransactionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Transaction
+//
+//	@return []Transaction
 func (a *EconomyAPIService) GetSteamTransactionsExecute(r ApiGetSteamTransactionsRequest) ([]Transaction, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Transaction
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Transaction
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetSteamTransactions")
@@ -1715,8 +1730,8 @@ func (a *EconomyAPIService) GetSteamTransactionsExecute(r ApiGetSteamTransaction
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1734,9 +1749,9 @@ func (a *EconomyAPIService) GetSteamTransactionsExecute(r ApiGetSteamTransaction
 }
 
 type ApiGetStoreRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
-	storeId *string
+	ctx             context.Context
+	ApiService      *EconomyAPIService
+	storeId         *string
 	hydrateListings *bool
 	hydrateProducts *bool
 }
@@ -1767,24 +1782,25 @@ GetStore Get Store
 
 Gets a store
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetStoreRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetStoreRequest
 */
 func (a *EconomyAPIService) GetStore(ctx context.Context) ApiGetStoreRequest {
 	return ApiGetStoreRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Store
+//
+//	@return Store
 func (a *EconomyAPIService) GetStoreExecute(r ApiGetStoreRequest) (*Store, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Store
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Store
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetStore")
@@ -1854,8 +1870,8 @@ func (a *EconomyAPIService) GetStoreExecute(r ApiGetStoreRequest) (*Store, *http
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1873,11 +1889,11 @@ func (a *EconomyAPIService) GetStoreExecute(r ApiGetStoreRequest) (*Store, *http
 }
 
 type ApiGetStoreShelvesRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
-	storeId *string
+	ctx             context.Context
+	ApiService      *EconomyAPIService
+	storeId         *string
 	hydrateListings *bool
-	fetch *StoreView
+	fetch           *StoreView
 }
 
 func (r ApiGetStoreShelvesRequest) StoreId(storeId string) ApiGetStoreShelvesRequest {
@@ -1905,24 +1921,25 @@ GetStoreShelves Get Store Shelves
 
 Gets the shelves for a store
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetStoreShelvesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetStoreShelvesRequest
 */
 func (a *EconomyAPIService) GetStoreShelves(ctx context.Context) ApiGetStoreShelvesRequest {
 	return ApiGetStoreShelvesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []StoreShelf
+//
+//	@return []StoreShelf
 func (a *EconomyAPIService) GetStoreShelvesExecute(r ApiGetStoreShelvesRequest) ([]StoreShelf, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []StoreShelf
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []StoreShelf
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetStoreShelves")
@@ -1946,9 +1963,9 @@ func (a *EconomyAPIService) GetStoreShelvesExecute(r ApiGetStoreShelvesRequest) 
 	if r.fetch != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", r.fetch, "form", "")
 	} else {
-        var defaultValue StoreView = "public"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", defaultValue, "form", "")
-        r.fetch = &defaultValue
+		var defaultValue StoreView = "public"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "fetch", defaultValue, "form", "")
+		r.fetch = &defaultValue
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1996,8 +2013,8 @@ func (a *EconomyAPIService) GetStoreShelvesExecute(r ApiGetStoreShelvesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2015,7 +2032,7 @@ func (a *EconomyAPIService) GetStoreShelvesExecute(r ApiGetStoreShelvesRequest) 
 }
 
 type ApiGetSubscriptionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -2028,24 +2045,25 @@ GetSubscriptions List Subscriptions
 
 List all existing Subscriptions. For example, "vrchatplus-monthly" and "vrchatplus-yearly".
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetSubscriptionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetSubscriptionsRequest
 */
 func (a *EconomyAPIService) GetSubscriptions(ctx context.Context) ApiGetSubscriptionsRequest {
 	return ApiGetSubscriptionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Subscription
+//
+//	@return []Subscription
 func (a *EconomyAPIService) GetSubscriptionsExecute(r ApiGetSubscriptionsRequest) ([]Subscription, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Subscription
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Subscription
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetSubscriptions")
@@ -2105,8 +2123,8 @@ func (a *EconomyAPIService) GetSubscriptionsExecute(r ApiGetSubscriptionsRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2124,7 +2142,7 @@ func (a *EconomyAPIService) GetSubscriptionsExecute(r ApiGetSubscriptionsRequest
 }
 
 type ApiGetTiliaStatusRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -2137,24 +2155,25 @@ GetTiliaStatus Get Tilia Status
 
 Gets the status of Tilia integration
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTiliaStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetTiliaStatusRequest
 */
 func (a *EconomyAPIService) GetTiliaStatus(ctx context.Context) ApiGetTiliaStatusRequest {
 	return ApiGetTiliaStatusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return TiliaStatus
+//
+//	@return TiliaStatus
 func (a *EconomyAPIService) GetTiliaStatusExecute(r ApiGetTiliaStatusRequest) (*TiliaStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TiliaStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TiliaStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetTiliaStatus")
@@ -2214,8 +2233,8 @@ func (a *EconomyAPIService) GetTiliaStatusExecute(r ApiGetTiliaStatusRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2233,9 +2252,9 @@ func (a *EconomyAPIService) GetTiliaStatusExecute(r ApiGetTiliaStatusRequest) (*
 }
 
 type ApiGetTiliaTosRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetTiliaTosRequest) Execute() (*TiliaTOS, *http.Response, error) {
@@ -2247,26 +2266,27 @@ GetTiliaTos Get Tilia TOS Agreement Status
 
 Gets the status of the agreement of a user to the Tilia TOS
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetTiliaTosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetTiliaTosRequest
 */
 func (a *EconomyAPIService) GetTiliaTos(ctx context.Context, userId string) ApiGetTiliaTosRequest {
 	return ApiGetTiliaTosRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return TiliaTOS
+//
+//	@return TiliaTOS
 func (a *EconomyAPIService) GetTiliaTosExecute(r ApiGetTiliaTosRequest) (*TiliaTOS, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TiliaTOS
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TiliaTOS
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetTiliaTos")
@@ -2327,8 +2347,8 @@ func (a *EconomyAPIService) GetTiliaTosExecute(r ApiGetTiliaTosRequest) (*TiliaT
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2346,7 +2366,7 @@ func (a *EconomyAPIService) GetTiliaTosExecute(r ApiGetTiliaTosRequest) (*TiliaT
 }
 
 type ApiGetTokenBundlesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
 }
 
@@ -2359,24 +2379,25 @@ GetTokenBundles List Token Bundles
 
 Gets the list of token bundles
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetTokenBundlesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetTokenBundlesRequest
 */
 func (a *EconomyAPIService) GetTokenBundles(ctx context.Context) ApiGetTokenBundlesRequest {
 	return ApiGetTokenBundlesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []TokenBundle
+//
+//	@return []TokenBundle
 func (a *EconomyAPIService) GetTokenBundlesExecute(r ApiGetTokenBundlesRequest) ([]TokenBundle, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []TokenBundle
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []TokenBundle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetTokenBundles")
@@ -2436,8 +2457,8 @@ func (a *EconomyAPIService) GetTokenBundlesExecute(r ApiGetTokenBundlesRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2455,9 +2476,9 @@ func (a *EconomyAPIService) GetTokenBundlesExecute(r ApiGetTokenBundlesRequest) 
 }
 
 type ApiGetUserCreditsEligibleRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
-	userId string
+	ctx            context.Context
+	ApiService     *EconomyAPIService
+	userId         string
 	subscriptionId *string
 }
 
@@ -2475,26 +2496,27 @@ GetUserCreditsEligible Get User Credits Eligiblity
 
 Get the user's eligibility status for subscriptions based on available credits.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetUserCreditsEligibleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetUserCreditsEligibleRequest
 */
 func (a *EconomyAPIService) GetUserCreditsEligible(ctx context.Context, userId string) ApiGetUserCreditsEligibleRequest {
 	return ApiGetUserCreditsEligibleRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return UserCreditsEligible
+//
+//	@return UserCreditsEligible
 func (a *EconomyAPIService) GetUserCreditsEligibleExecute(r ApiGetUserCreditsEligibleRequest) (*UserCreditsEligible, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UserCreditsEligible
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UserCreditsEligible
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetUserCreditsEligible")
@@ -2559,8 +2581,8 @@ func (a *EconomyAPIService) GetUserCreditsEligibleExecute(r ApiGetUserCreditsEli
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2578,10 +2600,10 @@ func (a *EconomyAPIService) GetUserCreditsEligibleExecute(r ApiGetUserCreditsEli
 }
 
 type ApiGetUserSubscriptionEligibleRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *EconomyAPIService
-	userId string
-	steamId *string
+	userId     string
+	steamId    *string
 }
 
 // The Steam ID of the user.
@@ -2599,26 +2621,27 @@ GetUserSubscriptionEligible Get User Subscription Eligiblity
 
 Get the user's eligibility status for subscriptions.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetUserSubscriptionEligibleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetUserSubscriptionEligibleRequest
 */
 func (a *EconomyAPIService) GetUserSubscriptionEligible(ctx context.Context, userId string) ApiGetUserSubscriptionEligibleRequest {
 	return ApiGetUserSubscriptionEligibleRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return UserSubscriptionEligible
+//
+//	@return UserSubscriptionEligible
 func (a *EconomyAPIService) GetUserSubscriptionEligibleExecute(r ApiGetUserSubscriptionEligibleRequest) (*UserSubscriptionEligible, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UserSubscriptionEligible
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UserSubscriptionEligible
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.GetUserSubscriptionEligible")
@@ -2682,8 +2705,8 @@ func (a *EconomyAPIService) GetUserSubscriptionEligibleExecute(r ApiGetUserSubsc
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2701,8 +2724,8 @@ func (a *EconomyAPIService) GetUserSubscriptionEligibleExecute(r ApiGetUserSubsc
 }
 
 type ApiPurchaseProductListingRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
+	ctx                           context.Context
+	ApiService                    *EconomyAPIService
 	purchaseProductListingRequest *PurchaseProductListingRequest
 }
 
@@ -2720,24 +2743,25 @@ PurchaseProductListing Purchase Product Listing
 
 Purchases a product listing
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiPurchaseProductListingRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiPurchaseProductListingRequest
 */
 func (a *EconomyAPIService) PurchaseProductListing(ctx context.Context) ApiPurchaseProductListingRequest {
 	return ApiPurchaseProductListingRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProductPurchase
+//
+//	@return ProductPurchase
 func (a *EconomyAPIService) PurchaseProductListingExecute(r ApiPurchaseProductListingRequest) (*ProductPurchase, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProductPurchase
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProductPurchase
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.PurchaseProductListing")
@@ -2799,8 +2823,8 @@ func (a *EconomyAPIService) PurchaseProductListingExecute(r ApiPurchaseProductLi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2818,9 +2842,9 @@ func (a *EconomyAPIService) PurchaseProductListingExecute(r ApiPurchaseProductLi
 }
 
 type ApiUpdateTiliaTosRequest struct {
-	ctx context.Context
-	ApiService *EconomyAPIService
-	userId string
+	ctx                   context.Context
+	ApiService            *EconomyAPIService
+	userId                string
 	updateTiliaTOSRequest *UpdateTiliaTOSRequest
 }
 
@@ -2838,26 +2862,27 @@ UpdateTiliaTos Update Tilia TOS Agreement Status
 
 Updates the status of the agreement of a user to the Tilia TOS
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiUpdateTiliaTosRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiUpdateTiliaTosRequest
 */
 func (a *EconomyAPIService) UpdateTiliaTos(ctx context.Context, userId string) ApiUpdateTiliaTosRequest {
 	return ApiUpdateTiliaTosRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *EconomyAPIService) UpdateTiliaTosExecute(r ApiUpdateTiliaTosRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "EconomyAPIService.UpdateTiliaTos")
@@ -2920,8 +2945,8 @@ func (a *EconomyAPIService) UpdateTiliaTosExecute(r ApiUpdateTiliaTosRequest) (m
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

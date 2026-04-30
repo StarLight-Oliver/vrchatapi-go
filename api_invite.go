@@ -17,20 +17,19 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // InviteAPIService InviteAPI service
 type InviteAPIService service
 
 type ApiGetInviteMessageRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
+	ctx         context.Context
+	ApiService  *InviteAPIService
+	userId      string
 	messageType InviteMessageType
-	slot int32
+	slot        int32
 }
 
 func (r ApiGetInviteMessageRequest) Execute() (*InviteMessage, *http.Response, error) {
@@ -49,30 +48,31 @@ Message type refers to a different collection of messages, used during different
 * `request` = Message when requesting an invite
 * `requestResponse` = Message when replying to a request for invite
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @param messageType The type of message to fetch, must be a valid InviteMessageType.
- @param slot The message slot to fetch of a given message type.
- @return ApiGetInviteMessageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@param messageType The type of message to fetch, must be a valid InviteMessageType.
+	@param slot The message slot to fetch of a given message type.
+	@return ApiGetInviteMessageRequest
 */
 func (a *InviteAPIService) GetInviteMessage(ctx context.Context, userId string, messageType InviteMessageType, slot int32) ApiGetInviteMessageRequest {
 	return ApiGetInviteMessageRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ApiService:  a,
+		ctx:         ctx,
+		userId:      userId,
 		messageType: messageType,
-		slot: slot,
+		slot:        slot,
 	}
 }
 
 // Execute executes the request
-//  @return InviteMessage
+//
+//	@return InviteMessage
 func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest) (*InviteMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InviteMessage
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InviteMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.GetInviteMessage")
@@ -141,8 +141,8 @@ func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -152,8 +152,8 @@ func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -163,8 +163,8 @@ func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -182,9 +182,9 @@ func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest)
 }
 
 type ApiGetInviteMessagesRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
+	ctx         context.Context
+	ApiService  *InviteAPIService
+	userId      string
 	messageType InviteMessageType
 }
 
@@ -204,28 +204,29 @@ Message type refers to a different collection of messages, used during different
 * `request` = Message when requesting an invite
 * `requestResponse` = Message when replying to a request for invite
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @param messageType The type of message to fetch, must be a valid InviteMessageType.
- @return ApiGetInviteMessagesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@param messageType The type of message to fetch, must be a valid InviteMessageType.
+	@return ApiGetInviteMessagesRequest
 */
 func (a *InviteAPIService) GetInviteMessages(ctx context.Context, userId string, messageType InviteMessageType) ApiGetInviteMessagesRequest {
 	return ApiGetInviteMessagesRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ApiService:  a,
+		ctx:         ctx,
+		userId:      userId,
 		messageType: messageType,
 	}
 }
 
 // Execute executes the request
-//  @return []InviteMessage
+//
+//	@return []InviteMessage
 func (a *InviteAPIService) GetInviteMessagesExecute(r ApiGetInviteMessagesRequest) ([]InviteMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []InviteMessage
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []InviteMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.GetInviteMessages")
@@ -287,8 +288,8 @@ func (a *InviteAPIService) GetInviteMessagesExecute(r ApiGetInviteMessagesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -298,8 +299,8 @@ func (a *InviteAPIService) GetInviteMessagesExecute(r ApiGetInviteMessagesReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -317,9 +318,9 @@ func (a *InviteAPIService) GetInviteMessagesExecute(r ApiGetInviteMessagesReques
 }
 
 type ApiInviteMyselfToRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InviteAPIService
-	worldId string
+	worldId    string
 	instanceId string
 }
 
@@ -332,28 +333,29 @@ InviteMyselfTo Invite Myself To Instance
 
 Sends self an invite to an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param worldId Must be a valid world ID.
- @param instanceId Must be a valid instance ID.
- @return ApiInviteMyselfToRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param worldId Must be a valid world ID.
+	@param instanceId Must be a valid instance ID.
+	@return ApiInviteMyselfToRequest
 */
 func (a *InviteAPIService) InviteMyselfTo(ctx context.Context, worldId string, instanceId string) ApiInviteMyselfToRequest {
 	return ApiInviteMyselfToRequest{
 		ApiService: a,
-		ctx: ctx,
-		worldId: worldId,
+		ctx:        ctx,
+		worldId:    worldId,
 		instanceId: instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return SentNotification
+//
+//	@return SentNotification
 func (a *InviteAPIService) InviteMyselfToExecute(r ApiInviteMyselfToRequest) (*SentNotification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SentNotification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SentNotification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.InviteMyselfTo")
@@ -415,8 +417,8 @@ func (a *InviteAPIService) InviteMyselfToExecute(r ApiInviteMyselfToRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -426,8 +428,8 @@ func (a *InviteAPIService) InviteMyselfToExecute(r ApiInviteMyselfToRequest) (*S
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -445,9 +447,9 @@ func (a *InviteAPIService) InviteMyselfToExecute(r ApiInviteMyselfToRequest) (*S
 }
 
 type ApiInviteUserRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
+	ctx           context.Context
+	ApiService    *InviteAPIService
+	userId        string
 	inviteRequest *InviteRequest
 }
 
@@ -466,26 +468,27 @@ InviteUser Invite User
 
 Sends an invite to a user. Returns the Notification of type `invite` that was sent.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiInviteUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiInviteUserRequest
 */
 func (a *InviteAPIService) InviteUser(ctx context.Context, userId string) ApiInviteUserRequest {
 	return ApiInviteUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return SentNotification
+//
+//	@return SentNotification
 func (a *InviteAPIService) InviteUserExecute(r ApiInviteUserRequest) (*SentNotification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SentNotification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SentNotification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.InviteUser")
@@ -551,8 +554,8 @@ func (a *InviteAPIService) InviteUserExecute(r ApiInviteUserRequest) (*SentNotif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -570,11 +573,11 @@ func (a *InviteAPIService) InviteUserExecute(r ApiInviteUserRequest) (*SentNotif
 }
 
 type ApiInviteUserWithPhotoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InviteAPIService
-	userId string
-	data *InviteRequest
-	image *os.File
+	userId     string
+	data       *InviteRequest
+	image      *os.File
 }
 
 func (r ApiInviteUserWithPhotoRequest) Data(data InviteRequest) ApiInviteUserWithPhotoRequest {
@@ -597,26 +600,27 @@ InviteUserWithPhoto Invite User with photo
 
 Sends an photo invite to a user. Returns the Notification of type `invite` that was sent.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiInviteUserWithPhotoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiInviteUserWithPhotoRequest
 */
 func (a *InviteAPIService) InviteUserWithPhoto(ctx context.Context, userId string) ApiInviteUserWithPhotoRequest {
 	return ApiInviteUserWithPhotoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return SentNotification
+//
+//	@return SentNotification
 func (a *InviteAPIService) InviteUserWithPhotoExecute(r ApiInviteUserWithPhotoRequest) (*SentNotification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SentNotification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SentNotification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.InviteUserWithPhoto")
@@ -656,8 +660,8 @@ func (a *InviteAPIService) InviteUserWithPhotoExecute(r ApiInviteUserWithPhotoRe
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "data", r.data, "", "")
 	var imageLocalVarFormFileName string
-	var imageLocalVarFileName     string
-	var imageLocalVarFileBytes    []byte
+	var imageLocalVarFileName string
+	var imageLocalVarFileBytes []byte
 
 	imageLocalVarFormFileName = "image"
 	imageLocalVarFile := r.image
@@ -699,8 +703,8 @@ func (a *InviteAPIService) InviteUserWithPhotoExecute(r ApiInviteUserWithPhotoRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -718,9 +722,9 @@ func (a *InviteAPIService) InviteUserWithPhotoExecute(r ApiInviteUserWithPhotoRe
 }
 
 type ApiRequestInviteRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
+	ctx                  context.Context
+	ApiService           *InviteAPIService
+	userId               string
 	requestInviteRequest *RequestInviteRequest
 }
 
@@ -739,26 +743,27 @@ RequestInvite Request Invite
 
 Requests an invite from a user. Returns the Notification of type `requestInvite` that was sent.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiRequestInviteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiRequestInviteRequest
 */
 func (a *InviteAPIService) RequestInvite(ctx context.Context, userId string) ApiRequestInviteRequest {
 	return ApiRequestInviteRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *InviteAPIService) RequestInviteExecute(r ApiRequestInviteRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.RequestInvite")
@@ -821,8 +826,8 @@ func (a *InviteAPIService) RequestInviteExecute(r ApiRequestInviteRequest) (*Not
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -840,11 +845,11 @@ func (a *InviteAPIService) RequestInviteExecute(r ApiRequestInviteRequest) (*Not
 }
 
 type ApiRequestInviteWithPhotoRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InviteAPIService
-	userId string
-	data *RequestInviteRequest
-	image *os.File
+	userId     string
+	data       *RequestInviteRequest
+	image      *os.File
 }
 
 func (r ApiRequestInviteWithPhotoRequest) Data(data RequestInviteRequest) ApiRequestInviteWithPhotoRequest {
@@ -867,26 +872,27 @@ RequestInviteWithPhoto Request Invite with photo
 
 Requests with photo an invite from a user. Returns the Notification of type `requestInvite` that was sent.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiRequestInviteWithPhotoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiRequestInviteWithPhotoRequest
 */
 func (a *InviteAPIService) RequestInviteWithPhoto(ctx context.Context, userId string) ApiRequestInviteWithPhotoRequest {
 	return ApiRequestInviteWithPhotoRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *InviteAPIService) RequestInviteWithPhotoExecute(r ApiRequestInviteWithPhotoRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.RequestInviteWithPhoto")
@@ -926,8 +932,8 @@ func (a *InviteAPIService) RequestInviteWithPhotoExecute(r ApiRequestInviteWithP
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "data", r.data, "", "")
 	var imageLocalVarFormFileName string
-	var imageLocalVarFileName     string
-	var imageLocalVarFileBytes    []byte
+	var imageLocalVarFileName string
+	var imageLocalVarFileBytes []byte
 
 	imageLocalVarFormFileName = "image"
 	imageLocalVarFile := r.image
@@ -969,8 +975,8 @@ func (a *InviteAPIService) RequestInviteWithPhotoExecute(r ApiRequestInviteWithP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -988,11 +994,11 @@ func (a *InviteAPIService) RequestInviteWithPhotoExecute(r ApiRequestInviteWithP
 }
 
 type ApiResetInviteMessageRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
+	ctx         context.Context
+	ApiService  *InviteAPIService
+	userId      string
 	messageType InviteMessageType
-	slot int32
+	slot        int32
 }
 
 func (r ApiResetInviteMessageRequest) Execute() ([]InviteMessage, *http.Response, error) {
@@ -1018,30 +1024,31 @@ Message type refers to a different collection of messages, used during different
 
 The DELETE endpoint does not have/require any request body.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @param messageType The type of message to fetch, must be a valid InviteMessageType.
- @param slot The message slot to fetch of a given message type.
- @return ApiResetInviteMessageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@param messageType The type of message to fetch, must be a valid InviteMessageType.
+	@param slot The message slot to fetch of a given message type.
+	@return ApiResetInviteMessageRequest
 */
 func (a *InviteAPIService) ResetInviteMessage(ctx context.Context, userId string, messageType InviteMessageType, slot int32) ApiResetInviteMessageRequest {
 	return ApiResetInviteMessageRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ApiService:  a,
+		ctx:         ctx,
+		userId:      userId,
 		messageType: messageType,
-		slot: slot,
+		slot:        slot,
 	}
 }
 
 // Execute executes the request
-//  @return []InviteMessage
+//
+//	@return []InviteMessage
 func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequest) ([]InviteMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []InviteMessage
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []InviteMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.ResetInviteMessage")
@@ -1110,8 +1117,8 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1121,8 +1128,8 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1132,8 +1139,8 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1143,8 +1150,8 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1162,8 +1169,8 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 }
 
 type ApiRespondInviteRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
+	ctx            context.Context
+	ApiService     *InviteAPIService
 	notificationId string
 	inviteResponse *InviteResponse
 }
@@ -1186,26 +1193,27 @@ Respond to an invite or invite request without accepting it. `:notificationId` i
 In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection.
 In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiRespondInviteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiRespondInviteRequest
 */
 func (a *InviteAPIService) RespondInvite(ctx context.Context, notificationId string) ApiRespondInviteRequest {
 	return ApiRespondInviteRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *InviteAPIService) RespondInviteExecute(r ApiRespondInviteRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.RespondInvite")
@@ -1271,8 +1279,8 @@ func (a *InviteAPIService) RespondInviteExecute(r ApiRespondInviteRequest) (*Not
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1290,11 +1298,11 @@ func (a *InviteAPIService) RespondInviteExecute(r ApiRespondInviteRequest) (*Not
 }
 
 type ApiRespondInviteWithPhotoRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
+	ctx            context.Context
+	ApiService     *InviteAPIService
 	notificationId string
-	data *InviteResponse
-	image *os.File
+	data           *InviteResponse
+	image          *os.File
 }
 
 func (r ApiRespondInviteWithPhotoRequest) Data(data InviteResponse) ApiRespondInviteWithPhotoRequest {
@@ -1320,26 +1328,27 @@ Respond with photo to an invite or invite request without accepting it. `:notifi
 In case the notification being replied to is an invite, the `responseSlot` refers to a response message from the the `message` collection.
 In case the notification is an invite request, it will refer to one from the `requestResponse` collection instead.'
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiRespondInviteWithPhotoRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiRespondInviteWithPhotoRequest
 */
 func (a *InviteAPIService) RespondInviteWithPhoto(ctx context.Context, notificationId string) ApiRespondInviteWithPhotoRequest {
 	return ApiRespondInviteWithPhotoRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *InviteAPIService) RespondInviteWithPhotoExecute(r ApiRespondInviteWithPhotoRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.RespondInviteWithPhoto")
@@ -1379,8 +1388,8 @@ func (a *InviteAPIService) RespondInviteWithPhotoExecute(r ApiRespondInviteWithP
 	}
 	parameterAddToHeaderOrQuery(localVarFormParams, "data", r.data, "", "")
 	var imageLocalVarFormFileName string
-	var imageLocalVarFileName     string
-	var imageLocalVarFileBytes    []byte
+	var imageLocalVarFileName string
+	var imageLocalVarFileBytes []byte
 
 	imageLocalVarFormFileName = "image"
 	imageLocalVarFile := r.image
@@ -1422,8 +1431,8 @@ func (a *InviteAPIService) RespondInviteWithPhotoExecute(r ApiRespondInviteWithP
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1441,11 +1450,11 @@ func (a *InviteAPIService) RespondInviteWithPhotoExecute(r ApiRespondInviteWithP
 }
 
 type ApiUpdateInviteMessageRequest struct {
-	ctx context.Context
-	ApiService *InviteAPIService
-	userId string
-	messageType InviteMessageType
-	slot int32
+	ctx                        context.Context
+	ApiService                 *InviteAPIService
+	userId                     string
+	messageType                InviteMessageType
+	slot                       int32
 	updateInviteMessageRequest *UpdateInviteMessageRequest
 }
 
@@ -1474,30 +1483,31 @@ Message type refers to a different collection of messages, used during different
 * `request` = Message when requesting an invite
 * `requestResponse` = Message when replying to a request for invite
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @param messageType The type of message to fetch, must be a valid InviteMessageType.
- @param slot The message slot to fetch of a given message type.
- @return ApiUpdateInviteMessageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@param messageType The type of message to fetch, must be a valid InviteMessageType.
+	@param slot The message slot to fetch of a given message type.
+	@return ApiUpdateInviteMessageRequest
 */
 func (a *InviteAPIService) UpdateInviteMessage(ctx context.Context, userId string, messageType InviteMessageType, slot int32) ApiUpdateInviteMessageRequest {
 	return ApiUpdateInviteMessageRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ApiService:  a,
+		ctx:         ctx,
+		userId:      userId,
 		messageType: messageType,
-		slot: slot,
+		slot:        slot,
 	}
 }
 
 // Execute executes the request
-//  @return []InviteMessage
+//
+//	@return []InviteMessage
 func (a *InviteAPIService) UpdateInviteMessageExecute(r ApiUpdateInviteMessageRequest) ([]InviteMessage, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []InviteMessage
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []InviteMessage
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InviteAPIService.UpdateInviteMessage")
@@ -1568,8 +1578,8 @@ func (a *InviteAPIService) UpdateInviteMessageExecute(r ApiUpdateInviteMessageRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1579,8 +1589,8 @@ func (a *InviteAPIService) UpdateInviteMessageExecute(r ApiUpdateInviteMessageRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
@@ -1590,8 +1600,8 @@ func (a *InviteAPIService) UpdateInviteMessageExecute(r ApiUpdateInviteMessageRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

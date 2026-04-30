@@ -109,7 +109,6 @@ func (o *UpdateGroupRepresentationRequest) UnmarshalJSON(data []byte) (err error
 	varUpdateGroupRepresentationRequest := _UpdateGroupRepresentationRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUpdateGroupRepresentationRequest)
 
 	if err != nil {

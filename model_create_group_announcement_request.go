@@ -223,7 +223,6 @@ func (o *CreateGroupAnnouncementRequest) UnmarshalJSON(data []byte) (err error) 
 	varCreateGroupAnnouncementRequest := _CreateGroupAnnouncementRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateGroupAnnouncementRequest)
 
 	if err != nil {

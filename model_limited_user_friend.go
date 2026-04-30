@@ -805,7 +805,6 @@ func (o *LimitedUserFriend) UnmarshalJSON(data []byte) (err error) {
 	varLimitedUserFriend := _LimitedUserFriend{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varLimitedUserFriend)
 
 	if err != nil {

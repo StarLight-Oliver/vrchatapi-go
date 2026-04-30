@@ -182,7 +182,6 @@ func (o *Balance) UnmarshalJSON(data []byte) (err error) {
 	varBalance := _Balance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varBalance)
 
 	if err != nil {

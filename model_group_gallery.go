@@ -24,20 +24,20 @@ type GroupGallery struct {
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	// Description of the gallery.
 	Description *string `json:"description,omitempty"`
-	Id *string `json:"id,omitempty"`
+	Id          *string `json:"id,omitempty"`
 	// Whether the gallery is members only.
 	MembersOnly *bool `json:"membersOnly,omitempty"`
 	// Name of the gallery.
 	Name *string `json:"name,omitempty"`
-	//  
+	//
 	RoleIdsToAutoApprove []string `json:"roleIdsToAutoApprove,omitempty"`
-	//  
+	//
 	RoleIdsToManage []string `json:"roleIdsToManage,omitempty"`
-	//  
+	//
 	RoleIdsToSubmit []string `json:"roleIdsToSubmit,omitempty"`
-	//  
-	RoleIdsToView []string `json:"roleIdsToView,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	//
+	RoleIdsToView []string   `json:"roleIdsToView,omitempty"`
+	UpdatedAt     *time.Time `json:"updatedAt,omitempty"`
 }
 
 // NewGroupGallery instantiates a new GroupGallery object
@@ -386,7 +386,7 @@ func (o *GroupGallery) SetUpdatedAt(v time.Time) {
 }
 
 func (o GroupGallery) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -463,5 +463,3 @@ func (v *NullableGroupGallery) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

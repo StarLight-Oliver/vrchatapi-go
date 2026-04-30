@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_InstancesAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService CloseInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 		var instanceId string
@@ -40,7 +39,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService CreateInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.InstancesAPI.CreateInstance(context.Background()).Execute()
 
@@ -52,7 +51,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 		var instanceId string
@@ -67,7 +66,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetInstanceByShortName", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var shortName string
 
@@ -81,7 +80,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetRecentLocations", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.InstancesAPI.GetRecentLocations(context.Background()).Execute()
 
@@ -93,7 +92,7 @@ func Test_vrchatapi_InstancesAPIService(t *testing.T) {
 
 	t.Run("Test InstancesAPIService GetShortName", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 		var instanceId string

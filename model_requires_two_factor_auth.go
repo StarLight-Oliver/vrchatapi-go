@@ -108,7 +108,6 @@ func (o *RequiresTwoFactorAuth) UnmarshalJSON(data []byte) (err error) {
 	varRequiresTwoFactorAuth := _RequiresTwoFactorAuth{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varRequiresTwoFactorAuth)
 
 	if err != nil {

@@ -187,7 +187,6 @@ func (o *FinishFileDataUploadRequest) UnmarshalJSON(data []byte) (err error) {
 	varFinishFileDataUploadRequest := _FinishFileDataUploadRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFinishFileDataUploadRequest)
 
 	if err != nil {

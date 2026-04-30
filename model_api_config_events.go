@@ -399,7 +399,6 @@ func (o *APIConfigEvents) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigEvents := _APIConfigEvents{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigEvents)
 
 	if err != nil {

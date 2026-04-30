@@ -259,7 +259,6 @@ func (o *UserNote) UnmarshalJSON(data []byte) (err error) {
 	varUserNote := _UserNote{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUserNote)
 
 	if err != nil {

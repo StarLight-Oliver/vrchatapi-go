@@ -192,7 +192,6 @@ func (o *GroupRoleTemplateValues) UnmarshalJSON(data []byte) (err error) {
 	varGroupRoleTemplateValues := _GroupRoleTemplateValues{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varGroupRoleTemplateValues)
 
 	if err != nil {

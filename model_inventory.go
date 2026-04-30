@@ -136,7 +136,6 @@ func (o *Inventory) UnmarshalJSON(data []byte) (err error) {
 	varInventory := _Inventory{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInventory)
 
 	if err != nil {

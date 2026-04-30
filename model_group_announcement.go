@@ -22,15 +22,15 @@ var _ MappedNullable = &GroupAnnouncement{}
 // GroupAnnouncement struct for GroupAnnouncement
 type GroupAnnouncement struct {
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	AuthorId *string `json:"authorId,omitempty"`
-	CreatedAt NullableTime `json:"createdAt,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageId *string `json:"imageId,omitempty"`
-	ImageUrl NullableString `json:"imageUrl,omitempty"`
-	Text NullableString `json:"text,omitempty"`
-	Title NullableString `json:"title,omitempty"`
-	UpdatedAt NullableTime `json:"updatedAt,omitempty"`
+	AuthorId  *string        `json:"authorId,omitempty"`
+	CreatedAt NullableTime   `json:"createdAt,omitempty"`
+	GroupId   *string        `json:"groupId,omitempty"`
+	Id        *string        `json:"id,omitempty"`
+	ImageId   *string        `json:"imageId,omitempty"`
+	ImageUrl  NullableString `json:"imageUrl,omitempty"`
+	Text      NullableString `json:"text,omitempty"`
+	Title     NullableString `json:"title,omitempty"`
+	UpdatedAt NullableTime   `json:"updatedAt,omitempty"`
 }
 
 // NewGroupAnnouncement instantiates a new GroupAnnouncement object
@@ -114,6 +114,7 @@ func (o *GroupAnnouncement) HasCreatedAt() bool {
 func (o *GroupAnnouncement) SetCreatedAt(v time.Time) {
 	o.CreatedAt.Set(&v)
 }
+
 // SetCreatedAtNil sets the value for CreatedAt to be an explicit nil
 func (o *GroupAnnouncement) SetCreatedAtNil() {
 	o.CreatedAt.Set(nil)
@@ -252,6 +253,7 @@ func (o *GroupAnnouncement) HasImageUrl() bool {
 func (o *GroupAnnouncement) SetImageUrl(v string) {
 	o.ImageUrl.Set(&v)
 }
+
 // SetImageUrlNil sets the value for ImageUrl to be an explicit nil
 func (o *GroupAnnouncement) SetImageUrlNil() {
 	o.ImageUrl.Set(nil)
@@ -294,6 +296,7 @@ func (o *GroupAnnouncement) HasText() bool {
 func (o *GroupAnnouncement) SetText(v string) {
 	o.Text.Set(&v)
 }
+
 // SetTextNil sets the value for Text to be an explicit nil
 func (o *GroupAnnouncement) SetTextNil() {
 	o.Text.Set(nil)
@@ -336,6 +339,7 @@ func (o *GroupAnnouncement) HasTitle() bool {
 func (o *GroupAnnouncement) SetTitle(v string) {
 	o.Title.Set(&v)
 }
+
 // SetTitleNil sets the value for Title to be an explicit nil
 func (o *GroupAnnouncement) SetTitleNil() {
 	o.Title.Set(nil)
@@ -378,6 +382,7 @@ func (o *GroupAnnouncement) HasUpdatedAt() bool {
 func (o *GroupAnnouncement) SetUpdatedAt(v time.Time) {
 	o.UpdatedAt.Set(&v)
 }
+
 // SetUpdatedAtNil sets the value for UpdatedAt to be an explicit nil
 func (o *GroupAnnouncement) SetUpdatedAtNil() {
 	o.UpdatedAt.Set(nil)
@@ -389,7 +394,7 @@ func (o *GroupAnnouncement) UnsetUpdatedAt() {
 }
 
 func (o GroupAnnouncement) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -463,5 +468,3 @@ func (v *NullableGroupAnnouncement) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

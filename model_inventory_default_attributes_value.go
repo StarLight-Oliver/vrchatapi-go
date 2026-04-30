@@ -20,8 +20,8 @@ var _ MappedNullable = &InventoryDefaultAttributesValue{}
 
 // InventoryDefaultAttributesValue struct for InventoryDefaultAttributesValue
 type InventoryDefaultAttributesValue struct {
-	DefaultValue *string `json:"defaultValue,omitempty"`
-	Validator *InventoryDefaultAttributesValueValidator `json:"validator,omitempty"`
+	DefaultValue *string                                   `json:"defaultValue,omitempty"`
+	Validator    *InventoryDefaultAttributesValueValidator `json:"validator,omitempty"`
 }
 
 // NewInventoryDefaultAttributesValue instantiates a new InventoryDefaultAttributesValue object
@@ -106,7 +106,7 @@ func (o *InventoryDefaultAttributesValue) SetValidator(v InventoryDefaultAttribu
 }
 
 func (o InventoryDefaultAttributesValue) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableInventoryDefaultAttributesValue) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

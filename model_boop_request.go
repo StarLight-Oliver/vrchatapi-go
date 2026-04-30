@@ -21,8 +21,8 @@ var _ MappedNullable = &BoopRequest{}
 // BoopRequest See NotificationDetailBoop; either inventoryItemId (accessed through .id) by itself, or emojiId (accessed through .metadata.fileId or built-in emoji name) with optional emojiVersion
 type BoopRequest struct {
 	// Either a FileID or a string constant for default emojis
-	EmojiId *string `json:"emojiId,omitempty"`
-	EmojiVersion *int32 `json:"emojiVersion,omitempty"`
+	EmojiId         *string `json:"emojiId,omitempty"`
+	EmojiVersion    *int32  `json:"emojiVersion,omitempty"`
 	InventoryItemId *string `json:"inventoryItemId,omitempty"`
 }
 
@@ -140,7 +140,7 @@ func (o *BoopRequest) SetInventoryItemId(v string) {
 }
 
 func (o BoopRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableBoopRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_GroupsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AddGroupGalleryImage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupGalleryId string
@@ -40,7 +39,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AddGroupMemberRole", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -56,7 +55,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService AddGroupPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -70,7 +69,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService BanGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -84,7 +83,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService BlockGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -98,7 +97,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CancelGroupRequest", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -111,7 +110,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CancelGroupTransfer", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -125,7 +124,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CreateGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.GroupsAPI.CreateGroup(context.Background()).Execute()
 
@@ -137,7 +136,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CreateGroupAnnouncement", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -151,7 +150,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CreateGroupGallery", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -165,7 +164,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CreateGroupInvite", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -178,7 +177,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService CreateGroupRole", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -192,7 +191,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeclineGroupInvite", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -206,7 +205,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -220,7 +219,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupAnnouncement", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -234,7 +233,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupGallery", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupGalleryId string
@@ -249,7 +248,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupGalleryImage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupGalleryId string
@@ -265,7 +264,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupInvite", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -279,7 +278,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var notificationId string
@@ -294,7 +293,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService DeleteGroupRole", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupRoleId string
@@ -309,7 +308,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -323,7 +322,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupAnnouncements", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -337,7 +336,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupAuditLogEntryTypes", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -351,7 +350,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupAuditLogs", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -365,7 +364,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupBans", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -379,7 +378,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupGalleryImages", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupGalleryId string
@@ -394,7 +393,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupInstances", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -408,7 +407,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupInvites", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -422,7 +421,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -437,7 +436,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupMembers", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -451,7 +450,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupPermissions", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -465,7 +464,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupPosts", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -479,7 +478,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupRequests", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -493,7 +492,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupRoleTemplates", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.GroupsAPI.GetGroupRoleTemplates(context.Background()).Execute()
 
@@ -505,7 +504,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupRoles", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -519,7 +518,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService GetGroupTransferability", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -533,7 +532,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService InitiateOrAcceptGroupTransfer", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -547,7 +546,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService JoinGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -561,7 +560,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService KickGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -576,7 +575,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService LeaveGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -589,7 +588,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService RemoveGroupMemberRole", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -605,7 +604,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService RespondGroupJoinRequest", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -619,7 +618,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService SearchGroupMembers", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -633,7 +632,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService SearchGroups", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.GroupsAPI.SearchGroups(context.Background()).Execute()
 
@@ -645,7 +644,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UnbanGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -660,7 +659,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroup", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -674,7 +673,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroupGallery", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupGalleryId string
@@ -689,7 +688,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroupMember", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var userId string
@@ -704,7 +703,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroupPost", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var notificationId string
@@ -719,7 +718,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroupRepresentation", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -733,7 +732,7 @@ func Test_vrchatapi_GroupsAPIService(t *testing.T) {
 
 	t.Run("Test GroupsAPIService UpdateGroupRole", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var groupRoleId string

@@ -388,7 +388,6 @@ func (o *APIConfigMinSupportedClientBuildNumber) UnmarshalJSON(data []byte) (err
 	varAPIConfigMinSupportedClientBuildNumber := _APIConfigMinSupportedClientBuildNumber{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigMinSupportedClientBuildNumber)
 
 	if err != nil {

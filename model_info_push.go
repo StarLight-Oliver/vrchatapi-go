@@ -412,7 +412,6 @@ func (o *InfoPush) UnmarshalJSON(data []byte) (err error) {
 	varInfoPush := _InfoPush{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInfoPush)
 
 	if err != nil {

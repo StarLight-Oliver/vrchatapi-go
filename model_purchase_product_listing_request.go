@@ -166,7 +166,6 @@ func (o *PurchaseProductListingRequest) UnmarshalJSON(data []byte) (err error) {
 	varPurchaseProductListingRequest := _PurchaseProductListingRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPurchaseProductListingRequest)
 
 	if err != nil {

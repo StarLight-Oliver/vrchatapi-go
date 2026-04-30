@@ -341,7 +341,6 @@ func (o *RegisterUserAccountRequest) UnmarshalJSON(data []byte) (err error) {
 	varRegisterUserAccountRequest := _RegisterUserAccountRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varRegisterUserAccountRequest)
 
 	if err != nil {

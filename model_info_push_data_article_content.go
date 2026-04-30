@@ -20,9 +20,9 @@ var _ MappedNullable = &InfoPushDataArticleContent{}
 
 // InfoPushDataArticleContent struct for InfoPushDataArticleContent
 type InfoPushDataArticleContent struct {
-	ImageUrl *string `json:"imageUrl,omitempty"`
+	ImageUrl  *string                `json:"imageUrl,omitempty"`
 	OnPressed *InfoPushDataClickable `json:"onPressed,omitempty"`
-	Text *string `json:"text,omitempty"`
+	Text      *string                `json:"text,omitempty"`
 }
 
 // NewInfoPushDataArticleContent instantiates a new InfoPushDataArticleContent object
@@ -139,7 +139,7 @@ func (o *InfoPushDataArticleContent) SetText(v string) {
 }
 
 func (o InfoPushDataArticleContent) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableInfoPushDataArticleContent) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -172,7 +172,6 @@ func (o *InstancePlatforms) UnmarshalJSON(data []byte) (err error) {
 	varInstancePlatforms := _InstancePlatforms{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInstancePlatforms)
 
 	if err != nil {

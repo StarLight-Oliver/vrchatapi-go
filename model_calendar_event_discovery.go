@@ -137,7 +137,6 @@ func (o *CalendarEventDiscovery) UnmarshalJSON(data []byte) (err error) {
 	varCalendarEventDiscovery := _CalendarEventDiscovery{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCalendarEventDiscovery)
 
 	if err != nil {

@@ -109,7 +109,6 @@ func (o *BanGroupMemberRequest) UnmarshalJSON(data []byte) (err error) {
 	varBanGroupMemberRequest := _BanGroupMemberRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varBanGroupMemberRequest)
 
 	if err != nil {

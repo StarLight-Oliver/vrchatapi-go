@@ -148,7 +148,6 @@ func (o *RespondNotificationV2Request) UnmarshalJSON(data []byte) (err error) {
 	varRespondNotificationV2Request := _RespondNotificationV2Request{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varRespondNotificationV2Request)
 
 	if err != nil {

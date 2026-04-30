@@ -290,7 +290,6 @@ func (o *FileData) UnmarshalJSON(data []byte) (err error) {
 	varFileData := _FileData{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFileData)
 
 	if err != nil {

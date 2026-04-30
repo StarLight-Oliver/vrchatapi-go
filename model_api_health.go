@@ -164,7 +164,6 @@ func (o *APIHealth) UnmarshalJSON(data []byte) (err error) {
 	varAPIHealth := _APIHealth{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIHealth)
 
 	if err != nil {

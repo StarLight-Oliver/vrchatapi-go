@@ -356,11 +356,6 @@ func newStrictDecoder(data []byte) *json.Decoder {
 	return dec
 }
 
-func newDecoder(data []byte) *json.Decoder {
-	dec := json.NewDecoder(bytes.NewBuffer(data))
-	return dec
-}
-
 // Prevent trying to import "fmt"
 func reportError(format string, a ...interface{}) error {
 	return fmt.Errorf(format, a...)

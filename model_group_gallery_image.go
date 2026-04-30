@@ -21,16 +21,16 @@ var _ MappedNullable = &GroupGalleryImage{}
 
 // GroupGalleryImage struct for GroupGalleryImage
 type GroupGalleryImage struct {
-	Approved *bool `json:"approved,omitempty"`
+	Approved   *bool      `json:"approved,omitempty"`
 	ApprovedAt *time.Time `json:"approvedAt,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	ApprovedByUserId *string `json:"approvedByUserId,omitempty"`
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	FileId *string `json:"fileId,omitempty"`
-	GalleryId *string `json:"galleryId,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
+	ApprovedByUserId *string    `json:"approvedByUserId,omitempty"`
+	CreatedAt        *time.Time `json:"createdAt,omitempty"`
+	FileId           *string    `json:"fileId,omitempty"`
+	GalleryId        *string    `json:"galleryId,omitempty"`
+	GroupId          *string    `json:"groupId,omitempty"`
+	Id               *string    `json:"id,omitempty"`
+	ImageUrl         *string    `json:"imageUrl,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
 	SubmittedByUserId *string `json:"submittedByUserId,omitempty"`
 }
@@ -377,7 +377,7 @@ func (o *GroupGalleryImage) SetSubmittedByUserId(v string) {
 }
 
 func (o GroupGalleryImage) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -454,5 +454,3 @@ func (v *NullableGroupGalleryImage) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

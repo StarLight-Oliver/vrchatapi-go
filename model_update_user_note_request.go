@@ -137,7 +137,6 @@ func (o *UpdateUserNoteRequest) UnmarshalJSON(data []byte) (err error) {
 	varUpdateUserNoteRequest := _UpdateUserNoteRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUpdateUserNoteRequest)
 
 	if err != nil {

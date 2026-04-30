@@ -20,8 +20,8 @@ var _ MappedNullable = &NotificationDetailBoop{}
 
 // NotificationDetailBoop Either inventoryItemId by itself, or emojiId with optional emojiVersion
 type NotificationDetailBoop struct {
-	EmojiId *string `json:"emojiId,omitempty"`
-	EmojiVersion *int32 `json:"emojiVersion,omitempty"`
+	EmojiId         *string `json:"emojiId,omitempty"`
+	EmojiVersion    *int32  `json:"emojiVersion,omitempty"`
 	InventoryItemId *string `json:"inventoryItemId,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *NotificationDetailBoop) SetInventoryItemId(v string) {
 }
 
 func (o NotificationDetailBoop) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableNotificationDetailBoop) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

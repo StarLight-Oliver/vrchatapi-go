@@ -20,14 +20,13 @@ import (
 	"strings"
 )
 
-
 // FriendsAPIService FriendsAPI service
 type FriendsAPIService service
 
 type ApiBoopRequest struct {
-	ctx context.Context
-	ApiService *FriendsAPIService
-	userId string
+	ctx         context.Context
+	ApiService  *FriendsAPIService
+	userId      string
 	boopRequest *BoopRequest
 }
 
@@ -45,26 +44,27 @@ Boop Send Boop
 
 Send a boop to another user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiBoopRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiBoopRequest
 */
 func (a *FriendsAPIService) Boop(ctx context.Context, userId string) ApiBoopRequest {
 	return ApiBoopRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.Boop")
@@ -130,8 +130,8 @@ func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Respo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -141,8 +141,8 @@ func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Respo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -152,8 +152,8 @@ func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Respo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -171,9 +171,9 @@ func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Respo
 }
 
 type ApiDeleteFriendRequestRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FriendsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiDeleteFriendRequestRequest) Execute() (*Success, *http.Response, error) {
@@ -185,26 +185,27 @@ DeleteFriendRequest Delete Friend Request
 
 Deletes an outgoing pending friend request to another user. To delete an incoming friend request, use the `deleteNotification` endpoint instead.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiDeleteFriendRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiDeleteFriendRequestRequest
 */
 func (a *FriendsAPIService) DeleteFriendRequest(ctx context.Context, userId string) ApiDeleteFriendRequestRequest {
 	return ApiDeleteFriendRequestRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *FriendsAPIService) DeleteFriendRequestExecute(r ApiDeleteFriendRequestRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.DeleteFriendRequest")
@@ -265,8 +266,8 @@ func (a *FriendsAPIService) DeleteFriendRequestExecute(r ApiDeleteFriendRequestR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -276,8 +277,8 @@ func (a *FriendsAPIService) DeleteFriendRequestExecute(r ApiDeleteFriendRequestR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -295,9 +296,9 @@ func (a *FriendsAPIService) DeleteFriendRequestExecute(r ApiDeleteFriendRequestR
 }
 
 type ApiFriendRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FriendsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiFriendRequest) Execute() (*Notification, *http.Response, error) {
@@ -309,26 +310,27 @@ Friend Send Friend Request
 
 Send a friend request to another user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiFriendRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiFriendRequest
 */
 func (a *FriendsAPIService) Friend(ctx context.Context, userId string) ApiFriendRequest {
 	return ApiFriendRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.Friend")
@@ -389,8 +391,8 @@ func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -400,8 +402,8 @@ func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -411,8 +413,8 @@ func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -430,9 +432,9 @@ func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *h
 }
 
 type ApiGetFriendStatusRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FriendsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetFriendStatusRequest) Execute() (*FriendStatus, *http.Response, error) {
@@ -444,26 +446,27 @@ GetFriendStatus Check Friend Status
 
 Retrieve if the user is currently a friend with a given user, if they have an outgoing friend request, and if they have an incoming friend request. The proper way to receive and accept friend request is by checking if the user has an incoming `Notification` of type `friendRequest`, and then accepting that notification.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetFriendStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetFriendStatusRequest
 */
 func (a *FriendsAPIService) GetFriendStatus(ctx context.Context, userId string) ApiGetFriendStatusRequest {
 	return ApiGetFriendStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return FriendStatus
+//
+//	@return FriendStatus
 func (a *FriendsAPIService) GetFriendStatusExecute(r ApiGetFriendStatusRequest) (*FriendStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FriendStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FriendStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.GetFriendStatus")
@@ -524,8 +527,8 @@ func (a *FriendsAPIService) GetFriendStatusExecute(r ApiGetFriendStatusRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -543,11 +546,11 @@ func (a *FriendsAPIService) GetFriendStatusExecute(r ApiGetFriendStatusRequest) 
 }
 
 type ApiGetFriendsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FriendsAPIService
-	offset *int32
-	n *int32
-	offline *bool
+	offset     *int32
+	n          *int32
+	offline    *bool
 }
 
 // A zero-based offset from the default object sorting from where search results start.
@@ -577,24 +580,25 @@ GetFriends List Friends
 
 List information about friends.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFriendsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFriendsRequest
 */
 func (a *FriendsAPIService) GetFriends(ctx context.Context) ApiGetFriendsRequest {
 	return ApiGetFriendsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []LimitedUserFriend
+//
+//	@return []LimitedUserFriend
 func (a *FriendsAPIService) GetFriendsExecute(r ApiGetFriendsRequest) ([]LimitedUserFriend, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []LimitedUserFriend
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []LimitedUserFriend
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.GetFriends")
@@ -614,9 +618,9 @@ func (a *FriendsAPIService) GetFriendsExecute(r ApiGetFriendsRequest) ([]Limited
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offline != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offline", r.offline, "form", "")
@@ -667,8 +671,8 @@ func (a *FriendsAPIService) GetFriendsExecute(r ApiGetFriendsRequest) ([]Limited
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -686,9 +690,9 @@ func (a *FriendsAPIService) GetFriendsExecute(r ApiGetFriendsRequest) ([]Limited
 }
 
 type ApiUnfriendRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FriendsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiUnfriendRequest) Execute() (*Success, *http.Response, error) {
@@ -700,26 +704,27 @@ Unfriend Unfriend
 
 Unfriend a user by ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiUnfriendRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiUnfriendRequest
 */
 func (a *FriendsAPIService) Unfriend(ctx context.Context, userId string) ApiUnfriendRequest {
 	return ApiUnfriendRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *FriendsAPIService) UnfriendExecute(r ApiUnfriendRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FriendsAPIService.Unfriend")
@@ -780,8 +785,8 @@ func (a *FriendsAPIService) UnfriendExecute(r ApiUnfriendRequest) (*Success, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -791,8 +796,8 @@ func (a *FriendsAPIService) UnfriendExecute(r ApiUnfriendRequest) (*Success, *ht
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

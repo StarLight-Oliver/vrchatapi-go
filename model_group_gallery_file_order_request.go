@@ -136,7 +136,6 @@ func (o *GroupGalleryFileOrderRequest) UnmarshalJSON(data []byte) (err error) {
 	varGroupGalleryFileOrderRequest := _GroupGalleryFileOrderRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varGroupGalleryFileOrderRequest)
 
 	if err != nil {

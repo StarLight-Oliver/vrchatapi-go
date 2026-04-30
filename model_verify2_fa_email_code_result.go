@@ -108,7 +108,6 @@ func (o *Verify2FAEmailCodeResult) UnmarshalJSON(data []byte) (err error) {
 	varVerify2FAEmailCodeResult := _Verify2FAEmailCodeResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varVerify2FAEmailCodeResult)
 
 	if err != nil {

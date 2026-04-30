@@ -20,15 +20,15 @@ var _ MappedNullable = &InventoryMetadata{}
 
 // InventoryMetadata struct for InventoryMetadata
 type InventoryMetadata struct {
-	Animated *bool `json:"animated,omitempty"`
+	Animated       *bool   `json:"animated,omitempty"`
 	AnimationStyle *string `json:"animationStyle,omitempty"`
-	AssetBundleId *string `json:"assetBundleId,omitempty"`
-	FileId *string `json:"fileId,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
+	AssetBundleId  *string `json:"assetBundleId,omitempty"`
+	FileId         *string `json:"fileId,omitempty"`
+	ImageUrl       *string `json:"imageUrl,omitempty"`
 	// Only in bundles
 	InventoryItemsToInstantiate []string `json:"inventoryItemsToInstantiate,omitempty"`
-	MaskTag *string `json:"maskTag,omitempty"`
-	PropId *string `json:"propId,omitempty"`
+	MaskTag                     *string  `json:"maskTag,omitempty"`
+	PropId                      *string  `json:"propId,omitempty"`
 }
 
 // NewInventoryMetadata instantiates a new InventoryMetadata object
@@ -305,7 +305,7 @@ func (o *InventoryMetadata) SetPropId(v string) {
 }
 
 func (o InventoryMetadata) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -376,5 +376,3 @@ func (v *NullableInventoryMetadata) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

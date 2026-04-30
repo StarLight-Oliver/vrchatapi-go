@@ -164,7 +164,6 @@ func (o *APIConfigConstants) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigConstants := _APIConfigConstants{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigConstants)
 
 	if err != nil {

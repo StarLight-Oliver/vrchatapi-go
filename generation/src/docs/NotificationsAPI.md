@@ -868,17 +868,7 @@ import (
 
 func main() {
 	notificationId := "notificationId_example" // string | Must be a valid notification ID.
-	respondNotificationV2Request := *openapiclient.NewRespondNotificationV2Request("Accept:
-  value: accept
-Boop:
-  value: boop
-Decline:
-  value: decline
-Delete:
-  value: delete
-Unsubscribe:
-  value: unsubscribe
-") // RespondNotificationV2Request | 
+	respondNotificationV2Request := *openapiclient.NewRespondNotificationV2Request("Accept:   value: accept Boop:   value: boop Decline:   value: decline Delete:   value: delete Unsubscribe:   value: unsubscribe ") // RespondNotificationV2Request | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

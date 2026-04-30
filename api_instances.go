@@ -21,17 +21,16 @@ import (
 	"time"
 )
 
-
 // InstancesAPIService InstancesAPI service
 type InstancesAPIService service
 
 type ApiCloseInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
-	worldId string
+	worldId    string
 	instanceId string
-	hardClose *bool
-	closedAt *time.Time
+	hardClose  *bool
+	closedAt   *time.Time
 }
 
 // Whether to hard close the instance. Defaults to false.
@@ -57,28 +56,29 @@ Close an instance or update the closedAt time when it will be closed.
 
 You can only close an instance if the ownerId is yourself or if the instance owner is a group and you have the `group-instance-manage` permission.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param worldId Must be a valid world ID.
- @param instanceId Must be a valid instance ID.
- @return ApiCloseInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param worldId Must be a valid world ID.
+	@param instanceId Must be a valid instance ID.
+	@return ApiCloseInstanceRequest
 */
 func (a *InstancesAPIService) CloseInstance(ctx context.Context, worldId string, instanceId string) ApiCloseInstanceRequest {
 	return ApiCloseInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		worldId: worldId,
+		ctx:        ctx,
+		worldId:    worldId,
 		instanceId: instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return Instance
+//
+//	@return Instance
 func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*Instance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Instance
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Instance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.CloseInstance")
@@ -146,8 +146,8 @@ func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -157,8 +157,8 @@ func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -168,8 +168,8 @@ func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -187,8 +187,8 @@ func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*
 }
 
 type ApiCreateInstanceRequest struct {
-	ctx context.Context
-	ApiService *InstancesAPIService
+	ctx                   context.Context
+	ApiService            *InstancesAPIService
 	createInstanceRequest *CreateInstanceRequest
 }
 
@@ -206,24 +206,25 @@ CreateInstance Create Instance
 
 Create an instance
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateInstanceRequest
 */
 func (a *InstancesAPIService) CreateInstance(ctx context.Context) ApiCreateInstanceRequest {
 	return ApiCreateInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Instance
+//
+//	@return Instance
 func (a *InstancesAPIService) CreateInstanceExecute(r ApiCreateInstanceRequest) (*Instance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Instance
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Instance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.CreateInstance")
@@ -288,8 +289,8 @@ func (a *InstancesAPIService) CreateInstanceExecute(r ApiCreateInstanceRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -307,9 +308,9 @@ func (a *InstancesAPIService) CreateInstanceExecute(r ApiCreateInstanceRequest) 
 }
 
 type ApiGetInstanceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
-	worldId string
+	worldId    string
 	instanceId string
 }
 
@@ -324,28 +325,29 @@ Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.i
 
 If an invalid instanceId is provided, this endpoint will simply return "null"!
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param worldId Must be a valid world ID.
- @param instanceId Must be a valid instance ID.
- @return ApiGetInstanceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param worldId Must be a valid world ID.
+	@param instanceId Must be a valid instance ID.
+	@return ApiGetInstanceRequest
 */
 func (a *InstancesAPIService) GetInstance(ctx context.Context, worldId string, instanceId string) ApiGetInstanceRequest {
 	return ApiGetInstanceRequest{
 		ApiService: a,
-		ctx: ctx,
-		worldId: worldId,
+		ctx:        ctx,
+		worldId:    worldId,
 		instanceId: instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return Instance
+//
+//	@return Instance
 func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Instance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Instance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Instance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstance")
@@ -407,8 +409,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Inst
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -426,9 +428,9 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Inst
 }
 
 type ApiGetInstanceByShortNameRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
-	shortName string
+	shortName  string
 }
 
 func (r ApiGetInstanceByShortNameRequest) Execute() (*Instance, *http.Response, error) {
@@ -440,26 +442,27 @@ GetInstanceByShortName Get Instance By Short Name
 
 Returns an instance. Please read [Instances Tutorial](https://vrchatapi.github.io/tutorials/instances/) for more information on Instances.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param shortName Must be a valid instance short name.
- @return ApiGetInstanceByShortNameRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param shortName Must be a valid instance short name.
+	@return ApiGetInstanceByShortNameRequest
 */
 func (a *InstancesAPIService) GetInstanceByShortName(ctx context.Context, shortName string) ApiGetInstanceByShortNameRequest {
 	return ApiGetInstanceByShortNameRequest{
 		ApiService: a,
-		ctx: ctx,
-		shortName: shortName,
+		ctx:        ctx,
+		shortName:  shortName,
 	}
 }
 
 // Execute executes the request
-//  @return Instance
+//
+//	@return Instance
 func (a *InstancesAPIService) GetInstanceByShortNameExecute(r ApiGetInstanceByShortNameRequest) (*Instance, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Instance
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Instance
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetInstanceByShortName")
@@ -520,8 +523,8 @@ func (a *InstancesAPIService) GetInstanceByShortNameExecute(r ApiGetInstanceBySh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -531,8 +534,8 @@ func (a *InstancesAPIService) GetInstanceByShortNameExecute(r ApiGetInstanceBySh
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -550,10 +553,10 @@ func (a *InstancesAPIService) GetInstanceByShortNameExecute(r ApiGetInstanceBySh
 }
 
 type ApiGetRecentLocationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
-	n *int32
-	offset *int32
+	n          *int32
+	offset     *int32
 }
 
 // The number of objects to return.
@@ -577,24 +580,25 @@ GetRecentLocations List Recent Locations
 
 Returns a list of recently visited locations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRecentLocationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRecentLocationsRequest
 */
 func (a *InstancesAPIService) GetRecentLocations(ctx context.Context) ApiGetRecentLocationsRequest {
 	return ApiGetRecentLocationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *InstancesAPIService) GetRecentLocationsExecute(r ApiGetRecentLocationsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetRecentLocations")
@@ -611,9 +615,9 @@ func (a *InstancesAPIService) GetRecentLocationsExecute(r ApiGetRecentLocationsR
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -664,8 +668,8 @@ func (a *InstancesAPIService) GetRecentLocationsExecute(r ApiGetRecentLocationsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -683,9 +687,9 @@ func (a *InstancesAPIService) GetRecentLocationsExecute(r ApiGetRecentLocationsR
 }
 
 type ApiGetShortNameRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InstancesAPIService
-	worldId string
+	worldId    string
 	instanceId string
 }
 
@@ -698,28 +702,29 @@ GetShortName Get Instance Short Name
 
 Returns an instance short name.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param worldId Must be a valid world ID.
- @param instanceId Must be a valid instance ID.
- @return ApiGetShortNameRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param worldId Must be a valid world ID.
+	@param instanceId Must be a valid instance ID.
+	@return ApiGetShortNameRequest
 */
 func (a *InstancesAPIService) GetShortName(ctx context.Context, worldId string, instanceId string) ApiGetShortNameRequest {
 	return ApiGetShortNameRequest{
 		ApiService: a,
-		ctx: ctx,
-		worldId: worldId,
+		ctx:        ctx,
+		worldId:    worldId,
 		instanceId: instanceId,
 	}
 }
 
 // Execute executes the request
-//  @return InstanceShortNameResponse
+//
+//	@return InstanceShortNameResponse
 func (a *InstancesAPIService) GetShortNameExecute(r ApiGetShortNameRequest) (*InstanceShortNameResponse, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InstanceShortNameResponse
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InstanceShortNameResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InstancesAPIService.GetShortName")
@@ -781,8 +786,8 @@ func (a *InstancesAPIService) GetShortNameExecute(r ApiGetShortNameRequest) (*In
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

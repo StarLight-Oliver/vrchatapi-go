@@ -508,7 +508,6 @@ func (o *Transaction) UnmarshalJSON(data []byte) (err error) {
 	varTransaction := _Transaction{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTransaction)
 
 	if err != nil {

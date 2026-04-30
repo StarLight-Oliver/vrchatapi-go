@@ -20,13 +20,12 @@ import (
 	"strings"
 )
 
-
 // InventoryAPIService InventoryAPI service
 type InventoryAPIService service
 
 type ApiConsumeOwnInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
+	ctx             context.Context
+	ApiService      *InventoryAPIService
 	inventoryItemId string
 }
 
@@ -39,26 +38,27 @@ ConsumeOwnInventoryItem Consume Own Inventory Item
 
 Returns the modified InventoryItem object as held by the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiConsumeOwnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiConsumeOwnInventoryItemRequest
 */
 func (a *InventoryAPIService) ConsumeOwnInventoryItem(ctx context.Context, inventoryItemId string) ApiConsumeOwnInventoryItemRequest {
 	return ApiConsumeOwnInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryConsumptionResults
+//
+//	@return InventoryConsumptionResults
 func (a *InventoryAPIService) ConsumeOwnInventoryItemExecute(r ApiConsumeOwnInventoryItemRequest) (*InventoryConsumptionResults, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryConsumptionResults
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryConsumptionResults
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.ConsumeOwnInventoryItem")
@@ -119,8 +119,8 @@ func (a *InventoryAPIService) ConsumeOwnInventoryItemExecute(r ApiConsumeOwnInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -130,8 +130,8 @@ func (a *InventoryAPIService) ConsumeOwnInventoryItemExecute(r ApiConsumeOwnInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -149,8 +149,8 @@ func (a *InventoryAPIService) ConsumeOwnInventoryItemExecute(r ApiConsumeOwnInve
 }
 
 type ApiDeleteOwnInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
+	ctx             context.Context
+	ApiService      *InventoryAPIService
 	inventoryItemId string
 }
 
@@ -163,26 +163,27 @@ DeleteOwnInventoryItem Delete Own Inventory Item
 
 Deletes an InventoryItem from the inventory of the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiDeleteOwnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiDeleteOwnInventoryItemRequest
 */
 func (a *InventoryAPIService) DeleteOwnInventoryItem(ctx context.Context, inventoryItemId string) ApiDeleteOwnInventoryItemRequest {
 	return ApiDeleteOwnInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return SuccessFlag
+//
+//	@return SuccessFlag
 func (a *InventoryAPIService) DeleteOwnInventoryItemExecute(r ApiDeleteOwnInventoryItemRequest) (*SuccessFlag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SuccessFlag
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SuccessFlag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.DeleteOwnInventoryItem")
@@ -243,8 +244,8 @@ func (a *InventoryAPIService) DeleteOwnInventoryItemExecute(r ApiDeleteOwnInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -262,9 +263,9 @@ func (a *InventoryAPIService) DeleteOwnInventoryItemExecute(r ApiDeleteOwnInvent
 }
 
 type ApiEquipOwnInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
-	inventoryItemId string
+	ctx                       context.Context
+	ApiService                *InventoryAPIService
+	inventoryItemId           string
 	equipInventoryItemRequest *EquipInventoryItemRequest
 }
 
@@ -282,26 +283,27 @@ EquipOwnInventoryItem Equip Own Inventory Item
 
 Returns the modified InventoryItem object as held by the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiEquipOwnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiEquipOwnInventoryItemRequest
 */
 func (a *InventoryAPIService) EquipOwnInventoryItem(ctx context.Context, inventoryItemId string) ApiEquipOwnInventoryItemRequest {
 	return ApiEquipOwnInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryItem
+//
+//	@return InventoryItem
 func (a *InventoryAPIService) EquipOwnInventoryItemExecute(r ApiEquipOwnInventoryItemRequest) (*InventoryItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryItem
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.EquipOwnInventoryItem")
@@ -364,8 +366,8 @@ func (a *InventoryAPIService) EquipOwnInventoryItemExecute(r ApiEquipOwnInventor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -375,8 +377,8 @@ func (a *InventoryAPIService) EquipOwnInventoryItemExecute(r ApiEquipOwnInventor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -394,19 +396,19 @@ func (a *InventoryAPIService) EquipOwnInventoryItemExecute(r ApiEquipOwnInventor
 }
 
 type ApiGetInventoryRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InventoryAPIService
-	n *int32
-	offset *int32
-	holderId *string
-	equipSlot *InventoryEquipSlot
-	order *string
-	tags *string
-	types *InventoryItemType
-	flags *InventoryFlag
-	notTypes *InventoryItemType
-	notFlags *InventoryFlag
-	archived *bool
+	n          *int32
+	offset     *int32
+	holderId   *string
+	equipSlot  *InventoryEquipSlot
+	order      *string
+	tags       *string
+	types      *InventoryItemType
+	flags      *InventoryFlag
+	notTypes   *InventoryItemType
+	notFlags   *InventoryFlag
+	archived   *bool
 }
 
 // The number of objects to return.
@@ -484,24 +486,25 @@ GetInventory Get Inventory
 
 Returns an Inventory object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInventoryRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetInventoryRequest
 */
 func (a *InventoryAPIService) GetInventory(ctx context.Context) ApiGetInventoryRequest {
 	return ApiGetInventoryRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Inventory
+//
+//	@return Inventory
 func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*Inventory, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Inventory
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Inventory
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetInventory")
@@ -518,9 +521,9 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -531,9 +534,9 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 	if r.equipSlot != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "equipSlot", r.equipSlot, "form", "")
 	} else {
-        var defaultValue InventoryEquipSlot = ""
-        parameterAddToHeaderOrQuery(localVarQueryParams, "equipSlot", defaultValue, "form", "")
-        r.equipSlot = &defaultValue
+		var defaultValue InventoryEquipSlot = ""
+		parameterAddToHeaderOrQuery(localVarQueryParams, "equipSlot", defaultValue, "form", "")
+		r.equipSlot = &defaultValue
 	}
 	if r.order != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order", r.order, "form", "")
@@ -544,30 +547,30 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 	if r.types != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "types", r.types, "form", "")
 	} else {
-        var defaultValue InventoryItemType = "bundle"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "types", defaultValue, "form", "")
-        r.types = &defaultValue
+		var defaultValue InventoryItemType = "bundle"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "types", defaultValue, "form", "")
+		r.types = &defaultValue
 	}
 	if r.flags != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "flags", r.flags, "form", "")
 	} else {
-        var defaultValue InventoryFlag = "instantiatable"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "flags", defaultValue, "form", "")
-        r.flags = &defaultValue
+		var defaultValue InventoryFlag = "instantiatable"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "flags", defaultValue, "form", "")
+		r.flags = &defaultValue
 	}
 	if r.notTypes != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "notTypes", r.notTypes, "form", "")
 	} else {
-        var defaultValue InventoryItemType = "bundle"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "notTypes", defaultValue, "form", "")
-        r.notTypes = &defaultValue
+		var defaultValue InventoryItemType = "bundle"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "notTypes", defaultValue, "form", "")
+		r.notTypes = &defaultValue
 	}
 	if r.notFlags != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "notFlags", r.notFlags, "form", "")
 	} else {
-        var defaultValue InventoryFlag = "instantiatable"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "notFlags", defaultValue, "form", "")
-        r.notFlags = &defaultValue
+		var defaultValue InventoryFlag = "instantiatable"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "notFlags", defaultValue, "form", "")
+		r.notFlags = &defaultValue
 	}
 	if r.archived != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "archived", r.archived, "form", "")
@@ -618,8 +621,8 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -629,8 +632,8 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -648,7 +651,7 @@ func (a *InventoryAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*In
 }
 
 type ApiGetInventoryCollectionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InventoryAPIService
 }
 
@@ -661,24 +664,25 @@ GetInventoryCollections List Inventory Collections
 
 Returns a list of collection names.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInventoryCollectionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetInventoryCollectionsRequest
 */
 func (a *InventoryAPIService) GetInventoryCollections(ctx context.Context) ApiGetInventoryCollectionsRequest {
 	return ApiGetInventoryCollectionsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []string
+//
+//	@return []string
 func (a *InventoryAPIService) GetInventoryCollectionsExecute(r ApiGetInventoryCollectionsRequest) ([]string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []string
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetInventoryCollections")
@@ -738,8 +742,8 @@ func (a *InventoryAPIService) GetInventoryCollectionsExecute(r ApiGetInventoryCo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -757,9 +761,9 @@ func (a *InventoryAPIService) GetInventoryCollectionsExecute(r ApiGetInventoryCo
 }
 
 type ApiGetInventoryDropsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InventoryAPIService
-	active *bool
+	active     *bool
 }
 
 // Filter for users&#39; listings and inventory bundles.
@@ -777,24 +781,25 @@ GetInventoryDrops List Inventory Drops
 
 Returns a list of InventoryDrop objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetInventoryDropsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetInventoryDropsRequest
 */
 func (a *InventoryAPIService) GetInventoryDrops(ctx context.Context) ApiGetInventoryDropsRequest {
 	return ApiGetInventoryDropsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []InventoryDrop
+//
+//	@return []InventoryDrop
 func (a *InventoryAPIService) GetInventoryDropsExecute(r ApiGetInventoryDropsRequest) ([]InventoryDrop, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []InventoryDrop
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []InventoryDrop
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetInventoryDrops")
@@ -857,8 +862,8 @@ func (a *InventoryAPIService) GetInventoryDropsExecute(r ApiGetInventoryDropsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -876,8 +881,8 @@ func (a *InventoryAPIService) GetInventoryDropsExecute(r ApiGetInventoryDropsReq
 }
 
 type ApiGetInventoryTemplateRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
+	ctx                 context.Context
+	ApiService          *InventoryAPIService
 	inventoryTemplateId string
 }
 
@@ -890,26 +895,27 @@ GetInventoryTemplate Get Inventory Template
 
 Returns an InventoryTemplate object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryTemplateId Must be a valid inventory template ID.
- @return ApiGetInventoryTemplateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryTemplateId Must be a valid inventory template ID.
+	@return ApiGetInventoryTemplateRequest
 */
 func (a *InventoryAPIService) GetInventoryTemplate(ctx context.Context, inventoryTemplateId string) ApiGetInventoryTemplateRequest {
 	return ApiGetInventoryTemplateRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:          a,
+		ctx:                 ctx,
 		inventoryTemplateId: inventoryTemplateId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryTemplate
+//
+//	@return InventoryTemplate
 func (a *InventoryAPIService) GetInventoryTemplateExecute(r ApiGetInventoryTemplateRequest) (*InventoryTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryTemplate
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetInventoryTemplate")
@@ -970,8 +976,8 @@ func (a *InventoryAPIService) GetInventoryTemplateExecute(r ApiGetInventoryTempl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -989,8 +995,8 @@ func (a *InventoryAPIService) GetInventoryTemplateExecute(r ApiGetInventoryTempl
 }
 
 type ApiGetOwnInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
+	ctx             context.Context
+	ApiService      *InventoryAPIService
 	inventoryItemId string
 }
 
@@ -1003,26 +1009,27 @@ GetOwnInventoryItem Get Own Inventory Item
 
 Returns an InventoryItem object held by the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiGetOwnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiGetOwnInventoryItemRequest
 */
 func (a *InventoryAPIService) GetOwnInventoryItem(ctx context.Context, inventoryItemId string) ApiGetOwnInventoryItemRequest {
 	return ApiGetOwnInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryItem
+//
+//	@return InventoryItem
 func (a *InventoryAPIService) GetOwnInventoryItemExecute(r ApiGetOwnInventoryItemRequest) (*InventoryItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryItem
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetOwnInventoryItem")
@@ -1083,8 +1090,8 @@ func (a *InventoryAPIService) GetOwnInventoryItemExecute(r ApiGetOwnInventoryIte
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1102,9 +1109,9 @@ func (a *InventoryAPIService) GetOwnInventoryItemExecute(r ApiGetOwnInventoryIte
 }
 
 type ApiGetUserInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
-	userId string
+	ctx             context.Context
+	ApiService      *InventoryAPIService
+	userId          string
 	inventoryItemId string
 }
 
@@ -1117,28 +1124,29 @@ GetUserInventoryItem Get User Inventory Item
 
 Returns an InventoryItem object held by the given user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiGetUserInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiGetUserInventoryItemRequest
 */
 func (a *InventoryAPIService) GetUserInventoryItem(ctx context.Context, userId string, inventoryItemId string) ApiGetUserInventoryItemRequest {
 	return ApiGetUserInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ApiService:      a,
+		ctx:             ctx,
+		userId:          userId,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryItem
+//
+//	@return InventoryItem
 func (a *InventoryAPIService) GetUserInventoryItemExecute(r ApiGetUserInventoryItemRequest) (*InventoryItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryItem
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.GetUserInventoryItem")
@@ -1200,8 +1208,8 @@ func (a *InventoryAPIService) GetUserInventoryItemExecute(r ApiGetUserInventoryI
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1219,10 +1227,10 @@ func (a *InventoryAPIService) GetUserInventoryItemExecute(r ApiGetUserInventoryI
 }
 
 type ApiShareInventoryItemDirectRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
-	itemId *string
-	duration *int32
+	ctx                             context.Context
+	ApiService                      *InventoryAPIService
+	itemId                          *string
+	duration                        *int32
 	shareInventoryItemDirectRequest *ShareInventoryItemDirectRequest
 }
 
@@ -1252,24 +1260,25 @@ ShareInventoryItemDirect Share Inventory Item Direct
 
 Share content directly with other users.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiShareInventoryItemDirectRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiShareInventoryItemDirectRequest
 */
 func (a *InventoryAPIService) ShareInventoryItemDirect(ctx context.Context) ApiShareInventoryItemDirectRequest {
 	return ApiShareInventoryItemDirectRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return OkStatus
+//
+//	@return OkStatus
 func (a *InventoryAPIService) ShareInventoryItemDirectExecute(r ApiShareInventoryItemDirectRequest) (*OkStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OkStatus
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OkStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.ShareInventoryItemDirect")
@@ -1348,8 +1357,8 @@ func (a *InventoryAPIService) ShareInventoryItemDirectExecute(r ApiShareInventor
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1367,10 +1376,10 @@ func (a *InventoryAPIService) ShareInventoryItemDirectExecute(r ApiShareInventor
 }
 
 type ApiShareInventoryItemPedestalRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InventoryAPIService
-	itemId *string
-	duration *int32
+	itemId     *string
+	duration   *int32
 }
 
 // Id for inventory item sharing.
@@ -1394,24 +1403,25 @@ ShareInventoryItemPedestal Share Inventory Item by Pedestal
 
 Returns an InventorySpawn object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiShareInventoryItemPedestalRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiShareInventoryItemPedestalRequest
 */
 func (a *InventoryAPIService) ShareInventoryItemPedestal(ctx context.Context) ApiShareInventoryItemPedestalRequest {
 	return ApiShareInventoryItemPedestalRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return InventorySpawn
+//
+//	@return InventorySpawn
 func (a *InventoryAPIService) ShareInventoryItemPedestalExecute(r ApiShareInventoryItemPedestalRequest) (*InventorySpawn, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventorySpawn
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventorySpawn
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.ShareInventoryItemPedestal")
@@ -1485,8 +1495,8 @@ func (a *InventoryAPIService) ShareInventoryItemPedestalExecute(r ApiShareInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1504,9 +1514,9 @@ func (a *InventoryAPIService) ShareInventoryItemPedestalExecute(r ApiShareInvent
 }
 
 type ApiSpawnInventoryItemRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *InventoryAPIService
-	id *string
+	id         *string
 }
 
 // Id for inventory item spawning.
@@ -1524,24 +1534,25 @@ SpawnInventoryItem Spawn Inventory Item
 
 Returns an InventorySpawn object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSpawnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSpawnInventoryItemRequest
 */
 func (a *InventoryAPIService) SpawnInventoryItem(ctx context.Context) ApiSpawnInventoryItemRequest {
 	return ApiSpawnInventoryItemRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return InventorySpawn
+//
+//	@return InventorySpawn
 func (a *InventoryAPIService) SpawnInventoryItemExecute(r ApiSpawnInventoryItemRequest) (*InventorySpawn, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventorySpawn
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventorySpawn
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.SpawnInventoryItem")
@@ -1605,8 +1616,8 @@ func (a *InventoryAPIService) SpawnInventoryItemExecute(r ApiSpawnInventoryItemR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1624,8 +1635,8 @@ func (a *InventoryAPIService) SpawnInventoryItemExecute(r ApiSpawnInventoryItemR
 }
 
 type ApiUnequipOwnInventorySlotRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
+	ctx             context.Context
+	ApiService      *InventoryAPIService
 	inventoryItemId InventoryEquipSlot
 }
 
@@ -1638,26 +1649,27 @@ UnequipOwnInventorySlot Unequip Own Inventory Slot
 
 Unequips the InventoryItem in the given slot of the inventory of the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Selector for inventory slot management.
- @return ApiUnequipOwnInventorySlotRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Selector for inventory slot management.
+	@return ApiUnequipOwnInventorySlotRequest
 */
 func (a *InventoryAPIService) UnequipOwnInventorySlot(ctx context.Context, inventoryItemId InventoryEquipSlot) ApiUnequipOwnInventorySlotRequest {
 	return ApiUnequipOwnInventorySlotRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return string
+//
+//	@return string
 func (a *InventoryAPIService) UnequipOwnInventorySlotExecute(r ApiUnequipOwnInventorySlotRequest) (string, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue string
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.UnequipOwnInventorySlot")
@@ -1718,8 +1730,8 @@ func (a *InventoryAPIService) UnequipOwnInventorySlotExecute(r ApiUnequipOwnInve
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1737,9 +1749,9 @@ func (a *InventoryAPIService) UnequipOwnInventorySlotExecute(r ApiUnequipOwnInve
 }
 
 type ApiUpdateOwnInventoryItemRequest struct {
-	ctx context.Context
-	ApiService *InventoryAPIService
-	inventoryItemId string
+	ctx                        context.Context
+	ApiService                 *InventoryAPIService
+	inventoryItemId            string
 	updateInventoryItemRequest *UpdateInventoryItemRequest
 }
 
@@ -1757,26 +1769,27 @@ UpdateOwnInventoryItem Update Own Inventory Item
 
 Returns the modified InventoryItem object as held by the currently logged in user.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param inventoryItemId Must be a valid inventory item ID.
- @return ApiUpdateOwnInventoryItemRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param inventoryItemId Must be a valid inventory item ID.
+	@return ApiUpdateOwnInventoryItemRequest
 */
 func (a *InventoryAPIService) UpdateOwnInventoryItem(ctx context.Context, inventoryItemId string) ApiUpdateOwnInventoryItemRequest {
 	return ApiUpdateOwnInventoryItemRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:      a,
+		ctx:             ctx,
 		inventoryItemId: inventoryItemId,
 	}
 }
 
 // Execute executes the request
-//  @return InventoryItem
+//
+//	@return InventoryItem
 func (a *InventoryAPIService) UpdateOwnInventoryItemExecute(r ApiUpdateOwnInventoryItemRequest) (*InventoryItem, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *InventoryItem
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *InventoryItem
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InventoryAPIService.UpdateOwnInventoryItem")
@@ -1839,8 +1852,8 @@ func (a *InventoryAPIService) UpdateOwnInventoryItemExecute(r ApiUpdateOwnInvent
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

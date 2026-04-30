@@ -343,7 +343,6 @@ func (o *TokenBundle) UnmarshalJSON(data []byte) (err error) {
 	varTokenBundle := _TokenBundle{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTokenBundle)
 
 	if err != nil {

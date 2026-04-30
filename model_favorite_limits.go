@@ -192,7 +192,6 @@ func (o *FavoriteLimits) UnmarshalJSON(data []byte) (err error) {
 	varFavoriteLimits := _FavoriteLimits{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFavoriteLimits)
 
 	if err != nil {

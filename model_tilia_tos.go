@@ -108,7 +108,6 @@ func (o *TiliaTOS) UnmarshalJSON(data []byte) (err error) {
 	varTiliaTOS := _TiliaTOS{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTiliaTOS)
 
 	if err != nil {

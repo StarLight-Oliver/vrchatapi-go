@@ -108,7 +108,6 @@ func (o *Disable2FAResult) UnmarshalJSON(data []byte) (err error) {
 	varDisable2FAResult := _Disable2FAResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varDisable2FAResult)
 
 	if err != nil {

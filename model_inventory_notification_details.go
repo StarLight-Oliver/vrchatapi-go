@@ -164,7 +164,6 @@ func (o *InventoryNotificationDetails) UnmarshalJSON(data []byte) (err error) {
 	varInventoryNotificationDetails := _InventoryNotificationDetails{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInventoryNotificationDetails)
 
 	if err != nil {

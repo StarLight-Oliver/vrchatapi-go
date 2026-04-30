@@ -194,7 +194,6 @@ func (o *GroupInstance) UnmarshalJSON(data []byte) (err error) {
 	varGroupInstance := _GroupInstance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varGroupInstance)
 
 	if err != nil {

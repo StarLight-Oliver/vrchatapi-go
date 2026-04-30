@@ -136,7 +136,6 @@ func (o *ShareInventoryItemDirectRequest) UnmarshalJSON(data []byte) (err error)
 	varShareInventoryItemDirectRequest := _ShareInventoryItemDirectRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varShareInventoryItemDirectRequest)
 
 	if err != nil {

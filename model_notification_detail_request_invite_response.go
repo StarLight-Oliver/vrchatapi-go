@@ -145,7 +145,6 @@ func (o *NotificationDetailRequestInviteResponse) UnmarshalJSON(data []byte) (er
 	varNotificationDetailRequestInviteResponse := _NotificationDetailRequestInviteResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationDetailRequestInviteResponse)
 
 	if err != nil {

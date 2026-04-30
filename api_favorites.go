@@ -20,17 +20,15 @@ import (
 	"strings"
 )
 
-
 // FavoritesAPIService FavoritesAPI service
 type FavoritesAPIService service
 
 type ApiAddFavoriteRequest struct {
-	ctx context.Context
-	ApiService *FavoritesAPIService
+	ctx                context.Context
+	ApiService         *FavoritesAPIService
 	addFavoriteRequest *AddFavoriteRequest
 }
 
-// 
 func (r ApiAddFavoriteRequest) AddFavoriteRequest(addFavoriteRequest AddFavoriteRequest) ApiAddFavoriteRequest {
 	r.addFavoriteRequest = &addFavoriteRequest
 	return r
@@ -49,24 +47,25 @@ Friend groups are named `group_0` through `group_3`. Avatar and World groups are
 
 You cannot add people whom you are not friends with to your friends list. Destroying a friendship removes the person as favorite on both sides.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiAddFavoriteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiAddFavoriteRequest
 */
 func (a *FavoritesAPIService) AddFavorite(ctx context.Context) ApiAddFavoriteRequest {
 	return ApiAddFavoriteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Favorite
+//
+//	@return Favorite
 func (a *FavoritesAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Favorite, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Favorite
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Favorite
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.AddFavorite")
@@ -128,8 +127,8 @@ func (a *FavoritesAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Favo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -139,8 +138,8 @@ func (a *FavoritesAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Favo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -158,11 +157,11 @@ func (a *FavoritesAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Favo
 }
 
 type ApiClearFavoriteGroupRequest struct {
-	ctx context.Context
-	ApiService *FavoritesAPIService
+	ctx               context.Context
+	ApiService        *FavoritesAPIService
 	favoriteGroupType string
 	favoriteGroupName string
-	userId string
+	userId            string
 }
 
 func (r ApiClearFavoriteGroupRequest) Execute() (*Success, *http.Response, error) {
@@ -174,30 +173,31 @@ ClearFavoriteGroup Clear Favorite Group
 
 Clear ALL contents of a specific favorite group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
- @param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
- @param userId Must be a valid user ID.
- @return ApiClearFavoriteGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
+	@param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
+	@param userId Must be a valid user ID.
+	@return ApiClearFavoriteGroupRequest
 */
 func (a *FavoritesAPIService) ClearFavoriteGroup(ctx context.Context, favoriteGroupType string, favoriteGroupName string, userId string) ApiClearFavoriteGroupRequest {
 	return ApiClearFavoriteGroupRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		favoriteGroupType: favoriteGroupType,
 		favoriteGroupName: favoriteGroupName,
-		userId: userId,
+		userId:            userId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *FavoritesAPIService) ClearFavoriteGroupExecute(r ApiClearFavoriteGroupRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.ClearFavoriteGroup")
@@ -269,11 +269,11 @@ func (a *FavoritesAPIService) ClearFavoriteGroupExecute(r ApiClearFavoriteGroupR
 }
 
 type ApiGetFavoriteGroupRequest struct {
-	ctx context.Context
-	ApiService *FavoritesAPIService
+	ctx               context.Context
+	ApiService        *FavoritesAPIService
 	favoriteGroupType string
 	favoriteGroupName string
-	userId string
+	userId            string
 }
 
 func (r ApiGetFavoriteGroupRequest) Execute() (*FavoriteGroup, *http.Response, error) {
@@ -285,30 +285,31 @@ GetFavoriteGroup Show Favorite Group
 
 Fetch information about a specific favorite group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
- @param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
- @param userId Must be a valid user ID.
- @return ApiGetFavoriteGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
+	@param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
+	@param userId Must be a valid user ID.
+	@return ApiGetFavoriteGroupRequest
 */
 func (a *FavoritesAPIService) GetFavoriteGroup(ctx context.Context, favoriteGroupType string, favoriteGroupName string, userId string) ApiGetFavoriteGroupRequest {
 	return ApiGetFavoriteGroupRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		favoriteGroupType: favoriteGroupType,
 		favoriteGroupName: favoriteGroupName,
-		userId: userId,
+		userId:            userId,
 	}
 }
 
 // Execute executes the request
-//  @return FavoriteGroup
+//
+//	@return FavoriteGroup
 func (a *FavoritesAPIService) GetFavoriteGroupExecute(r ApiGetFavoriteGroupRequest) (*FavoriteGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FavoriteGroup
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FavoriteGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.GetFavoriteGroup")
@@ -380,12 +381,12 @@ func (a *FavoritesAPIService) GetFavoriteGroupExecute(r ApiGetFavoriteGroupReque
 }
 
 type ApiGetFavoriteGroupsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FavoritesAPIService
-	n *int32
-	offset *int32
-	userId *string
-	ownerId *string
+	n          *int32
+	offset     *int32
+	userId     *string
+	ownerId    *string
 }
 
 // The number of objects to return.
@@ -421,24 +422,25 @@ GetFavoriteGroups List Favorite Groups
 
 Return a list of favorite groups owned by a user. Returns the same information as `getFavoriteGroups`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFavoriteGroupsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFavoriteGroupsRequest
 */
 func (a *FavoritesAPIService) GetFavoriteGroups(ctx context.Context) ApiGetFavoriteGroupsRequest {
 	return ApiGetFavoriteGroupsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FavoriteGroup
+//
+//	@return []FavoriteGroup
 func (a *FavoritesAPIService) GetFavoriteGroupsExecute(r ApiGetFavoriteGroupsRequest) ([]FavoriteGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FavoriteGroup
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FavoriteGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.GetFavoriteGroups")
@@ -455,9 +457,9 @@ func (a *FavoritesAPIService) GetFavoriteGroupsExecute(r ApiGetFavoriteGroupsReq
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -514,8 +516,8 @@ func (a *FavoritesAPIService) GetFavoriteGroupsExecute(r ApiGetFavoriteGroupsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -533,7 +535,7 @@ func (a *FavoritesAPIService) GetFavoriteGroupsExecute(r ApiGetFavoriteGroupsReq
 }
 
 type ApiGetFavoriteLimitsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FavoritesAPIService
 }
 
@@ -546,24 +548,25 @@ GetFavoriteLimits Get Favorite Limits
 
 Return information about a specific Favorite.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFavoriteLimitsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFavoriteLimitsRequest
 */
 func (a *FavoritesAPIService) GetFavoriteLimits(ctx context.Context) ApiGetFavoriteLimitsRequest {
 	return ApiGetFavoriteLimitsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FavoriteLimits
+//
+//	@return FavoriteLimits
 func (a *FavoritesAPIService) GetFavoriteLimitsExecute(r ApiGetFavoriteLimitsRequest) (*FavoriteLimits, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FavoriteLimits
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FavoriteLimits
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.GetFavoriteLimits")
@@ -623,8 +626,8 @@ func (a *FavoritesAPIService) GetFavoriteLimitsExecute(r ApiGetFavoriteLimitsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -642,12 +645,12 @@ func (a *FavoritesAPIService) GetFavoriteLimitsExecute(r ApiGetFavoriteLimitsReq
 }
 
 type ApiGetFavoritesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FavoritesAPIService
-	n *int32
-	offset *int32
-	type_ *string
-	tag *string
+	n          *int32
+	offset     *int32
+	type_      *string
+	tag        *string
 }
 
 // The number of objects to return.
@@ -683,24 +686,25 @@ GetFavorites List Favorites
 
 Returns a list of favorites.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFavoritesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFavoritesRequest
 */
 func (a *FavoritesAPIService) GetFavorites(ctx context.Context) ApiGetFavoritesRequest {
 	return ApiGetFavoritesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Favorite
+//
+//	@return []Favorite
 func (a *FavoritesAPIService) GetFavoritesExecute(r ApiGetFavoritesRequest) ([]Favorite, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Favorite
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Favorite
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.GetFavorites")
@@ -717,9 +721,9 @@ func (a *FavoritesAPIService) GetFavoritesExecute(r ApiGetFavoritesRequest) ([]F
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -776,8 +780,8 @@ func (a *FavoritesAPIService) GetFavoritesExecute(r ApiGetFavoritesRequest) ([]F
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -795,7 +799,7 @@ func (a *FavoritesAPIService) GetFavoritesExecute(r ApiGetFavoritesRequest) ([]F
 }
 
 type ApiRemoveFavoriteRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FavoritesAPIService
 	favoriteId string
 }
@@ -809,26 +813,27 @@ RemoveFavorite Remove Favorite
 
 Remove a favorite from your favorites list.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param favoriteId Must be a valid favorite ID.
- @return ApiRemoveFavoriteRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param favoriteId Must be a valid favorite ID.
+	@return ApiRemoveFavoriteRequest
 */
 func (a *FavoritesAPIService) RemoveFavorite(ctx context.Context, favoriteId string) ApiRemoveFavoriteRequest {
 	return ApiRemoveFavoriteRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 		favoriteId: favoriteId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *FavoritesAPIService) RemoveFavoriteExecute(r ApiRemoveFavoriteRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.RemoveFavorite")
@@ -889,8 +894,8 @@ func (a *FavoritesAPIService) RemoveFavoriteExecute(r ApiRemoveFavoriteRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -900,8 +905,8 @@ func (a *FavoritesAPIService) RemoveFavoriteExecute(r ApiRemoveFavoriteRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -919,11 +924,11 @@ func (a *FavoritesAPIService) RemoveFavoriteExecute(r ApiRemoveFavoriteRequest) 
 }
 
 type ApiUpdateFavoriteGroupRequest struct {
-	ctx context.Context
-	ApiService *FavoritesAPIService
-	favoriteGroupType string
-	favoriteGroupName string
-	userId string
+	ctx                        context.Context
+	ApiService                 *FavoritesAPIService
+	favoriteGroupType          string
+	favoriteGroupName          string
+	userId                     string
 	updateFavoriteGroupRequest *UpdateFavoriteGroupRequest
 }
 
@@ -941,28 +946,28 @@ UpdateFavoriteGroup Update Favorite Group
 
 Update information about a specific favorite group.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
- @param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
- @param userId Must be a valid user ID.
- @return ApiUpdateFavoriteGroupRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param favoriteGroupType The type of group to fetch, must be a valid FavoriteType.
+	@param favoriteGroupName The name of the group to fetch, must be a name of a FavoriteGroup.
+	@param userId Must be a valid user ID.
+	@return ApiUpdateFavoriteGroupRequest
 */
 func (a *FavoritesAPIService) UpdateFavoriteGroup(ctx context.Context, favoriteGroupType string, favoriteGroupName string, userId string) ApiUpdateFavoriteGroupRequest {
 	return ApiUpdateFavoriteGroupRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:        a,
+		ctx:               ctx,
 		favoriteGroupType: favoriteGroupType,
 		favoriteGroupName: favoriteGroupName,
-		userId: userId,
+		userId:            userId,
 	}
 }
 
 // Execute executes the request
 func (a *FavoritesAPIService) UpdateFavoriteGroupExecute(r ApiUpdateFavoriteGroupRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FavoritesAPIService.UpdateFavoriteGroup")

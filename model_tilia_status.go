@@ -217,7 +217,6 @@ func (o *TiliaStatus) UnmarshalJSON(data []byte) (err error) {
 	varTiliaStatus := _TiliaStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTiliaStatus)
 
 	if err != nil {

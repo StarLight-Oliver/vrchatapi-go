@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_FriendsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService Boop", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -39,7 +38,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService DeleteFriendRequest", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -53,7 +52,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService Friend", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -67,7 +66,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService GetFriendStatus", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -81,7 +80,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService GetFriends", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FriendsAPI.GetFriends(context.Background()).Execute()
 
@@ -93,7 +92,7 @@ func Test_vrchatapi_FriendsAPIService(t *testing.T) {
 
 	t.Run("Test FriendsAPIService Unfriend", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 

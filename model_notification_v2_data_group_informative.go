@@ -172,7 +172,6 @@ func (o *NotificationV2DataGroupInformative) UnmarshalJSON(data []byte) (err err
 	varNotificationV2DataGroupInformative := _NotificationV2DataGroupInformative{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationV2DataGroupInformative)
 
 	if err != nil {

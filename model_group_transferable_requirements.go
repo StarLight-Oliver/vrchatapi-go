@@ -230,7 +230,6 @@ func (o *GroupTransferableRequirements) UnmarshalJSON(data []byte) (err error) {
 	varGroupTransferableRequirements := _GroupTransferableRequirements{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varGroupTransferableRequirements)
 
 	if err != nil {

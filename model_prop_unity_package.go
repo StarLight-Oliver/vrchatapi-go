@@ -251,7 +251,6 @@ func (o *PropUnityPackage) UnmarshalJSON(data []byte) (err error) {
 	varPropUnityPackage := _PropUnityPackage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPropUnityPackage)
 
 	if err != nil {

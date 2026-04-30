@@ -136,7 +136,6 @@ func (o *VerifyAuthTokenResult) UnmarshalJSON(data []byte) (err error) {
 	varVerifyAuthTokenResult := _VerifyAuthTokenResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varVerifyAuthTokenResult)
 
 	if err != nil {

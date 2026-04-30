@@ -212,7 +212,6 @@ func (o *ReportCategory) UnmarshalJSON(data []byte) (err error) {
 	varReportCategory := _ReportCategory{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varReportCategory)
 
 	if err != nil {

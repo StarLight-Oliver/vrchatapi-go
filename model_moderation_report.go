@@ -366,7 +366,6 @@ func (o *ModerationReport) UnmarshalJSON(data []byte) (err error) {
 	varModerationReport := _ModerationReport{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varModerationReport)
 
 	if err != nil {

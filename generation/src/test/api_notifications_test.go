@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService AcceptFriendRequest", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -39,7 +38,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService AcknowledgeNotificationV2", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -53,7 +52,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService ClearNotifications", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.NotificationsAPI.ClearNotifications(context.Background()).Execute()
 
@@ -65,7 +64,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService DeleteAllNotificationV2s", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.NotificationsAPI.DeleteAllNotificationV2s(context.Background()).Execute()
 
@@ -77,7 +76,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService DeleteNotification", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -91,7 +90,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService DeleteNotificationV2", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -105,7 +104,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService GetNotification", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -119,7 +118,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService GetNotificationV2", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -133,7 +132,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService GetNotificationV2s", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.NotificationsAPI.GetNotificationV2s(context.Background()).Execute()
 
@@ -145,7 +144,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService GetNotifications", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.NotificationsAPI.GetNotifications(context.Background()).Execute()
 
@@ -157,7 +156,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService MarkNotificationAsRead", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -171,7 +170,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService ReplyNotificationV2", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -185,7 +184,7 @@ func Test_vrchatapi_NotificationsAPIService(t *testing.T) {
 
 	t.Run("Test NotificationsAPIService RespondNotificationV2", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 

@@ -542,7 +542,6 @@ func (o *Prop) UnmarshalJSON(data []byte) (err error) {
 	varProp := _Prop{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varProp)
 
 	if err != nil {

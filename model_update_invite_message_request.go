@@ -108,7 +108,6 @@ func (o *UpdateInviteMessageRequest) UnmarshalJSON(data []byte) (err error) {
 	varUpdateInviteMessageRequest := _UpdateInviteMessageRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUpdateInviteMessageRequest)
 
 	if err != nil {

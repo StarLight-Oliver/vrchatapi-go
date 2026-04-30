@@ -20,18 +20,18 @@ var _ MappedNullable = &UpdatePropRequest{}
 
 // UpdatePropRequest struct for UpdatePropRequest
 type UpdatePropRequest struct {
-	AssetUrl *string `json:"assetUrl,omitempty"`
-	AssetVersion *int32 `json:"assetVersion,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
+	AssetUrl     *string `json:"assetUrl,omitempty"`
+	AssetVersion *int32  `json:"assetVersion,omitempty"`
+	Description  *string `json:"description,omitempty"`
+	ImageUrl     *string `json:"imageUrl,omitempty"`
+	Name         *string `json:"name,omitempty"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform *string `json:"platform,omitempty"`
+	Platform      *string `json:"platform,omitempty"`
 	PropSignature *string `json:"propSignature,omitempty"`
 	// How a prop is summoned and interacted with. 0: the prop fixed to some surface in the world 1: the prop is a pickup and may be held by users 2: ???
-	SpawnType *int32 `json:"spawnType,omitempty"`
-	Tags []string `json:"tags,omitempty"`
-	UnityVersion *string `json:"unityVersion,omitempty"`
+	SpawnType    *int32   `json:"spawnType,omitempty"`
+	Tags         []string `json:"tags,omitempty"`
+	UnityVersion *string  `json:"unityVersion,omitempty"`
 	// Bitmask for restrictions on what world surfaces a prop may be summoned. 0: no restrictions 1: floors 2: walls 4: ceilings
 	WorldPlacementMask *int32 `json:"worldPlacementMask,omitempty"`
 }
@@ -414,7 +414,7 @@ func (o *UpdatePropRequest) SetWorldPlacementMask(v int32) {
 }
 
 func (o UpdatePropRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -494,5 +494,3 @@ func (v *NullableUpdatePropRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

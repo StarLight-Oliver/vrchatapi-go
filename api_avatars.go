@@ -20,13 +20,12 @@ import (
 	"strings"
 )
 
-
 // AvatarsAPIService AvatarsAPI service
 type AvatarsAPIService service
 
 type ApiCreateAvatarRequest struct {
-	ctx context.Context
-	ApiService *AvatarsAPIService
+	ctx                 context.Context
+	ApiService          *AvatarsAPIService
 	createAvatarRequest *CreateAvatarRequest
 }
 
@@ -44,24 +43,25 @@ CreateAvatar Create Avatar
 
 Create an avatar. It's possible to optionally specify a ID if you want a custom one. Attempting to create an Avatar with an already claimed ID will result in a DB error.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateAvatarRequest
 */
 func (a *AvatarsAPIService) CreateAvatar(ctx context.Context) ApiCreateAvatarRequest {
 	return ApiCreateAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Avatar
+//
+//	@return Avatar
 func (a *AvatarsAPIService) CreateAvatarExecute(r ApiCreateAvatarRequest) (*Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Avatar
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.CreateAvatar")
@@ -123,8 +123,8 @@ func (a *AvatarsAPIService) CreateAvatarExecute(r ApiCreateAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -134,8 +134,8 @@ func (a *AvatarsAPIService) CreateAvatarExecute(r ApiCreateAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -153,9 +153,9 @@ func (a *AvatarsAPIService) CreateAvatarExecute(r ApiCreateAvatarRequest) (*Avat
 }
 
 type ApiDeleteAvatarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiDeleteAvatarRequest) Execute() (*Avatar, *http.Response, error) {
@@ -167,26 +167,27 @@ DeleteAvatar Delete Avatar
 
 Delete an avatar. Notice an avatar is never fully "deleted", only its ReleaseStatus is set to "hidden" and the linked Files are deleted. The AvatarID is permanently reserved.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiDeleteAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiDeleteAvatarRequest
 */
 func (a *AvatarsAPIService) DeleteAvatar(ctx context.Context, avatarId string) ApiDeleteAvatarRequest {
 	return ApiDeleteAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return Avatar
+//
+//	@return Avatar
 func (a *AvatarsAPIService) DeleteAvatarExecute(r ApiDeleteAvatarRequest) (*Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Avatar
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.DeleteAvatar")
@@ -247,8 +248,8 @@ func (a *AvatarsAPIService) DeleteAvatarExecute(r ApiDeleteAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -258,8 +259,8 @@ func (a *AvatarsAPIService) DeleteAvatarExecute(r ApiDeleteAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -277,9 +278,9 @@ func (a *AvatarsAPIService) DeleteAvatarExecute(r ApiDeleteAvatarRequest) (*Avat
 }
 
 type ApiDeleteImpostorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiDeleteImpostorRequest) Execute() (*http.Response, error) {
@@ -291,24 +292,24 @@ DeleteImpostor Delete generated Impostor
 
 Delete generated Impostor for that avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiDeleteImpostorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiDeleteImpostorRequest
 */
 func (a *AvatarsAPIService) DeleteImpostor(ctx context.Context, avatarId string) ApiDeleteImpostorRequest {
 	return ApiDeleteImpostorRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
 func (a *AvatarsAPIService) DeleteImpostorExecute(r ApiDeleteImpostorRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.DeleteImpostor")
@@ -369,8 +370,8 @@ func (a *AvatarsAPIService) DeleteImpostorExecute(r ApiDeleteImpostorRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -380,8 +381,8 @@ func (a *AvatarsAPIService) DeleteImpostorExecute(r ApiDeleteImpostorRequest) (*
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -390,9 +391,9 @@ func (a *AvatarsAPIService) DeleteImpostorExecute(r ApiDeleteImpostorRequest) (*
 }
 
 type ApiEnqueueImpostorRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiEnqueueImpostorRequest) Execute() (*ServiceStatus, *http.Response, error) {
@@ -404,26 +405,27 @@ EnqueueImpostor Enqueue Impostor generation
 
 Enqueue Impostor generation for that avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiEnqueueImpostorRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiEnqueueImpostorRequest
 */
 func (a *AvatarsAPIService) EnqueueImpostor(ctx context.Context, avatarId string) ApiEnqueueImpostorRequest {
 	return ApiEnqueueImpostorRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceStatus
+//
+//	@return ServiceStatus
 func (a *AvatarsAPIService) EnqueueImpostorExecute(r ApiEnqueueImpostorRequest) (*ServiceStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceStatus
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.EnqueueImpostor")
@@ -484,8 +486,8 @@ func (a *AvatarsAPIService) EnqueueImpostorExecute(r ApiEnqueueImpostorRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -495,8 +497,8 @@ func (a *AvatarsAPIService) EnqueueImpostorExecute(r ApiEnqueueImpostorRequest) 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -514,9 +516,9 @@ func (a *AvatarsAPIService) EnqueueImpostorExecute(r ApiEnqueueImpostorRequest) 
 }
 
 type ApiGetAvatarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiGetAvatarRequest) Execute() (*Avatar, *http.Response, error) {
@@ -528,26 +530,27 @@ GetAvatar Get Avatar
 
 Get information about a specific Avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiGetAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiGetAvatarRequest
 */
 func (a *AvatarsAPIService) GetAvatar(ctx context.Context, avatarId string) ApiGetAvatarRequest {
 	return ApiGetAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return Avatar
+//
+//	@return Avatar
 func (a *AvatarsAPIService) GetAvatarExecute(r ApiGetAvatarRequest) (*Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Avatar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetAvatar")
@@ -608,8 +611,8 @@ func (a *AvatarsAPIService) GetAvatarExecute(r ApiGetAvatarRequest) (*Avatar, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -619,8 +622,8 @@ func (a *AvatarsAPIService) GetAvatarExecute(r ApiGetAvatarRequest) (*Avatar, *h
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -638,7 +641,7 @@ func (a *AvatarsAPIService) GetAvatarExecute(r ApiGetAvatarRequest) (*Avatar, *h
 }
 
 type ApiGetAvatarStylesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
 }
 
@@ -651,24 +654,25 @@ GetAvatarStyles Get Avatar Styles
 
 List avatar styles.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetAvatarStylesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetAvatarStylesRequest
 */
 func (a *AvatarsAPIService) GetAvatarStyles(ctx context.Context) ApiGetAvatarStylesRequest {
 	return ApiGetAvatarStylesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []AvatarStyle
+//
+//	@return []AvatarStyle
 func (a *AvatarsAPIService) GetAvatarStylesExecute(r ApiGetAvatarStylesRequest) ([]AvatarStyle, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvatarStyle
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvatarStyle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetAvatarStyles")
@@ -737,21 +741,21 @@ func (a *AvatarsAPIService) GetAvatarStylesExecute(r ApiGetAvatarStylesRequest) 
 }
 
 type ApiGetFavoritedAvatarsRequest struct {
-	ctx context.Context
-	ApiService *AvatarsAPIService
-	featured *bool
-	sort *SortOption
-	n *int32
-	order *OrderOption
-	offset *int32
-	search *string
-	tag *string
-	notag *string
-	releaseStatus *ReleaseStatus
+	ctx             context.Context
+	ApiService      *AvatarsAPIService
+	featured        *bool
+	sort            *SortOption
+	n               *int32
+	order           *OrderOption
+	offset          *int32
+	search          *string
+	tag             *string
+	notag           *string
+	releaseStatus   *ReleaseStatus
 	maxUnityVersion *string
 	minUnityVersion *string
-	platform *string
-	userId *string
+	platform        *string
+	userId          *string
 }
 
 // Filters on featured results.
@@ -841,24 +845,25 @@ GetFavoritedAvatars List Favorited Avatars
 
 Search and list favorited avatars by query filters.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFavoritedAvatarsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFavoritedAvatarsRequest
 */
 func (a *AvatarsAPIService) GetFavoritedAvatars(ctx context.Context) ApiGetFavoritedAvatarsRequest {
 	return ApiGetFavoritedAvatarsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Avatar
+//
+//	@return []Avatar
 func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsRequest) ([]Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Avatar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetFavoritedAvatars")
@@ -878,23 +883,23 @@ func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsR
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
-        var defaultValue SortOption = "popularity"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
-        r.sort = &defaultValue
+		var defaultValue SortOption = "popularity"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
+		r.sort = &defaultValue
 	}
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.order != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order", r.order, "form", "")
 	} else {
-        var defaultValue OrderOption = "descending"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
-        r.order = &defaultValue
+		var defaultValue OrderOption = "descending"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
+		r.order = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -911,9 +916,9 @@ func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsR
 	if r.releaseStatus != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", r.releaseStatus, "form", "")
 	} else {
-        var defaultValue ReleaseStatus = "public"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", defaultValue, "form", "")
-        r.releaseStatus = &defaultValue
+		var defaultValue ReleaseStatus = "public"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", defaultValue, "form", "")
+		r.releaseStatus = &defaultValue
 	}
 	if r.maxUnityVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maxUnityVersion", r.maxUnityVersion, "form", "")
@@ -973,8 +978,8 @@ func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -984,8 +989,8 @@ func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1003,7 +1008,7 @@ func (a *AvatarsAPIService) GetFavoritedAvatarsExecute(r ApiGetFavoritedAvatarsR
 }
 
 type ApiGetImpostorQueueStatsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
 }
 
@@ -1016,24 +1021,25 @@ GetImpostorQueueStats Get Impostor Queue Stats
 
 Gets service stats for queued impostor.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetImpostorQueueStatsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetImpostorQueueStatsRequest
 */
 func (a *AvatarsAPIService) GetImpostorQueueStats(ctx context.Context) ApiGetImpostorQueueStatsRequest {
 	return ApiGetImpostorQueueStatsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceQueueStats
+//
+//	@return ServiceQueueStats
 func (a *AvatarsAPIService) GetImpostorQueueStatsExecute(r ApiGetImpostorQueueStatsRequest) (*ServiceQueueStats, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceQueueStats
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceQueueStats
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetImpostorQueueStats")
@@ -1093,8 +1099,8 @@ func (a *AvatarsAPIService) GetImpostorQueueStatsExecute(r ApiGetImpostorQueueSt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1112,10 +1118,10 @@ func (a *AvatarsAPIService) GetImpostorQueueStatsExecute(r ApiGetImpostorQueueSt
 }
 
 type ApiGetLicensedAvatarsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	n *int32
-	offset *int32
+	n          *int32
+	offset     *int32
 }
 
 // The number of objects to return.
@@ -1139,24 +1145,25 @@ GetLicensedAvatars List Licensed Avatars
 
 List licensed avatars.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetLicensedAvatarsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetLicensedAvatarsRequest
 */
 func (a *AvatarsAPIService) GetLicensedAvatars(ctx context.Context) ApiGetLicensedAvatarsRequest {
 	return ApiGetLicensedAvatarsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Avatar
+//
+//	@return []Avatar
 func (a *AvatarsAPIService) GetLicensedAvatarsExecute(r ApiGetLicensedAvatarsRequest) ([]Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Avatar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetLicensedAvatars")
@@ -1173,9 +1180,9 @@ func (a *AvatarsAPIService) GetLicensedAvatarsExecute(r ApiGetLicensedAvatarsReq
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1226,8 +1233,8 @@ func (a *AvatarsAPIService) GetLicensedAvatarsExecute(r ApiGetLicensedAvatarsReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1245,9 +1252,9 @@ func (a *AvatarsAPIService) GetLicensedAvatarsExecute(r ApiGetLicensedAvatarsReq
 }
 
 type ApiGetOwnAvatarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetOwnAvatarRequest) Execute() (*Avatar, *http.Response, error) {
@@ -1259,26 +1266,27 @@ GetOwnAvatar Get Own Avatar
 
 Get the current avatar for the user. This will return an error for any other user than the one logged in.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetOwnAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetOwnAvatarRequest
 */
 func (a *AvatarsAPIService) GetOwnAvatar(ctx context.Context, userId string) ApiGetOwnAvatarRequest {
 	return ApiGetOwnAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return Avatar
+//
+//	@return Avatar
 func (a *AvatarsAPIService) GetOwnAvatarExecute(r ApiGetOwnAvatarRequest) (*Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Avatar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.GetOwnAvatar")
@@ -1339,8 +1347,8 @@ func (a *AvatarsAPIService) GetOwnAvatarExecute(r ApiGetOwnAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1350,8 +1358,8 @@ func (a *AvatarsAPIService) GetOwnAvatarExecute(r ApiGetOwnAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1369,21 +1377,21 @@ func (a *AvatarsAPIService) GetOwnAvatarExecute(r ApiGetOwnAvatarRequest) (*Avat
 }
 
 type ApiSearchAvatarsRequest struct {
-	ctx context.Context
-	ApiService *AvatarsAPIService
-	featured *bool
-	sort *SortOption
-	user *string
-	userId *string
-	n *int32
-	order *OrderOption
-	offset *int32
-	tag *string
-	notag *string
-	releaseStatus *ReleaseStatus
-	maxUnityVersion *string
-	minUnityVersion *string
-	platform *string
+	ctx               context.Context
+	ApiService        *AvatarsAPIService
+	featured          *bool
+	sort              *SortOption
+	user              *string
+	userId            *string
+	n                 *int32
+	order             *OrderOption
+	offset            *int32
+	tag               *string
+	notag             *string
+	releaseStatus     *ReleaseStatus
+	maxUnityVersion   *string
+	minUnityVersion   *string
+	platform          *string
 	isInternalVariant *bool
 }
 
@@ -1480,24 +1488,25 @@ SearchAvatars Search Avatars
 
 Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchAvatarsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchAvatarsRequest
 */
 func (a *AvatarsAPIService) SearchAvatars(ctx context.Context) ApiSearchAvatarsRequest {
 	return ApiSearchAvatarsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Avatar
+//
+//	@return []Avatar
 func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Avatar
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.SearchAvatars")
@@ -1517,9 +1526,9 @@ func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]A
 	if r.sort != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", r.sort, "form", "")
 	} else {
-        var defaultValue SortOption = "popularity"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
-        r.sort = &defaultValue
+		var defaultValue SortOption = "popularity"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "sort", defaultValue, "form", "")
+		r.sort = &defaultValue
 	}
 	if r.user != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "user", r.user, "form", "")
@@ -1530,16 +1539,16 @@ func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]A
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.order != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "order", r.order, "form", "")
 	} else {
-        var defaultValue OrderOption = "descending"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
-        r.order = &defaultValue
+		var defaultValue OrderOption = "descending"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "order", defaultValue, "form", "")
+		r.order = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1553,9 +1562,9 @@ func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]A
 	if r.releaseStatus != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", r.releaseStatus, "form", "")
 	} else {
-        var defaultValue ReleaseStatus = "public"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", defaultValue, "form", "")
-        r.releaseStatus = &defaultValue
+		var defaultValue ReleaseStatus = "public"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "releaseStatus", defaultValue, "form", "")
+		r.releaseStatus = &defaultValue
 	}
 	if r.maxUnityVersion != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "maxUnityVersion", r.maxUnityVersion, "form", "")
@@ -1615,8 +1624,8 @@ func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]A
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1634,9 +1643,9 @@ func (a *AvatarsAPIService) SearchAvatarsExecute(r ApiSearchAvatarsRequest) ([]A
 }
 
 type ApiSelectAvatarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiSelectAvatarRequest) Execute() (*CurrentUser, *http.Response, error) {
@@ -1648,26 +1657,27 @@ SelectAvatar Select Avatar
 
 Switches into that avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiSelectAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiSelectAvatarRequest
 */
 func (a *AvatarsAPIService) SelectAvatar(ctx context.Context, avatarId string) ApiSelectAvatarRequest {
 	return ApiSelectAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return CurrentUser
+//
+//	@return CurrentUser
 func (a *AvatarsAPIService) SelectAvatarExecute(r ApiSelectAvatarRequest) (*CurrentUser, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CurrentUser
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CurrentUser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.SelectAvatar")
@@ -1728,8 +1738,8 @@ func (a *AvatarsAPIService) SelectAvatarExecute(r ApiSelectAvatarRequest) (*Curr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1739,8 +1749,8 @@ func (a *AvatarsAPIService) SelectAvatarExecute(r ApiSelectAvatarRequest) (*Curr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1758,9 +1768,9 @@ func (a *AvatarsAPIService) SelectAvatarExecute(r ApiSelectAvatarRequest) (*Curr
 }
 
 type ApiSelectFallbackAvatarRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AvatarsAPIService
-	avatarId string
+	avatarId   string
 }
 
 func (r ApiSelectFallbackAvatarRequest) Execute() (*CurrentUser, *http.Response, error) {
@@ -1772,29 +1782,31 @@ SelectFallbackAvatar Select Fallback Avatar
 
 Switches into that avatar as your fallback avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiSelectFallbackAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiSelectFallbackAvatarRequest
 
 Deprecated
 */
 func (a *AvatarsAPIService) SelectFallbackAvatar(ctx context.Context, avatarId string) ApiSelectFallbackAvatarRequest {
 	return ApiSelectFallbackAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return CurrentUser
+//
+//	@return CurrentUser
+//
 // Deprecated
 func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvatarRequest) (*CurrentUser, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CurrentUser
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CurrentUser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.SelectFallbackAvatar")
@@ -1855,8 +1867,8 @@ func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvata
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1866,8 +1878,8 @@ func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvata
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1877,8 +1889,8 @@ func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvata
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1896,9 +1908,9 @@ func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvata
 }
 
 type ApiUpdateAvatarRequest struct {
-	ctx context.Context
-	ApiService *AvatarsAPIService
-	avatarId string
+	ctx                 context.Context
+	ApiService          *AvatarsAPIService
+	avatarId            string
 	updateAvatarRequest *UpdateAvatarRequest
 }
 
@@ -1916,26 +1928,27 @@ UpdateAvatar Update Avatar
 
 Update information about a specific avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param avatarId Must be a valid avatar ID.
- @return ApiUpdateAvatarRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param avatarId Must be a valid avatar ID.
+	@return ApiUpdateAvatarRequest
 */
 func (a *AvatarsAPIService) UpdateAvatar(ctx context.Context, avatarId string) ApiUpdateAvatarRequest {
 	return ApiUpdateAvatarRequest{
 		ApiService: a,
-		ctx: ctx,
-		avatarId: avatarId,
+		ctx:        ctx,
+		avatarId:   avatarId,
 	}
 }
 
 // Execute executes the request
-//  @return Avatar
+//
+//	@return Avatar
 func (a *AvatarsAPIService) UpdateAvatarExecute(r ApiUpdateAvatarRequest) (*Avatar, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Avatar
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Avatar
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AvatarsAPIService.UpdateAvatar")
@@ -1998,8 +2011,8 @@ func (a *AvatarsAPIService) UpdateAvatarExecute(r ApiUpdateAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -2009,8 +2022,8 @@ func (a *AvatarsAPIService) UpdateAvatarExecute(r ApiUpdateAvatarRequest) (*Avat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

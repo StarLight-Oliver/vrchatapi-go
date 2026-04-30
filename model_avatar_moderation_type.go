@@ -21,7 +21,7 @@ type AvatarModerationType string
 
 // List of AvatarModerationType
 const (
-	AVATAR_MODERATION_TYPE_BLOCK AvatarModerationType = "block"
+	AvatarModerationType_BLOCK AvatarModerationType = "block"
 )
 
 // All allowed values of AvatarModerationType enum

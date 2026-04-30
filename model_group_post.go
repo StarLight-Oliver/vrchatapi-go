@@ -22,19 +22,19 @@ var _ MappedNullable = &GroupPost{}
 // GroupPost struct for GroupPost
 type GroupPost struct {
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	AuthorId *string `json:"authorId,omitempty"`
+	AuthorId  *string    `json:"authorId,omitempty"`
 	CreatedAt *time.Time `json:"createdAt,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	EditorId *string `json:"editorId,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageId *string `json:"imageId,omitempty"`
+	EditorId *string        `json:"editorId,omitempty"`
+	GroupId  *string        `json:"groupId,omitempty"`
+	Id       *string        `json:"id,omitempty"`
+	ImageId  *string        `json:"imageId,omitempty"`
 	ImageUrl NullableString `json:"imageUrl,omitempty"`
-	//  
-	RoleId []string `json:"roleId,omitempty"`
-	Text *string `json:"text,omitempty"`
-	Title *string `json:"title,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	//
+	RoleId     []string             `json:"roleId,omitempty"`
+	Text       *string              `json:"text,omitempty"`
+	Title      *string              `json:"title,omitempty"`
+	UpdatedAt  *time.Time           `json:"updatedAt,omitempty"`
 	Visibility *GroupPostVisibility `json:"visibility,omitempty"`
 }
 
@@ -279,6 +279,7 @@ func (o *GroupPost) HasImageUrl() bool {
 func (o *GroupPost) SetImageUrl(v string) {
 	o.ImageUrl.Set(&v)
 }
+
 // SetImageUrlNil sets the value for ImageUrl to be an explicit nil
 func (o *GroupPost) SetImageUrlNil() {
 	o.ImageUrl.Set(nil)
@@ -450,7 +451,7 @@ func (o *GroupPost) SetVisibility(v GroupPostVisibility) {
 }
 
 func (o GroupPost) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -533,5 +534,3 @@ func (v *NullableGroupPost) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

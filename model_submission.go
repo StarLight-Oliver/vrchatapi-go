@@ -287,7 +287,6 @@ func (o *Submission) UnmarshalJSON(data []byte) (err error) {
 	varSubmission := _Submission{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varSubmission)
 
 	if err != nil {

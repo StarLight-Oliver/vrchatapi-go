@@ -399,7 +399,6 @@ func (o *APIConfigAudioConfig) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigAudioConfig := _APIConfigAudioConfig{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigAudioConfig)
 
 	if err != nil {

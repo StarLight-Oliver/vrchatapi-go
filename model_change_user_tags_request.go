@@ -109,7 +109,6 @@ func (o *ChangeUserTagsRequest) UnmarshalJSON(data []byte) (err error) {
 	varChangeUserTagsRequest := _ChangeUserTagsRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varChangeUserTagsRequest)
 
 	if err != nil {

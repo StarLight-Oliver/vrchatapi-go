@@ -137,7 +137,6 @@ func (o *WorldMetadata) UnmarshalJSON(data []byte) (err error) {
 	varWorldMetadata := _WorldMetadata{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varWorldMetadata)
 
 	if err != nil {

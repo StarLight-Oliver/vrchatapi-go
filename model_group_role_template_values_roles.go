@@ -20,10 +20,10 @@ var _ MappedNullable = &GroupRoleTemplateValuesRoles{}
 
 // GroupRoleTemplateValuesRoles struct for GroupRoleTemplateValuesRoles
 type GroupRoleTemplateValuesRoles struct {
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Name            *string            `json:"name,omitempty"`
+	Description     *string            `json:"description,omitempty"`
 	BasePermissions []GroupPermissions `json:"basePermissions,omitempty"`
-	IsAddedOnJoin *bool `json:"isAddedOnJoin,omitempty"`
+	IsAddedOnJoin   *bool              `json:"isAddedOnJoin,omitempty"`
 }
 
 // NewGroupRoleTemplateValuesRoles instantiates a new GroupRoleTemplateValuesRoles object
@@ -176,7 +176,7 @@ func (o *GroupRoleTemplateValuesRoles) SetIsAddedOnJoin(v bool) {
 }
 
 func (o GroupRoleTemplateValuesRoles) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -235,5 +235,3 @@ func (v *NullableGroupRoleTemplateValuesRoles) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

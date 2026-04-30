@@ -18,16 +18,16 @@ import (
 // checks if the InfoPushData type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &InfoPushData{}
 
-// InfoPushData 
+// InfoPushData
 type InfoPushData struct {
-	Article *InfoPushDataArticle `json:"article,omitempty"`
-	ContentList *DynamicContentRow `json:"contentList,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
-	OnPressed *InfoPushDataClickable `json:"onPressed,omitempty"`
-	Template *string `json:"template,omitempty"`
-	Version *string `json:"version,omitempty"`
+	Article     *InfoPushDataArticle   `json:"article,omitempty"`
+	ContentList *DynamicContentRow     `json:"contentList,omitempty"`
+	Description *string                `json:"description,omitempty"`
+	ImageUrl    *string                `json:"imageUrl,omitempty"`
+	Name        *string                `json:"name,omitempty"`
+	OnPressed   *InfoPushDataClickable `json:"onPressed,omitempty"`
+	Template    *string                `json:"template,omitempty"`
+	Version     *string                `json:"version,omitempty"`
 }
 
 // NewInfoPushData instantiates a new InfoPushData object
@@ -304,7 +304,7 @@ func (o *InfoPushData) SetVersion(v string) {
 }
 
 func (o InfoPushData) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -375,5 +375,3 @@ func (v *NullableInfoPushData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

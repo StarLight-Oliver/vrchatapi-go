@@ -108,7 +108,6 @@ func (o *UpdateTiliaTOSRequest) UnmarshalJSON(data []byte) (err error) {
 	varUpdateTiliaTOSRequest := _UpdateTiliaTOSRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUpdateTiliaTOSRequest)
 
 	if err != nil {

@@ -17,19 +17,18 @@ import (
 	"io"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 	"time"
-	"os"
 )
-
 
 // CalendarAPIService CalendarAPI service
 type CalendarAPIService service
 
 type ApiCreateGroupCalendarEventRequest struct {
-	ctx context.Context
-	ApiService *CalendarAPIService
-	groupId string
+	ctx                        context.Context
+	ApiService                 *CalendarAPIService
+	groupId                    string
 	createCalendarEventRequest *CreateCalendarEventRequest
 }
 
@@ -47,26 +46,27 @@ CreateGroupCalendarEvent Create a calendar event
 
 Creates an event for a group on the calendar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @return ApiCreateGroupCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@return ApiCreateGroupCalendarEventRequest
 */
 func (a *CalendarAPIService) CreateGroupCalendarEvent(ctx context.Context, groupId string) ApiCreateGroupCalendarEventRequest {
 	return ApiCreateGroupCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEvent
+//
+//	@return CalendarEvent
 func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCalendarEventRequest) (*CalendarEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEvent
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.CreateGroupCalendarEvent")
@@ -132,8 +132,8 @@ func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -143,8 +143,8 @@ func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -154,8 +154,8 @@ func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -173,9 +173,9 @@ func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCal
 }
 
 type ApiDeleteGroupCalendarEventRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	groupId string
+	groupId    string
 	calendarId string
 }
 
@@ -188,28 +188,29 @@ DeleteGroupCalendarEvent Delete a calendar event
 
 Delete a group calendar event
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @param calendarId Must be a valid calendar ID.
- @return ApiDeleteGroupCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@param calendarId Must be a valid calendar ID.
+	@return ApiDeleteGroupCalendarEventRequest
 */
 func (a *CalendarAPIService) DeleteGroupCalendarEvent(ctx context.Context, groupId string, calendarId string) ApiDeleteGroupCalendarEventRequest {
 	return ApiDeleteGroupCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 		calendarId: calendarId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *CalendarAPIService) DeleteGroupCalendarEventExecute(r ApiDeleteGroupCalendarEventRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.DeleteGroupCalendarEvent")
@@ -271,8 +272,8 @@ func (a *CalendarAPIService) DeleteGroupCalendarEventExecute(r ApiDeleteGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -282,8 +283,8 @@ func (a *CalendarAPIService) DeleteGroupCalendarEventExecute(r ApiDeleteGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -301,19 +302,19 @@ func (a *CalendarAPIService) DeleteGroupCalendarEventExecute(r ApiDeleteGroupCal
 }
 
 type ApiDiscoverCalendarEventsRequest struct {
-	ctx context.Context
-	ApiService *CalendarAPIService
-	scope *CalendarEventDiscoveryScope
-	categories *string
-	tags *string
-	featuredResults *CalendarEventDiscoveryInclusion
-	nonFeaturedResults *CalendarEventDiscoveryInclusion
-	personalizedResults *CalendarEventDiscoveryInclusion
-	minimumInterestCount *int32
+	ctx                     context.Context
+	ApiService              *CalendarAPIService
+	scope                   *CalendarEventDiscoveryScope
+	categories              *string
+	tags                    *string
+	featuredResults         *CalendarEventDiscoveryInclusion
+	nonFeaturedResults      *CalendarEventDiscoveryInclusion
+	personalizedResults     *CalendarEventDiscoveryInclusion
+	minimumInterestCount    *int32
 	minimumRemainingMinutes *int32
-	upcomingOffsetMinutes *int32
-	n *int32
-	nextCursor *string
+	upcomingOffsetMinutes   *int32
+	n                       *int32
+	nextCursor              *string
 }
 
 // Scope for calendar event discovery.
@@ -394,24 +395,25 @@ Initially, call without a `nextCursor` parameter
 For every successive call, use the `nextCursor` property returned in the previous call & the `number` of entries desired for this call
 The `nextCursor` internally keeps track of the `offset` of the results, the initial request parameters, and accounts for discrepancies that might arise from time elapsed between calls
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDiscoverCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDiscoverCalendarEventsRequest
 */
 func (a *CalendarAPIService) DiscoverCalendarEvents(ctx context.Context) ApiDiscoverCalendarEventsRequest {
 	return ApiDiscoverCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEventDiscovery
+//
+//	@return CalendarEventDiscovery
 func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendarEventsRequest) (*CalendarEventDiscovery, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEventDiscovery
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEventDiscovery
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.DiscoverCalendarEvents")
@@ -428,9 +430,9 @@ func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendar
 	if r.scope != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "scope", r.scope, "form", "")
 	} else {
-        var defaultValue CalendarEventDiscoveryScope = "upcoming"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "scope", defaultValue, "form", "")
-        r.scope = &defaultValue
+		var defaultValue CalendarEventDiscoveryScope = "upcoming"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "scope", defaultValue, "form", "")
+		r.scope = &defaultValue
 	}
 	if r.categories != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "categories", r.categories, "form", "")
@@ -441,23 +443,23 @@ func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendar
 	if r.featuredResults != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "featuredResults", r.featuredResults, "form", "")
 	} else {
-        var defaultValue CalendarEventDiscoveryInclusion = "include"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "featuredResults", defaultValue, "form", "")
-        r.featuredResults = &defaultValue
+		var defaultValue CalendarEventDiscoveryInclusion = "include"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "featuredResults", defaultValue, "form", "")
+		r.featuredResults = &defaultValue
 	}
 	if r.nonFeaturedResults != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nonFeaturedResults", r.nonFeaturedResults, "form", "")
 	} else {
-        var defaultValue CalendarEventDiscoveryInclusion = "include"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "nonFeaturedResults", defaultValue, "form", "")
-        r.nonFeaturedResults = &defaultValue
+		var defaultValue CalendarEventDiscoveryInclusion = "include"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "nonFeaturedResults", defaultValue, "form", "")
+		r.nonFeaturedResults = &defaultValue
 	}
 	if r.personalizedResults != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "personalizedResults", r.personalizedResults, "form", "")
 	} else {
-        var defaultValue CalendarEventDiscoveryInclusion = "include"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "personalizedResults", defaultValue, "form", "")
-        r.personalizedResults = &defaultValue
+		var defaultValue CalendarEventDiscoveryInclusion = "include"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "personalizedResults", defaultValue, "form", "")
+		r.personalizedResults = &defaultValue
 	}
 	if r.minimumInterestCount != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "minimumInterestCount", r.minimumInterestCount, "form", "")
@@ -471,9 +473,9 @@ func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendar
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.nextCursor != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "nextCursor", r.nextCursor, "form", "")
@@ -524,8 +526,8 @@ func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -543,10 +545,10 @@ func (a *CalendarAPIService) DiscoverCalendarEventsExecute(r ApiDiscoverCalendar
 }
 
 type ApiFollowGroupCalendarEventRequest struct {
-	ctx context.Context
-	ApiService *CalendarAPIService
-	groupId string
-	calendarId string
+	ctx                        context.Context
+	ApiService                 *CalendarAPIService
+	groupId                    string
+	calendarId                 string
 	followCalendarEventRequest *FollowCalendarEventRequest
 }
 
@@ -564,28 +566,29 @@ FollowGroupCalendarEvent Follow a calendar event
 
 Follow or unfollow an event on a group's calendar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @param calendarId Must be a valid calendar ID.
- @return ApiFollowGroupCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@param calendarId Must be a valid calendar ID.
+	@return ApiFollowGroupCalendarEventRequest
 */
 func (a *CalendarAPIService) FollowGroupCalendarEvent(ctx context.Context, groupId string, calendarId string) ApiFollowGroupCalendarEventRequest {
 	return ApiFollowGroupCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 		calendarId: calendarId,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEvent
+//
+//	@return CalendarEvent
 func (a *CalendarAPIService) FollowGroupCalendarEventExecute(r ApiFollowGroupCalendarEventRequest) (*CalendarEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEvent
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.FollowGroupCalendarEvent")
@@ -652,8 +655,8 @@ func (a *CalendarAPIService) FollowGroupCalendarEventExecute(r ApiFollowGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -671,11 +674,11 @@ func (a *CalendarAPIService) FollowGroupCalendarEventExecute(r ApiFollowGroupCal
 }
 
 type ApiGetCalendarEventsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	date *time.Time
-	n *int32
-	offset *int32
+	date       *time.Time
+	n          *int32
+	offset     *int32
 }
 
 // The month to search in.
@@ -705,24 +708,25 @@ GetCalendarEvents List calendar events
 
 Get a list of a user's calendar events for the month in ?date
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCalendarEventsRequest
 */
 func (a *CalendarAPIService) GetCalendarEvents(ctx context.Context) ApiGetCalendarEventsRequest {
 	return ApiGetCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCalendarEventList
+//
+//	@return PaginatedCalendarEventList
 func (a *CalendarAPIService) GetCalendarEventsExecute(r ApiGetCalendarEventsRequest) (*PaginatedCalendarEventList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCalendarEventList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCalendarEventList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetCalendarEvents")
@@ -742,9 +746,9 @@ func (a *CalendarAPIService) GetCalendarEventsExecute(r ApiGetCalendarEventsRequ
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -795,8 +799,8 @@ func (a *CalendarAPIService) GetCalendarEventsExecute(r ApiGetCalendarEventsRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -814,11 +818,11 @@ func (a *CalendarAPIService) GetCalendarEventsExecute(r ApiGetCalendarEventsRequ
 }
 
 type ApiGetFeaturedCalendarEventsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	date *time.Time
-	n *int32
-	offset *int32
+	date       *time.Time
+	n          *int32
+	offset     *int32
 }
 
 // The month to search in.
@@ -848,24 +852,25 @@ GetFeaturedCalendarEvents List featured calendar events
 
 Get a list of a featured calendar events for the month in ?date
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFeaturedCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFeaturedCalendarEventsRequest
 */
 func (a *CalendarAPIService) GetFeaturedCalendarEvents(ctx context.Context) ApiGetFeaturedCalendarEventsRequest {
 	return ApiGetFeaturedCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCalendarEventList
+//
+//	@return PaginatedCalendarEventList
 func (a *CalendarAPIService) GetFeaturedCalendarEventsExecute(r ApiGetFeaturedCalendarEventsRequest) (*PaginatedCalendarEventList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCalendarEventList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCalendarEventList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetFeaturedCalendarEvents")
@@ -885,9 +890,9 @@ func (a *CalendarAPIService) GetFeaturedCalendarEventsExecute(r ApiGetFeaturedCa
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -938,8 +943,8 @@ func (a *CalendarAPIService) GetFeaturedCalendarEventsExecute(r ApiGetFeaturedCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -957,11 +962,11 @@ func (a *CalendarAPIService) GetFeaturedCalendarEventsExecute(r ApiGetFeaturedCa
 }
 
 type ApiGetFollowedCalendarEventsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	date *time.Time
-	n *int32
-	offset *int32
+	date       *time.Time
+	n          *int32
+	offset     *int32
 }
 
 // The month to search in.
@@ -991,24 +996,25 @@ GetFollowedCalendarEvents List followed calendar events
 
 Get a list of a followed calendar events for the month in ?date
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFollowedCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFollowedCalendarEventsRequest
 */
 func (a *CalendarAPIService) GetFollowedCalendarEvents(ctx context.Context) ApiGetFollowedCalendarEventsRequest {
 	return ApiGetFollowedCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCalendarEventList
+//
+//	@return PaginatedCalendarEventList
 func (a *CalendarAPIService) GetFollowedCalendarEventsExecute(r ApiGetFollowedCalendarEventsRequest) (*PaginatedCalendarEventList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCalendarEventList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCalendarEventList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetFollowedCalendarEvents")
@@ -1028,9 +1034,9 @@ func (a *CalendarAPIService) GetFollowedCalendarEventsExecute(r ApiGetFollowedCa
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1081,8 +1087,8 @@ func (a *CalendarAPIService) GetFollowedCalendarEventsExecute(r ApiGetFollowedCa
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1100,9 +1106,9 @@ func (a *CalendarAPIService) GetFollowedCalendarEventsExecute(r ApiGetFollowedCa
 }
 
 type ApiGetGroupCalendarEventRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	groupId string
+	groupId    string
 	calendarId string
 }
 
@@ -1115,28 +1121,29 @@ GetGroupCalendarEvent Get a calendar event
 
 Get a group calendar event
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @param calendarId Must be a valid calendar ID.
- @return ApiGetGroupCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@param calendarId Must be a valid calendar ID.
+	@return ApiGetGroupCalendarEventRequest
 */
 func (a *CalendarAPIService) GetGroupCalendarEvent(ctx context.Context, groupId string, calendarId string) ApiGetGroupCalendarEventRequest {
 	return ApiGetGroupCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 		calendarId: calendarId,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEvent
+//
+//	@return CalendarEvent
 func (a *CalendarAPIService) GetGroupCalendarEventExecute(r ApiGetGroupCalendarEventRequest) (*CalendarEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEvent
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetGroupCalendarEvent")
@@ -1198,8 +1205,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventExecute(r ApiGetGroupCalendarE
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1217,9 +1224,9 @@ func (a *CalendarAPIService) GetGroupCalendarEventExecute(r ApiGetGroupCalendarE
 }
 
 type ApiGetGroupCalendarEventICSRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	groupId string
+	groupId    string
 	calendarId string
 }
 
@@ -1232,28 +1239,29 @@ GetGroupCalendarEventICS Download calendar event as ICS
 
 Returns the specified calendar in iCalendar (ICS) format.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @param calendarId Must be a valid calendar ID.
- @return ApiGetGroupCalendarEventICSRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@param calendarId Must be a valid calendar ID.
+	@return ApiGetGroupCalendarEventICSRequest
 */
 func (a *CalendarAPIService) GetGroupCalendarEventICS(ctx context.Context, groupId string, calendarId string) ApiGetGroupCalendarEventICSRequest {
 	return ApiGetGroupCalendarEventICSRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 		calendarId: calendarId,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *CalendarAPIService) GetGroupCalendarEventICSExecute(r ApiGetGroupCalendarEventICSRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetGroupCalendarEventICS")
@@ -1315,8 +1323,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventICSExecute(r ApiGetGroupCalend
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1326,8 +1334,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventICSExecute(r ApiGetGroupCalend
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1345,12 +1353,12 @@ func (a *CalendarAPIService) GetGroupCalendarEventICSExecute(r ApiGetGroupCalend
 }
 
 type ApiGetGroupCalendarEventsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	groupId string
-	date *time.Time
-	n *int32
-	offset *int32
+	groupId    string
+	date       *time.Time
+	n          *int32
+	offset     *int32
 }
 
 // The month to search in.
@@ -1380,26 +1388,27 @@ GetGroupCalendarEvents List a group's calendar events
 
 Get a list of a group's calendar events
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @return ApiGetGroupCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@return ApiGetGroupCalendarEventsRequest
 */
 func (a *CalendarAPIService) GetGroupCalendarEvents(ctx context.Context, groupId string) ApiGetGroupCalendarEventsRequest {
 	return ApiGetGroupCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCalendarEventList
+//
+//	@return PaginatedCalendarEventList
 func (a *CalendarAPIService) GetGroupCalendarEventsExecute(r ApiGetGroupCalendarEventsRequest) (*PaginatedCalendarEventList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCalendarEventList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCalendarEventList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetGroupCalendarEvents")
@@ -1420,9 +1429,9 @@ func (a *CalendarAPIService) GetGroupCalendarEventsExecute(r ApiGetGroupCalendar
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1473,8 +1482,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventsExecute(r ApiGetGroupCalendar
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1492,9 +1501,9 @@ func (a *CalendarAPIService) GetGroupCalendarEventsExecute(r ApiGetGroupCalendar
 }
 
 type ApiGetGroupNextCalendarEventRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *CalendarAPIService
-	groupId string
+	groupId    string
 }
 
 func (r ApiGetGroupNextCalendarEventRequest) Execute() (*CalendarEvent, *http.Response, error) {
@@ -1506,26 +1515,27 @@ GetGroupNextCalendarEvent Get next calendar event
 
 Get the closest future calendar event scheduled for a group
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @return ApiGetGroupNextCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@return ApiGetGroupNextCalendarEventRequest
 */
 func (a *CalendarAPIService) GetGroupNextCalendarEvent(ctx context.Context, groupId string) ApiGetGroupNextCalendarEventRequest {
 	return ApiGetGroupNextCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEvent
+//
+//	@return CalendarEvent
 func (a *CalendarAPIService) GetGroupNextCalendarEventExecute(r ApiGetGroupNextCalendarEventRequest) (*CalendarEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEvent
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.GetGroupNextCalendarEvent")
@@ -1586,8 +1596,8 @@ func (a *CalendarAPIService) GetGroupNextCalendarEventExecute(r ApiGetGroupNextC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1597,8 +1607,8 @@ func (a *CalendarAPIService) GetGroupNextCalendarEventExecute(r ApiGetGroupNextC
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1616,12 +1626,12 @@ func (a *CalendarAPIService) GetGroupNextCalendarEventExecute(r ApiGetGroupNextC
 }
 
 type ApiSearchCalendarEventsRequest struct {
-	ctx context.Context
-	ApiService *CalendarAPIService
-	searchTerm *string
-	utcOffset *int32
-	n *int32
-	offset *int32
+	ctx               context.Context
+	ApiService        *CalendarAPIService
+	searchTerm        *string
+	utcOffset         *int32
+	n                 *int32
+	offset            *int32
 	isInternalVariant *bool
 }
 
@@ -1664,24 +1674,25 @@ SearchCalendarEvents Search for calendar events
 
 Get a list of calendar events by search terms
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSearchCalendarEventsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSearchCalendarEventsRequest
 */
 func (a *CalendarAPIService) SearchCalendarEvents(ctx context.Context) ApiSearchCalendarEventsRequest {
 	return ApiSearchCalendarEventsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCalendarEventList
+//
+//	@return PaginatedCalendarEventList
 func (a *CalendarAPIService) SearchCalendarEventsExecute(r ApiSearchCalendarEventsRequest) (*PaginatedCalendarEventList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCalendarEventList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCalendarEventList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.SearchCalendarEvents")
@@ -1705,9 +1716,9 @@ func (a *CalendarAPIService) SearchCalendarEventsExecute(r ApiSearchCalendarEven
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1761,8 +1772,8 @@ func (a *CalendarAPIService) SearchCalendarEventsExecute(r ApiSearchCalendarEven
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1780,10 +1791,10 @@ func (a *CalendarAPIService) SearchCalendarEventsExecute(r ApiSearchCalendarEven
 }
 
 type ApiUpdateGroupCalendarEventRequest struct {
-	ctx context.Context
-	ApiService *CalendarAPIService
-	groupId string
-	calendarId string
+	ctx                        context.Context
+	ApiService                 *CalendarAPIService
+	groupId                    string
+	calendarId                 string
 	updateCalendarEventRequest *UpdateCalendarEventRequest
 }
 
@@ -1801,28 +1812,29 @@ UpdateGroupCalendarEvent Update a calendar event
 
 Updates an event for a group on the calendar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param groupId Must be a valid group ID.
- @param calendarId Must be a valid calendar ID.
- @return ApiUpdateGroupCalendarEventRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param groupId Must be a valid group ID.
+	@param calendarId Must be a valid calendar ID.
+	@return ApiUpdateGroupCalendarEventRequest
 */
 func (a *CalendarAPIService) UpdateGroupCalendarEvent(ctx context.Context, groupId string, calendarId string) ApiUpdateGroupCalendarEventRequest {
 	return ApiUpdateGroupCalendarEventRequest{
 		ApiService: a,
-		ctx: ctx,
-		groupId: groupId,
+		ctx:        ctx,
+		groupId:    groupId,
 		calendarId: calendarId,
 	}
 }
 
 // Execute executes the request
-//  @return CalendarEvent
+//
+//	@return CalendarEvent
 func (a *CalendarAPIService) UpdateGroupCalendarEventExecute(r ApiUpdateGroupCalendarEventRequest) (*CalendarEvent, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CalendarEvent
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CalendarEvent
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CalendarAPIService.UpdateGroupCalendarEvent")
@@ -1889,8 +1901,8 @@ func (a *CalendarAPIService) UpdateGroupCalendarEventExecute(r ApiUpdateGroupCal
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

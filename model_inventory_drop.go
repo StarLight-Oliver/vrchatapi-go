@@ -476,7 +476,6 @@ func (o *InventoryDrop) UnmarshalJSON(data []byte) (err error) {
 	varInventoryDrop := _InventoryDrop{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInventoryDrop)
 
 	if err != nil {

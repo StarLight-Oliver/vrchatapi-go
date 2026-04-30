@@ -23,7 +23,7 @@ var _ MappedNullable = &CurrentUserPlatformHistoryInner{}
 type CurrentUserPlatformHistoryInner struct {
 	IsMobile *bool `json:"isMobile,omitempty"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform *string `json:"platform,omitempty"`
+	Platform *string    `json:"platform,omitempty"`
 	Recorded *time.Time `json:"recorded,omitempty"`
 }
 
@@ -141,7 +141,7 @@ func (o *CurrentUserPlatformHistoryInner) SetRecorded(v time.Time) {
 }
 
 func (o CurrentUserPlatformHistoryInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -197,5 +197,3 @@ func (v *NullableCurrentUserPlatformHistoryInner) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

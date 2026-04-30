@@ -139,7 +139,6 @@ func (o *ModerateUserRequest) UnmarshalJSON(data []byte) (err error) {
 	varModerateUserRequest := _ModerateUserRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varModerateUserRequest)
 
 	if err != nil {

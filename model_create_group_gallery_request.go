@@ -339,7 +339,6 @@ func (o *CreateGroupGalleryRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateGroupGalleryRequest := _CreateGroupGalleryRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateGroupGalleryRequest)
 
 	if err != nil {

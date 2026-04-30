@@ -249,7 +249,6 @@ func (o *FileVersionUploadStatus) UnmarshalJSON(data []byte) (err error) {
 	varFileVersionUploadStatus := _FileVersionUploadStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFileVersionUploadStatus)
 
 	if err != nil {

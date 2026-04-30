@@ -364,7 +364,6 @@ func (o *Jam) UnmarshalJSON(data []byte) (err error) {
 	varJam := _Jam{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varJam)
 
 	if err != nil {

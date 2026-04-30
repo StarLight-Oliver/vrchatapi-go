@@ -22,10 +22,10 @@ var _ MappedNullable = &AvatarPublishedListingsInner{}
 type AvatarPublishedListingsInner struct {
 	Description *string `json:"description,omitempty"`
 	DisplayName *string `json:"displayName,omitempty"`
-	ImageId *string `json:"imageId,omitempty"`
-	ListingId *string `json:"listingId,omitempty"`
+	ImageId     *string `json:"imageId,omitempty"`
+	ListingId   *string `json:"listingId,omitempty"`
 	ListingType *string `json:"listingType,omitempty"`
-	PriceTokens *int32 `json:"priceTokens,omitempty"`
+	PriceTokens *int32  `json:"priceTokens,omitempty"`
 }
 
 // NewAvatarPublishedListingsInner instantiates a new AvatarPublishedListingsInner object
@@ -238,7 +238,7 @@ func (o *AvatarPublishedListingsInner) SetPriceTokens(v int32) {
 }
 
 func (o AvatarPublishedListingsInner) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,5 +303,3 @@ func (v *NullableAvatarPublishedListingsInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -1320,7 +1320,6 @@ func (o *FileAnalysisAvatarStats) UnmarshalJSON(data []byte) (err error) {
 	varFileAnalysisAvatarStats := _FileAnalysisAvatarStats{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFileAnalysisAvatarStats)
 
 	if err != nil {

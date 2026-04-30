@@ -136,7 +136,6 @@ func (o *Pending2FAResult) UnmarshalJSON(data []byte) (err error) {
 	varPending2FAResult := _Pending2FAResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPending2FAResult)
 
 	if err != nil {

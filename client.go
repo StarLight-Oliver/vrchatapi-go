@@ -95,11 +95,6 @@ type service struct {
 // NewAPIClient creates a new API client. Requires a userAgent string describing your application.
 // optionally a custom http.Client to allow for advanced features such as caching.
 func NewAPIClient(cfg *Configuration) *APIClient {
-
-	// if true {
-	// 	return nil
-	// }
-
 	if cfg.HTTPClient == nil {
 		cfg.HTTPClient = http.DefaultClient
 	}
@@ -551,10 +546,7 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 	if err != nil {
 		return err
 	}
-	err = file.Close()
-	if err != nil {
-		return err
-	}
+	defer file.Close()
 
 	part, err := w.CreateFormFile(fieldName, filepath.Base(path))
 	if err != nil {

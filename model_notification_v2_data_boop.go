@@ -108,7 +108,6 @@ func (o *NotificationV2DataBoop) UnmarshalJSON(data []byte) (err error) {
 	varNotificationV2DataBoop := _NotificationV2DataBoop{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationV2DataBoop)
 
 	if err != nil {

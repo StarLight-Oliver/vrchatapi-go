@@ -108,7 +108,6 @@ func (o *TwoFactorAuthCode) UnmarshalJSON(data []byte) (err error) {
 	varTwoFactorAuthCode := _TwoFactorAuthCode{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTwoFactorAuthCode)
 
 	if err != nil {

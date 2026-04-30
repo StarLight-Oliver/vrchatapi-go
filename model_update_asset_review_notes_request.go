@@ -108,7 +108,6 @@ func (o *UpdateAssetReviewNotesRequest) UnmarshalJSON(data []byte) (err error) {
 	varUpdateAssetReviewNotesRequest := _UpdateAssetReviewNotesRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUpdateAssetReviewNotesRequest)
 
 	if err != nil {

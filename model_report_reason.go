@@ -138,7 +138,6 @@ func (o *ReportReason) UnmarshalJSON(data []byte) (err error) {
 	varReportReason := _ReportReason{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varReportReason)
 
 	if err != nil {

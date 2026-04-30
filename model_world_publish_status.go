@@ -110,7 +110,6 @@ func (o *WorldPublishStatus) UnmarshalJSON(data []byte) (err error) {
 	varWorldPublishStatus := _WorldPublishStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varWorldPublishStatus)
 
 	if err != nil {

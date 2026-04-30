@@ -248,7 +248,6 @@ func (o *APIConfigAvatarPerfLimiter) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigAvatarPerfLimiter := _APIConfigAvatarPerfLimiter{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigAvatarPerfLimiter)
 
 	if err != nil {

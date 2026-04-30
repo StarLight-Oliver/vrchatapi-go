@@ -1643,7 +1643,6 @@ func (o *Instance) UnmarshalJSON(data []byte) (err error) {
 	varInstance := _Instance{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInstance)
 
 	if err != nil {

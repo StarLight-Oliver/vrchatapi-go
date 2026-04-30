@@ -14,7 +14,6 @@ package vrchatapi
 import (
 	"encoding/json"
 	"fmt"
-
 	"gopkg.in/validator.v2"
 )
 
@@ -43,7 +42,7 @@ func (dst *RegisterUserAccount200Response) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into CurrentUser
-	err = newDecoder(data).Decode(&dst.CurrentUser)
+	err = newStrictDecoder(data).Decode(&dst.CurrentUser)
 	if err == nil {
 		jsonCurrentUser, _ := json.Marshal(dst.CurrentUser)
 		if string(jsonCurrentUser) == "{}" { // empty struct
@@ -60,7 +59,7 @@ func (dst *RegisterUserAccount200Response) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into RequiresTwoFactorAuth
-	err = newDecoder(data).Decode(&dst.RequiresTwoFactorAuth)
+	err = newStrictDecoder(data).Decode(&dst.RequiresTwoFactorAuth)
 	if err == nil {
 		jsonRequiresTwoFactorAuth, _ := json.Marshal(dst.RequiresTwoFactorAuth)
 		if string(jsonRequiresTwoFactorAuth) == "{}" { // empty struct

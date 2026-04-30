@@ -108,7 +108,6 @@ func (o *SuccessFlag) UnmarshalJSON(data []byte) (err error) {
 	varSuccessFlag := _SuccessFlag{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varSuccessFlag)
 
 	if err != nil {

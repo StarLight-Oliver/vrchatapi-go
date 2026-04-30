@@ -270,7 +270,6 @@ func (o *CreateGroupPostRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateGroupPostRequest := _CreateGroupPostRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateGroupPostRequest)
 
 	if err != nil {

@@ -136,7 +136,6 @@ func (o *AvatarStyle) UnmarshalJSON(data []byte) (err error) {
 	varAvatarStyle := _AvatarStyle{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAvatarStyle)
 
 	if err != nil {

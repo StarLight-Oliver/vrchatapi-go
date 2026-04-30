@@ -108,7 +108,6 @@ func (o *TwoFactorEmailCode) UnmarshalJSON(data []byte) (err error) {
 	varTwoFactorEmailCode := _TwoFactorEmailCode{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTwoFactorEmailCode)
 
 	if err != nil {

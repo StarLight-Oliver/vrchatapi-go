@@ -21,26 +21,26 @@ var _ MappedNullable = &GroupMyMember{}
 
 // GroupMyMember struct for GroupMyMember
 type GroupMyMember struct {
-	AcceptedByDisplayName NullableString `json:"acceptedByDisplayName,omitempty"`
-	AcceptedById NullableString `json:"acceptedById,omitempty"`
-	BannedAt NullableString `json:"bannedAt,omitempty"`
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Has2FA *bool `json:"has2FA,omitempty"`
-	HasJoinedFromPurchase *bool `json:"hasJoinedFromPurchase,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsRepresenting *bool `json:"isRepresenting,omitempty"`
-	IsSubscribedToAnnouncements *bool `json:"isSubscribedToAnnouncements,omitempty"`
-	IsSubscribedToEventAnnouncements *bool `json:"isSubscribedToEventAnnouncements,omitempty"`
-	JoinedAt *time.Time `json:"joinedAt,omitempty"`
-	LastPostReadAt NullableTime `json:"lastPostReadAt,omitempty"`
-	MRoleIds []string `json:"mRoleIds,omitempty"`
-	ManagerNotes *string `json:"managerNotes,omitempty"`
-	MembershipStatus *string `json:"membershipStatus,omitempty"`
-	Permissions []GroupPermissions `json:"permissions,omitempty"`
-	RoleIds []string `json:"roleIds,omitempty"`
+	AcceptedByDisplayName            NullableString     `json:"acceptedByDisplayName,omitempty"`
+	AcceptedById                     NullableString     `json:"acceptedById,omitempty"`
+	BannedAt                         NullableString     `json:"bannedAt,omitempty"`
+	CreatedAt                        *time.Time         `json:"createdAt,omitempty"`
+	GroupId                          *string            `json:"groupId,omitempty"`
+	Has2FA                           *bool              `json:"has2FA,omitempty"`
+	HasJoinedFromPurchase            *bool              `json:"hasJoinedFromPurchase,omitempty"`
+	Id                               *string            `json:"id,omitempty"`
+	IsRepresenting                   *bool              `json:"isRepresenting,omitempty"`
+	IsSubscribedToAnnouncements      *bool              `json:"isSubscribedToAnnouncements,omitempty"`
+	IsSubscribedToEventAnnouncements *bool              `json:"isSubscribedToEventAnnouncements,omitempty"`
+	JoinedAt                         *time.Time         `json:"joinedAt,omitempty"`
+	LastPostReadAt                   NullableTime       `json:"lastPostReadAt,omitempty"`
+	MRoleIds                         []string           `json:"mRoleIds,omitempty"`
+	ManagerNotes                     *string            `json:"managerNotes,omitempty"`
+	MembershipStatus                 *string            `json:"membershipStatus,omitempty"`
+	Permissions                      []GroupPermissions `json:"permissions,omitempty"`
+	RoleIds                          []string           `json:"roleIds,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	UserId *string `json:"userId,omitempty"`
+	UserId     *string `json:"userId,omitempty"`
 	Visibility *string `json:"visibility,omitempty"`
 }
 
@@ -109,6 +109,7 @@ func (o *GroupMyMember) HasAcceptedByDisplayName() bool {
 func (o *GroupMyMember) SetAcceptedByDisplayName(v string) {
 	o.AcceptedByDisplayName.Set(&v)
 }
+
 // SetAcceptedByDisplayNameNil sets the value for AcceptedByDisplayName to be an explicit nil
 func (o *GroupMyMember) SetAcceptedByDisplayNameNil() {
 	o.AcceptedByDisplayName.Set(nil)
@@ -151,6 +152,7 @@ func (o *GroupMyMember) HasAcceptedById() bool {
 func (o *GroupMyMember) SetAcceptedById(v string) {
 	o.AcceptedById.Set(&v)
 }
+
 // SetAcceptedByIdNil sets the value for AcceptedById to be an explicit nil
 func (o *GroupMyMember) SetAcceptedByIdNil() {
 	o.AcceptedById.Set(nil)
@@ -193,6 +195,7 @@ func (o *GroupMyMember) HasBannedAt() bool {
 func (o *GroupMyMember) SetBannedAt(v string) {
 	o.BannedAt.Set(&v)
 }
+
 // SetBannedAtNil sets the value for BannedAt to be an explicit nil
 func (o *GroupMyMember) SetBannedAtNil() {
 	o.BannedAt.Set(nil)
@@ -523,6 +526,7 @@ func (o *GroupMyMember) HasLastPostReadAt() bool {
 func (o *GroupMyMember) SetLastPostReadAt(v time.Time) {
 	o.LastPostReadAt.Set(&v)
 }
+
 // SetLastPostReadAtNil sets the value for LastPostReadAt to be an explicit nil
 func (o *GroupMyMember) SetLastPostReadAtNil() {
 	o.LastPostReadAt.Set(nil)
@@ -758,7 +762,7 @@ func (o *GroupMyMember) SetVisibility(v string) {
 }
 
 func (o GroupMyMember) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -865,5 +869,3 @@ func (v *NullableGroupMyMember) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

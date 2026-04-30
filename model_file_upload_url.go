@@ -109,7 +109,6 @@ func (o *FileUploadURL) UnmarshalJSON(data []byte) (err error) {
 	varFileUploadURL := _FileUploadURL{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFileUploadURL)
 
 	if err != nil {

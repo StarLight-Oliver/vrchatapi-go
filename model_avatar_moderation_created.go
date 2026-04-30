@@ -165,7 +165,6 @@ func (o *AvatarModerationCreated) UnmarshalJSON(data []byte) (err error) {
 	varAvatarModerationCreated := _AvatarModerationCreated{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAvatarModerationCreated)
 
 	if err != nil {

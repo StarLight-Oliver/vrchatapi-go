@@ -20,8 +20,8 @@ var _ MappedNullable = &UpdateInventoryItemRequest{}
 
 // UpdateInventoryItemRequest struct for UpdateInventoryItemRequest
 type UpdateInventoryItemRequest struct {
-	IsArchived *bool `json:"isArchived,omitempty"`
-	IsSeen *bool `json:"isSeen,omitempty"`
+	IsArchived     *bool                    `json:"isArchived,omitempty"`
+	IsSeen         *bool                    `json:"isSeen,omitempty"`
 	UserAttributes *InventoryUserAttributes `json:"userAttributes,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (o *UpdateInventoryItemRequest) SetUserAttributes(v InventoryUserAttributes
 }
 
 func (o UpdateInventoryItemRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableUpdateInventoryItemRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

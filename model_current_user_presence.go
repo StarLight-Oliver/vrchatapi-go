@@ -20,26 +20,26 @@ var _ MappedNullable = &CurrentUserPresence{}
 
 // CurrentUserPresence struct for CurrentUserPresence
 type CurrentUserPresence struct {
-	AvatarThumbnail NullableString `json:"avatarThumbnail,omitempty"`
-	CurrentAvatarTags []string `json:"currentAvatarTags,omitempty"`
-	Debugflag *string `json:"debugflag,omitempty"`
-	DisplayName *string `json:"displayName,omitempty"`
-	Groups []string `json:"groups,omitempty"`
+	AvatarThumbnail   NullableString `json:"avatarThumbnail,omitempty"`
+	CurrentAvatarTags []string       `json:"currentAvatarTags,omitempty"`
+	Debugflag         *string        `json:"debugflag,omitempty"`
+	DisplayName       *string        `json:"displayName,omitempty"`
+	Groups            []string       `json:"groups,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	Id *string `json:"id,omitempty"`
+	Id       *string        `json:"id,omitempty"`
 	Instance NullableString `json:"instance,omitempty"`
 	// either an InstanceType or an empty string
 	InstanceType NullableString `json:"instanceType,omitempty"`
-	IsRejoining NullableString `json:"isRejoining,omitempty"`
+	IsRejoining  NullableString `json:"isRejoining,omitempty"`
 	// This is normally `android`, `ios`, `standalonewindows`, `web`, or the empty value ``, but also supposedly can be any random Unity version such as `2019.2.4-801-Release` or `2019.2.2-772-Release` or even `unknownplatform`.
-	Platform *string `json:"platform,omitempty"`
+	Platform           *string        `json:"platform,omitempty"`
 	ProfilePicOverride NullableString `json:"profilePicOverride,omitempty"`
 	// either a UserStatus or empty string
-	Status NullableString `json:"status,omitempty"`
+	Status              NullableString `json:"status,omitempty"`
 	TravelingToInstance NullableString `json:"travelingToInstance,omitempty"`
 	// Represents a unique location, consisting of a world identifier and an instance identifier, or \"offline\" if the user is not on your friends list.
-	TravelingToWorld *string `json:"travelingToWorld,omitempty"`
-	UserIcon NullableString `json:"userIcon,omitempty"`
+	TravelingToWorld *string        `json:"travelingToWorld,omitempty"`
+	UserIcon         NullableString `json:"userIcon,omitempty"`
 	// WorldID be \"offline\" on User profiles if you are not friends with that user.
 	World *string `json:"world,omitempty"`
 }
@@ -93,6 +93,7 @@ func (o *CurrentUserPresence) HasAvatarThumbnail() bool {
 func (o *CurrentUserPresence) SetAvatarThumbnail(v string) {
 	o.AvatarThumbnail.Set(&v)
 }
+
 // SetAvatarThumbnailNil sets the value for AvatarThumbnail to be an explicit nil
 func (o *CurrentUserPresence) SetAvatarThumbnailNil() {
 	o.AvatarThumbnail.Set(nil)
@@ -296,6 +297,7 @@ func (o *CurrentUserPresence) HasInstance() bool {
 func (o *CurrentUserPresence) SetInstance(v string) {
 	o.Instance.Set(&v)
 }
+
 // SetInstanceNil sets the value for Instance to be an explicit nil
 func (o *CurrentUserPresence) SetInstanceNil() {
 	o.Instance.Set(nil)
@@ -338,6 +340,7 @@ func (o *CurrentUserPresence) HasInstanceType() bool {
 func (o *CurrentUserPresence) SetInstanceType(v string) {
 	o.InstanceType.Set(&v)
 }
+
 // SetInstanceTypeNil sets the value for InstanceType to be an explicit nil
 func (o *CurrentUserPresence) SetInstanceTypeNil() {
 	o.InstanceType.Set(nil)
@@ -380,6 +383,7 @@ func (o *CurrentUserPresence) HasIsRejoining() bool {
 func (o *CurrentUserPresence) SetIsRejoining(v string) {
 	o.IsRejoining.Set(&v)
 }
+
 // SetIsRejoiningNil sets the value for IsRejoining to be an explicit nil
 func (o *CurrentUserPresence) SetIsRejoiningNil() {
 	o.IsRejoining.Set(nil)
@@ -454,6 +458,7 @@ func (o *CurrentUserPresence) HasProfilePicOverride() bool {
 func (o *CurrentUserPresence) SetProfilePicOverride(v string) {
 	o.ProfilePicOverride.Set(&v)
 }
+
 // SetProfilePicOverrideNil sets the value for ProfilePicOverride to be an explicit nil
 func (o *CurrentUserPresence) SetProfilePicOverrideNil() {
 	o.ProfilePicOverride.Set(nil)
@@ -496,6 +501,7 @@ func (o *CurrentUserPresence) HasStatus() bool {
 func (o *CurrentUserPresence) SetStatus(v string) {
 	o.Status.Set(&v)
 }
+
 // SetStatusNil sets the value for Status to be an explicit nil
 func (o *CurrentUserPresence) SetStatusNil() {
 	o.Status.Set(nil)
@@ -538,6 +544,7 @@ func (o *CurrentUserPresence) HasTravelingToInstance() bool {
 func (o *CurrentUserPresence) SetTravelingToInstance(v string) {
 	o.TravelingToInstance.Set(&v)
 }
+
 // SetTravelingToInstanceNil sets the value for TravelingToInstance to be an explicit nil
 func (o *CurrentUserPresence) SetTravelingToInstanceNil() {
 	o.TravelingToInstance.Set(nil)
@@ -612,6 +619,7 @@ func (o *CurrentUserPresence) HasUserIcon() bool {
 func (o *CurrentUserPresence) SetUserIcon(v string) {
 	o.UserIcon.Set(&v)
 }
+
 // SetUserIconNil sets the value for UserIcon to be an explicit nil
 func (o *CurrentUserPresence) SetUserIconNil() {
 	o.UserIcon.Set(nil)
@@ -655,7 +663,7 @@ func (o *CurrentUserPresence) SetWorld(v string) {
 }
 
 func (o CurrentUserPresence) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -750,5 +758,3 @@ func (v *NullableCurrentUserPresence) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

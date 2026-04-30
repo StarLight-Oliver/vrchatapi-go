@@ -19,12 +19,11 @@ import (
 	"net/url"
 )
 
-
 // PlayermoderationAPIService PlayermoderationAPI service
 type PlayermoderationAPIService service
 
 type ApiClearAllPlayerModerationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PlayermoderationAPIService
 }
 
@@ -37,24 +36,25 @@ ClearAllPlayerModerations Clear All Player Moderations
 
 ⚠️ **This will delete every single player moderation you've ever made.**
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiClearAllPlayerModerationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiClearAllPlayerModerationsRequest
 */
 func (a *PlayermoderationAPIService) ClearAllPlayerModerations(ctx context.Context) ApiClearAllPlayerModerationsRequest {
 	return ApiClearAllPlayerModerationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *PlayermoderationAPIService) ClearAllPlayerModerationsExecute(r ApiClearAllPlayerModerationsRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayermoderationAPIService.ClearAllPlayerModerations")
@@ -114,8 +114,8 @@ func (a *PlayermoderationAPIService) ClearAllPlayerModerationsExecute(r ApiClear
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -133,9 +133,9 @@ func (a *PlayermoderationAPIService) ClearAllPlayerModerationsExecute(r ApiClear
 }
 
 type ApiGetPlayerModerationsRequest struct {
-	ctx context.Context
-	ApiService *PlayermoderationAPIService
-	type_ *PlayerModerationType
+	ctx          context.Context
+	ApiService   *PlayermoderationAPIService
+	type_        *PlayerModerationType
 	targetUserId *string
 }
 
@@ -162,24 +162,25 @@ Returns a list of all player moderations made by **you**.
 
 This endpoint does not have pagination, and will return *all* results. Use query parameters to limit your query if needed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetPlayerModerationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetPlayerModerationsRequest
 */
 func (a *PlayermoderationAPIService) GetPlayerModerations(ctx context.Context) ApiGetPlayerModerationsRequest {
 	return ApiGetPlayerModerationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []PlayerModeration
+//
+//	@return []PlayerModeration
 func (a *PlayermoderationAPIService) GetPlayerModerationsExecute(r ApiGetPlayerModerationsRequest) ([]PlayerModeration, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []PlayerModeration
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []PlayerModeration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayermoderationAPIService.GetPlayerModerations")
@@ -196,9 +197,9 @@ func (a *PlayermoderationAPIService) GetPlayerModerationsExecute(r ApiGetPlayerM
 	if r.type_ != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "form", "")
 	} else {
-        var defaultValue PlayerModerationType = "unmute"
-        parameterAddToHeaderOrQuery(localVarQueryParams, "type", defaultValue, "form", "")
-        r.type_ = &defaultValue
+		var defaultValue PlayerModerationType = "unmute"
+		parameterAddToHeaderOrQuery(localVarQueryParams, "type", defaultValue, "form", "")
+		r.type_ = &defaultValue
 	}
 	if r.targetUserId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "targetUserId", r.targetUserId, "form", "")
@@ -249,8 +250,8 @@ func (a *PlayermoderationAPIService) GetPlayerModerationsExecute(r ApiGetPlayerM
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -268,12 +269,11 @@ func (a *PlayermoderationAPIService) GetPlayerModerationsExecute(r ApiGetPlayerM
 }
 
 type ApiModerateUserRequest struct {
-	ctx context.Context
-	ApiService *PlayermoderationAPIService
+	ctx                 context.Context
+	ApiService          *PlayermoderationAPIService
 	moderateUserRequest *ModerateUserRequest
 }
 
-// 
 func (r ApiModerateUserRequest) ModerateUserRequest(moderateUserRequest ModerateUserRequest) ApiModerateUserRequest {
 	r.moderateUserRequest = &moderateUserRequest
 	return r
@@ -290,24 +290,25 @@ Moderate a user, e.g. unmute them or show their avatar.
 
 Please see the [Player Moderation docs](https://vrchatapi.github.io/docs/api/#tag--playermoderation) on what playerModerations are, and how they differ from staff moderations.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiModerateUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiModerateUserRequest
 */
 func (a *PlayermoderationAPIService) ModerateUser(ctx context.Context) ApiModerateUserRequest {
 	return ApiModerateUserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PlayerModeration
+//
+//	@return PlayerModeration
 func (a *PlayermoderationAPIService) ModerateUserExecute(r ApiModerateUserRequest) (*PlayerModeration, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PlayerModeration
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PlayerModeration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayermoderationAPIService.ModerateUser")
@@ -372,8 +373,8 @@ func (a *PlayermoderationAPIService) ModerateUserExecute(r ApiModerateUserReques
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -391,8 +392,8 @@ func (a *PlayermoderationAPIService) ModerateUserExecute(r ApiModerateUserReques
 }
 
 type ApiUnmoderateUserRequest struct {
-	ctx context.Context
-	ApiService *PlayermoderationAPIService
+	ctx                 context.Context
+	ApiService          *PlayermoderationAPIService
 	moderateUserRequest *ModerateUserRequest
 }
 
@@ -410,24 +411,25 @@ UnmoderateUser Unmoderate User
 
 Removes a player moderation previously added through `moderateUser`. E.g if you previously have shown their avatar, but now want to reset it to default.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUnmoderateUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUnmoderateUserRequest
 */
 func (a *PlayermoderationAPIService) UnmoderateUser(ctx context.Context) ApiUnmoderateUserRequest {
 	return ApiUnmoderateUserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *PlayermoderationAPIService) UnmoderateUserExecute(r ApiUnmoderateUserRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PlayermoderationAPIService.UnmoderateUser")
@@ -492,8 +494,8 @@ func (a *PlayermoderationAPIService) UnmoderateUserExecute(r ApiUnmoderateUserRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

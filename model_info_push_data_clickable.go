@@ -145,7 +145,6 @@ func (o *InfoPushDataClickable) UnmarshalJSON(data []byte) (err error) {
 	varInfoPushDataClickable := _InfoPushDataClickable{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInfoPushDataClickable)
 
 	if err != nil {

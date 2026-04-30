@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_InviteAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService GetInviteMessage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 		var messageType openapiclient.InviteMessageType
@@ -41,7 +40,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService GetInviteMessages", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 		var messageType openapiclient.InviteMessageType
@@ -56,7 +55,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService InviteMyselfTo", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 		var instanceId string
@@ -71,7 +70,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService InviteUser", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -85,7 +84,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService InviteUserWithPhoto", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -99,7 +98,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService RequestInvite", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -113,7 +112,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService RequestInviteWithPhoto", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -127,7 +126,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService ResetInviteMessage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 		var messageType openapiclient.InviteMessageType
@@ -143,7 +142,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService RespondInvite", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -157,7 +156,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService RespondInviteWithPhoto", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var notificationId string
 
@@ -171,7 +170,7 @@ func Test_vrchatapi_InviteAPIService(t *testing.T) {
 
 	t.Run("Test InviteAPIService UpdateInviteMessage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 		var messageType openapiclient.InviteMessageType

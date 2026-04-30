@@ -19,13 +19,13 @@ import (
 
 // NotificationV2Data - struct for NotificationV2Data
 type NotificationV2Data struct {
-	NotificationV2DataBadgeEarned *NotificationV2DataBadgeEarned
-	NotificationV2DataBoop *NotificationV2DataBoop
+	NotificationV2DataBadgeEarned       *NotificationV2DataBadgeEarned
+	NotificationV2DataBoop              *NotificationV2DataBoop
 	NotificationV2DataEventAnnouncement *NotificationV2DataEventAnnouncement
 	NotificationV2DataGroupAnnouncement *NotificationV2DataGroupAnnouncement
-	NotificationV2DataGroupInformative *NotificationV2DataGroupInformative
-	NotificationV2DataGroupTransfer *NotificationV2DataGroupTransfer
-	MapmapOfStringAny *map[string]interface{}
+	NotificationV2DataGroupInformative  *NotificationV2DataGroupInformative
+	NotificationV2DataGroupTransfer     *NotificationV2DataGroupTransfer
+	MapmapOfStringAny                   *map[string]interface{}
 }
 
 // NotificationV2DataBadgeEarnedAsNotificationV2Data is a convenience function that returns NotificationV2DataBadgeEarned wrapped in NotificationV2Data
@@ -76,7 +76,6 @@ func MapmapOfStringAnyAsNotificationV2Data(v *map[string]interface{}) Notificati
 		MapmapOfStringAny: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *NotificationV2Data) UnmarshalJSON(data []byte) error {
@@ -253,7 +252,7 @@ func (src NotificationV2Data) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *NotificationV2Data) GetActualInstance() (interface{}) {
+func (obj *NotificationV2Data) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -290,7 +289,7 @@ func (obj *NotificationV2Data) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj NotificationV2Data) GetActualInstanceValue() (interface{}) {
+func (obj NotificationV2Data) GetActualInstanceValue() interface{} {
 	if obj.NotificationV2DataBadgeEarned != nil {
 		return *obj.NotificationV2DataBadgeEarned
 	}
@@ -358,5 +357,3 @@ func (v *NullableNotificationV2Data) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

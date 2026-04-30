@@ -68,7 +68,7 @@ func NewAdminAssetBundle(createdAt time.Time, updatedAt time.Time, assetType str
 // but it doesn't guarantee that properties required by API are set
 func NewAdminAssetBundleWithDefaults() *AdminAssetBundle {
 	this := AdminAssetBundle{}
-	var releaseStatus ReleaseStatus = "public"
+	var releaseStatus ReleaseStatus = ReleaseStatus_PUBLIC
 	this.ReleaseStatus = releaseStatus
 	return &this
 }
@@ -450,7 +450,6 @@ func (o *AdminAssetBundle) UnmarshalJSON(data []byte) (err error) {
 	varAdminAssetBundle := _AdminAssetBundle{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAdminAssetBundle)
 
 	if err != nil {

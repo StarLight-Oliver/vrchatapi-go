@@ -338,7 +338,6 @@ func (o *ServiceStatus) UnmarshalJSON(data []byte) (err error) {
 	varServiceStatus := _ServiceStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varServiceStatus)
 
 	if err != nil {

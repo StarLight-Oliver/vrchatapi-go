@@ -224,7 +224,6 @@ func (o *TransactionSteamInfo) UnmarshalJSON(data []byte) (err error) {
 	varTransactionSteamInfo := _TransactionSteamInfo{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTransactionSteamInfo)
 
 	if err != nil {

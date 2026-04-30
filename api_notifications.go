@@ -20,13 +20,12 @@ import (
 	"strings"
 )
 
-
 // NotificationsAPIService NotificationsAPI service
 type NotificationsAPIService service
 
 type ApiAcceptFriendRequestRequest struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -39,26 +38,27 @@ AcceptFriendRequest Accept Friend Request
 
 Accept a friend request by notification `frq_` ID. Friend requests can be found using the NotificationsAPI `getNotifications` by filtering of type `friendRequest`.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiAcceptFriendRequestRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiAcceptFriendRequestRequest
 */
 func (a *NotificationsAPIService) AcceptFriendRequest(ctx context.Context, notificationId string) ApiAcceptFriendRequestRequest {
 	return ApiAcceptFriendRequestRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *NotificationsAPIService) AcceptFriendRequestExecute(r ApiAcceptFriendRequestRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.AcceptFriendRequest")
@@ -119,8 +119,8 @@ func (a *NotificationsAPIService) AcceptFriendRequestExecute(r ApiAcceptFriendRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -130,8 +130,8 @@ func (a *NotificationsAPIService) AcceptFriendRequestExecute(r ApiAcceptFriendRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -149,8 +149,8 @@ func (a *NotificationsAPIService) AcceptFriendRequestExecute(r ApiAcceptFriendRe
 }
 
 type ApiAcknowledgeNotificationV2Request struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -163,26 +163,27 @@ AcknowledgeNotificationV2 Acknowledge NotificationV2
 
 Acknowledge a specific notification
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiAcknowledgeNotificationV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiAcknowledgeNotificationV2Request
 */
 func (a *NotificationsAPIService) AcknowledgeNotificationV2(ctx context.Context, notificationId string) ApiAcknowledgeNotificationV2Request {
 	return ApiAcknowledgeNotificationV2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return NotificationV2
+//
+//	@return NotificationV2
 func (a *NotificationsAPIService) AcknowledgeNotificationV2Execute(r ApiAcknowledgeNotificationV2Request) (*NotificationV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NotificationV2
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NotificationV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.AcknowledgeNotificationV2")
@@ -243,8 +244,8 @@ func (a *NotificationsAPIService) AcknowledgeNotificationV2Execute(r ApiAcknowle
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -254,8 +255,8 @@ func (a *NotificationsAPIService) AcknowledgeNotificationV2Execute(r ApiAcknowle
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -273,7 +274,7 @@ func (a *NotificationsAPIService) AcknowledgeNotificationV2Execute(r ApiAcknowle
 }
 
 type ApiClearNotificationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *NotificationsAPIService
 }
 
@@ -286,24 +287,25 @@ ClearNotifications Clear All Notifications
 
 Clear **all** notifications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiClearNotificationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiClearNotificationsRequest
 */
 func (a *NotificationsAPIService) ClearNotifications(ctx context.Context) ApiClearNotificationsRequest {
 	return ApiClearNotificationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *NotificationsAPIService) ClearNotificationsExecute(r ApiClearNotificationsRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ClearNotifications")
@@ -363,8 +365,8 @@ func (a *NotificationsAPIService) ClearNotificationsExecute(r ApiClearNotificati
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -382,7 +384,7 @@ func (a *NotificationsAPIService) ClearNotificationsExecute(r ApiClearNotificati
 }
 
 type ApiDeleteAllNotificationV2sRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *NotificationsAPIService
 }
 
@@ -395,24 +397,25 @@ DeleteAllNotificationV2s Delete All NotificationV2s
 
 Delete all of the current user's notifications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteAllNotificationV2sRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteAllNotificationV2sRequest
 */
 func (a *NotificationsAPIService) DeleteAllNotificationV2s(ctx context.Context) ApiDeleteAllNotificationV2sRequest {
 	return ApiDeleteAllNotificationV2sRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *NotificationsAPIService) DeleteAllNotificationV2sExecute(r ApiDeleteAllNotificationV2sRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.DeleteAllNotificationV2s")
@@ -472,8 +475,8 @@ func (a *NotificationsAPIService) DeleteAllNotificationV2sExecute(r ApiDeleteAll
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -491,8 +494,8 @@ func (a *NotificationsAPIService) DeleteAllNotificationV2sExecute(r ApiDeleteAll
 }
 
 type ApiDeleteNotificationRequest struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -505,26 +508,27 @@ DeleteNotification Delete Notification
 
 Delete a notification.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiDeleteNotificationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiDeleteNotificationRequest
 */
 func (a *NotificationsAPIService) DeleteNotification(ctx context.Context, notificationId string) ApiDeleteNotificationRequest {
 	return ApiDeleteNotificationRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *NotificationsAPIService) DeleteNotificationExecute(r ApiDeleteNotificationRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.DeleteNotification")
@@ -585,8 +589,8 @@ func (a *NotificationsAPIService) DeleteNotificationExecute(r ApiDeleteNotificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -604,8 +608,8 @@ func (a *NotificationsAPIService) DeleteNotificationExecute(r ApiDeleteNotificat
 }
 
 type ApiDeleteNotificationV2Request struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -618,26 +622,27 @@ DeleteNotificationV2 Delete NotificationV2
 
 Delete a specific notification
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiDeleteNotificationV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiDeleteNotificationV2Request
 */
 func (a *NotificationsAPIService) DeleteNotificationV2(ctx context.Context, notificationId string) ApiDeleteNotificationV2Request {
 	return ApiDeleteNotificationV2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotificationV2Request) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.DeleteNotificationV2")
@@ -698,8 +703,8 @@ func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -709,8 +714,8 @@ func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -720,8 +725,8 @@ func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -739,8 +744,8 @@ func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotific
 }
 
 type ApiGetNotificationRequest struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -753,26 +758,27 @@ GetNotification Show notification
 
 Get a notification by notification `not_` ID.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiGetNotificationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiGetNotificationRequest
 */
 func (a *NotificationsAPIService) GetNotification(ctx context.Context, notificationId string) ApiGetNotificationRequest {
 	return ApiGetNotificationRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *NotificationsAPIService) GetNotificationExecute(r ApiGetNotificationRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.GetNotification")
@@ -833,8 +839,8 @@ func (a *NotificationsAPIService) GetNotificationExecute(r ApiGetNotificationReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -844,8 +850,8 @@ func (a *NotificationsAPIService) GetNotificationExecute(r ApiGetNotificationReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -863,8 +869,8 @@ func (a *NotificationsAPIService) GetNotificationExecute(r ApiGetNotificationReq
 }
 
 type ApiGetNotificationV2Request struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -877,29 +883,31 @@ GetNotificationV2 Get NotificationV2
 
 Get a specific notification. Appears to require admin credentials by default. Expect a 403 Forbidden error response for normal users.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiGetNotificationV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiGetNotificationV2Request
 
 Deprecated
 */
 func (a *NotificationsAPIService) GetNotificationV2(ctx context.Context, notificationId string) ApiGetNotificationV2Request {
 	return ApiGetNotificationV2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return NotificationV2
+//
+//	@return NotificationV2
+//
 // Deprecated
 func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV2Request) (*NotificationV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NotificationV2
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NotificationV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.GetNotificationV2")
@@ -960,8 +968,8 @@ func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -971,8 +979,8 @@ func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -982,8 +990,8 @@ func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1001,9 +1009,9 @@ func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV
 }
 
 type ApiGetNotificationV2sRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *NotificationsAPIService
-	limit *int32
+	limit      *int32
 }
 
 // The maximum number of entries to get.
@@ -1021,24 +1029,25 @@ GetNotificationV2s List NotificationV2s
 
 Retrieve all of the current user's notifications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetNotificationV2sRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetNotificationV2sRequest
 */
 func (a *NotificationsAPIService) GetNotificationV2s(ctx context.Context) ApiGetNotificationV2sRequest {
 	return ApiGetNotificationV2sRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []NotificationV2
+//
+//	@return []NotificationV2
 func (a *NotificationsAPIService) GetNotificationV2sExecute(r ApiGetNotificationV2sRequest) ([]NotificationV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []NotificationV2
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []NotificationV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.GetNotificationV2s")
@@ -1101,8 +1110,8 @@ func (a *NotificationsAPIService) GetNotificationV2sExecute(r ApiGetNotification
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1120,14 +1129,14 @@ func (a *NotificationsAPIService) GetNotificationV2sExecute(r ApiGetNotification
 }
 
 type ApiGetNotificationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *NotificationsAPIService
-	type_ *string
-	sent *bool
-	hidden *bool
-	after *string
-	n *int32
-	offset *int32
+	type_      *string
+	sent       *bool
+	hidden     *bool
+	after      *string
+	n          *int32
+	offset     *int32
 }
 
 // Only send notifications of this type (can use &#x60;all&#x60; for all). This parameter no longer does anything, and is deprecated.
@@ -1177,24 +1186,25 @@ GetNotifications List Notifications
 
 Retrieve all of the current user's notifications.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetNotificationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetNotificationsRequest
 */
 func (a *NotificationsAPIService) GetNotifications(ctx context.Context) ApiGetNotificationsRequest {
 	return ApiGetNotificationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Notification
+//
+//	@return []Notification
 func (a *NotificationsAPIService) GetNotificationsExecute(r ApiGetNotificationsRequest) ([]Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Notification
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.GetNotifications")
@@ -1223,9 +1233,9 @@ func (a *NotificationsAPIService) GetNotificationsExecute(r ApiGetNotificationsR
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1276,8 +1286,8 @@ func (a *NotificationsAPIService) GetNotificationsExecute(r ApiGetNotificationsR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1295,8 +1305,8 @@ func (a *NotificationsAPIService) GetNotificationsExecute(r ApiGetNotificationsR
 }
 
 type ApiMarkNotificationAsReadRequest struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
 }
 
@@ -1309,26 +1319,27 @@ MarkNotificationAsRead Mark Notification As Read
 
 Mark a notification as seen.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiMarkNotificationAsReadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiMarkNotificationAsReadRequest
 */
 func (a *NotificationsAPIService) MarkNotificationAsRead(ctx context.Context, notificationId string) ApiMarkNotificationAsReadRequest {
 	return ApiMarkNotificationAsReadRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return Notification
+//
+//	@return Notification
 func (a *NotificationsAPIService) MarkNotificationAsReadExecute(r ApiMarkNotificationAsReadRequest) (*Notification, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Notification
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Notification
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.MarkNotificationAsRead")
@@ -1389,8 +1400,8 @@ func (a *NotificationsAPIService) MarkNotificationAsReadExecute(r ApiMarkNotific
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1408,10 +1419,10 @@ func (a *NotificationsAPIService) MarkNotificationAsReadExecute(r ApiMarkNotific
 }
 
 type ApiReplyNotificationV2Request struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
+	ctx            context.Context
+	ApiService     *NotificationsAPIService
 	notificationId string
-	body *map[string]interface{}
+	body           *map[string]interface{}
 }
 
 func (r ApiReplyNotificationV2Request) Body(body map[string]interface{}) ApiReplyNotificationV2Request {
@@ -1428,26 +1439,27 @@ ReplyNotificationV2 Reply NotificationV2
 
 Reply to a specific notification
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiReplyNotificationV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiReplyNotificationV2Request
 */
 func (a *NotificationsAPIService) ReplyNotificationV2(ctx context.Context, notificationId string) ApiReplyNotificationV2Request {
 	return ApiReplyNotificationV2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return NotificationV2
+//
+//	@return NotificationV2
 func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificationV2Request) (*NotificationV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NotificationV2
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NotificationV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.ReplyNotificationV2")
@@ -1513,8 +1525,8 @@ func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1524,8 +1536,8 @@ func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1535,8 +1547,8 @@ func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificat
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1554,9 +1566,9 @@ func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificat
 }
 
 type ApiRespondNotificationV2Request struct {
-	ctx context.Context
-	ApiService *NotificationsAPIService
-	notificationId string
+	ctx                          context.Context
+	ApiService                   *NotificationsAPIService
+	notificationId               string
 	respondNotificationV2Request *RespondNotificationV2Request
 }
 
@@ -1574,26 +1586,27 @@ RespondNotificationV2 Respond NotificationV2
 
 Respond to a specific notification
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param notificationId Must be a valid notification ID.
- @return ApiRespondNotificationV2Request
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param notificationId Must be a valid notification ID.
+	@return ApiRespondNotificationV2Request
 */
 func (a *NotificationsAPIService) RespondNotificationV2(ctx context.Context, notificationId string) ApiRespondNotificationV2Request {
 	return ApiRespondNotificationV2Request{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:     a,
+		ctx:            ctx,
 		notificationId: notificationId,
 	}
 }
 
 // Execute executes the request
-//  @return NotificationV2
+//
+//	@return NotificationV2
 func (a *NotificationsAPIService) RespondNotificationV2Execute(r ApiRespondNotificationV2Request) (*NotificationV2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *NotificationV2
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *NotificationV2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "NotificationsAPIService.RespondNotificationV2")
@@ -1659,8 +1672,8 @@ func (a *NotificationsAPIService) RespondNotificationV2Execute(r ApiRespondNotif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
@@ -1670,8 +1683,8 @@ func (a *NotificationsAPIService) RespondNotificationV2Execute(r ApiRespondNotif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1681,8 +1694,8 @@ func (a *NotificationsAPIService) RespondNotificationV2Execute(r ApiRespondNotif
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

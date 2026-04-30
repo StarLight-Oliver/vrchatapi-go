@@ -138,7 +138,6 @@ func (o *NotificationDetailVoteToKick) UnmarshalJSON(data []byte) (err error) {
 	varNotificationDetailVoteToKick := _NotificationDetailVoteToKick{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationDetailVoteToKick)
 
 	if err != nil {

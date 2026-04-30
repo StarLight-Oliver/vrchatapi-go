@@ -104,7 +104,7 @@ func NewAvatarWithDefaults() *Avatar {
 	this.Featured = featured
 	var pendingUpload bool = false
 	this.PendingUpload = &pendingUpload
-	var releaseStatus ReleaseStatus = "public"
+	var releaseStatus ReleaseStatus = ReleaseStatus_PUBLIC
 	this.ReleaseStatus = releaseStatus
 	var searchable bool = false
 	this.Searchable = &searchable
@@ -1034,7 +1034,6 @@ func (o *Avatar) UnmarshalJSON(data []byte) (err error) {
 	varAvatar := _Avatar{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAvatar)
 
 	if err != nil {

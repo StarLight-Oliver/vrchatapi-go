@@ -17,17 +17,16 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 )
-
 
 // FilesAPIService FilesAPI service
 type FilesAPIService service
 
 type ApiCreateFileRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
+	ctx               context.Context
+	ApiService        *FilesAPIService
 	createFileRequest *CreateFileRequest
 }
 
@@ -45,24 +44,25 @@ CreateFile Create File
 
 Creates a new File object
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateFileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateFileRequest
 */
 func (a *FilesAPIService) CreateFile(ctx context.Context) ApiCreateFileRequest {
 	return ApiCreateFileRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) CreateFileExecute(r ApiCreateFileRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.CreateFile")
@@ -133,9 +133,9 @@ func (a *FilesAPIService) CreateFileExecute(r ApiCreateFileRequest) (*File, *htt
 }
 
 type ApiCreateFileVersionRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
-	fileId string
+	ctx                      context.Context
+	ApiService               *FilesAPIService
+	fileId                   string
 	createFileVersionRequest *CreateFileVersionRequest
 }
 
@@ -153,26 +153,27 @@ CreateFileVersion Create File Version
 
 Creates a new FileVersion. Once a Version has been created, proceed to the `/file/{fileId}/{versionId}/file/start` endpoint to start a file upload.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @return ApiCreateFileVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@return ApiCreateFileVersionRequest
 */
 func (a *FilesAPIService) CreateFileVersion(ctx context.Context, fileId string) ApiCreateFileVersionRequest {
 	return ApiCreateFileVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
+		ctx:        ctx,
+		fileId:     fileId,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) CreateFileVersionExecute(r ApiCreateFileVersionRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.CreateFileVersion")
@@ -244,9 +245,9 @@ func (a *FilesAPIService) CreateFileVersionExecute(r ApiCreateFileVersionRequest
 }
 
 type ApiDeleteFileRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
+	fileId     string
 }
 
 func (r ApiDeleteFileRequest) Execute() (*File, *http.Response, error) {
@@ -258,26 +259,27 @@ DeleteFile Delete File
 
 Deletes a File object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @return ApiDeleteFileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@return ApiDeleteFileRequest
 */
 func (a *FilesAPIService) DeleteFile(ctx context.Context, fileId string) ApiDeleteFileRequest {
 	return ApiDeleteFileRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
+		ctx:        ctx,
+		fileId:     fileId,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) DeleteFileExecute(r ApiDeleteFileRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.DeleteFile")
@@ -338,8 +340,8 @@ func (a *FilesAPIService) DeleteFileExecute(r ApiDeleteFileRequest) (*File, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -357,10 +359,10 @@ func (a *FilesAPIService) DeleteFileExecute(r ApiDeleteFileRequest) (*File, *htt
 }
 
 type ApiDeleteFileVersionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
+	fileId     string
+	versionId  int32
 }
 
 func (r ApiDeleteFileVersionRequest) Execute() (*File, *http.Response, error) {
@@ -372,28 +374,29 @@ DeleteFileVersion Delete File Version
 
 Delete a specific version of a file. You can only delete the latest version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @return ApiDeleteFileVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@return ApiDeleteFileVersionRequest
 */
 func (a *FilesAPIService) DeleteFileVersion(ctx context.Context, fileId string, versionId int32) ApiDeleteFileVersionRequest {
 	return ApiDeleteFileVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) DeleteFileVersionExecute(r ApiDeleteFileVersionRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.DeleteFileVersion")
@@ -458,8 +461,8 @@ func (a *FilesAPIService) DeleteFileVersionExecute(r ApiDeleteFileVersionRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
@@ -469,8 +472,8 @@ func (a *FilesAPIService) DeleteFileVersionExecute(r ApiDeleteFileVersionRequest
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -488,10 +491,10 @@ func (a *FilesAPIService) DeleteFileVersionExecute(r ApiDeleteFileVersionRequest
 }
 
 type ApiDownloadFileVersionRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
+	fileId     string
+	versionId  int32
 }
 
 func (r ApiDownloadFileVersionRequest) Execute() (*os.File, *http.Response, error) {
@@ -507,28 +510,29 @@ Downloads the file with the provided version number.
 
 **Extension Note:** Files are not guaranteed to have a file extensions. UnityPackage files tends to have it, images through this endpoint do not. You are responsible for appending file extension from the `extension` field when neccesary.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @return ApiDownloadFileVersionRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@return ApiDownloadFileVersionRequest
 */
 func (a *FilesAPIService) DownloadFileVersion(ctx context.Context, fileId string, versionId int32) ApiDownloadFileVersionRequest {
 	return ApiDownloadFileVersionRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
 	}
 }
 
 // Execute executes the request
-//  @return *os.File
+//
+//	@return *os.File
 func (a *FilesAPIService) DownloadFileVersionExecute(r ApiDownloadFileVersionRequest) (*os.File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *os.File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *os.File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.DownloadFileVersion")
@@ -593,8 +597,8 @@ func (a *FilesAPIService) DownloadFileVersionExecute(r ApiDownloadFileVersionReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -612,11 +616,11 @@ func (a *FilesAPIService) DownloadFileVersionExecute(r ApiDownloadFileVersionReq
 }
 
 type ApiFinishFileDataUploadRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
-	fileId string
-	versionId int32
-	fileType string
+	ctx                         context.Context
+	ApiService                  *FilesAPIService
+	fileId                      string
+	versionId                   int32
+	fileType                    string
 	finishFileDataUploadRequest *FinishFileDataUploadRequest
 }
 
@@ -635,30 +639,31 @@ FinishFileDataUpload Finish FileData Upload
 
 Finish an upload of a FileData. This will mark it as "complete". After uploading the `file` for Avatars and Worlds you then have to upload a `signature` file.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @param fileType Type of file.
- @return ApiFinishFileDataUploadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@param fileType Type of file.
+	@return ApiFinishFileDataUploadRequest
 */
 func (a *FilesAPIService) FinishFileDataUpload(ctx context.Context, fileId string, versionId int32, fileType string) ApiFinishFileDataUploadRequest {
 	return ApiFinishFileDataUploadRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
-		fileType: fileType,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
+		fileType:   fileType,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) FinishFileDataUploadExecute(r ApiFinishFileDataUploadRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.FinishFileDataUpload")
@@ -735,8 +740,8 @@ func (a *FilesAPIService) FinishFileDataUploadExecute(r ApiFinishFileDataUploadR
 }
 
 type ApiGetAdminAssetBundleRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
+	ctx                context.Context
+	ApiService         *FilesAPIService
 	adminAssetBundleId string
 }
 
@@ -749,26 +754,27 @@ GetAdminAssetBundle Get AdminAssetBundle
 
 Returns an AdminAssetBundle
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param adminAssetBundleId Must be a valid admin asset bundle ID.
- @return ApiGetAdminAssetBundleRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param adminAssetBundleId Must be a valid admin asset bundle ID.
+	@return ApiGetAdminAssetBundleRequest
 */
 func (a *FilesAPIService) GetAdminAssetBundle(ctx context.Context, adminAssetBundleId string) ApiGetAdminAssetBundleRequest {
 	return ApiGetAdminAssetBundleRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:         a,
+		ctx:                ctx,
 		adminAssetBundleId: adminAssetBundleId,
 	}
 }
 
 // Execute executes the request
-//  @return AdminAssetBundle
+//
+//	@return AdminAssetBundle
 func (a *FilesAPIService) GetAdminAssetBundleExecute(r ApiGetAdminAssetBundleRequest) (*AdminAssetBundle, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AdminAssetBundle
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AdminAssetBundle
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetAdminAssetBundle")
@@ -838,11 +844,11 @@ func (a *FilesAPIService) GetAdminAssetBundleExecute(r ApiGetAdminAssetBundleReq
 }
 
 type ApiGetContentAgreementStatusRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
+	ctx           context.Context
+	ApiService    *FilesAPIService
 	agreementCode *AgreementCode
-	contentId *string
-	version *int32
+	contentId     *string
+	version       *int32
 }
 
 // The type of agreement (currently content.copyright.owned)
@@ -872,24 +878,25 @@ GetContentAgreementStatus Get Content Agreement Status
 
 Returns the agreement status of the currently authenticated user for the given agreementCode, contentId, and version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetContentAgreementStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetContentAgreementStatusRequest
 */
 func (a *FilesAPIService) GetContentAgreementStatus(ctx context.Context) ApiGetContentAgreementStatusRequest {
 	return ApiGetContentAgreementStatusRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AgreementStatus
+//
+//	@return AgreementStatus
 func (a *FilesAPIService) GetContentAgreementStatusExecute(r ApiGetContentAgreementStatusRequest) (*AgreementStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AgreementStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AgreementStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetContentAgreementStatus")
@@ -961,8 +968,8 @@ func (a *FilesAPIService) GetContentAgreementStatusExecute(r ApiGetContentAgreem
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -980,9 +987,9 @@ func (a *FilesAPIService) GetContentAgreementStatusExecute(r ApiGetContentAgreem
 }
 
 type ApiGetFileRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
+	fileId     string
 }
 
 func (r ApiGetFileRequest) Execute() (*File, *http.Response, error) {
@@ -994,26 +1001,27 @@ GetFile Show File
 
 Shows general information about the "File" object. Each File can have several "Version"'s, and each Version can have multiple real files or "Data" blobs.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @return ApiGetFileRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@return ApiGetFileRequest
 */
 func (a *FilesAPIService) GetFile(ctx context.Context, fileId string) ApiGetFileRequest {
 	return ApiGetFileRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
+		ctx:        ctx,
+		fileId:     fileId,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) GetFileExecute(r ApiGetFileRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFile")
@@ -1074,8 +1082,8 @@ func (a *FilesAPIService) GetFileExecute(r ApiGetFileRequest) (*File, *http.Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1093,10 +1101,10 @@ func (a *FilesAPIService) GetFileExecute(r ApiGetFileRequest) (*File, *http.Resp
 }
 
 type ApiGetFileAnalysisRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
+	fileId     string
+	versionId  int32
 }
 
 func (r ApiGetFileAnalysisRequest) Execute() (*FileAnalysis, *http.Response, error) {
@@ -1108,28 +1116,29 @@ GetFileAnalysis Get File Version Analysis
 
 Get the performance analysis for the uploaded assets of an avatar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @return ApiGetFileAnalysisRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@return ApiGetFileAnalysisRequest
 */
 func (a *FilesAPIService) GetFileAnalysis(ctx context.Context, fileId string, versionId int32) ApiGetFileAnalysisRequest {
 	return ApiGetFileAnalysisRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
 	}
 }
 
 // Execute executes the request
-//  @return FileAnalysis
+//
+//	@return FileAnalysis
 func (a *FilesAPIService) GetFileAnalysisExecute(r ApiGetFileAnalysisRequest) (*FileAnalysis, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FileAnalysis
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FileAnalysis
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFileAnalysis")
@@ -1194,8 +1203,8 @@ func (a *FilesAPIService) GetFileAnalysisExecute(r ApiGetFileAnalysisRequest) (*
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1213,10 +1222,10 @@ func (a *FilesAPIService) GetFileAnalysisExecute(r ApiGetFileAnalysisRequest) (*
 }
 
 type ApiGetFileAnalysisSecurityRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
+	fileId     string
+	versionId  int32
 }
 
 func (r ApiGetFileAnalysisSecurityRequest) Execute() (*FileAnalysis, *http.Response, error) {
@@ -1228,28 +1237,29 @@ GetFileAnalysisSecurity Get File Version Analysis Security
 
 Get the security performance analysis for the uploaded assets of an avatar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @return ApiGetFileAnalysisSecurityRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@return ApiGetFileAnalysisSecurityRequest
 */
 func (a *FilesAPIService) GetFileAnalysisSecurity(ctx context.Context, fileId string, versionId int32) ApiGetFileAnalysisSecurityRequest {
 	return ApiGetFileAnalysisSecurityRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
 	}
 }
 
 // Execute executes the request
-//  @return FileAnalysis
+//
+//	@return FileAnalysis
 func (a *FilesAPIService) GetFileAnalysisSecurityExecute(r ApiGetFileAnalysisSecurityRequest) (*FileAnalysis, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FileAnalysis
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FileAnalysis
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFileAnalysisSecurity")
@@ -1314,8 +1324,8 @@ func (a *FilesAPIService) GetFileAnalysisSecurityExecute(r ApiGetFileAnalysisSec
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1333,10 +1343,10 @@ func (a *FilesAPIService) GetFileAnalysisSecurityExecute(r ApiGetFileAnalysisSec
 }
 
 type ApiGetFileAnalysisStandardRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
+	fileId     string
+	versionId  int32
 }
 
 func (r ApiGetFileAnalysisStandardRequest) Execute() (*FileAnalysis, *http.Response, error) {
@@ -1348,28 +1358,29 @@ GetFileAnalysisStandard Get File Version Analysis Standard
 
 Get the standard performance analysis for the uploaded assets of an avatar
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @return ApiGetFileAnalysisStandardRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@return ApiGetFileAnalysisStandardRequest
 */
 func (a *FilesAPIService) GetFileAnalysisStandard(ctx context.Context, fileId string, versionId int32) ApiGetFileAnalysisStandardRequest {
 	return ApiGetFileAnalysisStandardRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
 	}
 }
 
 // Execute executes the request
-//  @return FileAnalysis
+//
+//	@return FileAnalysis
 func (a *FilesAPIService) GetFileAnalysisStandardExecute(r ApiGetFileAnalysisStandardRequest) (*FileAnalysis, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FileAnalysis
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FileAnalysis
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFileAnalysisStandard")
@@ -1434,8 +1445,8 @@ func (a *FilesAPIService) GetFileAnalysisStandardExecute(r ApiGetFileAnalysisSta
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1453,11 +1464,11 @@ func (a *FilesAPIService) GetFileAnalysisStandardExecute(r ApiGetFileAnalysisSta
 }
 
 type ApiGetFileDataUploadStatusRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
-	fileType string
+	fileId     string
+	versionId  int32
+	fileType   string
 }
 
 func (r ApiGetFileDataUploadStatusRequest) Execute() (*FileVersionUploadStatus, *http.Response, error) {
@@ -1469,30 +1480,31 @@ GetFileDataUploadStatus Check FileData Upload Status
 
 Retrieves the upload status for file upload. Can currently only be accessed when `status` is `waiting`. Trying to access it on a file version already uploaded currently times out.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @param fileType Type of file.
- @return ApiGetFileDataUploadStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@param fileType Type of file.
+	@return ApiGetFileDataUploadStatusRequest
 */
 func (a *FilesAPIService) GetFileDataUploadStatus(ctx context.Context, fileId string, versionId int32, fileType string) ApiGetFileDataUploadStatusRequest {
 	return ApiGetFileDataUploadStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
-		fileType: fileType,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
+		fileType:   fileType,
 	}
 }
 
 // Execute executes the request
-//  @return FileVersionUploadStatus
+//
+//	@return FileVersionUploadStatus
 func (a *FilesAPIService) GetFileDataUploadStatusExecute(r ApiGetFileDataUploadStatusRequest) (*FileVersionUploadStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FileVersionUploadStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FileVersionUploadStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFileDataUploadStatus")
@@ -1567,12 +1579,12 @@ func (a *FilesAPIService) GetFileDataUploadStatusExecute(r ApiGetFileDataUploadS
 }
 
 type ApiGetFilesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	tag *string
-	userId *string
-	n *int32
-	offset *int32
+	tag        *string
+	userId     *string
+	n          *int32
+	offset     *int32
 }
 
 // Tag, for example \&quot;icon\&quot; or \&quot;gallery\&quot;, not included by default.
@@ -1609,24 +1621,25 @@ GetFiles List Files
 
 Returns a list of files
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetFilesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetFilesRequest
 */
 func (a *FilesAPIService) GetFiles(ctx context.Context) ApiGetFilesRequest {
 	return ApiGetFilesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []File
+//
+//	@return []File
 func (a *FilesAPIService) GetFilesExecute(r ApiGetFilesRequest) ([]File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []File
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.GetFiles")
@@ -1649,9 +1662,9 @@ func (a *FilesAPIService) GetFilesExecute(r ApiGetFilesRequest) ([]File, *http.R
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -1711,8 +1724,8 @@ func (a *FilesAPIService) GetFilesExecute(r ApiGetFilesRequest) ([]File, *http.R
 }
 
 type ApiSetGroupGalleryFileOrderRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
+	ctx                          context.Context
+	ApiService                   *FilesAPIService
 	groupGalleryFileOrderRequest *GroupGalleryFileOrderRequest
 }
 
@@ -1730,24 +1743,25 @@ SetGroupGalleryFileOrder Set Group Gallery File Order
 
 Set the order of the files in a group gallery
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSetGroupGalleryFileOrderRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSetGroupGalleryFileOrderRequest
 */
 func (a *FilesAPIService) SetGroupGalleryFileOrder(ctx context.Context) ApiSetGroupGalleryFileOrderRequest {
 	return ApiSetGroupGalleryFileOrderRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return GroupGalleryFileOrder
+//
+//	@return GroupGalleryFileOrder
 func (a *FilesAPIService) SetGroupGalleryFileOrderExecute(r ApiSetGroupGalleryFileOrderRequest) (*GroupGalleryFileOrder, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *GroupGalleryFileOrder
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *GroupGalleryFileOrder
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.SetGroupGalleryFileOrder")
@@ -1809,8 +1823,8 @@ func (a *FilesAPIService) SetGroupGalleryFileOrderExecute(r ApiSetGroupGalleryFi
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1828,11 +1842,11 @@ func (a *FilesAPIService) SetGroupGalleryFileOrderExecute(r ApiSetGroupGalleryFi
 }
 
 type ApiStartFileDataUploadRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	fileId string
-	versionId int32
-	fileType string
+	fileId     string
+	versionId  int32
+	fileType   string
 	partNumber *int32
 }
 
@@ -1854,30 +1868,31 @@ Starts an upload of a specific FilePart. This endpoint will return an AWS URL wh
 
 **Note:** `nextPartNumber` seems like it is always ignored. Despite it returning 0, first partNumber is always 1.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param fileId Must be a valid file ID.
- @param versionId Version ID of the asset.
- @param fileType Type of file.
- @return ApiStartFileDataUploadRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param fileId Must be a valid file ID.
+	@param versionId Version ID of the asset.
+	@param fileType Type of file.
+	@return ApiStartFileDataUploadRequest
 */
 func (a *FilesAPIService) StartFileDataUpload(ctx context.Context, fileId string, versionId int32, fileType string) ApiStartFileDataUploadRequest {
 	return ApiStartFileDataUploadRequest{
 		ApiService: a,
-		ctx: ctx,
-		fileId: fileId,
-		versionId: versionId,
-		fileType: fileType,
+		ctx:        ctx,
+		fileId:     fileId,
+		versionId:  versionId,
+		fileType:   fileType,
 	}
 }
 
 // Execute executes the request
-//  @return FileUploadURL
+//
+//	@return FileUploadURL
 func (a *FilesAPIService) StartFileDataUploadExecute(r ApiStartFileDataUploadRequest) (*FileUploadURL, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FileUploadURL
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FileUploadURL
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.StartFileDataUpload")
@@ -1946,8 +1961,8 @@ func (a *FilesAPIService) StartFileDataUploadExecute(r ApiStartFileDataUploadReq
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1965,8 +1980,8 @@ func (a *FilesAPIService) StartFileDataUploadExecute(r ApiStartFileDataUploadReq
 }
 
 type ApiSubmitContentAgreementRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
+	ctx              context.Context
+	ApiService       *FilesAPIService
 	agreementRequest *AgreementRequest
 }
 
@@ -1984,24 +1999,25 @@ SubmitContentAgreement Submit Content Agreement
 
 Returns the agreement of the currently authenticated user for the given agreementCode, contentId, and version.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSubmitContentAgreementRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubmitContentAgreementRequest
 */
 func (a *FilesAPIService) SubmitContentAgreement(ctx context.Context) ApiSubmitContentAgreementRequest {
 	return ApiSubmitContentAgreementRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Agreement
+//
+//	@return Agreement
 func (a *FilesAPIService) SubmitContentAgreementExecute(r ApiSubmitContentAgreementRequest) (*Agreement, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Agreement
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Agreement
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.SubmitContentAgreement")
@@ -2063,8 +2079,8 @@ func (a *FilesAPIService) SubmitContentAgreementExecute(r ApiSubmitContentAgreem
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2082,9 +2098,9 @@ func (a *FilesAPIService) SubmitContentAgreementExecute(r ApiSubmitContentAgreem
 }
 
 type ApiUpdateAssetReviewNotesRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
-	assetReviewId string
+	ctx                           context.Context
+	ApiService                    *FilesAPIService
+	assetReviewId                 string
 	updateAssetReviewNotesRequest *UpdateAssetReviewNotesRequest
 }
 
@@ -2102,14 +2118,14 @@ UpdateAssetReviewNotes Update Asset Review Notes
 
 Update notes regarding an asset review.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param assetReviewId Must be an valid asset review ID.
- @return ApiUpdateAssetReviewNotesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param assetReviewId Must be an valid asset review ID.
+	@return ApiUpdateAssetReviewNotesRequest
 */
 func (a *FilesAPIService) UpdateAssetReviewNotes(ctx context.Context, assetReviewId string) ApiUpdateAssetReviewNotesRequest {
 	return ApiUpdateAssetReviewNotesRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:    a,
+		ctx:           ctx,
 		assetReviewId: assetReviewId,
 	}
 }
@@ -2117,9 +2133,9 @@ func (a *FilesAPIService) UpdateAssetReviewNotes(ctx context.Context, assetRevie
 // Execute executes the request
 func (a *FilesAPIService) UpdateAssetReviewNotesExecute(r ApiUpdateAssetReviewNotesRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodPut
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UpdateAssetReviewNotes")
@@ -2182,8 +2198,8 @@ func (a *FilesAPIService) UpdateAssetReviewNotesExecute(r ApiUpdateAssetReviewNo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -2192,9 +2208,9 @@ func (a *FilesAPIService) UpdateAssetReviewNotesExecute(r ApiUpdateAssetReviewNo
 }
 
 type ApiUploadGalleryImageRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	file *os.File
+	file       *os.File
 }
 
 // The binary blob of the png file.
@@ -2212,24 +2228,25 @@ UploadGalleryImage Upload gallery image
 
 Upload a gallery image
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUploadGalleryImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUploadGalleryImageRequest
 */
 func (a *FilesAPIService) UploadGalleryImage(ctx context.Context) ApiUploadGalleryImageRequest {
 	return ApiUploadGalleryImageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) UploadGalleryImageExecute(r ApiUploadGalleryImageRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UploadGalleryImage")
@@ -2264,8 +2281,8 @@ func (a *FilesAPIService) UploadGalleryImageExecute(r ApiUploadGalleryImageReque
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var fileLocalVarFormFileName string
-	var fileLocalVarFileName     string
-	var fileLocalVarFileBytes    []byte
+	var fileLocalVarFileName string
+	var fileLocalVarFileBytes []byte
 
 	fileLocalVarFormFileName = "file"
 	fileLocalVarFile := r.file
@@ -2316,9 +2333,9 @@ func (a *FilesAPIService) UploadGalleryImageExecute(r ApiUploadGalleryImageReque
 }
 
 type ApiUploadIconRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *FilesAPIService
-	file *os.File
+	file       *os.File
 }
 
 // The binary blob of the png file.
@@ -2336,24 +2353,25 @@ UploadIcon Upload icon
 
 Upload an icon
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUploadIconRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUploadIconRequest
 */
 func (a *FilesAPIService) UploadIcon(ctx context.Context) ApiUploadIconRequest {
 	return ApiUploadIconRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) UploadIconExecute(r ApiUploadIconRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UploadIcon")
@@ -2388,8 +2406,8 @@ func (a *FilesAPIService) UploadIconExecute(r ApiUploadIconRequest) (*File, *htt
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var fileLocalVarFormFileName string
-	var fileLocalVarFileName     string
-	var fileLocalVarFileBytes    []byte
+	var fileLocalVarFileName string
+	var fileLocalVarFileBytes []byte
 
 	fileLocalVarFormFileName = "file"
 	fileLocalVarFile := r.file
@@ -2440,15 +2458,15 @@ func (a *FilesAPIService) UploadIconExecute(r ApiUploadIconRequest) (*File, *htt
 }
 
 type ApiUploadImageRequest struct {
-	ctx context.Context
-	ApiService *FilesAPIService
-	file *os.File
-	tag *ImagePurpose
+	ctx            context.Context
+	ApiService     *FilesAPIService
+	file           *os.File
+	tag            *ImagePurpose
 	animationStyle *ImageAnimationStyle
-	frames *int32
+	frames         *int32
 	framesOverTime *int32
-	loopStyle *ImageLoopStyle
-	maskTag *ImageMask
+	loopStyle      *ImageLoopStyle
+	maskTag        *ImageMask
 }
 
 // The binary blob of the png file.
@@ -2498,24 +2516,25 @@ UploadImage Upload gallery image, icon, emoji or sticker
 
 Upload an image, which can be an icon, gallery image, sticker or emoji
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUploadImageRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUploadImageRequest
 */
 func (a *FilesAPIService) UploadImage(ctx context.Context) ApiUploadImageRequest {
 	return ApiUploadImageRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return File
+//
+//	@return File
 func (a *FilesAPIService) UploadImageExecute(r ApiUploadImageRequest) (*File, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *File
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *File
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "FilesAPIService.UploadImage")
@@ -2556,8 +2575,8 @@ func (a *FilesAPIService) UploadImageExecute(r ApiUploadImageRequest) (*File, *h
 		parameterAddToHeaderOrQuery(localVarFormParams, "animationStyle", r.animationStyle, "", "")
 	}
 	var fileLocalVarFormFileName string
-	var fileLocalVarFileName     string
-	var fileLocalVarFileBytes    []byte
+	var fileLocalVarFileName string
+	var fileLocalVarFileBytes []byte
 
 	fileLocalVarFormFileName = "file"
 	fileLocalVarFile := r.file

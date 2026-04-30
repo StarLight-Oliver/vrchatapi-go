@@ -21,9 +21,9 @@ var _ MappedNullable = &CalendarEventUserInterest{}
 
 // CalendarEventUserInterest struct for CalendarEventUserInterest
 type CalendarEventUserInterest struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	IsFollowing *bool `json:"isFollowing,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	CreatedAt   *time.Time `json:"createdAt,omitempty"`
+	IsFollowing *bool      `json:"isFollowing,omitempty"`
+	UpdatedAt   *time.Time `json:"updatedAt,omitempty"`
 }
 
 // NewCalendarEventUserInterest instantiates a new CalendarEventUserInterest object
@@ -140,7 +140,7 @@ func (o *CalendarEventUserInterest) SetUpdatedAt(v time.Time) {
 }
 
 func (o CalendarEventUserInterest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -196,5 +196,3 @@ func (v *NullableCalendarEventUserInterest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

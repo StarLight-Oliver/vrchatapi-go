@@ -21,8 +21,8 @@ var _ MappedNullable = &APIConfigConstantsINSTANCEPOPULATIONBRACKETS{}
 // APIConfigConstantsINSTANCEPOPULATIONBRACKETS Population brackets based on instance population
 type APIConfigConstantsINSTANCEPOPULATIONBRACKETS struct {
 	CROWDED *APIConfigConstantsINSTANCEPOPULATIONBRACKETSCROWDED `json:"CROWDED,omitempty"`
-	FEW *APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW `json:"FEW,omitempty"`
-	MANY *APIConfigConstantsINSTANCEPOPULATIONBRACKETSMANY `json:"MANY,omitempty"`
+	FEW     *APIConfigConstantsINSTANCEPOPULATIONBRACKETSFEW     `json:"FEW,omitempty"`
+	MANY    *APIConfigConstantsINSTANCEPOPULATIONBRACKETSMANY    `json:"MANY,omitempty"`
 }
 
 // NewAPIConfigConstantsINSTANCEPOPULATIONBRACKETS instantiates a new APIConfigConstantsINSTANCEPOPULATIONBRACKETS object
@@ -139,7 +139,7 @@ func (o *APIConfigConstantsINSTANCEPOPULATIONBRACKETS) SetMANY(v APIConfigConsta
 }
 
 func (o APIConfigConstantsINSTANCEPOPULATIONBRACKETS) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableAPIConfigConstantsINSTANCEPOPULATIONBRACKETS) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

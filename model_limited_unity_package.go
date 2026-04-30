@@ -168,7 +168,6 @@ func (o *LimitedUnityPackage) UnmarshalJSON(data []byte) (err error) {
 	varLimitedUnityPackage := _LimitedUnityPackage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varLimitedUnityPackage)
 
 	if err != nil {

@@ -604,7 +604,6 @@ func (o *InventoryTemplate) UnmarshalJSON(data []byte) (err error) {
 	varInventoryTemplate := _InventoryTemplate{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInventoryTemplate)
 
 	if err != nil {

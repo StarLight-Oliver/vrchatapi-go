@@ -155,7 +155,6 @@ func (o *InstanceShortNameResponse) UnmarshalJSON(data []byte) (err error) {
 	varInstanceShortNameResponse := _InstanceShortNameResponse{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varInstanceShortNameResponse)
 
 	if err != nil {

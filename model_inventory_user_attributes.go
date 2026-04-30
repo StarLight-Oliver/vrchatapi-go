@@ -20,9 +20,9 @@ var _ MappedNullable = &InventoryUserAttributes{}
 
 // InventoryUserAttributes struct for InventoryUserAttributes
 type InventoryUserAttributes struct {
-	PrimaryColor *string `json:"primaryColor,omitempty"`
+	PrimaryColor   *string `json:"primaryColor,omitempty"`
 	SecondaryColor *string `json:"secondaryColor,omitempty"`
-	TrailColor *string `json:"trailColor,omitempty"`
+	TrailColor     *string `json:"trailColor,omitempty"`
 }
 
 // NewInventoryUserAttributes instantiates a new InventoryUserAttributes object
@@ -139,7 +139,7 @@ func (o *InventoryUserAttributes) SetTrailColor(v string) {
 }
 
 func (o InventoryUserAttributes) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -195,5 +195,3 @@ func (v *NullableInventoryUserAttributes) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

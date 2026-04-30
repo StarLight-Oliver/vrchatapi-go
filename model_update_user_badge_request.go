@@ -20,7 +20,7 @@ var _ MappedNullable = &UpdateUserBadgeRequest{}
 
 // UpdateUserBadgeRequest struct for UpdateUserBadgeRequest
 type UpdateUserBadgeRequest struct {
-	Hidden *bool `json:"hidden,omitempty"`
+	Hidden    *bool `json:"hidden,omitempty"`
 	Showcased *bool `json:"showcased,omitempty"`
 }
 
@@ -106,7 +106,7 @@ func (o *UpdateUserBadgeRequest) SetShowcased(v bool) {
 }
 
 func (o UpdateUserBadgeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -159,5 +159,3 @@ func (v *NullableUpdateUserBadgeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

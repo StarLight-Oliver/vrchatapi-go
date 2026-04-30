@@ -310,7 +310,6 @@ func (o *FavoriteGroup) UnmarshalJSON(data []byte) (err error) {
 	varFavoriteGroup := _FavoriteGroup{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFavoriteGroup)
 
 	if err != nil {

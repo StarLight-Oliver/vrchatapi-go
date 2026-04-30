@@ -21,10 +21,10 @@ var _ MappedNullable = &JamStateChangeDates{}
 
 // JamStateChangeDates struct for JamStateChangeDates
 type JamStateChangeDates struct {
-	Closed NullableTime `json:"closed,omitempty"`
+	Closed            NullableTime `json:"closed,omitempty"`
 	SubmissionsClosed NullableTime `json:"submissionsClosed,omitempty"`
 	SubmissionsOpened NullableTime `json:"submissionsOpened,omitempty"`
-	WinnersSelected NullableTime `json:"winnersSelected,omitempty"`
+	WinnersSelected   NullableTime `json:"winnersSelected,omitempty"`
 }
 
 // NewJamStateChangeDates instantiates a new JamStateChangeDates object
@@ -76,6 +76,7 @@ func (o *JamStateChangeDates) HasClosed() bool {
 func (o *JamStateChangeDates) SetClosed(v time.Time) {
 	o.Closed.Set(&v)
 }
+
 // SetClosedNil sets the value for Closed to be an explicit nil
 func (o *JamStateChangeDates) SetClosedNil() {
 	o.Closed.Set(nil)
@@ -118,6 +119,7 @@ func (o *JamStateChangeDates) HasSubmissionsClosed() bool {
 func (o *JamStateChangeDates) SetSubmissionsClosed(v time.Time) {
 	o.SubmissionsClosed.Set(&v)
 }
+
 // SetSubmissionsClosedNil sets the value for SubmissionsClosed to be an explicit nil
 func (o *JamStateChangeDates) SetSubmissionsClosedNil() {
 	o.SubmissionsClosed.Set(nil)
@@ -160,6 +162,7 @@ func (o *JamStateChangeDates) HasSubmissionsOpened() bool {
 func (o *JamStateChangeDates) SetSubmissionsOpened(v time.Time) {
 	o.SubmissionsOpened.Set(&v)
 }
+
 // SetSubmissionsOpenedNil sets the value for SubmissionsOpened to be an explicit nil
 func (o *JamStateChangeDates) SetSubmissionsOpenedNil() {
 	o.SubmissionsOpened.Set(nil)
@@ -202,6 +205,7 @@ func (o *JamStateChangeDates) HasWinnersSelected() bool {
 func (o *JamStateChangeDates) SetWinnersSelected(v time.Time) {
 	o.WinnersSelected.Set(&v)
 }
+
 // SetWinnersSelectedNil sets the value for WinnersSelected to be an explicit nil
 func (o *JamStateChangeDates) SetWinnersSelectedNil() {
 	o.WinnersSelected.Set(nil)
@@ -213,7 +217,7 @@ func (o *JamStateChangeDates) UnsetWinnersSelected() {
 }
 
 func (o JamStateChangeDates) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -272,5 +276,3 @@ func (v *NullableJamStateChangeDates) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

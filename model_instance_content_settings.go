@@ -20,12 +20,12 @@ var _ MappedNullable = &InstanceContentSettings{}
 
 // InstanceContentSettings Types of dynamic user content permitted in an instance
 type InstanceContentSettings struct {
-	Drones *bool `json:"drones,omitempty"`
-	Emoji *bool `json:"emoji,omitempty"`
+	Drones    *bool `json:"drones,omitempty"`
+	Emoji     *bool `json:"emoji,omitempty"`
 	Pedestals *bool `json:"pedestals,omitempty"`
-	Prints *bool `json:"prints,omitempty"`
-	Props *bool `json:"props,omitempty"`
-	Stickers *bool `json:"stickers,omitempty"`
+	Prints    *bool `json:"prints,omitempty"`
+	Props     *bool `json:"props,omitempty"`
+	Stickers  *bool `json:"stickers,omitempty"`
 }
 
 // NewInstanceContentSettings instantiates a new InstanceContentSettings object
@@ -262,7 +262,7 @@ func (o *InstanceContentSettings) SetStickers(v bool) {
 }
 
 func (o InstanceContentSettings) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -327,5 +327,3 @@ func (v *NullableInstanceContentSettings) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

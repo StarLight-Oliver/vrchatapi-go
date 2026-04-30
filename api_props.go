@@ -20,13 +20,12 @@ import (
 	"strings"
 )
 
-
 // PropsAPIService PropsAPI service
 type PropsAPIService service
 
 type ApiCreatePropRequest struct {
-	ctx context.Context
-	ApiService *PropsAPIService
+	ctx               context.Context
+	ApiService        *PropsAPIService
 	createPropRequest *CreatePropRequest
 }
 
@@ -44,24 +43,25 @@ CreateProp Create Prop
 
 Create a Prop and return the new Prop object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreatePropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreatePropRequest
 */
 func (a *PropsAPIService) CreateProp(ctx context.Context) ApiCreatePropRequest {
 	return ApiCreatePropRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Prop
+//
+//	@return Prop
 func (a *PropsAPIService) CreatePropExecute(r ApiCreatePropRequest) (*Prop, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prop
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prop
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.CreateProp")
@@ -126,8 +126,8 @@ func (a *PropsAPIService) CreatePropExecute(r ApiCreatePropRequest) (*Prop, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -137,8 +137,8 @@ func (a *PropsAPIService) CreatePropExecute(r ApiCreatePropRequest) (*Prop, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -156,9 +156,9 @@ func (a *PropsAPIService) CreatePropExecute(r ApiCreatePropRequest) (*Prop, *htt
 }
 
 type ApiDeletePropRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	propId string
+	propId     string
 }
 
 func (r ApiDeletePropRequest) Execute() (*http.Response, error) {
@@ -170,24 +170,24 @@ DeleteProp Delete Prop
 
 Delete a Prop.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiDeletePropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiDeletePropRequest
 */
 func (a *PropsAPIService) DeleteProp(ctx context.Context, propId string) ApiDeletePropRequest {
 	return ApiDeletePropRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
 func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.DeleteProp")
@@ -248,8 +248,8 @@ func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Respo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -259,8 +259,8 @@ func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Respo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -270,8 +270,8 @@ func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Respo
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -280,9 +280,9 @@ func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Respo
 }
 
 type ApiGetPropRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	propId string
+	propId     string
 }
 
 func (r ApiGetPropRequest) Execute() (*Prop, *http.Response, error) {
@@ -294,26 +294,27 @@ GetProp Get Prop
 
 Returns a Prop object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiGetPropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiGetPropRequest
 */
 func (a *PropsAPIService) GetProp(ctx context.Context, propId string) ApiGetPropRequest {
 	return ApiGetPropRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
-//  @return Prop
+//
+//	@return Prop
 func (a *PropsAPIService) GetPropExecute(r ApiGetPropRequest) (*Prop, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prop
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prop
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.GetProp")
@@ -374,8 +375,8 @@ func (a *PropsAPIService) GetPropExecute(r ApiGetPropRequest) (*Prop, *http.Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -385,8 +386,8 @@ func (a *PropsAPIService) GetPropExecute(r ApiGetPropRequest) (*Prop, *http.Resp
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -404,9 +405,9 @@ func (a *PropsAPIService) GetPropExecute(r ApiGetPropRequest) (*Prop, *http.Resp
 }
 
 type ApiGetPropPublishStatusRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	propId string
+	propId     string
 }
 
 func (r ApiGetPropPublishStatusRequest) Execute() (*PropPublishStatus, *http.Response, error) {
@@ -418,26 +419,27 @@ GetPropPublishStatus Get Prop Publish Status
 
 Returns a PropPublishStatus object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiGetPropPublishStatusRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiGetPropPublishStatusRequest
 */
 func (a *PropsAPIService) GetPropPublishStatus(ctx context.Context, propId string) ApiGetPropPublishStatusRequest {
 	return ApiGetPropPublishStatusRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
-//  @return PropPublishStatus
+//
+//	@return PropPublishStatus
 func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusRequest) (*PropPublishStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PropPublishStatus
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PropPublishStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.GetPropPublishStatus")
@@ -498,8 +500,8 @@ func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -509,8 +511,8 @@ func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -520,8 +522,8 @@ func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusR
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -539,11 +541,11 @@ func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusR
 }
 
 type ApiListPropsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	authorId *string
-	n *int32
-	offset *int32
+	authorId   *string
+	n          *int32
+	offset     *int32
 }
 
 // Must be a valid user ID.
@@ -573,24 +575,25 @@ ListProps List Props
 
 Returns a list Prop objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiListPropsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiListPropsRequest
 */
 func (a *PropsAPIService) ListProps(ctx context.Context) ApiListPropsRequest {
 	return ApiListPropsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Prop
+//
+//	@return []Prop
 func (a *PropsAPIService) ListPropsExecute(r ApiListPropsRequest) ([]Prop, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Prop
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Prop
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.ListProps")
@@ -610,9 +613,9 @@ func (a *PropsAPIService) ListPropsExecute(r ApiListPropsRequest) ([]Prop, *http
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.offset != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "offset", r.offset, "form", "")
@@ -664,8 +667,8 @@ func (a *PropsAPIService) ListPropsExecute(r ApiListPropsRequest) ([]Prop, *http
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -675,8 +678,8 @@ func (a *PropsAPIService) ListPropsExecute(r ApiListPropsRequest) ([]Prop, *http
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -694,9 +697,9 @@ func (a *PropsAPIService) ListPropsExecute(r ApiListPropsRequest) ([]Prop, *http
 }
 
 type ApiPublishPropRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	propId string
+	propId     string
 }
 
 func (r ApiPublishPropRequest) Execute() (*PropPublishStatus, *http.Response, error) {
@@ -708,26 +711,27 @@ PublishProp Publish Prop
 
 Publish a Prop and return the updated PropPublishStatus object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiPublishPropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiPublishPropRequest
 */
 func (a *PropsAPIService) PublishProp(ctx context.Context, propId string) ApiPublishPropRequest {
 	return ApiPublishPropRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
-//  @return PropPublishStatus
+//
+//	@return PropPublishStatus
 func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPublishStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PropPublishStatus
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PropPublishStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.PublishProp")
@@ -788,8 +792,8 @@ func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPubl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -799,8 +803,8 @@ func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPubl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -810,8 +814,8 @@ func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPubl
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -829,9 +833,9 @@ func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPubl
 }
 
 type ApiUnpublishPropRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PropsAPIService
-	propId string
+	propId     string
 }
 
 func (r ApiUnpublishPropRequest) Execute() (*PropPublishStatus, *http.Response, error) {
@@ -843,26 +847,27 @@ UnpublishProp Unpublish Prop
 
 Unpublish a Prop and return the updated PropPublishStatus object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiUnpublishPropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiUnpublishPropRequest
 */
 func (a *PropsAPIService) UnpublishProp(ctx context.Context, propId string) ApiUnpublishPropRequest {
 	return ApiUnpublishPropRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
-//  @return PropPublishStatus
+//
+//	@return PropPublishStatus
 func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*PropPublishStatus, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PropPublishStatus
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PropPublishStatus
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.UnpublishProp")
@@ -923,8 +928,8 @@ func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*Prop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -934,8 +939,8 @@ func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*Prop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -945,8 +950,8 @@ func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*Prop
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -964,9 +969,9 @@ func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*Prop
 }
 
 type ApiUpdatePropRequest struct {
-	ctx context.Context
-	ApiService *PropsAPIService
-	propId string
+	ctx               context.Context
+	ApiService        *PropsAPIService
+	propId            string
 	updatePropRequest *UpdatePropRequest
 }
 
@@ -984,26 +989,27 @@ UpdateProp Update Prop
 
 Updates a Prop and returns the updated Prop object. When updating the asset bundle, all of `name`, `assetUrl`, `platform`, `unityVersion`, `assetVersion`, `spawnType`, and `worldPlacementMask` must be present, as well as `propSignature` if this value is not blank.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param propId Prop ID.
- @return ApiUpdatePropRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param propId Prop ID.
+	@return ApiUpdatePropRequest
 */
 func (a *PropsAPIService) UpdateProp(ctx context.Context, propId string) ApiUpdatePropRequest {
 	return ApiUpdatePropRequest{
 		ApiService: a,
-		ctx: ctx,
-		propId: propId,
+		ctx:        ctx,
+		propId:     propId,
 	}
 }
 
 // Execute executes the request
-//  @return Prop
+//
+//	@return Prop
 func (a *PropsAPIService) UpdatePropExecute(r ApiUpdatePropRequest) (*Prop, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prop
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prop
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PropsAPIService.UpdateProp")
@@ -1069,8 +1075,8 @@ func (a *PropsAPIService) UpdatePropExecute(r ApiUpdatePropRequest) (*Prop, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1080,8 +1086,8 @@ func (a *PropsAPIService) UpdatePropExecute(r ApiUpdatePropRequest) (*Prop, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
@@ -1091,8 +1097,8 @@ func (a *PropsAPIService) UpdatePropExecute(r ApiUpdatePropRequest) (*Prop, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

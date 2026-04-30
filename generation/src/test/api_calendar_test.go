@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_CalendarAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService CreateGroupCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -39,7 +38,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService DeleteGroupCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var calendarId string
@@ -54,7 +53,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService DiscoverCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CalendarAPI.DiscoverCalendarEvents(context.Background()).Execute()
 
@@ -66,7 +65,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService FollowGroupCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var calendarId string
@@ -81,7 +80,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CalendarAPI.GetCalendarEvents(context.Background()).Execute()
 
@@ -93,7 +92,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetFeaturedCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CalendarAPI.GetFeaturedCalendarEvents(context.Background()).Execute()
 
@@ -105,7 +104,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetFollowedCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CalendarAPI.GetFollowedCalendarEvents(context.Background()).Execute()
 
@@ -117,7 +116,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetGroupCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var calendarId string
@@ -132,7 +131,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetGroupCalendarEventICS", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var calendarId string
@@ -147,7 +146,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetGroupCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -161,7 +160,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService GetGroupNextCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 
@@ -175,7 +174,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService SearchCalendarEvents", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.CalendarAPI.SearchCalendarEvents(context.Background()).Execute()
 
@@ -187,7 +186,7 @@ func Test_vrchatapi_CalendarAPIService(t *testing.T) {
 
 	t.Run("Test CalendarAPIService UpdateGroupCalendarEvent", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var groupId string
 		var calendarId string

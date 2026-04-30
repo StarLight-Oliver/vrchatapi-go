@@ -257,7 +257,6 @@ func (o *ProductListingVariant) UnmarshalJSON(data []byte) (err error) {
 	varProductListingVariant := _ProductListingVariant{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varProductListingVariant)
 
 	if err != nil {

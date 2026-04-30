@@ -477,7 +477,6 @@ func (o *Feedback) UnmarshalJSON(data []byte) (err error) {
 	varFeedback := _Feedback{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFeedback)
 
 	if err != nil {

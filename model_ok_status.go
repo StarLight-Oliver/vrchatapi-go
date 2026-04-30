@@ -111,7 +111,6 @@ func (o *OkStatus) UnmarshalJSON(data []byte) (err error) {
 	varOkStatus := _OkStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varOkStatus)
 
 	if err != nil {

@@ -136,7 +136,6 @@ func (o *APIConfigIosVersion) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigIosVersion := _APIConfigIosVersion{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigIosVersion)
 
 	if err != nil {

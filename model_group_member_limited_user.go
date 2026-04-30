@@ -20,14 +20,14 @@ var _ MappedNullable = &GroupMemberLimitedUser{}
 
 // GroupMemberLimitedUser Only visible via the /groups/:groupId/members endpoint, **not** when fetching a specific user.
 type GroupMemberLimitedUser struct {
-	CurrentAvatarTags []string `json:"currentAvatarTags,omitempty"`
+	CurrentAvatarTags              []string       `json:"currentAvatarTags,omitempty"`
 	CurrentAvatarThumbnailImageUrl NullableString `json:"currentAvatarThumbnailImageUrl,omitempty"`
-	DisplayName *string `json:"displayName,omitempty"`
-	IconUrl *string `json:"iconUrl,omitempty"`
+	DisplayName                    *string        `json:"displayName,omitempty"`
+	IconUrl                        *string        `json:"iconUrl,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	Id *string `json:"id,omitempty"`
-	ProfilePicOverride *string `json:"profilePicOverride,omitempty"`
-	ThumbnailUrl NullableString `json:"thumbnailUrl,omitempty"`
+	Id                 *string        `json:"id,omitempty"`
+	ProfilePicOverride *string        `json:"profilePicOverride,omitempty"`
+	ThumbnailUrl       NullableString `json:"thumbnailUrl,omitempty"`
 }
 
 // NewGroupMemberLimitedUser instantiates a new GroupMemberLimitedUser object
@@ -111,6 +111,7 @@ func (o *GroupMemberLimitedUser) HasCurrentAvatarThumbnailImageUrl() bool {
 func (o *GroupMemberLimitedUser) SetCurrentAvatarThumbnailImageUrl(v string) {
 	o.CurrentAvatarThumbnailImageUrl.Set(&v)
 }
+
 // SetCurrentAvatarThumbnailImageUrlNil sets the value for CurrentAvatarThumbnailImageUrl to be an explicit nil
 func (o *GroupMemberLimitedUser) SetCurrentAvatarThumbnailImageUrlNil() {
 	o.CurrentAvatarThumbnailImageUrl.Set(nil)
@@ -281,6 +282,7 @@ func (o *GroupMemberLimitedUser) HasThumbnailUrl() bool {
 func (o *GroupMemberLimitedUser) SetThumbnailUrl(v string) {
 	o.ThumbnailUrl.Set(&v)
 }
+
 // SetThumbnailUrlNil sets the value for ThumbnailUrl to be an explicit nil
 func (o *GroupMemberLimitedUser) SetThumbnailUrlNil() {
 	o.ThumbnailUrl.Set(nil)
@@ -292,7 +294,7 @@ func (o *GroupMemberLimitedUser) UnsetThumbnailUrl() {
 }
 
 func (o GroupMemberLimitedUser) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -360,5 +362,3 @@ func (v *NullableGroupMemberLimitedUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -170,7 +170,6 @@ func (o *FriendStatus) UnmarshalJSON(data []byte) (err error) {
 	varFriendStatus := _FriendStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFriendStatus)
 
 	if err != nil {

@@ -146,7 +146,6 @@ func (o *PlatformBuildInfo) UnmarshalJSON(data []byte) (err error) {
 	varPlatformBuildInfo := _PlatformBuildInfo{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPlatformBuildInfo)
 
 	if err != nil {

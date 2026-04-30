@@ -269,7 +269,6 @@ func (o *SubmitModerationReportRequest) UnmarshalJSON(data []byte) (err error) {
 	varSubmitModerationReportRequest := _SubmitModerationReportRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varSubmitModerationReportRequest)
 
 	if err != nil {

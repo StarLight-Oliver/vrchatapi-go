@@ -136,7 +136,6 @@ func (o *TwoFactorRecoveryCodesOtpInner) UnmarshalJSON(data []byte) (err error) 
 	varTwoFactorRecoveryCodesOtpInner := _TwoFactorRecoveryCodesOtpInner{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varTwoFactorRecoveryCodesOtpInner)
 
 	if err != nil {

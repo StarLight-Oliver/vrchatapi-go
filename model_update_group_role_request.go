@@ -20,11 +20,11 @@ var _ MappedNullable = &UpdateGroupRoleRequest{}
 
 // UpdateGroupRoleRequest struct for UpdateGroupRoleRequest
 type UpdateGroupRoleRequest struct {
-	Description *string `json:"description,omitempty"`
-	IsSelfAssignable *bool `json:"isSelfAssignable,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Order *int32 `json:"order,omitempty"`
-	Permissions []GroupPermissions `json:"permissions,omitempty"`
+	Description      *string            `json:"description,omitempty"`
+	IsSelfAssignable *bool              `json:"isSelfAssignable,omitempty"`
+	Name             *string            `json:"name,omitempty"`
+	Order            *int32             `json:"order,omitempty"`
+	Permissions      []GroupPermissions `json:"permissions,omitempty"`
 }
 
 // NewUpdateGroupRoleRequest instantiates a new UpdateGroupRoleRequest object
@@ -209,7 +209,7 @@ func (o *UpdateGroupRoleRequest) SetPermissions(v []GroupPermissions) {
 }
 
 func (o UpdateGroupRoleRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -271,5 +271,3 @@ func (v *NullableUpdateGroupRoleRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

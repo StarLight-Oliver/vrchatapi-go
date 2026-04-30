@@ -331,7 +331,6 @@ func (o *DynamicContentRow) UnmarshalJSON(data []byte) (err error) {
 	varDynamicContentRow := _DynamicContentRow{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varDynamicContentRow)
 
 	if err != nil {

@@ -192,7 +192,6 @@ func (o *LicenseGroup) UnmarshalJSON(data []byte) (err error) {
 	varLicenseGroup := _LicenseGroup{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varLicenseGroup)
 
 	if err != nil {

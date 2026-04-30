@@ -144,7 +144,6 @@ func (o *UserCreditsEligible) UnmarshalJSON(data []byte) (err error) {
 	varUserCreditsEligible := _UserCreditsEligible{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUserCreditsEligible)
 
 	if err != nil {

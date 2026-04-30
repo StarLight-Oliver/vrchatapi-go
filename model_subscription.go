@@ -430,7 +430,6 @@ func (o *Subscription) UnmarshalJSON(data []byte) (err error) {
 	varSubscription := _Subscription{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varSubscription)
 
 	if err != nil {

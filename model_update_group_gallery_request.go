@@ -26,13 +26,13 @@ type UpdateGroupGalleryRequest struct {
 	MembersOnly *bool `json:"membersOnly,omitempty"`
 	// Name of the gallery.
 	Name *string `json:"name,omitempty"`
-	//  
+	//
 	RoleIdsToAutoApprove []string `json:"roleIdsToAutoApprove,omitempty"`
-	//  
+	//
 	RoleIdsToManage []string `json:"roleIdsToManage,omitempty"`
-	//  
+	//
 	RoleIdsToSubmit []string `json:"roleIdsToSubmit,omitempty"`
-	//  
+	//
 	RoleIdsToView []string `json:"roleIdsToView,omitempty"`
 }
 
@@ -286,7 +286,7 @@ func (o *UpdateGroupGalleryRequest) SetRoleIdsToView(v []string) {
 }
 
 func (o UpdateGroupGalleryRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -354,5 +354,3 @@ func (v *NullableUpdateGroupGalleryRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,9 +20,9 @@ var _ MappedNullable = &AvatarStyles{}
 
 // AvatarStyles struct for AvatarStyles
 type AvatarStyles struct {
-	Primary NullableString `json:"primary,omitempty"`
-	Secondary NullableString `json:"secondary,omitempty"`
-	Supplementary []string `json:"supplementary,omitempty"`
+	Primary       NullableString `json:"primary,omitempty"`
+	Secondary     NullableString `json:"secondary,omitempty"`
+	Supplementary []string       `json:"supplementary,omitempty"`
 }
 
 // NewAvatarStyles instantiates a new AvatarStyles object
@@ -74,6 +74,7 @@ func (o *AvatarStyles) HasPrimary() bool {
 func (o *AvatarStyles) SetPrimary(v string) {
 	o.Primary.Set(&v)
 }
+
 // SetPrimaryNil sets the value for Primary to be an explicit nil
 func (o *AvatarStyles) SetPrimaryNil() {
 	o.Primary.Set(nil)
@@ -116,6 +117,7 @@ func (o *AvatarStyles) HasSecondary() bool {
 func (o *AvatarStyles) SetSecondary(v string) {
 	o.Secondary.Set(&v)
 }
+
 // SetSecondaryNil sets the value for Secondary to be an explicit nil
 func (o *AvatarStyles) SetSecondaryNil() {
 	o.Secondary.Set(nil)
@@ -159,7 +161,7 @@ func (o *AvatarStyles) SetSupplementary(v []string) {
 }
 
 func (o AvatarStyles) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -215,5 +217,3 @@ func (v *NullableAvatarStyles) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

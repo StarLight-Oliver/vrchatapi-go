@@ -149,7 +149,6 @@ func (o *CreateGroupInviteRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateGroupInviteRequest := _CreateGroupInviteRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateGroupInviteRequest)
 
 	if err != nil {

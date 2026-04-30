@@ -137,7 +137,6 @@ func (o *PastDisplayName) UnmarshalJSON(data []byte) (err error) {
 	varPastDisplayName := _PastDisplayName{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPastDisplayName)
 
 	if err != nil {

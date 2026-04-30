@@ -431,7 +431,6 @@ func (o *CreatePropRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreatePropRequest := _CreatePropRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreatePropRequest)
 
 	if err != nil {

@@ -164,7 +164,6 @@ func (o *NotificationV2DataBadgeEarned) UnmarshalJSON(data []byte) (err error) {
 	varNotificationV2DataBadgeEarned := _NotificationV2DataBadgeEarned{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationV2DataBadgeEarned)
 
 	if err != nil {

@@ -21,28 +21,28 @@ var _ MappedNullable = &UpdateCalendarEventRequest{}
 
 // UpdateCalendarEventRequest struct for UpdateCalendarEventRequest
 type UpdateCalendarEventRequest struct {
-	Category *string `json:"category,omitempty"`
-	CloseInstanceAfterEndMinutes *int32 `json:"closeInstanceAfterEndMinutes,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Category                     *string `json:"category,omitempty"`
+	CloseInstanceAfterEndMinutes *int32  `json:"closeInstanceAfterEndMinutes,omitempty"`
+	Description                  *string `json:"description,omitempty"`
 	// Time the vent starts at
-	EndsAt *time.Time `json:"endsAt,omitempty"`
-	Featured *bool `json:"featured,omitempty"`
-	GuestEarlyJoinMinutes *int32 `json:"guestEarlyJoinMinutes,omitempty"`
-	HostEarlyJoinMinutes *int32 `json:"hostEarlyJoinMinutes,omitempty"`
-	ImageId *string `json:"imageId,omitempty"`
-	IsDraft *bool `json:"isDraft,omitempty"`
-	Languages []string `json:"languages,omitempty"`
-	ParentId *string `json:"parentId,omitempty"`
-	Platforms []string `json:"platforms,omitempty"`
-	RoleIds []string `json:"roleIds,omitempty"`
+	EndsAt                *time.Time `json:"endsAt,omitempty"`
+	Featured              *bool      `json:"featured,omitempty"`
+	GuestEarlyJoinMinutes *int32     `json:"guestEarlyJoinMinutes,omitempty"`
+	HostEarlyJoinMinutes  *int32     `json:"hostEarlyJoinMinutes,omitempty"`
+	ImageId               *string    `json:"imageId,omitempty"`
+	IsDraft               *bool      `json:"isDraft,omitempty"`
+	Languages             []string   `json:"languages,omitempty"`
+	ParentId              *string    `json:"parentId,omitempty"`
+	Platforms             []string   `json:"platforms,omitempty"`
+	RoleIds               []string   `json:"roleIds,omitempty"`
 	// Send notification to group members.
 	SendCreationNotification *bool `json:"sendCreationNotification,omitempty"`
 	// Time the vent starts at
 	StartsAt *time.Time `json:"startsAt,omitempty"`
-	Tags []string `json:"tags,omitempty"`
+	Tags     []string   `json:"tags,omitempty"`
 	// Event title
-	Title *string `json:"title,omitempty"`
-	UsesInstanceOverflow *bool `json:"usesInstanceOverflow,omitempty"`
+	Title                *string `json:"title,omitempty"`
+	UsesInstanceOverflow *bool   `json:"usesInstanceOverflow,omitempty"`
 }
 
 // NewUpdateCalendarEventRequest instantiates a new UpdateCalendarEventRequest object
@@ -643,7 +643,7 @@ func (o *UpdateCalendarEventRequest) SetUsesInstanceOverflow(v bool) {
 }
 
 func (o UpdateCalendarEventRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -744,5 +744,3 @@ func (v *NullableUpdateCalendarEventRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

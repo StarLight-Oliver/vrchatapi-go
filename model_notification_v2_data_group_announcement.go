@@ -164,7 +164,6 @@ func (o *NotificationV2DataGroupAnnouncement) UnmarshalJSON(data []byte) (err er
 	varNotificationV2DataGroupAnnouncement := _NotificationV2DataGroupAnnouncement{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varNotificationV2DataGroupAnnouncement)
 
 	if err != nil {

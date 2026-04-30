@@ -54,7 +54,7 @@ func NewAgreementStatus(agreed bool, agreementCode AgreementCode, contentId stri
 // but it doesn't guarantee that properties required by API are set
 func NewAgreementStatusWithDefaults() *AgreementStatus {
 	this := AgreementStatus{}
-	var agreementCode AgreementCode = CONTENT_COPYRIGHT_OWNED
+	var agreementCode AgreementCode = AgreementCode_CONTENT_COPYRIGHT_OWNED
 	this.AgreementCode = agreementCode
 	return &this
 }
@@ -226,7 +226,6 @@ func (o *AgreementStatus) UnmarshalJSON(data []byte) (err error) {
 	varAgreementStatus := _AgreementStatus{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAgreementStatus)
 
 	if err != nil {

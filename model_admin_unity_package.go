@@ -223,7 +223,6 @@ func (o *AdminUnityPackage) UnmarshalJSON(data []byte) (err error) {
 	varAdminUnityPackage := _AdminUnityPackage{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAdminUnityPackage)
 
 	if err != nil {

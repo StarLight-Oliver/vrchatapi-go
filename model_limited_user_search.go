@@ -578,7 +578,6 @@ func (o *LimitedUserSearch) UnmarshalJSON(data []byte) (err error) {
 	varLimitedUserSearch := _LimitedUserSearch{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varLimitedUserSearch)
 
 	if err != nil {

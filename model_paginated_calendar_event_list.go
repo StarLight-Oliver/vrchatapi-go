@@ -22,7 +22,7 @@ var _ MappedNullable = &PaginatedCalendarEventList{}
 type PaginatedCalendarEventList struct {
 	// Whether there are more results after this page.
 	HasNext *bool `json:"hasNext,omitempty"`
-	//  
+	//
 	Results []CalendarEvent `json:"results,omitempty"`
 	// The total number of results that the query would return if there were no pagination.
 	TotalCount *int32 `json:"totalCount,omitempty"`
@@ -142,7 +142,7 @@ func (o *PaginatedCalendarEventList) SetTotalCount(v int32) {
 }
 
 func (o PaginatedCalendarEventList) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -198,5 +198,3 @@ func (v *NullablePaginatedCalendarEventList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

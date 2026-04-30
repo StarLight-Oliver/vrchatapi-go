@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService CancelPending2FA", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.CancelPending2FA(context.Background()).Execute()
 
@@ -37,7 +36,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService CheckUserExists", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.CheckUserExists(context.Background()).Execute()
 
@@ -49,7 +48,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService ConfirmEmail", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		httpRes, err := apiClient.AuthenticationAPI.ConfirmEmail(context.Background()).Execute()
 
@@ -60,7 +59,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService CreateGlobalAvatarModeration", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.CreateGlobalAvatarModeration(context.Background()).Execute()
 
@@ -72,7 +71,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService DeleteGlobalAvatarModeration", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.DeleteGlobalAvatarModeration(context.Background()).Execute()
 
@@ -84,7 +83,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService DeleteModerationReport", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var moderationReportId string
 
@@ -98,7 +97,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService DeleteUser", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -112,7 +111,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService Disable2FA", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.Disable2FA(context.Background()).Execute()
 
@@ -124,7 +123,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService Enable2FA", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.Enable2FA(context.Background()).Execute()
 
@@ -136,7 +135,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService GetCurrentUser", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.GetCurrentUser(context.Background()).Execute()
 
@@ -148,7 +147,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService GetGlobalAvatarModerations", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.GetGlobalAvatarModerations(context.Background()).Execute()
 
@@ -160,7 +159,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService GetModerationReports", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.GetModerationReports(context.Background()).Execute()
 
@@ -172,7 +171,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService GetRecoveryCodes", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.GetRecoveryCodes(context.Background()).Execute()
 
@@ -184,7 +183,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService Logout", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.Logout(context.Background()).Execute()
 
@@ -196,7 +195,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService RegisterUserAccount", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.RegisterUserAccount(context.Background()).Execute()
 
@@ -208,7 +207,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService ResendEmailConfirmation", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.ResendEmailConfirmation(context.Background()).Execute()
 
@@ -220,7 +219,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService SubmitModerationReport", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.SubmitModerationReport(context.Background()).Execute()
 
@@ -232,7 +231,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService Verify2FA", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.Verify2FA(context.Background()).Execute()
 
@@ -244,7 +243,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService Verify2FAEmailCode", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.Verify2FAEmailCode(context.Background()).Execute()
 
@@ -256,7 +255,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService VerifyAuthToken", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.VerifyAuthToken(context.Background()).Execute()
 
@@ -268,7 +267,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService VerifyLoginPlace", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		httpRes, err := apiClient.AuthenticationAPI.VerifyLoginPlace(context.Background()).Execute()
 
@@ -279,7 +278,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService VerifyPending2FA", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.VerifyPending2FA(context.Background()).Execute()
 
@@ -291,7 +290,7 @@ func Test_vrchatapi_AuthenticationAPIService(t *testing.T) {
 
 	t.Run("Test AuthenticationAPIService VerifyRecoveryCode", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AuthenticationAPI.VerifyRecoveryCode(context.Background()).Execute()
 

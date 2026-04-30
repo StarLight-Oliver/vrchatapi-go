@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_JamsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_JamsAPIService(t *testing.T) {
 
 	t.Run("Test JamsAPIService GetJam", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var jamId string
 
@@ -39,7 +38,7 @@ func Test_vrchatapi_JamsAPIService(t *testing.T) {
 
 	t.Run("Test JamsAPIService GetJamSubmissions", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var jamId string
 
@@ -53,7 +52,7 @@ func Test_vrchatapi_JamsAPIService(t *testing.T) {
 
 	t.Run("Test JamsAPIService GetJams", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.JamsAPI.GetJams(context.Background()).Execute()
 

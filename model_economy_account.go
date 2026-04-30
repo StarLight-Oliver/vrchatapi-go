@@ -254,7 +254,6 @@ func (o *EconomyAccount) UnmarshalJSON(data []byte) (err error) {
 	varEconomyAccount := _EconomyAccount{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varEconomyAccount)
 
 	if err != nil {

@@ -109,7 +109,6 @@ func (o *PerformanceLimiterInfo) UnmarshalJSON(data []byte) (err error) {
 	varPerformanceLimiterInfo := _PerformanceLimiterInfo{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPerformanceLimiterInfo)
 
 	if err != nil {

@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService CreateAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.CreateAvatar(context.Background()).Execute()
 
@@ -37,7 +36,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService DeleteAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -51,7 +50,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService DeleteImpostor", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -64,7 +63,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService EnqueueImpostor", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -78,7 +77,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -92,7 +91,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetAvatarStyles", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.GetAvatarStyles(context.Background()).Execute()
 
@@ -104,7 +103,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetFavoritedAvatars", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.GetFavoritedAvatars(context.Background()).Execute()
 
@@ -116,7 +115,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetImpostorQueueStats", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.GetImpostorQueueStats(context.Background()).Execute()
 
@@ -128,7 +127,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetLicensedAvatars", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.GetLicensedAvatars(context.Background()).Execute()
 
@@ -140,7 +139,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService GetOwnAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var userId string
 
@@ -154,7 +153,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService SearchAvatars", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.AvatarsAPI.SearchAvatars(context.Background()).Execute()
 
@@ -166,7 +165,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService SelectAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -180,7 +179,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService SelectFallbackAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 
@@ -194,7 +193,7 @@ func Test_vrchatapi_AvatarsAPIService(t *testing.T) {
 
 	t.Run("Test AvatarsAPIService UpdateAvatar", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var avatarId string
 

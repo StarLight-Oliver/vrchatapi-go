@@ -248,7 +248,6 @@ func (o *UserSubscriptionEligible) UnmarshalJSON(data []byte) (err error) {
 	varUserSubscriptionEligible := _UserSubscriptionEligible{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUserSubscriptionEligible)
 
 	if err != nil {

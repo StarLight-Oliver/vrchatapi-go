@@ -1124,7 +1124,6 @@ func (o *FavoritedWorld) UnmarshalJSON(data []byte) (err error) {
 	varFavoritedWorld := _FavoritedWorld{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFavoritedWorld)
 
 	if err != nil {

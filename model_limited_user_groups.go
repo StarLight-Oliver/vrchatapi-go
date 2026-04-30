@@ -21,24 +21,24 @@ var _ MappedNullable = &LimitedUserGroups{}
 
 // LimitedUserGroups struct for LimitedUserGroups
 type LimitedUserGroups struct {
-	BannerId NullableString `json:"bannerId,omitempty"`
-	BannerUrl NullableString `json:"bannerUrl,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Discriminator *string `json:"discriminator,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	IconId NullableString `json:"iconId,omitempty"`
-	IconUrl NullableString `json:"iconUrl,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsRepresenting *bool `json:"isRepresenting,omitempty"`
-	LastPostCreatedAt NullableTime `json:"lastPostCreatedAt,omitempty"`
-	LastPostReadAt NullableTime `json:"lastPostReadAt,omitempty"`
-	MemberCount *int32 `json:"memberCount,omitempty"`
-	MemberVisibility *string `json:"memberVisibility,omitempty"`
-	MutualGroup *bool `json:"mutualGroup,omitempty"`
-	Name *string `json:"name,omitempty"`
+	BannerId          NullableString `json:"bannerId,omitempty"`
+	BannerUrl         NullableString `json:"bannerUrl,omitempty"`
+	Description       *string        `json:"description,omitempty"`
+	Discriminator     *string        `json:"discriminator,omitempty"`
+	GroupId           *string        `json:"groupId,omitempty"`
+	IconId            NullableString `json:"iconId,omitempty"`
+	IconUrl           NullableString `json:"iconUrl,omitempty"`
+	Id                *string        `json:"id,omitempty"`
+	IsRepresenting    *bool          `json:"isRepresenting,omitempty"`
+	LastPostCreatedAt NullableTime   `json:"lastPostCreatedAt,omitempty"`
+	LastPostReadAt    NullableTime   `json:"lastPostReadAt,omitempty"`
+	MemberCount       *int32         `json:"memberCount,omitempty"`
+	MemberVisibility  *string        `json:"memberVisibility,omitempty"`
+	MutualGroup       *bool          `json:"mutualGroup,omitempty"`
+	Name              *string        `json:"name,omitempty"`
 	// A users unique ID, usually in the form of `usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469`. Legacy players can have old IDs in the form of `8JoV9XEdpo`. The ID can never be changed.
-	OwnerId *string `json:"ownerId,omitempty"`
-	Privacy *string `json:"privacy,omitempty"`
+	OwnerId   *string `json:"ownerId,omitempty"`
+	Privacy   *string `json:"privacy,omitempty"`
 	ShortCode *string `json:"shortCode,omitempty"`
 }
 
@@ -91,6 +91,7 @@ func (o *LimitedUserGroups) HasBannerId() bool {
 func (o *LimitedUserGroups) SetBannerId(v string) {
 	o.BannerId.Set(&v)
 }
+
 // SetBannerIdNil sets the value for BannerId to be an explicit nil
 func (o *LimitedUserGroups) SetBannerIdNil() {
 	o.BannerId.Set(nil)
@@ -133,6 +134,7 @@ func (o *LimitedUserGroups) HasBannerUrl() bool {
 func (o *LimitedUserGroups) SetBannerUrl(v string) {
 	o.BannerUrl.Set(&v)
 }
+
 // SetBannerUrlNil sets the value for BannerUrl to be an explicit nil
 func (o *LimitedUserGroups) SetBannerUrlNil() {
 	o.BannerUrl.Set(nil)
@@ -271,6 +273,7 @@ func (o *LimitedUserGroups) HasIconId() bool {
 func (o *LimitedUserGroups) SetIconId(v string) {
 	o.IconId.Set(&v)
 }
+
 // SetIconIdNil sets the value for IconId to be an explicit nil
 func (o *LimitedUserGroups) SetIconIdNil() {
 	o.IconId.Set(nil)
@@ -313,6 +316,7 @@ func (o *LimitedUserGroups) HasIconUrl() bool {
 func (o *LimitedUserGroups) SetIconUrl(v string) {
 	o.IconUrl.Set(&v)
 }
+
 // SetIconUrlNil sets the value for IconUrl to be an explicit nil
 func (o *LimitedUserGroups) SetIconUrlNil() {
 	o.IconUrl.Set(nil)
@@ -419,6 +423,7 @@ func (o *LimitedUserGroups) HasLastPostCreatedAt() bool {
 func (o *LimitedUserGroups) SetLastPostCreatedAt(v time.Time) {
 	o.LastPostCreatedAt.Set(&v)
 }
+
 // SetLastPostCreatedAtNil sets the value for LastPostCreatedAt to be an explicit nil
 func (o *LimitedUserGroups) SetLastPostCreatedAtNil() {
 	o.LastPostCreatedAt.Set(nil)
@@ -461,6 +466,7 @@ func (o *LimitedUserGroups) HasLastPostReadAt() bool {
 func (o *LimitedUserGroups) SetLastPostReadAt(v time.Time) {
 	o.LastPostReadAt.Set(&v)
 }
+
 // SetLastPostReadAtNil sets the value for LastPostReadAt to be an explicit nil
 func (o *LimitedUserGroups) SetLastPostReadAtNil() {
 	o.LastPostReadAt.Set(nil)
@@ -696,7 +702,7 @@ func (o *LimitedUserGroups) SetShortCode(v string) {
 }
 
 func (o LimitedUserGroups) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -797,5 +803,3 @@ func (v *NullableLimitedUserGroups) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

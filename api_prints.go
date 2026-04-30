@@ -17,19 +17,18 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
+	"strings"
 	"time"
 )
-
 
 // PrintsAPIService PrintsAPI service
 type PrintsAPIService service
 
 type ApiDeletePrintRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrintsAPIService
-	printId string
+	printId    string
 }
 
 func (r ApiDeletePrintRequest) Execute() (*http.Response, error) {
@@ -41,24 +40,24 @@ DeletePrint Delete Print
 
 Returns a print.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param printId Print ID.
- @return ApiDeletePrintRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param printId Print ID.
+	@return ApiDeletePrintRequest
 */
 func (a *PrintsAPIService) DeletePrint(ctx context.Context, printId string) ApiDeletePrintRequest {
 	return ApiDeletePrintRequest{
 		ApiService: a,
-		ctx: ctx,
-		printId: printId,
+		ctx:        ctx,
+		printId:    printId,
 	}
 }
 
 // Execute executes the request
 func (a *PrintsAPIService) DeletePrintExecute(r ApiDeletePrintRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrintsAPIService.DeletePrint")
@@ -119,8 +118,8 @@ func (a *PrintsAPIService) DeletePrintExecute(r ApiDeletePrintRequest) (*http.Re
 				newErr.error = err.Error()
 				return localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarHTTPResponse, newErr
 	}
@@ -129,11 +128,11 @@ func (a *PrintsAPIService) DeletePrintExecute(r ApiDeletePrintRequest) (*http.Re
 }
 
 type ApiEditPrintRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrintsAPIService
-	printId string
-	image *os.File
-	note *string
+	printId    string
+	image      *os.File
+	note       *string
 }
 
 // The binary blob of the png file.
@@ -157,26 +156,27 @@ EditPrint Edit Print
 
 Edits a print.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param printId Print ID.
- @return ApiEditPrintRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param printId Print ID.
+	@return ApiEditPrintRequest
 */
 func (a *PrintsAPIService) EditPrint(ctx context.Context, printId string) ApiEditPrintRequest {
 	return ApiEditPrintRequest{
 		ApiService: a,
-		ctx: ctx,
-		printId: printId,
+		ctx:        ctx,
+		printId:    printId,
 	}
 }
 
 // Execute executes the request
-//  @return Print
+//
+//	@return Print
 func (a *PrintsAPIService) EditPrintExecute(r ApiEditPrintRequest) (*Print, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Print
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Print
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrintsAPIService.EditPrint")
@@ -212,8 +212,8 @@ func (a *PrintsAPIService) EditPrintExecute(r ApiEditPrintRequest) (*Print, *htt
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var imageLocalVarFormFileName string
-	var imageLocalVarFileName     string
-	var imageLocalVarFileBytes    []byte
+	var imageLocalVarFileName string
+	var imageLocalVarFileBytes []byte
 
 	imageLocalVarFormFileName = "image"
 	imageLocalVarFile := r.image
@@ -258,8 +258,8 @@ func (a *PrintsAPIService) EditPrintExecute(r ApiEditPrintRequest) (*Print, *htt
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -277,9 +277,9 @@ func (a *PrintsAPIService) EditPrintExecute(r ApiEditPrintRequest) (*Print, *htt
 }
 
 type ApiGetPrintRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrintsAPIService
-	printId string
+	printId    string
 }
 
 func (r ApiGetPrintRequest) Execute() (*Print, *http.Response, error) {
@@ -291,26 +291,27 @@ GetPrint Get Print
 
 Returns a print.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param printId Print ID.
- @return ApiGetPrintRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param printId Print ID.
+	@return ApiGetPrintRequest
 */
 func (a *PrintsAPIService) GetPrint(ctx context.Context, printId string) ApiGetPrintRequest {
 	return ApiGetPrintRequest{
 		ApiService: a,
-		ctx: ctx,
-		printId: printId,
+		ctx:        ctx,
+		printId:    printId,
 	}
 }
 
 // Execute executes the request
-//  @return Print
+//
+//	@return Print
 func (a *PrintsAPIService) GetPrintExecute(r ApiGetPrintRequest) (*Print, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Print
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Print
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrintsAPIService.GetPrint")
@@ -371,8 +372,8 @@ func (a *PrintsAPIService) GetPrintExecute(r ApiGetPrintRequest) (*Print, *http.
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -390,9 +391,9 @@ func (a *PrintsAPIService) GetPrintExecute(r ApiGetPrintRequest) (*Print, *http.
 }
 
 type ApiGetUserPrintsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrintsAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiGetUserPrintsRequest) Execute() ([]Print, *http.Response, error) {
@@ -404,26 +405,27 @@ GetUserPrints Get Own Prints
 
 Returns a list of all prints of the user. User id has to be your own userId, as you can't request other user's prints.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiGetUserPrintsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiGetUserPrintsRequest
 */
 func (a *PrintsAPIService) GetUserPrints(ctx context.Context, userId string) ApiGetUserPrintsRequest {
 	return ApiGetUserPrintsRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return []Print
+//
+//	@return []Print
 func (a *PrintsAPIService) GetUserPrintsExecute(r ApiGetUserPrintsRequest) ([]Print, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Print
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Print
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrintsAPIService.GetUserPrints")
@@ -484,8 +486,8 @@ func (a *PrintsAPIService) GetUserPrintsExecute(r ApiGetUserPrintsRequest) ([]Pr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -495,8 +497,8 @@ func (a *PrintsAPIService) GetUserPrintsExecute(r ApiGetUserPrintsRequest) ([]Pr
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -514,13 +516,13 @@ func (a *PrintsAPIService) GetUserPrintsExecute(r ApiGetUserPrintsRequest) ([]Pr
 }
 
 type ApiUploadPrintRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *PrintsAPIService
-	image *os.File
-	timestamp *time.Time
-	note *string
-	worldId *string
-	worldName *string
+	image      *os.File
+	timestamp  *time.Time
+	note       *string
+	worldId    *string
+	worldName  *string
 }
 
 // The binary blob of the png file.
@@ -562,24 +564,25 @@ UploadPrint Upload Print
 
 Uploads and creates a print.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiUploadPrintRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiUploadPrintRequest
 */
 func (a *PrintsAPIService) UploadPrint(ctx context.Context) ApiUploadPrintRequest {
 	return ApiUploadPrintRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Print
+//
+//	@return Print
 func (a *PrintsAPIService) UploadPrintExecute(r ApiUploadPrintRequest) (*Print, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Print
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Print
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "PrintsAPIService.UploadPrint")
@@ -617,8 +620,8 @@ func (a *PrintsAPIService) UploadPrintExecute(r ApiUploadPrintRequest) (*Print, 
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	var imageLocalVarFormFileName string
-	var imageLocalVarFileName     string
-	var imageLocalVarFileBytes    []byte
+	var imageLocalVarFileName string
+	var imageLocalVarFileBytes []byte
 
 	imageLocalVarFormFileName = "image"
 	imageLocalVarFile := r.image
@@ -670,8 +673,8 @@ func (a *PrintsAPIService) UploadPrintExecute(r ApiUploadPrintRequest) (*Print, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

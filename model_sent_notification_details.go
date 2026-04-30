@@ -19,13 +19,13 @@ import (
 
 // SentNotificationDetails - struct for SentNotificationDetails
 type SentNotificationDetails struct {
-	NotificationDetailBoop *NotificationDetailBoop
-	NotificationDetailInvite *NotificationDetailInvite
-	NotificationDetailInviteResponse *NotificationDetailInviteResponse
-	NotificationDetailRequestInvite *NotificationDetailRequestInvite
+	NotificationDetailBoop                  *NotificationDetailBoop
+	NotificationDetailInvite                *NotificationDetailInvite
+	NotificationDetailInviteResponse        *NotificationDetailInviteResponse
+	NotificationDetailRequestInvite         *NotificationDetailRequestInvite
 	NotificationDetailRequestInviteResponse *NotificationDetailRequestInviteResponse
-	NotificationDetailVoteToKick *NotificationDetailVoteToKick
-	MapmapOfStringAny *map[string]interface{}
+	NotificationDetailVoteToKick            *NotificationDetailVoteToKick
+	MapmapOfStringAny                       *map[string]interface{}
 }
 
 // NotificationDetailBoopAsSentNotificationDetails is a convenience function that returns NotificationDetailBoop wrapped in SentNotificationDetails
@@ -76,7 +76,6 @@ func MapmapOfStringAnyAsSentNotificationDetails(v *map[string]interface{}) SentN
 		MapmapOfStringAny: v,
 	}
 }
-
 
 // Unmarshal JSON data into one of the pointers in the struct
 func (dst *SentNotificationDetails) UnmarshalJSON(data []byte) error {
@@ -253,7 +252,7 @@ func (src SentNotificationDetails) MarshalJSON() ([]byte, error) {
 }
 
 // Get the actual instance
-func (obj *SentNotificationDetails) GetActualInstance() (interface{}) {
+func (obj *SentNotificationDetails) GetActualInstance() interface{} {
 	if obj == nil {
 		return nil
 	}
@@ -290,7 +289,7 @@ func (obj *SentNotificationDetails) GetActualInstance() (interface{}) {
 }
 
 // Get the actual instance value
-func (obj SentNotificationDetails) GetActualInstanceValue() (interface{}) {
+func (obj SentNotificationDetails) GetActualInstanceValue() interface{} {
 	if obj.NotificationDetailBoop != nil {
 		return *obj.NotificationDetailBoop
 	}
@@ -358,5 +357,3 @@ func (v *NullableSentNotificationDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

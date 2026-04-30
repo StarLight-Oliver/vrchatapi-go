@@ -20,13 +20,13 @@ var _ MappedNullable = &UserNoteTargetUser{}
 
 // UserNoteTargetUser struct for UserNoteTargetUser
 type UserNoteTargetUser struct {
-	Id *string `json:"id,omitempty"`
+	Id                *string  `json:"id,omitempty"`
 	CurrentAvatarTags []string `json:"currentAvatarTags,omitempty"`
 	// When profilePicOverride is not empty, use it instead.
-	CurrentAvatarThumbnailImageUrl *string `json:"currentAvatarThumbnailImageUrl,omitempty"`
-	DisplayName *string `json:"displayName,omitempty"`
-	ProfilePicOverride NullableString `json:"profilePicOverride,omitempty"`
-	UserIcon *string `json:"userIcon,omitempty"`
+	CurrentAvatarThumbnailImageUrl *string        `json:"currentAvatarThumbnailImageUrl,omitempty"`
+	DisplayName                    *string        `json:"displayName,omitempty"`
+	ProfilePicOverride             NullableString `json:"profilePicOverride,omitempty"`
+	UserIcon                       *string        `json:"userIcon,omitempty"`
 }
 
 // NewUserNoteTargetUser instantiates a new UserNoteTargetUser object
@@ -206,6 +206,7 @@ func (o *UserNoteTargetUser) HasProfilePicOverride() bool {
 func (o *UserNoteTargetUser) SetProfilePicOverride(v string) {
 	o.ProfilePicOverride.Set(&v)
 }
+
 // SetProfilePicOverrideNil sets the value for ProfilePicOverride to be an explicit nil
 func (o *UserNoteTargetUser) SetProfilePicOverrideNil() {
 	o.ProfilePicOverride.Set(nil)
@@ -249,7 +250,7 @@ func (o *UserNoteTargetUser) SetUserIcon(v string) {
 }
 
 func (o UserNoteTargetUser) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -314,5 +315,3 @@ func (v *NullableUserNoteTargetUser) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -148,7 +148,6 @@ func (o *Verify2FAResult) UnmarshalJSON(data []byte) (err error) {
 	varVerify2FAResult := _Verify2FAResult{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varVerify2FAResult)
 
 	if err != nil {

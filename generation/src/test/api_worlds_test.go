@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_WorldsAPIService(t *testing.T) {
@@ -23,9 +22,23 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	t.Run("Test WorldsAPIService CheckUserPersistenceExists", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+		var worldId string
+
+		httpRes, err := apiClient.WorldsAPI.CheckUserPersistenceExists(context.Background(), userId, worldId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test WorldsAPIService CreateWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WorldsAPI.CreateWorld(context.Background()).Execute()
 
@@ -35,9 +48,36 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	})
 
+	t.Run("Test WorldsAPIService DeleteAllUserPersistenceData", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+
+		httpRes, err := apiClient.WorldsAPI.DeleteAllUserPersistenceData(context.Background(), userId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
+	t.Run("Test WorldsAPIService DeleteUserPersistence", func(t *testing.T) {
+
+		t.Skip("skip test")  // remove to run test
+
+		var userId string
+		var worldId string
+
+		httpRes, err := apiClient.WorldsAPI.DeleteUserPersistence(context.Background(), userId, worldId).Execute()
+
+		require.Nil(t, err)
+		assert.Equal(t, 200, httpRes.StatusCode)
+
+	})
+
 	t.Run("Test WorldsAPIService DeleteWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -50,7 +90,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetActiveWorlds", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WorldsAPI.GetActiveWorlds(context.Background()).Execute()
 
@@ -62,7 +102,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetFavoritedWorlds", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WorldsAPI.GetFavoritedWorlds(context.Background()).Execute()
 
@@ -74,7 +114,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetRecentWorlds", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WorldsAPI.GetRecentWorlds(context.Background()).Execute()
 
@@ -86,7 +126,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -100,7 +140,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetWorldInstance", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 		var instanceId string
@@ -115,7 +155,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetWorldMetadata", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -129,7 +169,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService GetWorldPublishStatus", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -143,7 +183,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService PublishWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -156,7 +196,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService SearchWorlds", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.WorldsAPI.SearchWorlds(context.Background()).Execute()
 
@@ -168,7 +208,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService UnpublishWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 
@@ -181,7 +221,7 @@ func Test_vrchatapi_WorldsAPIService(t *testing.T) {
 
 	t.Run("Test WorldsAPIService UpdateWorld", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var worldId string
 

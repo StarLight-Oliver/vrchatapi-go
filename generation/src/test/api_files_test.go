@@ -11,11 +11,10 @@ package vrchatapi
 
 import (
 	"context"
-	"testing"
-
-	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"testing"
+	openapiclient "github.com/StarLight-Oliver/vrchatapi-go"
 )
 
 func Test_vrchatapi_FilesAPIService(t *testing.T) {
@@ -25,7 +24,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService CreateFile", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.CreateFile(context.Background()).Execute()
 
@@ -37,7 +36,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService CreateFileVersion", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 
@@ -51,7 +50,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService DeleteFile", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 
@@ -65,7 +64,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService DeleteFileVersion", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -80,7 +79,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService DownloadFileVersion", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -95,7 +94,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService FinishFileDataUpload", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -111,7 +110,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetAdminAssetBundle", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var adminAssetBundleId string
 
@@ -125,7 +124,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetContentAgreementStatus", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.GetContentAgreementStatus(context.Background()).Execute()
 
@@ -137,7 +136,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFile", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 
@@ -151,7 +150,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFileAnalysis", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -166,7 +165,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFileAnalysisSecurity", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -181,7 +180,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFileAnalysisStandard", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -196,7 +195,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFileDataUploadStatus", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -212,7 +211,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService GetFiles", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.GetFiles(context.Background()).Execute()
 
@@ -224,7 +223,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService SetGroupGalleryFileOrder", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.SetGroupGalleryFileOrder(context.Background()).Execute()
 
@@ -236,7 +235,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService StartFileDataUpload", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var fileId string
 		var versionId int32
@@ -252,7 +251,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService SubmitContentAgreement", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.SubmitContentAgreement(context.Background()).Execute()
 
@@ -264,7 +263,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService UpdateAssetReviewNotes", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		var assetReviewId string
 
@@ -277,7 +276,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService UploadGalleryImage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.UploadGalleryImage(context.Background()).Execute()
 
@@ -289,7 +288,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService UploadIcon", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.UploadIcon(context.Background()).Execute()
 
@@ -301,7 +300,7 @@ func Test_vrchatapi_FilesAPIService(t *testing.T) {
 
 	t.Run("Test FilesAPIService UploadImage", func(t *testing.T) {
 
-		t.Skip("skip test") // remove to run test
+		t.Skip("skip test")  // remove to run test
 
 		resp, httpRes, err := apiClient.FilesAPI.UploadImage(context.Background()).Execute()
 

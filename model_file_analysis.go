@@ -301,7 +301,6 @@ func (o *FileAnalysis) UnmarshalJSON(data []byte) (err error) {
 	varFileAnalysis := _FileAnalysis{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varFileAnalysis)
 
 	if err != nil {

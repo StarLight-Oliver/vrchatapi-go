@@ -18,7 +18,7 @@ import (
 // checks if the DiscordDetails type satisfies the MappedNullable interface at compile time
 var _ MappedNullable = &DiscordDetails{}
 
-// DiscordDetails 
+// DiscordDetails
 type DiscordDetails struct {
 	GlobalName *string `json:"global_name,omitempty"`
 	// https://discord.com/developers/docs/reference#snowflakes
@@ -107,7 +107,7 @@ func (o *DiscordDetails) SetId(v string) {
 }
 
 func (o DiscordDetails) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -160,5 +160,3 @@ func (v *NullableDiscordDetails) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

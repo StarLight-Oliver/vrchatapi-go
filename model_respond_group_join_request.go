@@ -145,7 +145,6 @@ func (o *RespondGroupJoinRequest) UnmarshalJSON(data []byte) (err error) {
 	varRespondGroupJoinRequest := _RespondGroupJoinRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varRespondGroupJoinRequest)
 
 	if err != nil {

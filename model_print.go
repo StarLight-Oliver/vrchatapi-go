@@ -372,7 +372,6 @@ func (o *Print) UnmarshalJSON(data []byte) (err error) {
 	varPrint := _Print{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varPrint)
 
 	if err != nil {

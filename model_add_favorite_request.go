@@ -168,7 +168,6 @@ func (o *AddFavoriteRequest) UnmarshalJSON(data []byte) (err error) {
 	varAddFavoriteRequest := _AddFavoriteRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-	//
 	err = decoder.Decode(&varAddFavoriteRequest)
 
 	if err != nil {

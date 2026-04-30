@@ -20,14 +20,13 @@ import (
 	"strings"
 )
 
-
 // JamsAPIService JamsAPI service
 type JamsAPIService service
 
 type ApiGetJamRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *JamsAPIService
-	jamId string
+	jamId      string
 }
 
 func (r ApiGetJamRequest) Execute() (*Jam, *http.Response, error) {
@@ -39,26 +38,27 @@ GetJam Show jam information
 
 Returns a jam.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param jamId Must be a valid query ID.
- @return ApiGetJamRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param jamId Must be a valid query ID.
+	@return ApiGetJamRequest
 */
 func (a *JamsAPIService) GetJam(ctx context.Context, jamId string) ApiGetJamRequest {
 	return ApiGetJamRequest{
 		ApiService: a,
-		ctx: ctx,
-		jamId: jamId,
+		ctx:        ctx,
+		jamId:      jamId,
 	}
 }
 
 // Execute executes the request
-//  @return Jam
+//
+//	@return Jam
 func (a *JamsAPIService) GetJamExecute(r ApiGetJamRequest) (*Jam, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Jam
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Jam
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JamsAPIService.GetJam")
@@ -119,8 +119,8 @@ func (a *JamsAPIService) GetJamExecute(r ApiGetJamRequest) (*Jam, *http.Response
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -138,9 +138,9 @@ func (a *JamsAPIService) GetJamExecute(r ApiGetJamRequest) (*Jam, *http.Response
 }
 
 type ApiGetJamSubmissionsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *JamsAPIService
-	jamId string
+	jamId      string
 }
 
 func (r ApiGetJamSubmissionsRequest) Execute() ([]Submission, *http.Response, error) {
@@ -152,26 +152,27 @@ GetJamSubmissions Show jam submissions
 
 Returns all submissions of a jam.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param jamId Must be a valid query ID.
- @return ApiGetJamSubmissionsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param jamId Must be a valid query ID.
+	@return ApiGetJamSubmissionsRequest
 */
 func (a *JamsAPIService) GetJamSubmissions(ctx context.Context, jamId string) ApiGetJamSubmissionsRequest {
 	return ApiGetJamSubmissionsRequest{
 		ApiService: a,
-		ctx: ctx,
-		jamId: jamId,
+		ctx:        ctx,
+		jamId:      jamId,
 	}
 }
 
 // Execute executes the request
-//  @return []Submission
+//
+//	@return []Submission
 func (a *JamsAPIService) GetJamSubmissionsExecute(r ApiGetJamSubmissionsRequest) ([]Submission, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Submission
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Submission
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JamsAPIService.GetJamSubmissions")
@@ -232,8 +233,8 @@ func (a *JamsAPIService) GetJamSubmissionsExecute(r ApiGetJamSubmissionsRequest)
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -251,9 +252,9 @@ func (a *JamsAPIService) GetJamSubmissionsExecute(r ApiGetJamSubmissionsRequest)
 }
 
 type ApiGetJamsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *JamsAPIService
-	type_ *string
+	type_      *string
 }
 
 // Only show jams of this type (&#x60;avatar&#x60; or &#x60;world&#x60;).
@@ -274,26 +275,27 @@ Lists World Jams or Avatar Jams, both currently running and ones that have ended
 `isActive` is used to select only active or already ended jams.
 
 `type` is used to select only world or avatar jams, and can only take `world` or `avatar`.
-``
+“
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetJamsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetJamsRequest
 */
 func (a *JamsAPIService) GetJams(ctx context.Context) ApiGetJamsRequest {
 	return ApiGetJamsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Jam
+//
+//	@return []Jam
 func (a *JamsAPIService) GetJamsExecute(r ApiGetJamsRequest) ([]Jam, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Jam
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Jam
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "JamsAPIService.GetJams")

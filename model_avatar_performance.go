@@ -20,12 +20,12 @@ var _ MappedNullable = &AvatarPerformance{}
 
 // AvatarPerformance struct for AvatarPerformance
 type AvatarPerformance struct {
-	Android *string `json:"android,omitempty"`
-	AndroidSort *int32 `json:"android-sort,omitempty"`
-	Ios *string `json:"ios,omitempty"`
-	IosSort *int32 `json:"ios-sort,omitempty"`
-	Standalonewindows *string `json:"standalonewindows,omitempty"`
-	StandalonewindowsSort *int32 `json:"standalonewindows-sort,omitempty"`
+	Android               *string `json:"android,omitempty"`
+	AndroidSort           *int32  `json:"android-sort,omitempty"`
+	Ios                   *string `json:"ios,omitempty"`
+	IosSort               *int32  `json:"ios-sort,omitempty"`
+	Standalonewindows     *string `json:"standalonewindows,omitempty"`
+	StandalonewindowsSort *int32  `json:"standalonewindows-sort,omitempty"`
 }
 
 // NewAvatarPerformance instantiates a new AvatarPerformance object
@@ -238,7 +238,7 @@ func (o *AvatarPerformance) SetStandalonewindowsSort(v int32) {
 }
 
 func (o AvatarPerformance) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -303,5 +303,3 @@ func (v *NullableAvatarPerformance) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

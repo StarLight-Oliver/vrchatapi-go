@@ -229,7 +229,6 @@ func (o *APIConfigDownloadURLList) UnmarshalJSON(data []byte) (err error) {
 	varAPIConfigDownloadURLList := _APIConfigDownloadURLList{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varAPIConfigDownloadURLList)
 
 	if err != nil {

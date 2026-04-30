@@ -20,12 +20,11 @@ import (
 	"strings"
 )
 
-
 // AuthenticationAPIService AuthenticationAPI service
 type AuthenticationAPIService service
 
 type ApiCancelPending2FARequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -38,24 +37,25 @@ CancelPending2FA Cancel pending enabling of time-based 2FA codes
 
 Cancels the sequence for enabling time-based 2FA.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCancelPending2FARequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCancelPending2FARequest
 */
 func (a *AuthenticationAPIService) CancelPending2FA(ctx context.Context) ApiCancelPending2FARequest {
 	return ApiCancelPending2FARequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Disable2FAResult
+//
+//	@return Disable2FAResult
 func (a *AuthenticationAPIService) CancelPending2FAExecute(r ApiCancelPending2FARequest) (*Disable2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Disable2FAResult
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Disable2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.CancelPending2FA")
@@ -115,8 +115,8 @@ func (a *AuthenticationAPIService) CancelPending2FAExecute(r ApiCancelPending2FA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -134,11 +134,11 @@ func (a *AuthenticationAPIService) CancelPending2FAExecute(r ApiCancelPending2FA
 }
 
 type ApiCheckUserExistsRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
-	email *string
-	displayName *string
-	username *string
+	ctx           context.Context
+	ApiService    *AuthenticationAPIService
+	email         *string
+	displayName   *string
+	username      *string
 	excludeUserId *string
 }
 
@@ -177,24 +177,25 @@ Checks if a user by a given `username`, `displayName` or `email` exist. This is 
 
 It is **REQUIRED** to include **AT LEAST** `username`, `displayName` **or** `email` query parameter. Although they can be combined - in addition with `excludeUserId` (generally to exclude yourself) - to further fine-tune the search.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCheckUserExistsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCheckUserExistsRequest
 */
 func (a *AuthenticationAPIService) CheckUserExists(ctx context.Context) ApiCheckUserExistsRequest {
 	return ApiCheckUserExistsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return UserExists
+//
+//	@return UserExists
 func (a *AuthenticationAPIService) CheckUserExistsExecute(r ApiCheckUserExistsRequest) (*UserExists, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *UserExists
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *UserExists
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.CheckUserExists")
@@ -266,8 +267,8 @@ func (a *AuthenticationAPIService) CheckUserExistsExecute(r ApiCheckUserExistsRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -285,9 +286,9 @@ func (a *AuthenticationAPIService) CheckUserExistsExecute(r ApiCheckUserExistsRe
 }
 
 type ApiConfirmEmailRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
-	id *string
+	ctx         context.Context
+	ApiService  *AuthenticationAPIService
+	id          *string
 	verifyEmail *string
 }
 
@@ -312,22 +313,22 @@ ConfirmEmail Confirm Email
 
 Confirms the email address for a user
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiConfirmEmailRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiConfirmEmailRequest
 */
 func (a *AuthenticationAPIService) ConfirmEmail(ctx context.Context) ApiConfirmEmailRequest {
 	return ApiConfirmEmailRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AuthenticationAPIService) ConfirmEmailExecute(r ApiConfirmEmailRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.ConfirmEmail")
@@ -395,8 +396,8 @@ func (a *AuthenticationAPIService) ConfirmEmailExecute(r ApiConfirmEmailRequest)
 }
 
 type ApiCreateGlobalAvatarModerationRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx                           context.Context
+	ApiService                    *AuthenticationAPIService
 	createAvatarModerationRequest *CreateAvatarModerationRequest
 }
 
@@ -414,24 +415,25 @@ CreateGlobalAvatarModeration Create Global Avatar Moderation
 
 Globally moderates an avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCreateGlobalAvatarModerationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCreateGlobalAvatarModerationRequest
 */
 func (a *AuthenticationAPIService) CreateGlobalAvatarModeration(ctx context.Context) ApiCreateGlobalAvatarModerationRequest {
 	return ApiCreateGlobalAvatarModerationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return AvatarModerationCreated
+//
+//	@return AvatarModerationCreated
 func (a *AuthenticationAPIService) CreateGlobalAvatarModerationExecute(r ApiCreateGlobalAvatarModerationRequest) (*AvatarModerationCreated, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *AvatarModerationCreated
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *AvatarModerationCreated
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.CreateGlobalAvatarModeration")
@@ -496,8 +498,8 @@ func (a *AuthenticationAPIService) CreateGlobalAvatarModerationExecute(r ApiCrea
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -515,9 +517,9 @@ func (a *AuthenticationAPIService) CreateGlobalAvatarModerationExecute(r ApiCrea
 }
 
 type ApiDeleteGlobalAvatarModerationRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
-	targetAvatarId *string
+	ctx                  context.Context
+	ApiService           *AuthenticationAPIService
+	targetAvatarId       *string
 	avatarModerationType *AvatarModerationType
 }
 
@@ -542,24 +544,25 @@ DeleteGlobalAvatarModeration Delete Global Avatar Moderation
 
 Globally unmoderates an avatar.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDeleteGlobalAvatarModerationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDeleteGlobalAvatarModerationRequest
 */
 func (a *AuthenticationAPIService) DeleteGlobalAvatarModeration(ctx context.Context) ApiDeleteGlobalAvatarModerationRequest {
 	return ApiDeleteGlobalAvatarModerationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return OkStatus2
+//
+//	@return OkStatus2
 func (a *AuthenticationAPIService) DeleteGlobalAvatarModerationExecute(r ApiDeleteGlobalAvatarModerationRequest) (*OkStatus2, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *OkStatus2
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *OkStatus2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.DeleteGlobalAvatarModeration")
@@ -627,8 +630,8 @@ func (a *AuthenticationAPIService) DeleteGlobalAvatarModerationExecute(r ApiDele
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -646,8 +649,8 @@ func (a *AuthenticationAPIService) DeleteGlobalAvatarModerationExecute(r ApiDele
 }
 
 type ApiDeleteModerationReportRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx                context.Context
+	ApiService         *AuthenticationAPIService
 	moderationReportId string
 }
 
@@ -660,26 +663,27 @@ DeleteModerationReport Delete Moderation Report
 
 Delete a moderation report
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param moderationReportId The moderation report id.
- @return ApiDeleteModerationReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param moderationReportId The moderation report id.
+	@return ApiDeleteModerationReportRequest
 */
 func (a *AuthenticationAPIService) DeleteModerationReport(ctx context.Context, moderationReportId string) ApiDeleteModerationReportRequest {
 	return ApiDeleteModerationReportRequest{
-		ApiService: a,
-		ctx: ctx,
+		ApiService:         a,
+		ctx:                ctx,
 		moderationReportId: moderationReportId,
 	}
 }
 
 // Execute executes the request
-//  @return SuccessFlag
+//
+//	@return SuccessFlag
 func (a *AuthenticationAPIService) DeleteModerationReportExecute(r ApiDeleteModerationReportRequest) (*SuccessFlag, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *SuccessFlag
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *SuccessFlag
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.DeleteModerationReport")
@@ -740,8 +744,8 @@ func (a *AuthenticationAPIService) DeleteModerationReportExecute(r ApiDeleteMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -751,8 +755,8 @@ func (a *AuthenticationAPIService) DeleteModerationReportExecute(r ApiDeleteMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -770,9 +774,9 @@ func (a *AuthenticationAPIService) DeleteModerationReportExecute(r ApiDeleteMode
 }
 
 type ApiDeleteUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
-	userId string
+	userId     string
 }
 
 func (r ApiDeleteUserRequest) Execute() (*CurrentUser, *http.Response, error) {
@@ -788,26 +792,27 @@ Deletes the account with given ID. Normal users only have permission to delete t
 
 **METHOD NOTE:** Despite this being a Delete action, the method type required is PUT.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param userId Must be a valid user ID.
- @return ApiDeleteUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param userId Must be a valid user ID.
+	@return ApiDeleteUserRequest
 */
 func (a *AuthenticationAPIService) DeleteUser(ctx context.Context, userId string) ApiDeleteUserRequest {
 	return ApiDeleteUserRequest{
 		ApiService: a,
-		ctx: ctx,
-		userId: userId,
+		ctx:        ctx,
+		userId:     userId,
 	}
 }
 
 // Execute executes the request
-//  @return CurrentUser
+//
+//	@return CurrentUser
 func (a *AuthenticationAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*CurrentUser, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CurrentUser
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CurrentUser
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.DeleteUser")
@@ -868,8 +873,8 @@ func (a *AuthenticationAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*C
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -887,7 +892,7 @@ func (a *AuthenticationAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*C
 }
 
 type ApiDisable2FARequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -900,24 +905,25 @@ Disable2FA Disable 2FA
 
 Disables 2FA for the currently logged in account
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiDisable2FARequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDisable2FARequest
 */
 func (a *AuthenticationAPIService) Disable2FA(ctx context.Context) ApiDisable2FARequest {
 	return ApiDisable2FARequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Disable2FAResult
+//
+//	@return Disable2FAResult
 func (a *AuthenticationAPIService) Disable2FAExecute(r ApiDisable2FARequest) (*Disable2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Disable2FAResult
+		localVarHTTPMethod  = http.MethodDelete
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Disable2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Disable2FA")
@@ -977,8 +983,8 @@ func (a *AuthenticationAPIService) Disable2FAExecute(r ApiDisable2FARequest) (*D
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -996,7 +1002,7 @@ func (a *AuthenticationAPIService) Disable2FAExecute(r ApiDisable2FARequest) (*D
 }
 
 type ApiEnable2FARequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1009,24 +1015,25 @@ Enable2FA Enable time-based 2FA codes
 
 Begins the sequence for enabling time-based 2FA.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiEnable2FARequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiEnable2FARequest
 */
 func (a *AuthenticationAPIService) Enable2FA(ctx context.Context) ApiEnable2FARequest {
 	return ApiEnable2FARequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Pending2FAResult
+//
+//	@return Pending2FAResult
 func (a *AuthenticationAPIService) Enable2FAExecute(r ApiEnable2FARequest) (*Pending2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Pending2FAResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Pending2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Enable2FA")
@@ -1086,8 +1093,8 @@ func (a *AuthenticationAPIService) Enable2FAExecute(r ApiEnable2FARequest) (*Pen
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1105,7 +1112,7 @@ func (a *AuthenticationAPIService) Enable2FAExecute(r ApiEnable2FARequest) (*Pen
 }
 
 type ApiGetCurrentUserRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1117,8 +1124,8 @@ func (r ApiGetCurrentUserRequest) Execute() (*RegisterUserAccount200Response, *h
 GetCurrentUser Login and/or Get Current User Info
 
 This endpoint does the following two operations:
-  1) Checks if you are already logged in by looking for a valid `auth` cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the `Authorization` header and set the `auth` cookie. The `auth` cookie will only be sent once.
-  2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.
+ 1. Checks if you are already logged in by looking for a valid `auth` cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the `Authorization` header and set the `auth` cookie. The `auth` cookie will only be sent once.
+ 2. If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.
 
 The auth string after `Authorization: Basic {string}` is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.
 
@@ -1126,24 +1133,25 @@ The auth string after `Authorization: Basic {string}` is a base64-encoded string
 
 **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the `auth` cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetCurrentUserRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetCurrentUserRequest
 */
 func (a *AuthenticationAPIService) GetCurrentUser(ctx context.Context) ApiGetCurrentUserRequest {
 	return ApiGetCurrentUserRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RegisterUserAccount200Response
+//
+//	@return RegisterUserAccount200Response
 func (a *AuthenticationAPIService) GetCurrentUserExecute(r ApiGetCurrentUserRequest) (*RegisterUserAccount200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RegisterUserAccount200Response
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RegisterUserAccount200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.GetCurrentUser")
@@ -1203,8 +1211,8 @@ func (a *AuthenticationAPIService) GetCurrentUserExecute(r ApiGetCurrentUserRequ
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1222,7 +1230,7 @@ func (a *AuthenticationAPIService) GetCurrentUserExecute(r ApiGetCurrentUserRequ
 }
 
 type ApiGetGlobalAvatarModerationsRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1235,24 +1243,25 @@ GetGlobalAvatarModerations Get Global Avatar Moderations
 
 Returns list of globally moderated avatars.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetGlobalAvatarModerationsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetGlobalAvatarModerationsRequest
 */
 func (a *AuthenticationAPIService) GetGlobalAvatarModerations(ctx context.Context) ApiGetGlobalAvatarModerationsRequest {
 	return ApiGetGlobalAvatarModerationsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []AvatarModeration
+//
+//	@return []AvatarModeration
 func (a *AuthenticationAPIService) GetGlobalAvatarModerationsExecute(r ApiGetGlobalAvatarModerationsRequest) ([]AvatarModeration, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvatarModeration
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvatarModeration
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.GetGlobalAvatarModerations")
@@ -1312,8 +1321,8 @@ func (a *AuthenticationAPIService) GetGlobalAvatarModerationsExecute(r ApiGetGlo
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1331,13 +1340,13 @@ func (a *AuthenticationAPIService) GetGlobalAvatarModerationsExecute(r ApiGetGlo
 }
 
 type ApiGetModerationReportsRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
-	offset *int32
-	n *int32
+	ctx             context.Context
+	ApiService      *AuthenticationAPIService
+	offset          *int32
+	n               *int32
 	reportingUserId *string
-	status *string
-	type_ *string
+	status          *string
+	type_           *string
 }
 
 // A zero-based offset from the default object sorting from where search results start.
@@ -1379,24 +1388,25 @@ GetModerationReports Get Moderation Reports
 
 Get submitted moderation reports
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetModerationReportsRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetModerationReportsRequest
 */
 func (a *AuthenticationAPIService) GetModerationReports(ctx context.Context) ApiGetModerationReportsRequest {
 	return ApiGetModerationReportsRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedModerationReportList
+//
+//	@return PaginatedModerationReportList
 func (a *AuthenticationAPIService) GetModerationReportsExecute(r ApiGetModerationReportsRequest) (*PaginatedModerationReportList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedModerationReportList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedModerationReportList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.GetModerationReports")
@@ -1416,9 +1426,9 @@ func (a *AuthenticationAPIService) GetModerationReportsExecute(r ApiGetModeratio
 	if r.n != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "n", r.n, "form", "")
 	} else {
-        var defaultValue int32 = 60
-        parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
-        r.n = &defaultValue
+		var defaultValue int32 = 60
+		parameterAddToHeaderOrQuery(localVarQueryParams, "n", defaultValue, "form", "")
+		r.n = &defaultValue
 	}
 	if r.reportingUserId != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "reportingUserId", r.reportingUserId, "form", "")
@@ -1475,8 +1485,8 @@ func (a *AuthenticationAPIService) GetModerationReportsExecute(r ApiGetModeratio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
@@ -1486,8 +1496,8 @@ func (a *AuthenticationAPIService) GetModerationReportsExecute(r ApiGetModeratio
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1505,7 +1515,7 @@ func (a *AuthenticationAPIService) GetModerationReportsExecute(r ApiGetModeratio
 }
 
 type ApiGetRecoveryCodesRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1518,24 +1528,25 @@ GetRecoveryCodes Get 2FA Recovery codes
 
 Gets the OTP (One Time Password) recovery codes for accounts with 2FA-protection enabled.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiGetRecoveryCodesRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiGetRecoveryCodesRequest
 */
 func (a *AuthenticationAPIService) GetRecoveryCodes(ctx context.Context) ApiGetRecoveryCodesRequest {
 	return ApiGetRecoveryCodesRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return TwoFactorRecoveryCodes
+//
+//	@return TwoFactorRecoveryCodes
 func (a *AuthenticationAPIService) GetRecoveryCodesExecute(r ApiGetRecoveryCodesRequest) (*TwoFactorRecoveryCodes, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *TwoFactorRecoveryCodes
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *TwoFactorRecoveryCodes
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.GetRecoveryCodes")
@@ -1595,8 +1606,8 @@ func (a *AuthenticationAPIService) GetRecoveryCodesExecute(r ApiGetRecoveryCodes
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1614,7 +1625,7 @@ func (a *AuthenticationAPIService) GetRecoveryCodesExecute(r ApiGetRecoveryCodes
 }
 
 type ApiLogoutRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1627,24 +1638,25 @@ Logout Logout
 
 Invalidates the login session.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiLogoutRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiLogoutRequest
 */
 func (a *AuthenticationAPIService) Logout(ctx context.Context) ApiLogoutRequest {
 	return ApiLogoutRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *AuthenticationAPIService) LogoutExecute(r ApiLogoutRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Logout")
@@ -1704,8 +1716,8 @@ func (a *AuthenticationAPIService) LogoutExecute(r ApiLogoutRequest) (*Success, 
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1723,8 +1735,8 @@ func (a *AuthenticationAPIService) LogoutExecute(r ApiLogoutRequest) (*Success, 
 }
 
 type ApiRegisterUserAccountRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx                        context.Context
+	ApiService                 *AuthenticationAPIService
 	registerUserAccountRequest *RegisterUserAccountRequest
 }
 
@@ -1746,27 +1758,29 @@ RegisterUserAccount Register User Account
 *By using the Platform, you agree not to: i. [...] use the Platform in a manner inconsistent with individual human usage*
 This endpoint is documented in the interest of completeness
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRegisterUserAccountRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiRegisterUserAccountRequest
 
 Deprecated
 */
 func (a *AuthenticationAPIService) RegisterUserAccount(ctx context.Context) ApiRegisterUserAccountRequest {
 	return ApiRegisterUserAccountRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RegisterUserAccount200Response
+//
+//	@return RegisterUserAccount200Response
+//
 // Deprecated
 func (a *AuthenticationAPIService) RegisterUserAccountExecute(r ApiRegisterUserAccountRequest) (*RegisterUserAccount200Response, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RegisterUserAccount200Response
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RegisterUserAccount200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.RegisterUserAccount")
@@ -1831,8 +1845,8 @@ func (a *AuthenticationAPIService) RegisterUserAccountExecute(r ApiRegisterUserA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1850,7 +1864,7 @@ func (a *AuthenticationAPIService) RegisterUserAccountExecute(r ApiRegisterUserA
 }
 
 type ApiResendEmailConfirmationRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -1863,24 +1877,25 @@ ResendEmailConfirmation Resend Email Confirmation
 
 Requests a resend of pending email address confirmation email
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiResendEmailConfirmationRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiResendEmailConfirmationRequest
 */
 func (a *AuthenticationAPIService) ResendEmailConfirmation(ctx context.Context) ApiResendEmailConfirmationRequest {
 	return ApiResendEmailConfirmationRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Success
+//
+//	@return Success
 func (a *AuthenticationAPIService) ResendEmailConfirmationExecute(r ApiResendEmailConfirmationRequest) (*Success, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Success
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Success
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.ResendEmailConfirmation")
@@ -1940,8 +1955,8 @@ func (a *AuthenticationAPIService) ResendEmailConfirmationExecute(r ApiResendEma
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1959,8 +1974,8 @@ func (a *AuthenticationAPIService) ResendEmailConfirmationExecute(r ApiResendEma
 }
 
 type ApiSubmitModerationReportRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx                           context.Context
+	ApiService                    *AuthenticationAPIService
 	submitModerationReportRequest *SubmitModerationReportRequest
 }
 
@@ -1978,24 +1993,25 @@ SubmitModerationReport Submit Moderation Report
 
 Submit a moderation report
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSubmitModerationReportRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSubmitModerationReportRequest
 */
 func (a *AuthenticationAPIService) SubmitModerationReport(ctx context.Context) ApiSubmitModerationReportRequest {
 	return ApiSubmitModerationReportRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ModerationReport
+//
+//	@return ModerationReport
 func (a *AuthenticationAPIService) SubmitModerationReportExecute(r ApiSubmitModerationReportRequest) (*ModerationReport, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ModerationReport
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ModerationReport
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.SubmitModerationReport")
@@ -2060,8 +2076,8 @@ func (a *AuthenticationAPIService) SubmitModerationReportExecute(r ApiSubmitMode
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2079,8 +2095,8 @@ func (a *AuthenticationAPIService) SubmitModerationReportExecute(r ApiSubmitMode
 }
 
 type ApiVerify2FARequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx               context.Context
+	ApiService        *AuthenticationAPIService
 	twoFactorAuthCode *TwoFactorAuthCode
 }
 
@@ -2098,24 +2114,25 @@ Verify2FA Verify 2FA code
 
 Finishes the login sequence with a normal 2FA-generated code for accounts with 2FA-protection enabled.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerify2FARequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerify2FARequest
 */
 func (a *AuthenticationAPIService) Verify2FA(ctx context.Context) ApiVerify2FARequest {
 	return ApiVerify2FARequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Verify2FAResult
+//
+//	@return Verify2FAResult
 func (a *AuthenticationAPIService) Verify2FAExecute(r ApiVerify2FARequest) (*Verify2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Verify2FAResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Verify2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Verify2FA")
@@ -2180,8 +2197,8 @@ func (a *AuthenticationAPIService) Verify2FAExecute(r ApiVerify2FARequest) (*Ver
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2199,8 +2216,8 @@ func (a *AuthenticationAPIService) Verify2FAExecute(r ApiVerify2FARequest) (*Ver
 }
 
 type ApiVerify2FAEmailCodeRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx                context.Context
+	ApiService         *AuthenticationAPIService
 	twoFactorEmailCode *TwoFactorEmailCode
 }
 
@@ -2218,24 +2235,25 @@ Verify2FAEmailCode Verify 2FA email code
 
 Finishes the login sequence with an 2FA email code.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerify2FAEmailCodeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerify2FAEmailCodeRequest
 */
 func (a *AuthenticationAPIService) Verify2FAEmailCode(ctx context.Context) ApiVerify2FAEmailCodeRequest {
 	return ApiVerify2FAEmailCodeRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Verify2FAEmailCodeResult
+//
+//	@return Verify2FAEmailCodeResult
 func (a *AuthenticationAPIService) Verify2FAEmailCodeExecute(r ApiVerify2FAEmailCodeRequest) (*Verify2FAEmailCodeResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Verify2FAEmailCodeResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Verify2FAEmailCodeResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.Verify2FAEmailCode")
@@ -2300,8 +2318,8 @@ func (a *AuthenticationAPIService) Verify2FAEmailCodeExecute(r ApiVerify2FAEmail
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2319,7 +2337,7 @@ func (a *AuthenticationAPIService) Verify2FAEmailCodeExecute(r ApiVerify2FAEmail
 }
 
 type ApiVerifyAuthTokenRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
 }
 
@@ -2332,24 +2350,25 @@ VerifyAuthToken Verify Auth Token
 
 Verify whether the currently provided Auth Token is valid.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerifyAuthTokenRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerifyAuthTokenRequest
 */
 func (a *AuthenticationAPIService) VerifyAuthToken(ctx context.Context) ApiVerifyAuthTokenRequest {
 	return ApiVerifyAuthTokenRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return VerifyAuthTokenResult
+//
+//	@return VerifyAuthTokenResult
 func (a *AuthenticationAPIService) VerifyAuthTokenExecute(r ApiVerifyAuthTokenRequest) (*VerifyAuthTokenResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VerifyAuthTokenResult
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VerifyAuthTokenResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.VerifyAuthToken")
@@ -2409,8 +2428,8 @@ func (a *AuthenticationAPIService) VerifyAuthTokenExecute(r ApiVerifyAuthTokenRe
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2428,10 +2447,10 @@ func (a *AuthenticationAPIService) VerifyAuthTokenExecute(r ApiVerifyAuthTokenRe
 }
 
 type ApiVerifyLoginPlaceRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService *AuthenticationAPIService
-	token *string
-	userId *string
+	token      *string
+	userId     *string
 }
 
 // Token to verify login attempt.
@@ -2455,22 +2474,22 @@ VerifyLoginPlace Verify Login Place
 
 Verifies a login attempt for a user
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerifyLoginPlaceRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerifyLoginPlaceRequest
 */
 func (a *AuthenticationAPIService) VerifyLoginPlace(ctx context.Context) ApiVerifyLoginPlaceRequest {
 	return ApiVerifyLoginPlaceRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *AuthenticationAPIService) VerifyLoginPlaceExecute(r ApiVerifyLoginPlaceRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodGet
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.VerifyLoginPlace")
@@ -2537,8 +2556,8 @@ func (a *AuthenticationAPIService) VerifyLoginPlaceExecute(r ApiVerifyLoginPlace
 }
 
 type ApiVerifyPending2FARequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx               context.Context
+	ApiService        *AuthenticationAPIService
 	twoFactorAuthCode *TwoFactorAuthCode
 }
 
@@ -2556,24 +2575,25 @@ VerifyPending2FA Verify Pending 2FA code
 
 Finishes sequence for enabling time-based 2FA.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerifyPending2FARequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerifyPending2FARequest
 */
 func (a *AuthenticationAPIService) VerifyPending2FA(ctx context.Context) ApiVerifyPending2FARequest {
 	return ApiVerifyPending2FARequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Verify2FAResult
+//
+//	@return Verify2FAResult
 func (a *AuthenticationAPIService) VerifyPending2FAExecute(r ApiVerifyPending2FARequest) (*Verify2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Verify2FAResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Verify2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.VerifyPending2FA")
@@ -2638,8 +2658,8 @@ func (a *AuthenticationAPIService) VerifyPending2FAExecute(r ApiVerifyPending2FA
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2657,8 +2677,8 @@ func (a *AuthenticationAPIService) VerifyPending2FAExecute(r ApiVerifyPending2FA
 }
 
 type ApiVerifyRecoveryCodeRequest struct {
-	ctx context.Context
-	ApiService *AuthenticationAPIService
+	ctx               context.Context
+	ApiService        *AuthenticationAPIService
 	twoFactorAuthCode *TwoFactorAuthCode
 }
 
@@ -2676,24 +2696,25 @@ VerifyRecoveryCode Verify 2FA code with Recovery code
 
 Finishes the login sequence with an OTP (One Time Password) recovery code for accounts with 2FA-protection enabled.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiVerifyRecoveryCodeRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVerifyRecoveryCodeRequest
 */
 func (a *AuthenticationAPIService) VerifyRecoveryCode(ctx context.Context) ApiVerifyRecoveryCodeRequest {
 	return ApiVerifyRecoveryCodeRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Verify2FAResult
+//
+//	@return Verify2FAResult
 func (a *AuthenticationAPIService) VerifyRecoveryCodeExecute(r ApiVerifyRecoveryCodeRequest) (*Verify2FAResult, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Verify2FAResult
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Verify2FAResult
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AuthenticationAPIService.VerifyRecoveryCode")
@@ -2758,8 +2779,8 @@ func (a *AuthenticationAPIService) VerifyRecoveryCodeExecute(r ApiVerifyRecovery
 				newErr.error = err.Error()
 				return localVarReturnValue, localVarHTTPResponse, newErr
 			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
+			newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+			newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

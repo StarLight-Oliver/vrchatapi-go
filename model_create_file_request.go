@@ -203,7 +203,6 @@ func (o *CreateFileRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateFileRequest := _CreateFileRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateFileRequest)
 
 	if err != nil {

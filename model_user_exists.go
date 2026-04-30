@@ -152,7 +152,6 @@ func (o *UserExists) UnmarshalJSON(data []byte) (err error) {
 	varUserExists := _UserExists{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varUserExists)
 
 	if err != nil {

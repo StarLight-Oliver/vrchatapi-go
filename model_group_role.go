@@ -21,18 +21,18 @@ var _ MappedNullable = &GroupRole{}
 
 // GroupRole struct for GroupRole
 type GroupRole struct {
-	CreatedAt *time.Time `json:"createdAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	GroupId *string `json:"groupId,omitempty"`
-	Id *string `json:"id,omitempty"`
-	IsManagementRole *bool `json:"isManagementRole,omitempty"`
-	IsSelfAssignable *bool `json:"isSelfAssignable,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Order *int32 `json:"order,omitempty"`
-	Permissions []GroupPermissions `json:"permissions,omitempty"`
-	RequiresPurchase *bool `json:"requiresPurchase,omitempty"`
-	RequiresTwoFactor *bool `json:"requiresTwoFactor,omitempty"`
-	UpdatedAt *time.Time `json:"updatedAt,omitempty"`
+	CreatedAt         *time.Time         `json:"createdAt,omitempty"`
+	Description       *string            `json:"description,omitempty"`
+	GroupId           *string            `json:"groupId,omitempty"`
+	Id                *string            `json:"id,omitempty"`
+	IsManagementRole  *bool              `json:"isManagementRole,omitempty"`
+	IsSelfAssignable  *bool              `json:"isSelfAssignable,omitempty"`
+	Name              *string            `json:"name,omitempty"`
+	Order             *int32             `json:"order,omitempty"`
+	Permissions       []GroupPermissions `json:"permissions,omitempty"`
+	RequiresPurchase  *bool              `json:"requiresPurchase,omitempty"`
+	RequiresTwoFactor *bool              `json:"requiresTwoFactor,omitempty"`
+	UpdatedAt         *time.Time         `json:"updatedAt,omitempty"`
 }
 
 // NewGroupRole instantiates a new GroupRole object
@@ -453,7 +453,7 @@ func (o *GroupRole) SetUpdatedAt(v time.Time) {
 }
 
 func (o GroupRole) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -536,5 +536,3 @@ func (v *NullableGroupRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

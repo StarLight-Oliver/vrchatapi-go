@@ -572,7 +572,6 @@ func (o *CreateWorldRequest) UnmarshalJSON(data []byte) (err error) {
 	varCreateWorldRequest := _CreateWorldRequest{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varCreateWorldRequest)
 
 	if err != nil {

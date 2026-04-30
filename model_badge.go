@@ -366,7 +366,6 @@ func (o *Badge) UnmarshalJSON(data []byte) (err error) {
 	varBadge := _Badge{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varBadge)
 
 	if err != nil {

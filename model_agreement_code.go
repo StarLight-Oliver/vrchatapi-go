@@ -21,7 +21,7 @@ type AgreementCode string
 
 // List of AgreementCode
 const (
-	CONTENT_COPYRIGHT_OWNED AgreementCode = "content.copyright.owned"
+	AgreementCode_CONTENT_COPYRIGHT_OWNED AgreementCode = "content.copyright.owned"
 )
 
 // All allowed values of AgreementCode enum
@@ -107,4 +107,3 @@ func (v *NullableAgreementCode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

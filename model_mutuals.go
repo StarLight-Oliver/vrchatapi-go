@@ -140,7 +140,6 @@ func (o *Mutuals) UnmarshalJSON(data []byte) (err error) {
 	varMutuals := _Mutuals{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
-
 	err = decoder.Decode(&varMutuals)
 
 	if err != nil {
