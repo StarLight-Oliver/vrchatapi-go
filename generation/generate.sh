@@ -23,6 +23,20 @@ pushd src
 #--global-property debugOperations=true
 popd
 
+# Apply patches the OpenAPI generator can't produce on its own (see
+# generation/patches/* for the rationale behind each):
+#   1. strip "decoder.DisallowUnknownFields()" from model UnmarshalJSON
+#   2. prefix enum constants with their type name (PUBLIC -> ReleaseStatus_PUBLIC etc.)
+#   3. add the missing "time" import to api_miscellaneous.go
+#   4. drop duplicate *UserPersistence* handlers from api_worlds.go
+# Stages results in ./out/ for review. Swap to "-override" once you trust it
+# and want to write the patched files straight to the repo root.
+rm -rf out
+mkdir -p out
+pushd migrate
+go run . -src ../src -out ../out
+popd
+
 exit 0
 
 # Remove messily pasted markdown at top of every file
