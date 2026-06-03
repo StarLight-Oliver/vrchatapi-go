@@ -81,9 +81,9 @@ func (a *InviteAPIService) GetInviteMessageExecute(r ApiGetInviteMessageRequest)
 	}
 
 	localVarPath := localBasePath + "/message/{userId}/{messageType}/{slot}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", url.PathEscape(parameterValueToString(r.messageType, "messageType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", url.PathEscape(parameterValueToString(r.slot, "slot")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", pathSegmentEscape(parameterValueToString(r.messageType, "messageType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", pathSegmentEscape(parameterValueToString(r.slot, "slot")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -235,8 +235,8 @@ func (a *InviteAPIService) GetInviteMessagesExecute(r ApiGetInviteMessagesReques
 	}
 
 	localVarPath := localBasePath + "/message/{userId}/{messageType}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", url.PathEscape(parameterValueToString(r.messageType, "messageType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", pathSegmentEscape(parameterValueToString(r.messageType, "messageType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -364,8 +364,8 @@ func (a *InviteAPIService) InviteMyselfToExecute(r ApiInviteMyselfToRequest) (*S
 	}
 
 	localVarPath := localBasePath + "/invite/myself/to/{worldId}:{instanceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", pathSegmentEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -497,7 +497,7 @@ func (a *InviteAPIService) InviteUserExecute(r ApiInviteUserRequest) (*SentNotif
 	}
 
 	localVarPath := localBasePath + "/invite/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -629,7 +629,7 @@ func (a *InviteAPIService) InviteUserWithPhotoExecute(r ApiInviteUserWithPhotoRe
 	}
 
 	localVarPath := localBasePath + "/invite/{userId}/photo"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -772,7 +772,7 @@ func (a *InviteAPIService) RequestInviteExecute(r ApiRequestInviteRequest) (*Not
 	}
 
 	localVarPath := localBasePath + "/requestInvite/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -901,7 +901,7 @@ func (a *InviteAPIService) RequestInviteWithPhotoExecute(r ApiRequestInviteWithP
 	}
 
 	localVarPath := localBasePath + "/requestInvite/{userId}/photo"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1057,9 +1057,9 @@ func (a *InviteAPIService) ResetInviteMessageExecute(r ApiResetInviteMessageRequ
 	}
 
 	localVarPath := localBasePath + "/message/{userId}/{messageType}/{slot}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", url.PathEscape(parameterValueToString(r.messageType, "messageType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", url.PathEscape(parameterValueToString(r.slot, "slot")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", pathSegmentEscape(parameterValueToString(r.messageType, "messageType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", pathSegmentEscape(parameterValueToString(r.slot, "slot")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1222,7 +1222,7 @@ func (a *InviteAPIService) RespondInviteExecute(r ApiRespondInviteRequest) (*Not
 	}
 
 	localVarPath := localBasePath + "/invite/{notificationId}/response"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1357,7 +1357,7 @@ func (a *InviteAPIService) RespondInviteWithPhotoExecute(r ApiRespondInviteWithP
 	}
 
 	localVarPath := localBasePath + "/invite/{notificationId}/response/photo"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1516,9 +1516,9 @@ func (a *InviteAPIService) UpdateInviteMessageExecute(r ApiUpdateInviteMessageRe
 	}
 
 	localVarPath := localBasePath + "/message/{userId}/{messageType}/{slot}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", url.PathEscape(parameterValueToString(r.messageType, "messageType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", url.PathEscape(parameterValueToString(r.slot, "slot")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"messageType"+"}", pathSegmentEscape(parameterValueToString(r.messageType, "messageType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"slot"+"}", pathSegmentEscape(parameterValueToString(r.slot, "slot")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

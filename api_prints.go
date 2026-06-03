@@ -66,7 +66,7 @@ func (a *PrintsAPIService) DeletePrintExecute(r ApiDeletePrintRequest) (*http.Re
 	}
 
 	localVarPath := localBasePath + "/prints/{printId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", url.PathEscape(parameterValueToString(r.printId, "printId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", pathSegmentEscape(parameterValueToString(r.printId, "printId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -185,7 +185,7 @@ func (a *PrintsAPIService) EditPrintExecute(r ApiEditPrintRequest) (*Print, *htt
 	}
 
 	localVarPath := localBasePath + "/prints/{printId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", url.PathEscape(parameterValueToString(r.printId, "printId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", pathSegmentEscape(parameterValueToString(r.printId, "printId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -320,7 +320,7 @@ func (a *PrintsAPIService) GetPrintExecute(r ApiGetPrintRequest) (*Print, *http.
 	}
 
 	localVarPath := localBasePath + "/prints/{printId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", url.PathEscape(parameterValueToString(r.printId, "printId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"printId"+"}", pathSegmentEscape(parameterValueToString(r.printId, "printId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -434,7 +434,7 @@ func (a *PrintsAPIService) GetUserPrintsExecute(r ApiGetUserPrintsRequest) ([]Pr
 	}
 
 	localVarPath := localBasePath + "/prints/user/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

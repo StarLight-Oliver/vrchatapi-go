@@ -177,7 +177,7 @@ func (a *EconomyAPIService) GetBalanceExecute(r ApiGetBalanceRequest) (*Balance,
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/balance"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -291,7 +291,7 @@ func (a *EconomyAPIService) GetBalanceEarningsExecute(r ApiGetBalanceEarningsReq
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/balance/earnings"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -634,7 +634,7 @@ func (a *EconomyAPIService) GetEconomyAccountExecute(r ApiGetEconomyAccountReque
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/economy/account"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -748,7 +748,7 @@ func (a *EconomyAPIService) GetLicenseGroupExecute(r ApiGetLicenseGroupRequest) 
 	}
 
 	localVarPath := localBasePath + "/licenseGroups/{licenseGroupId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"licenseGroupId"+"}", url.PathEscape(parameterValueToString(r.licenseGroupId, "licenseGroupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"licenseGroupId"+"}", pathSegmentEscape(parameterValueToString(r.licenseGroupId, "licenseGroupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -869,7 +869,7 @@ func (a *EconomyAPIService) GetProductListingExecute(r ApiGetProductListingReque
 	}
 
 	localVarPath := localBasePath + "/listing/{productId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", url.PathEscape(parameterValueToString(r.productId, "productId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", pathSegmentEscape(parameterValueToString(r.productId, "productId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -990,7 +990,7 @@ func (a *EconomyAPIService) GetProductListingAlternateExecute(r ApiGetProductLis
 	}
 
 	localVarPath := localBasePath + "/products/{productId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", url.PathEscape(parameterValueToString(r.productId, "productId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"productId"+"}", pathSegmentEscape(parameterValueToString(r.productId, "productId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1139,7 +1139,7 @@ func (a *EconomyAPIService) GetProductListingsExecute(r ApiGetProductListingsReq
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/listings"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1568,7 +1568,7 @@ func (a *EconomyAPIService) GetSteamTransactionExecute(r ApiGetSteamTransactionR
 	}
 
 	localVarPath := localBasePath + "/Steam/transactions/{transactionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", url.PathEscape(parameterValueToString(r.transactionId, "transactionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", pathSegmentEscape(parameterValueToString(r.transactionId, "transactionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2295,7 +2295,7 @@ func (a *EconomyAPIService) GetTiliaTosExecute(r ApiGetTiliaTosRequest) (*TiliaT
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/tilia/tos"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2525,7 +2525,7 @@ func (a *EconomyAPIService) GetUserCreditsEligibleExecute(r ApiGetUserCreditsEli
 	}
 
 	localVarPath := localBasePath + "/users/{userId}/credits/eligible"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2650,7 +2650,7 @@ func (a *EconomyAPIService) GetUserSubscriptionEligibleExecute(r ApiGetUserSubsc
 	}
 
 	localVarPath := localBasePath + "/users/{userId}/subscription/eligible"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2891,7 +2891,7 @@ func (a *EconomyAPIService) UpdateTiliaTosExecute(r ApiUpdateTiliaTosRequest) (m
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/tilia/tos"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

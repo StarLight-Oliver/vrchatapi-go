@@ -206,9 +206,9 @@ func (a *FavoritesAPIService) ClearFavoriteGroupExecute(r ApiClearFavoriteGroupR
 	}
 
 	localVarPath := localBasePath + "/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -318,9 +318,9 @@ func (a *FavoritesAPIService) GetFavoriteGroupExecute(r ApiGetFavoriteGroupReque
 	}
 
 	localVarPath := localBasePath + "/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -842,7 +842,7 @@ func (a *FavoritesAPIService) RemoveFavoriteExecute(r ApiRemoveFavoriteRequest) 
 	}
 
 	localVarPath := localBasePath + "/favorites/{favoriteId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteId"+"}", url.PathEscape(parameterValueToString(r.favoriteId, "favoriteId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteId"+"}", pathSegmentEscape(parameterValueToString(r.favoriteId, "favoriteId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -976,9 +976,9 @@ func (a *FavoritesAPIService) UpdateFavoriteGroupExecute(r ApiUpdateFavoriteGrou
 	}
 
 	localVarPath := localBasePath + "/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", url.PathEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupType"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupType, "favoriteGroupType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"favoriteGroupName"+"}", pathSegmentEscape(parameterValueToString(r.favoriteGroupName, "favoriteGroupName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

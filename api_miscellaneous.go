@@ -888,7 +888,7 @@ func (a *MiscellaneousAPIService) GetPermissionExecute(r ApiGetPermissionRequest
 	}
 
 	localVarPath := localBasePath + "/permissions/{permissionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"permissionId"+"}", url.PathEscape(parameterValueToString(r.permissionId, "permissionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"permissionId"+"}", pathSegmentEscape(parameterValueToString(r.permissionId, "permissionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

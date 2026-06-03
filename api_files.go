@@ -182,7 +182,7 @@ func (a *FilesAPIService) CreateFileVersionExecute(r ApiCreateFileVersionRequest
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -288,7 +288,7 @@ func (a *FilesAPIService) DeleteFileExecute(r ApiDeleteFileRequest) (*File, *htt
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -405,8 +405,8 @@ func (a *FilesAPIService) DeleteFileVersionExecute(r ApiDeleteFileVersionRequest
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}/{versionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -541,8 +541,8 @@ func (a *FilesAPIService) DownloadFileVersionExecute(r ApiDownloadFileVersionReq
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}/{versionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -672,9 +672,9 @@ func (a *FilesAPIService) FinishFileDataUploadExecute(r ApiFinishFileDataUploadR
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}/{versionId}/{fileType}/finish"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", url.PathEscape(parameterValueToString(r.fileType, "fileType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", pathSegmentEscape(parameterValueToString(r.fileType, "fileType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -783,7 +783,7 @@ func (a *FilesAPIService) GetAdminAssetBundleExecute(r ApiGetAdminAssetBundleReq
 	}
 
 	localVarPath := localBasePath + "/adminassetbundles/{adminAssetBundleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"adminAssetBundleId"+"}", url.PathEscape(parameterValueToString(r.adminAssetBundleId, "adminAssetBundleId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"adminAssetBundleId"+"}", pathSegmentEscape(parameterValueToString(r.adminAssetBundleId, "adminAssetBundleId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1030,7 +1030,7 @@ func (a *FilesAPIService) GetFileExecute(r ApiGetFileRequest) (*File, *http.Resp
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1147,8 +1147,8 @@ func (a *FilesAPIService) GetFileAnalysisExecute(r ApiGetFileAnalysisRequest) (*
 	}
 
 	localVarPath := localBasePath + "/analysis/{fileId}/{versionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1268,8 +1268,8 @@ func (a *FilesAPIService) GetFileAnalysisSecurityExecute(r ApiGetFileAnalysisSec
 	}
 
 	localVarPath := localBasePath + "/analysis/{fileId}/{versionId}/security"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1389,8 +1389,8 @@ func (a *FilesAPIService) GetFileAnalysisStandardExecute(r ApiGetFileAnalysisSta
 	}
 
 	localVarPath := localBasePath + "/analysis/{fileId}/{versionId}/standard"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1513,9 +1513,9 @@ func (a *FilesAPIService) GetFileDataUploadStatusExecute(r ApiGetFileDataUploadS
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}/{versionId}/{fileType}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", url.PathEscape(parameterValueToString(r.fileType, "fileType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", pathSegmentEscape(parameterValueToString(r.fileType, "fileType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1901,9 +1901,9 @@ func (a *FilesAPIService) StartFileDataUploadExecute(r ApiStartFileDataUploadReq
 	}
 
 	localVarPath := localBasePath + "/file/{fileId}/{versionId}/{fileType}/start"
-	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", url.PathEscape(parameterValueToString(r.fileId, "fileId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", url.PathEscape(parameterValueToString(r.versionId, "versionId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", url.PathEscape(parameterValueToString(r.fileType, "fileType")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileId"+"}", pathSegmentEscape(parameterValueToString(r.fileId, "fileId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"versionId"+"}", pathSegmentEscape(parameterValueToString(r.versionId, "versionId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fileType"+"}", pathSegmentEscape(parameterValueToString(r.fileType, "fileType")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2144,7 +2144,7 @@ func (a *FilesAPIService) UpdateAssetReviewNotesExecute(r ApiUpdateAssetReviewNo
 	}
 
 	localVarPath := localBasePath + "/assetReview/{assetReviewId}/notes"
-	localVarPath = strings.Replace(localVarPath, "{"+"assetReviewId"+"}", url.PathEscape(parameterValueToString(r.assetReviewId, "assetReviewId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"assetReviewId"+"}", pathSegmentEscape(parameterValueToString(r.assetReviewId, "assetReviewId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

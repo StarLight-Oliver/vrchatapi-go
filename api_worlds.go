@@ -193,7 +193,7 @@ func (a *WorldsAPIService) DeleteWorldExecute(r ApiDeleteWorldRequest) (*http.Re
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1100,7 +1100,7 @@ func (a *WorldsAPIService) GetWorldExecute(r ApiGetWorldRequest) (*World, *http.
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1217,8 +1217,8 @@ func (a *WorldsAPIService) GetWorldInstanceExecute(r ApiGetWorldInstanceRequest)
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}/{instanceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", pathSegmentEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1336,7 +1336,7 @@ func (a *WorldsAPIService) GetWorldMetadataExecute(r ApiGetWorldMetadataRequest)
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}/metadata"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1450,7 +1450,7 @@ func (a *WorldsAPIService) GetWorldPublishStatusExecute(r ApiGetWorldPublishStat
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1572,7 +1572,7 @@ func (a *WorldsAPIService) PublishWorldExecute(r ApiPublishWorldRequest) (*http.
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1980,7 +1980,7 @@ func (a *WorldsAPIService) UnpublishWorldExecute(r ApiUnpublishWorldRequest) (*h
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2102,7 +2102,7 @@ func (a *WorldsAPIService) UpdateWorldExecute(r ApiUpdateWorldRequest) (*World, 
 	}
 
 	localVarPath := localBasePath + "/worlds/{worldId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

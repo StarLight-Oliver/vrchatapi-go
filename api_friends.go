@@ -73,7 +73,7 @@ func (a *FriendsAPIService) BoopExecute(r ApiBoopRequest) (*Success, *http.Respo
 	}
 
 	localVarPath := localBasePath + "/users/{userId}/boop"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -214,7 +214,7 @@ func (a *FriendsAPIService) DeleteFriendRequestExecute(r ApiDeleteFriendRequestR
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/friendRequest"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -339,7 +339,7 @@ func (a *FriendsAPIService) FriendExecute(r ApiFriendRequest) (*Notification, *h
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/friendRequest"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -475,7 +475,7 @@ func (a *FriendsAPIService) GetFriendStatusExecute(r ApiGetFriendStatusRequest) 
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/friendStatus"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -733,7 +733,7 @@ func (a *FriendsAPIService) UnfriendExecute(r ApiUnfriendRequest) (*Success, *ht
 	}
 
 	localVarPath := localBasePath + "/auth/user/friends/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

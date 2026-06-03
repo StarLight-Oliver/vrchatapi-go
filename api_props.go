@@ -196,7 +196,7 @@ func (a *PropsAPIService) DeletePropExecute(r ApiDeletePropRequest) (*http.Respo
 	}
 
 	localVarPath := localBasePath + "/props/{propId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -323,7 +323,7 @@ func (a *PropsAPIService) GetPropExecute(r ApiGetPropRequest) (*Prop, *http.Resp
 	}
 
 	localVarPath := localBasePath + "/props/{propId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -448,7 +448,7 @@ func (a *PropsAPIService) GetPropPublishStatusExecute(r ApiGetPropPublishStatusR
 	}
 
 	localVarPath := localBasePath + "/props/{propId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -740,7 +740,7 @@ func (a *PropsAPIService) PublishPropExecute(r ApiPublishPropRequest) (*PropPubl
 	}
 
 	localVarPath := localBasePath + "/props/{propId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -876,7 +876,7 @@ func (a *PropsAPIService) UnpublishPropExecute(r ApiUnpublishPropRequest) (*Prop
 	}
 
 	localVarPath := localBasePath + "/props/{propId}/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1018,7 +1018,7 @@ func (a *PropsAPIService) UpdatePropExecute(r ApiUpdatePropRequest) (*Prop, *htt
 	}
 
 	localVarPath := localBasePath + "/props/{propId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", url.PathEscape(parameterValueToString(r.propId, "propId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propId"+"}", pathSegmentEscape(parameterValueToString(r.propId, "propId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

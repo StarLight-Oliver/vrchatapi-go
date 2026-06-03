@@ -692,7 +692,7 @@ func (a *AuthenticationAPIService) DeleteModerationReportExecute(r ApiDeleteMode
 	}
 
 	localVarPath := localBasePath + "/moderationReports/{moderationReportId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"moderationReportId"+"}", url.PathEscape(parameterValueToString(r.moderationReportId, "moderationReportId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"moderationReportId"+"}", pathSegmentEscape(parameterValueToString(r.moderationReportId, "moderationReportId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -821,7 +821,7 @@ func (a *AuthenticationAPIService) DeleteUserExecute(r ApiDeleteUserRequest) (*C
 	}
 
 	localVarPath := localBasePath + "/users/{userId}/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

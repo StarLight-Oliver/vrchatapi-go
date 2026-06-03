@@ -196,7 +196,7 @@ func (a *AvatarsAPIService) DeleteAvatarExecute(r ApiDeleteAvatarRequest) (*Avat
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -318,7 +318,7 @@ func (a *AvatarsAPIService) DeleteImpostorExecute(r ApiDeleteImpostorRequest) (*
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}/impostor"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -434,7 +434,7 @@ func (a *AvatarsAPIService) EnqueueImpostorExecute(r ApiEnqueueImpostorRequest) 
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}/impostor/enqueue"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -559,7 +559,7 @@ func (a *AvatarsAPIService) GetAvatarExecute(r ApiGetAvatarRequest) (*Avatar, *h
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1295,7 +1295,7 @@ func (a *AvatarsAPIService) GetOwnAvatarExecute(r ApiGetOwnAvatarRequest) (*Avat
 	}
 
 	localVarPath := localBasePath + "/users/{userId}/avatar"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1686,7 +1686,7 @@ func (a *AvatarsAPIService) SelectAvatarExecute(r ApiSelectAvatarRequest) (*Curr
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}/select"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1815,7 +1815,7 @@ func (a *AvatarsAPIService) SelectFallbackAvatarExecute(r ApiSelectFallbackAvata
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}/selectFallback"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1957,7 +1957,7 @@ func (a *AvatarsAPIService) UpdateAvatarExecute(r ApiUpdateAvatarRequest) (*Avat
 	}
 
 	localVarPath := localBasePath + "/avatars/{avatarId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", url.PathEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"avatarId"+"}", pathSegmentEscape(parameterValueToString(r.avatarId, "avatarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

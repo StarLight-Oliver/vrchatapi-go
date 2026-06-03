@@ -75,7 +75,7 @@ func (a *CalendarAPIService) CreateGroupCalendarEventExecute(r ApiCreateGroupCal
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/event"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -219,8 +219,8 @@ func (a *CalendarAPIService) DeleteGroupCalendarEventExecute(r ApiDeleteGroupCal
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/{calendarId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", url.PathEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", pathSegmentEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -597,8 +597,8 @@ func (a *CalendarAPIService) FollowGroupCalendarEventExecute(r ApiFollowGroupCal
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/{calendarId}/follow"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", url.PathEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", pathSegmentEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1152,8 +1152,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventExecute(r ApiGetGroupCalendarE
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/{calendarId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", url.PathEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", pathSegmentEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1270,8 +1270,8 @@ func (a *CalendarAPIService) GetGroupCalendarEventICSExecute(r ApiGetGroupCalend
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/{calendarId}.ics"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", url.PathEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", pathSegmentEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1417,7 +1417,7 @@ func (a *CalendarAPIService) GetGroupCalendarEventsExecute(r ApiGetGroupCalendar
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1544,7 +1544,7 @@ func (a *CalendarAPIService) GetGroupNextCalendarEventExecute(r ApiGetGroupNextC
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/next"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1843,8 +1843,8 @@ func (a *CalendarAPIService) UpdateGroupCalendarEventExecute(r ApiUpdateGroupCal
 	}
 
 	localVarPath := localBasePath + "/calendar/{groupId}/{calendarId}/event"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", url.PathEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"calendarId"+"}", pathSegmentEscape(parameterValueToString(r.calendarId, "calendarId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

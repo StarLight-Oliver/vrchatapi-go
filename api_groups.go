@@ -77,8 +77,8 @@ func (a *GroupsAPIService) AddGroupGalleryImageExecute(r ApiAddGroupGalleryImage
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries/{groupGalleryId}/images"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -214,9 +214,9 @@ func (a *GroupsAPIService) AddGroupMemberRoleExecute(r ApiAddGroupMemberRoleRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/{userId}/roles/{groupRoleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", url.PathEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", pathSegmentEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -347,7 +347,7 @@ func (a *GroupsAPIService) AddGroupPostExecute(r ApiAddGroupPostRequest) (*Group
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/posts"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -472,7 +472,7 @@ func (a *GroupsAPIService) BanGroupMemberExecute(r ApiBanGroupMemberRequest) (*G
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/bans"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -613,7 +613,7 @@ func (a *GroupsAPIService) BlockGroupExecute(r ApiBlockGroupRequest) (*Success, 
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/block"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -757,7 +757,7 @@ func (a *GroupsAPIService) CancelGroupRequestExecute(r ApiCancelGroupRequestRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -873,7 +873,7 @@ func (a *GroupsAPIService) CancelGroupTransferExecute(r ApiCancelGroupTransferRe
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/transfer"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1136,7 +1136,7 @@ func (a *GroupsAPIService) CreateGroupAnnouncementExecute(r ApiCreateGroupAnnoun
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/announcement"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1272,7 +1272,7 @@ func (a *GroupsAPIService) CreateGroupGalleryExecute(r ApiCreateGroupGalleryRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1405,7 +1405,7 @@ func (a *GroupsAPIService) CreateGroupInviteExecute(r ApiCreateGroupInviteReques
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/invites"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1554,7 +1554,7 @@ func (a *GroupsAPIService) CreateGroupRoleExecute(r ApiCreateGroupRoleRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/roles"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1690,7 +1690,7 @@ func (a *GroupsAPIService) DeclineGroupInviteExecute(r ApiDeclineGroupInviteRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/invites"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1834,7 +1834,7 @@ func (a *GroupsAPIService) DeleteGroupExecute(r ApiDeleteGroupRequest) (*Success
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1962,7 +1962,7 @@ func (a *GroupsAPIService) DeleteGroupAnnouncementExecute(r ApiDeleteGroupAnnoun
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/announcement"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2090,8 +2090,8 @@ func (a *GroupsAPIService) DeleteGroupGalleryExecute(r ApiDeleteGroupGalleryRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries/{groupGalleryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2222,9 +2222,9 @@ func (a *GroupsAPIService) DeleteGroupGalleryImageExecute(r ApiDeleteGroupGaller
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries/{groupGalleryId}/images/{groupGalleryImageId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryImageId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryImageId, "groupGalleryImageId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryImageId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryImageId, "groupGalleryImageId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2360,8 +2360,8 @@ func (a *GroupsAPIService) DeleteGroupInviteExecute(r ApiDeleteGroupInviteReques
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/invites/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2480,8 +2480,8 @@ func (a *GroupsAPIService) DeleteGroupPostExecute(r ApiDeleteGroupPostRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/posts/{notificationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2609,8 +2609,8 @@ func (a *GroupsAPIService) DeleteGroupRoleExecute(r ApiDeleteGroupRoleRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/roles/{groupRoleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", url.PathEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", pathSegmentEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2742,7 +2742,7 @@ func (a *GroupsAPIService) GetGroupExecute(r ApiGetGroupRequest) (*Group, *http.
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2872,7 +2872,7 @@ func (a *GroupsAPIService) GetGroupAnnouncementsExecute(r ApiGetGroupAnnouncemen
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/announcement"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2997,7 +2997,7 @@ func (a *GroupsAPIService) GetGroupAuditLogEntryTypesExecute(r ApiGetGroupAuditL
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/auditLogTypes"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3171,7 +3171,7 @@ func (a *GroupsAPIService) GetGroupAuditLogsExecute(r ApiGetGroupAuditLogsReques
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/auditLogs"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3335,7 +3335,7 @@ func (a *GroupsAPIService) GetGroupBansExecute(r ApiGetGroupBansRequest) ([]Grou
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/bans"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3505,8 +3505,8 @@ func (a *GroupsAPIService) GetGroupGalleryImagesExecute(r ApiGetGroupGalleryImag
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries/{groupGalleryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3644,7 +3644,7 @@ func (a *GroupsAPIService) GetGroupInstancesExecute(r ApiGetGroupInstancesReques
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/instances"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3783,7 +3783,7 @@ func (a *GroupsAPIService) GetGroupInvitesExecute(r ApiGetGroupInvitesRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/invites"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3932,8 +3932,8 @@ func (a *GroupsAPIService) GetGroupMemberExecute(r ApiGetGroupMemberRequest) (*G
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4098,7 +4098,7 @@ func (a *GroupsAPIService) GetGroupMembersExecute(r ApiGetGroupMembersRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4250,7 +4250,7 @@ func (a *GroupsAPIService) GetGroupPermissionsExecute(r ApiGetGroupPermissionsRe
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/permissions"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4407,7 +4407,7 @@ func (a *GroupsAPIService) GetGroupPostsExecute(r ApiGetGroupPostsRequest) (*Get
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/posts"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4555,7 +4555,7 @@ func (a *GroupsAPIService) GetGroupRequestsExecute(r ApiGetGroupRequestsRequest)
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4814,7 +4814,7 @@ func (a *GroupsAPIService) GetGroupRolesExecute(r ApiGetGroupRolesRequest) ([]Gr
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/roles"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4946,7 +4946,7 @@ func (a *GroupsAPIService) GetGroupTransferabilityExecute(r ApiGetGroupTransfera
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/transfer"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5091,7 +5091,7 @@ func (a *GroupsAPIService) InitiateOrAcceptGroupTransferExecute(r ApiInitiateOrA
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/transfer"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5242,7 +5242,7 @@ func (a *GroupsAPIService) JoinGroupExecute(r ApiJoinGroupRequest) (*GroupMember
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/join"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5386,8 +5386,8 @@ func (a *GroupsAPIService) KickGroupMemberExecute(r ApiKickGroupMemberRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5520,7 +5520,7 @@ func (a *GroupsAPIService) LeaveGroupExecute(r ApiLeaveGroupRequest) (*http.Resp
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/leave"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5642,9 +5642,9 @@ func (a *GroupsAPIService) RemoveGroupMemberRoleExecute(r ApiRemoveGroupMemberRo
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/{userId}/roles/{groupRoleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", url.PathEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", pathSegmentEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5775,8 +5775,8 @@ func (a *GroupsAPIService) RespondGroupJoinRequestExecute(r ApiRespondGroupJoinR
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/requests/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5918,7 +5918,7 @@ func (a *GroupsAPIService) SearchGroupMembersExecute(r ApiSearchGroupMembersRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6218,8 +6218,8 @@ func (a *GroupsAPIService) UnbanGroupMemberExecute(r ApiUnbanGroupMemberRequest)
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/bans/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6350,7 +6350,7 @@ func (a *GroupsAPIService) UpdateGroupExecute(r ApiUpdateGroupRequest) (*Group, 
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6486,8 +6486,8 @@ func (a *GroupsAPIService) UpdateGroupGalleryExecute(r ApiUpdateGroupGalleryRequ
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/galleries/{groupGalleryId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", url.PathEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupGalleryId"+"}", pathSegmentEscape(parameterValueToString(r.groupGalleryId, "groupGalleryId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6623,8 +6623,8 @@ func (a *GroupsAPIService) UpdateGroupMemberExecute(r ApiUpdateGroupMemberReques
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/members/{userId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6760,8 +6760,8 @@ func (a *GroupsAPIService) UpdateGroupPostExecute(r ApiUpdateGroupPostRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/posts/{notificationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6899,7 +6899,7 @@ func (a *GroupsAPIService) UpdateGroupRepresentationExecute(r ApiUpdateGroupRepr
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/representation"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7038,8 +7038,8 @@ func (a *GroupsAPIService) UpdateGroupRoleExecute(r ApiUpdateGroupRoleRequest) (
 	}
 
 	localVarPath := localBasePath + "/groups/{groupId}/roles/{groupRoleId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", url.PathEscape(parameterValueToString(r.groupId, "groupId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", url.PathEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupId"+"}", pathSegmentEscape(parameterValueToString(r.groupId, "groupId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"groupRoleId"+"}", pathSegmentEscape(parameterValueToString(r.groupRoleId, "groupRoleId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

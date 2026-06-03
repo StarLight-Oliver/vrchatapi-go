@@ -67,7 +67,7 @@ func (a *InventoryAPIService) ConsumeOwnInventoryItemExecute(r ApiConsumeOwnInve
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}/consume"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -192,7 +192,7 @@ func (a *InventoryAPIService) DeleteOwnInventoryItemExecute(r ApiDeleteOwnInvent
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -312,7 +312,7 @@ func (a *InventoryAPIService) EquipOwnInventoryItemExecute(r ApiEquipOwnInventor
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}/equip"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -924,7 +924,7 @@ func (a *InventoryAPIService) GetInventoryTemplateExecute(r ApiGetInventoryTempl
 	}
 
 	localVarPath := localBasePath + "/inventory/template/{inventoryTemplateId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryTemplateId"+"}", url.PathEscape(parameterValueToString(r.inventoryTemplateId, "inventoryTemplateId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryTemplateId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryTemplateId, "inventoryTemplateId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1038,7 +1038,7 @@ func (a *InventoryAPIService) GetOwnInventoryItemExecute(r ApiGetOwnInventoryIte
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1155,8 +1155,8 @@ func (a *InventoryAPIService) GetUserInventoryItemExecute(r ApiGetUserInventoryI
 	}
 
 	localVarPath := localBasePath + "/user/{userId}/inventory/{inventoryItemId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", url.PathEscape(parameterValueToString(r.userId, "userId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"userId"+"}", pathSegmentEscape(parameterValueToString(r.userId, "userId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1678,7 +1678,7 @@ func (a *InventoryAPIService) UnequipOwnInventorySlotExecute(r ApiUnequipOwnInve
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}/equip"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1798,7 +1798,7 @@ func (a *InventoryAPIService) UpdateOwnInventoryItemExecute(r ApiUpdateOwnInvent
 	}
 
 	localVarPath := localBasePath + "/inventory/{inventoryItemId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", url.PathEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"inventoryItemId"+"}", pathSegmentEscape(parameterValueToString(r.inventoryItemId, "inventoryItemId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

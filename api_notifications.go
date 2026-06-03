@@ -67,7 +67,7 @@ func (a *NotificationsAPIService) AcceptFriendRequestExecute(r ApiAcceptFriendRe
 	}
 
 	localVarPath := localBasePath + "/auth/user/notifications/{notificationId}/accept"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -192,7 +192,7 @@ func (a *NotificationsAPIService) AcknowledgeNotificationV2Execute(r ApiAcknowle
 	}
 
 	localVarPath := localBasePath + "/notifications/{notificationId}/see"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -537,7 +537,7 @@ func (a *NotificationsAPIService) DeleteNotificationExecute(r ApiDeleteNotificat
 	}
 
 	localVarPath := localBasePath + "/auth/user/notifications/{notificationId}/hide"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -651,7 +651,7 @@ func (a *NotificationsAPIService) DeleteNotificationV2Execute(r ApiDeleteNotific
 	}
 
 	localVarPath := localBasePath + "/notifications/{notificationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -787,7 +787,7 @@ func (a *NotificationsAPIService) GetNotificationExecute(r ApiGetNotificationReq
 	}
 
 	localVarPath := localBasePath + "/auth/user/notifications/{notificationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -916,7 +916,7 @@ func (a *NotificationsAPIService) GetNotificationV2Execute(r ApiGetNotificationV
 	}
 
 	localVarPath := localBasePath + "/notifications/{notificationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1348,7 +1348,7 @@ func (a *NotificationsAPIService) MarkNotificationAsReadExecute(r ApiMarkNotific
 	}
 
 	localVarPath := localBasePath + "/auth/user/notifications/{notificationId}/see"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1468,7 +1468,7 @@ func (a *NotificationsAPIService) ReplyNotificationV2Execute(r ApiReplyNotificat
 	}
 
 	localVarPath := localBasePath + "/notifications/{notificationId}/reply"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1615,7 +1615,7 @@ func (a *NotificationsAPIService) RespondNotificationV2Execute(r ApiRespondNotif
 	}
 
 	localVarPath := localBasePath + "/notifications/{notificationId}/respond"
-	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", url.PathEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"notificationId"+"}", pathSegmentEscape(parameterValueToString(r.notificationId, "notificationId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -67,7 +67,7 @@ func (a *JamsAPIService) GetJamExecute(r ApiGetJamRequest) (*Jam, *http.Response
 	}
 
 	localVarPath := localBasePath + "/jams/{jamId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"jamId"+"}", url.PathEscape(parameterValueToString(r.jamId, "jamId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"jamId"+"}", pathSegmentEscape(parameterValueToString(r.jamId, "jamId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -181,7 +181,7 @@ func (a *JamsAPIService) GetJamSubmissionsExecute(r ApiGetJamSubmissionsRequest)
 	}
 
 	localVarPath := localBasePath + "/jams/{jamId}/submissions"
-	localVarPath = strings.Replace(localVarPath, "{"+"jamId"+"}", url.PathEscape(parameterValueToString(r.jamId, "jamId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"jamId"+"}", pathSegmentEscape(parameterValueToString(r.jamId, "jamId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

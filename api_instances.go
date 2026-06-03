@@ -87,8 +87,8 @@ func (a *InstancesAPIService) CloseInstanceExecute(r ApiCloseInstanceRequest) (*
 	}
 
 	localVarPath := localBasePath + "/instances/{worldId}:{instanceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", pathSegmentEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -356,8 +356,8 @@ func (a *InstancesAPIService) GetInstanceExecute(r ApiGetInstanceRequest) (*Inst
 	}
 
 	localVarPath := localBasePath + "/instances/{worldId}:{instanceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", pathSegmentEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -471,7 +471,7 @@ func (a *InstancesAPIService) GetInstanceByShortNameExecute(r ApiGetInstanceBySh
 	}
 
 	localVarPath := localBasePath + "/instances/s/{shortName}"
-	localVarPath = strings.Replace(localVarPath, "{"+"shortName"+"}", url.PathEscape(parameterValueToString(r.shortName, "shortName")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"shortName"+"}", pathSegmentEscape(parameterValueToString(r.shortName, "shortName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -733,8 +733,8 @@ func (a *InstancesAPIService) GetShortNameExecute(r ApiGetShortNameRequest) (*In
 	}
 
 	localVarPath := localBasePath + "/instances/{worldId}:{instanceId}/shortName"
-	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", url.PathEscape(parameterValueToString(r.worldId, "worldId")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", url.PathEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"worldId"+"}", pathSegmentEscape(parameterValueToString(r.worldId, "worldId")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"instanceId"+"}", pathSegmentEscape(parameterValueToString(r.instanceId, "instanceId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
