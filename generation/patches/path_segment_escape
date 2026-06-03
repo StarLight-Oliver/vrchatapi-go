@@ -1,0 +1,29 @@
+The generator wraps every path-parameter substitution in net/url's
+PathEscape, which percent-encodes everything outside RFC 3986's
+"unreserved" set. That includes "(" and ")".
+
+VRChat instance IDs canonically contain literal parens, e.g.
+
+    20848~group(grp_abc)~groupAccessType(public)~region(use)
+
+When the SDK escapes those to "%28" / "%29" Cloudflare's WAF rejects the
+request with HTTP 400 and waf_code 26497 ("malformed url"), so every
+group-instance lookup fails 100% of the time.
+
+Per RFC 3986 section 3.3, path segments are defined as
+
+    pchar = unreserved / pct-encoded / sub-delims / ":" / "@"
+
+and parens are in sub-delims — they're legal unencoded. Go's
+url.PathEscape is intentionally over-conservative (documented as "the
+conservative interpretation of unreserved"), so the generated code needs
+a less-aggressive helper instead.
+
+Patch: rewrite every "url.PathEscape(x)" call in api_*.go files to
+"pathSegmentEscape(x)". The helper lives in path_escape.go (a
+hand-written file at the repo root that the generator never touches) and
+encodes per the pchar production above, leaving parens and tildes alone
+while still percent-encoding "/", "#", spaces, control bytes, etc.
+
+Leave the "net/url" import in place — those files still use url.Values{}
+for query parameters.

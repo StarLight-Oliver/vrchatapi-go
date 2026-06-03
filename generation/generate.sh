@@ -29,6 +29,8 @@ popd
 #   2. prefix enum constants with their type name (PUBLIC -> ReleaseStatus_PUBLIC etc.)
 #   3. add the missing "time" import to api_miscellaneous.go
 #   4. drop duplicate *UserPersistence* handlers from api_worlds.go
+#   5. relax UnmarshalJSON on every enum so unknown values are accepted
+#   6. swap url.PathEscape for pathSegmentEscape in api_*.go (RFC 3986 sub-delims)
 # Stages results in ./out/ for review. Swap to "-override" once you trust it
 # and want to write the patched files straight to the repo root.
 rm -rf out

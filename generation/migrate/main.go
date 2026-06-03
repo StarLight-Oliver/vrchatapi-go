@@ -1,7 +1,7 @@
 // Command migrate transforms the raw output of openapi-generator-cli (Go
 // client) into the form vrchatapi-go actually compiles against.
 //
-// Five patches are applied:
+// Six patches are applied:
 //
 //  1. Drop "decoder.DisallowUnknownFields()" from every model's UnmarshalJSON
 //     so the client tolerates extra fields the VRChat API returns.
@@ -17,6 +17,10 @@
 //     GroupPermissions entry VRChat ships post-generation) are accepted as-is
 //     instead of failing the whole decode. IsValid() and New<T>FromValue keep
 //     strict semantics for callers that explicitly want validation.
+//  6. Replace "url.PathEscape" with "pathSegmentEscape" in api_*.go files so
+//     literal parens (legal per RFC 3986 sub-delims) in VRChat instance IDs
+//     survive into the wire path and don't trip Cloudflare's WAF. The helper
+//     itself lives in the hand-written path_escape.go at the repo root.
 package main
 
 import (
@@ -79,6 +83,9 @@ func run(srcDir, dstDir string) error {
 	for name, f := range files {
 		prefixEnums(f, enumTable)
 		relaxEnumUnmarshal(f, enumTable)
+		if strings.HasPrefix(name, "api_") {
+			rewritePathEscapeCalls(f)
+		}
 		switch name {
 		case "api_miscellaneous.go":
 			addImport(f, "time")
@@ -300,6 +307,35 @@ func relaxedEnumBody(typeName string) *ast.BlockStmt {
 		},
 		&ast.ReturnStmt{Results: []ast.Expr{&ast.Ident{Name: "nil"}}},
 	}}
+}
+
+// rewritePathEscapeCalls replaces every "url.PathEscape(x)" call expression
+// with "pathSegmentEscape(x)". The generator's Go template wraps every path
+// parameter substitution in url.PathEscape, which percent-encodes parens
+// even though they're legal RFC 3986 sub-delims — and VRChat instance IDs
+// contain literal parens that Cloudflare's WAF rejects when escaped. The
+// replacement helper lives in the hand-written path_escape.go at the repo
+// root. The "net/url" import stays live because url.Values{} is still used
+// for query parameters in the same files.
+func rewritePathEscapeCalls(f *ast.File) {
+	ast.Inspect(f, func(n ast.Node) bool {
+		call, ok := n.(*ast.CallExpr)
+		if !ok {
+			return true
+		}
+		sel, ok := call.Fun.(*ast.SelectorExpr)
+		if !ok {
+			return true
+		}
+		x, ok := sel.X.(*ast.Ident)
+		if !ok {
+			return true
+		}
+		if x.Name == "url" && sel.Sel.Name == "PathEscape" {
+			call.Fun = &ast.Ident{Name: "pathSegmentEscape"}
+		}
+		return true
+	})
 }
 
 // addImport inserts `path` into the file's first import block, keeping
